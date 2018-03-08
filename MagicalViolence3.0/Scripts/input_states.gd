@@ -34,9 +34,9 @@ func state():
 		else:
 			state = NOT_PRESSED
 	
-	NEXT_STATE = Input.is_action_pressed(key)
+	NEXT_STATE = Input.is_key_pressed(key)
 	
 	return state
 
 func is_pressed():
-	return Input.is_action_pressed(key)
+	return Input.is_key_pressed(key)

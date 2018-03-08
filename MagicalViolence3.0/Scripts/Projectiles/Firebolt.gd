@@ -12,19 +12,19 @@ var parent
 var alive = true
 
 
-func _ready():
-	get_node( "SFX" ).play( "fire" )
+#func _ready():
+#	get_node( "SFX" ).play( "fire" )
 
 
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_pos( parent.get_pos() )
+	set_position( parent.position )
 	set_process( true )
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 
 
 # does damage if take damage function exists in body
@@ -44,7 +44,7 @@ func _on_Trail_Timer_timeout():
 	if (alive):
 		var Trail_scn = preload("res://Scenes/Projectiles/FireTrail.tscn")
 		var Trail = Trail_scn.instance()
-		Trail.set_pos(get_pos())
+		Trail.set_position(self.position)
 		get_parent().add_child(Trail)
 
 
@@ -54,7 +54,7 @@ func activate():
 
 func die():
 	alive = false
-	get_node( "SFX" ).play( "firebolt" )
+#	get_node( "SFX" ).play( "firebolt" )
 	get_node( "AnimationPlayer" ).play( "explosion" )
 	set_process( false )
 	if !weakref(parent).get_ref(): # Parent was freed

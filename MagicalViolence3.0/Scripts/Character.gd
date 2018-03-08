@@ -12,7 +12,7 @@ var input_states = preload("res://Scripts/input_states.gd")
 # each game.
 var controller_port = 0
 
-var btn_magic = input_states.new(name_adapter("char_magic"))
+var btn_magic = input_states.new(KEY_SPACE)
 var btn_melee = input_states.new(name_adapter("char_melee"))
 
 var current_anim = "idle_down"
@@ -79,7 +79,7 @@ func _ready():
 	
 	var node_name = self.get_name()
 	controller_port = node_name.substr(node_name.length() - 1, node_name.length()).to_int()
-	btn_magic = input_states.new(name_adapter("char_magic"))
+	btn_magic = input_states.new(KEY_SPACE)
 	
 	set_process(true)
 
@@ -103,6 +103,14 @@ func _process(delta):
 			direction += Vector2( 0, 1 )
 		if Input.is_action_pressed(name_adapter("char_up")):
 			direction -= Vector2( 0, 1 )
+		if Input.is_key_pressed(KEY_LEFT):
+		    direction -= Vector2( 1, 0 )
+		if Input.is_key_pressed(KEY_RIGHT):
+		    direction += Vector2( 1, 0 )
+		if Input.is_key_pressed(KEY_DOWN):
+		    direction += Vector2( 0, 1 )
+		if Input.is_key_pressed(KEY_UP):
+		    direction -= Vector2( 0, 1 )
 	
 		if direction == Vector2( 0, 0 ):
 			new_anim = str("idle_", current_anim.split("_")[1])
@@ -130,6 +138,14 @@ func _process(delta):
 				change_element("lightning")
 			if Input.is_action_pressed(name_adapter("char_nature")):
 				change_element("nature")
+			if Input.is_key_pressed(KEY_1):
+			    change_element("fire")
+			if Input.is_key_pressed(KEY_2):
+			    change_element("water")
+			if Input.is_key_pressed(KEY_3):
+			    change_element("lightning")
+			if Input.is_key_pressed(KEY_4):
+			    change_element("nature")
 	
 		if ready_to_spell and charge > 0:
 			if btn_magic.state() == input_states.NOT_PRESSED or btn_magic.state() == input_states.JUST_RELEASED:
@@ -138,6 +154,24 @@ func _process(delta):
 				else:
 					active_proj.activate()
 		update_anim( new_anim )
+		
+		if btn_magic.state() == input_states.HOLD:
+			if active_proj == null:
+				charge += 1
+				get_node("ChargeBar").set_value(charge - current_spell_charge)
+				if get_node("ChargeBar").get_value() >= get_node("ChargeBar").get_max(): # Bar Maxed out
+					if not get_node("AnimationPlayer").is_playing():
+						get_node("AnimationPlayer").play("shake_charge_bar")
+					update_max_charge()
+			elif wait >= 15:
+				active_proj.activate()
+				wait = 0
+
+		var cd_bar = get_node("CooldownBar")
+		cd_bar.set_value( cd_bar.get_value() - 1 )
+
+		if wait <= 15:
+			wait += 1
 
 
 func _fixed_process(delta):
@@ -153,7 +187,7 @@ func _fixed_process(delta):
 			elif wait >= 15:
 				active_proj.activate()
 				wait = 0
-	
+				
 		var cd_bar = get_node("CooldownBar")
 		cd_bar.set_value( cd_bar.get_value() - 1 )
 		
@@ -163,9 +197,9 @@ func _fixed_process(delta):
 
 func change_element( element ):
 	var colors = {"fire":Color(1, 0, 0), "nature":Color(0, 1, 0), "water":Color(0, 0, 1), "lightning":Color(1, 1, 0)}
-
+	
 	if magic_element != element:
-		get_node("Sprite/Glow").set_modulate(colors[element])
+		get_node("Sprite/Glow").set_self_modulate(colors[element])
 		get_node("ChargeBar").set_value(charge)
 		magic_element = element
 		charge = 0
@@ -351,7 +385,7 @@ func take_damage(damage, kb_dir, kb_str = 0):
 	if health <= 0:
 		die()
 	if kb_dir != null: # Knockback
-		set_pos(get_pos() + kb_dir * kb_str)
+		set_position(self.position + kb_dir * kb_str)
 
 
 func die():

@@ -14,20 +14,20 @@ var target
 var accel
 
 
-func _ready():
-	get_node( "SFX" ).play( "fire" )
+#func _ready():
+#	get_node( "SFX" ).play( "fire" )
 
 
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_rot( direction.angle() )
-	set_pos( parent.get_pos() )
+	set_rotation( direction.angle() - deg2rad(90.0))
+	set_position( parent.position )
 	set_process( true )
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 	if target != null:
 		home()
 
@@ -38,8 +38,8 @@ func home():
 		target = null
 		return
 
-	var target_pos = target.get_pos()
-	var dif = target_pos - get_pos()
+	var target_pos = target.position
+	var dif = target_pos - self.position
 	direction += dif.normalized() / HOMING_FACTOR
 	
 	if direction.x > 1.1:
@@ -72,7 +72,7 @@ func _on_LifeTimer_timeout():
 
 
 func die():
-	get_node( "SFX" ).play( "fireball" )
+#	get_node( "SFX" ).play( "fireball" )
 	get_node("Area2D").queue_free()
 	get_node("LifeTimer").queue_free()
 	get_node( "AnimationPlayer" ).play( "death" )

@@ -11,20 +11,20 @@ var direction = Vector2( 0, 0 ) # direction that the fireball flies to
 var parent
 
 
-func _ready():
-	get_node( "SFX" ).play( "fire" )
+#func _ready():
+#	get_node( "SFX" ).play( "fire" )
 
 
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_pos( parent.get_pos() )
-	set_rot( direction.angle() )
+	set_position( parent.position )
+	set_rotation( direction.angle() )
 	set_process( true )
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 
 
 # does damage if take damage function exists in body
@@ -41,7 +41,7 @@ func _on_LifeTimer_timeout():
 
 
 func die():
-	get_node( "SFX" ).play( "fireball" )
+#	get_node( "SFX" ).play( "fireball" )
 	get_node( "Area2D" ).queue_free()
 	get_node("LifeTimer").queue_free()
 	get_node( "AnimationPlayer" ).play( "death" )
