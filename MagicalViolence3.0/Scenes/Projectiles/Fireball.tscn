@@ -11,7 +11,7 @@ radius = 12.0
 [sub_resource type="Animation" id=2]
 
 resource_name = "death"
-length = 0.5
+length = 0.4
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -24,10 +24,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.9, 1.2 ), Vector2( 2, 2 ) ]
+"values": [ Vector2( 0.9, 1.2 ), Vector2( 1.8, 2.4 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:visibility/opacity")
+tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -36,7 +36,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 1.0, 0.0 ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -61,6 +61,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

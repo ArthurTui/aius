@@ -14,8 +14,8 @@ var angle = 0
 var c = Color(1, 0.5, 0.2)
 
 
-func _ready():
-	get_node( "SFX" ).play( "leafshield" )
+#func _ready():
+#	get_node( "SFX" ).play( "leafshield" )
 
 
 func fire( direction, parent ):
@@ -25,7 +25,7 @@ func fire( direction, parent ):
 	get_node("LeafShieldProj2").start( parent, self, 2 )
 	get_node("LeafShieldProj3").start( parent, self, 3 )
 	get_node("LeafShieldProj4").start( parent, self, 4 )
-	set_pos( parent.get_pos() )
+	set_position( parent.position )
 	next_leaf()
 	set_process( true )
 
@@ -35,7 +35,7 @@ func follow():
 		parent = null
 		die()
 		return
-	set_pos(self.parent.get_pos())
+	set_position(self.parent.position)
 
 
 func spin_leaves(delta):
@@ -50,9 +50,9 @@ func spin_leaves(delta):
 			a = angle + (i+1)*PI/2
 			x = 25*sin(a)
 			y = 25*cos(a)
-			leaf.set_pos(Vector2(x, y))
+			leaf.set_position(Vector2(x, y))
 			# Rotates the leaves along with their movement around the character
-			leaf.set_rotd( rad2deg( Vector2(x, y).angle() ) + 90)
+			leaf.set_rotation( Vector2(x, y).angle() + deg2rad(90) )
 
 
 func _process(delta):
@@ -83,11 +83,11 @@ func next_leaf():
 func shoot_leaf(id):
 	print ("id = ", id)
 	var leaf = get_node(str("LeafShieldProj", id))
-	var pos = leaf.get_pos() + self.get_pos()
+	var pos = leaf.position + self.position
 	remove_child(leaf)
 	print (get_parent().get_name())
 	get_parent().add_child(leaf)
-	leaf.set_pos(pos)
+	leaf.set_position(pos)
 	leaf.fire(self.direction, self.parent)
 	leaves[id-1] = false
 	leaf_count -= 1

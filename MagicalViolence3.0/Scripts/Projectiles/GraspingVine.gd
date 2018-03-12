@@ -10,15 +10,15 @@ var direction = Vector2( 0, 0 )
 var parent
 
 
-func _ready():
-	get_node( "SFX" ).play( "vines" )
+#func _ready():
+#	get_node( "SFX" ).play( "vines" )
 
 
 func fire( direction, parent ):
 	self.parent = parent
 	self.direction = direction
-	set_pos( parent.get_pos() )
-	set_rot( direction.angle() )
+	set_position( parent.position )
+	set_rotation( direction.angle() - deg2rad(90) )
 	get_node( "AnimationPlayer" ).play( "fire" )
 
 

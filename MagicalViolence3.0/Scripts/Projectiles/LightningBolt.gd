@@ -7,17 +7,16 @@ var level = 3
 var parent
 
 
-func _ready():
-	get_node( "SFX" ).play( "thunder" )
+#func _ready():
+#	get_node( "SFX" ).play( "thunder" )
 
 
 func fire( direction, parent ):
 	self.parent = parent
 	get_node( "AnimatedSprite" ).set_frame(0)
-	set_rot( direction.angle() )
-	set_pos( parent.get_pos() )
+	set_rotation( direction.angle() - deg2rad(90))
+	set_position( parent.position )
 	get_node( "AnimationPlayer" ).play( "fire" )
-	get_node( "Area2D" ).queue_free()
 
 
 # Damages and stuns if target is an enemy

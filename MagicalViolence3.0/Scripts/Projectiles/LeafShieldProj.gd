@@ -25,12 +25,12 @@ func fire( direction, parent = parent ):
 	self.shot = true
 	get_node("LifeTimer").start()
 	set_scale(Vector2(1.5, 1.5))
-	get_node( "SFX" ).play( "leaf" )
+#	get_node( "SFX" ).play( "leaf" )
 	set_process( true )
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 
 
 # does damage if take damage function exists

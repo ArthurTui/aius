@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/Projectiles/TidalWave.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Spells/Water/tidalWaveUp1.png" type="Texture" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://Sprites/Spells/Water/tidalWaveDown5.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Spells/Water/tidalWaveDown6.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Spells/Water/tidalWaveDown7.png" type="Texture" id=22]
-[ext_resource path="res://Resources/SFX/wav/wave.wav" type="Sample" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -57,7 +56,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0.1, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -67,7 +68,9 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
 tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -83,25 +86,43 @@ resource_name = "fire down"
 length = 0.4
 loop = false
 step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play(\"move\")"
+} ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:animation")
 tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "down" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -110,25 +131,43 @@ resource_name = "fire side"
 length = 0.4
 loop = false
 step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play(\"move\")"
+} ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:animation")
 tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "side" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -136,25 +175,43 @@ tracks/1/keys = {
 length = 0.4
 loop = false
 step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "\"move\"" ],
+"method": "play()"
+} ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:animation")
 tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "up" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -166,20 +223,14 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 2, 3, 4 ]
-}
-
-[sub_resource type="Resource" id=8]
-
-samples/wave = {
-"db": 0.0,
-"pitch": 1.0,
-"sample": ExtResource( 23 )
 }
 
 [node name="TidalWave" type="KinematicBody2D"]
@@ -189,76 +240,73 @@ scale = Vector2( 2, 2 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/margin = 0.08
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
 position = Vector2( -2, 1 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-animation = "side"
+animation = "up"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." index="1"]
 
 input_pickable = true
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Transform2D( 3.01655, 0, 0, 1.1312, 0, 0 )
-shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 scale = Vector2( 3.01655, 1.1312 )
 shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
+root_node = NodePath("..")
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+playback_speed = 1.0
 anims/die = SubResource( 3 )
-anims/fire down = SubResource( 4 )
-anims/fire side = SubResource( 5 )
-anims/fire up = SubResource( 6 )
+anims/firedown = SubResource( 4 )
+anims/fireside = SubResource( 5 )
+anims/fireup = SubResource( 6 )
 anims/move = SubResource( 7 )
-next/fire down = "move"
-next/fire side = "move"
-next/fire up = "move"
-playback/active = true
-playback/speed = 1.0
+next/firedown = "move"
+next/fireside = "move"
+next/fireup = "move"
 blend_times = [  ]
-autoplay = ""
 
-[node name="LifeTimer" type="Timer" parent="."]
+[node name="LifeTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX" type="AudioStreamPlayer2D" parent="." index="4"]
 
+stream = null
 volume_db = 0.0
-pitch_scale = 1.0
-attenuation_min_distance = 1.0
-attenuation_max_distance = 2048.0
-attenuation_distance_exp = 1.0
-polyphony = 1
-samples = SubResource( 8 )
-random_pitch = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
-[connection signal="area_entered"  from="Area2D"  to="." method="_on_Area2D_area_enter" binds=[  ]]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
-[connection signal="body_entered"  from="Area2D"  to="." method="_on_Area2D_body_enter" binds=[  ]]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
-[connection signal="body_entered"  from="Area2D"  to="." method="_on_Area2D_static_body_enter" binds=[  ]]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_static_body_enter"]
 
-[connection signal="body_exited"  from="Area2D"  to="." method="_on_Area2D_body_exit" binds=[  ]]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exit"]
 
-[connection signal="timeout"  from="LifeTimer"  to="." method="_on_LifeTimer_timeout" binds=[  ]]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
+
+

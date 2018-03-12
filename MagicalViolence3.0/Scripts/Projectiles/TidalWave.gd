@@ -8,30 +8,30 @@ var direction = Vector2( 0, 0 ) # direction that the wave goes to
 var parent
 
 
-func _ready():
-	get_node( "SFX" ).play( "wave" )
+#func _ready():
+#	get_node( "SFX" ).play( "wave" )
 
 
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_pos( parent.get_pos() )
+	set_position( parent.position )
 	if direction.x != 0:
 		if direction.x < 0:
 			get_node("Sprite").set_scale(Vector2(-0.5, 0.5))
-			set_pos(get_pos() + Vector2(-60, 30))
+			set_position(self.position + Vector2(-60, 30))
 		else:
-			set_pos(get_pos() + Vector2(60, 30))
-		get_node("AnimationPlayer").play("fire side")
+			set_position(self.position + Vector2(60, 30))
+		get_node("AnimationPlayer").play("fireside")
 	elif direction.y == 1:
-		get_node("AnimationPlayer").play("fire down")
+		get_node("AnimationPlayer").play("firedown")
 	elif direction.y == -1:
-		get_node("AnimationPlayer").play("fire up")
+		get_node("AnimationPlayer").play("fireup")
 	set_process( true )
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 
 
 # Pushes back if target is an enemy

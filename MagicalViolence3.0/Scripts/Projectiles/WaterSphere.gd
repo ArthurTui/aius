@@ -11,19 +11,19 @@ var direction = Vector2( 0, 0 ) # direction that the fireball flies to
 var parent
 
 
-func _ready():
-	get_node( "SFX" ).play( "bubble" )
+#func _ready():
+#	get_node( "SFX" ).play( "bubble" )
 
 
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_pos( parent.get_pos() )
+	set_position( parent.position )
 	set_process( true )
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 	SPEED -= 0.75*delta
 	if (SPEED <= 0):
 		die()

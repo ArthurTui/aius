@@ -2,14 +2,14 @@
 extends Node2D
 
 
-func _ready():
-	get_node( "SFX" ).play( "splash" )
+#func _ready():
+#	get_node( "SFX" ).play( "splash" )
 
 
 func fire( direction, parent ):
 
-	set_rot( direction.angle() )
-	set_pos( parent.get_pos() + direction * 30 )
+	set_rotation( direction.angle() )
+	set_position( parent.position + direction * 30 )
 
 	get_node("Projectile1").fire(direction, parent)
 	get_node("Projectile2").fire(projectileDirection(direction, -10), parent)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Projectiles/ConjureThorns.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/emptySprite.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Sprites/Spells/Nature/thorns2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Spells/Nature/thorns3.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Spells/Nature/seed.png" type="Texture" id=6]
-[ext_resource path="res://Resources/SFX/wav/leaf.wav" type="Sample" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -40,7 +39,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -50,7 +51,9 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite:animation")
 tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -60,12 +63,40 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:scale")
 tracks/2/interp = 1
+tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0.6, 0.6 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -76,7 +107,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -86,7 +119,9 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite:frame")
 tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -96,7 +131,9 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/path = NodePath("Area2D/CollisionShape2D:shape")
 tracks/2/interp = 1
+tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -106,7 +143,9 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/path = NodePath("Area2D/CollisionShape2D:scale")
 tracks/3/interp = 1
+tracks/3/loop_wrap = true
 tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -116,7 +155,9 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/path = NodePath("AnimatedSprite:scale")
 tracks/4/interp = 1
+tracks/4/loop_wrap = true
 tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -124,9 +165,11 @@ tracks/4/keys = {
 "values": [ Vector2( 0.6, 0.6 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath(".:rotation_deg")
+tracks/5/path = NodePath(".:rotation_degrees")
 tracks/5/interp = 1
+tracks/5/loop_wrap = true
 tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -142,7 +185,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -152,7 +197,9 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite:animation")
 tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -162,7 +209,9 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:scale")
 tracks/2/interp = 1
+tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -170,88 +219,78 @@ tracks/2/keys = {
 "values": [ Vector2( 0.4, 0.4 ) ]
 }
 
-[sub_resource type="Resource" id=6]
-
-samples/leaf = {
-"db": 0.0,
-"pitch": 1.0,
-"sample": ExtResource( 7 )
-}
-
 [node name="ConjureThorns" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/margin = 0.08
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 1 )
-animation = "seed"
+animation = "grow"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." index="1"]
 
 input_pickable = true
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Transform2D( 1.4, 0, 0, 1.4, 0, 0 )
-shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 scale = Vector2( 1.4, 1.4 )
 shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
+root_node = NodePath("..")
+autoplay = "seed"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+playback_speed = 1.0
 anims/die = SubResource( 3 )
 anims/grow = SubResource( 4 )
 anims/seed = SubResource( 5 )
-playback/active = true
-playback/speed = 1.0
 blend_times = [  ]
-autoplay = "seed"
 
-[node name="LifeTimer" type="Timer" parent="."]
+[node name="LifeTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 5.0
 one_shot = true
 autostart = false
 
-[node name="GrowTimer" type="Timer" parent="."]
+[node name="GrowTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 0.3
 one_shot = true
 autostart = true
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX" type="AudioStreamPlayer2D" parent="." index="5"]
 
+stream = null
 volume_db = 0.0
-pitch_scale = 1.0
-attenuation_min_distance = 1.0
-attenuation_max_distance = 2048.0
-attenuation_distance_exp = 1.0
-polyphony = 1
-samples = SubResource( 6 )
-random_pitch = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
-[connection signal="area_entered"  from="Area2D"  to="." method="_on_Area2D_area_enter" binds=[  ]]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
-[connection signal="body_entered"  from="Area2D"  to="." method="_on_Area2D_body_enter" binds=[  ]]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
-[connection signal="timeout"  from="LifeTimer"  to="." method="_on_LifeTimer_timeout" binds=[  ]]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
 
-[connection signal="timeout"  from="GrowTimer"  to="." method="_on_GrowTimer_timeout" binds=[  ]]
+[connection signal="timeout" from="GrowTimer" to="." method="_on_GrowTimer_timeout"]
+
+

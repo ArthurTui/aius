@@ -11,20 +11,20 @@ var parent
 var is_seed = true
 
 
-func _ready():
-	get_node( "SFX" ).play( "leaf" )
+#func _ready():
+#	get_node( "SFX" ).play( "leaf" )
 
 
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_rot( direction.angle() )
-	set_pos( parent.get_pos() )
+	set_rotation( direction.angle() - deg2rad(90) )
+	set_position( parent.position )
 	set_process( true )
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 
 
 func _on_Area2D_body_enter( body ):
@@ -61,8 +61,6 @@ func grow():
 func _on_LifeTimer_timeout():
 	get_node("LifeTimer").queue_free()
 	get_node( "AnimationPlayer" ).play( "die" )
-	yield( get_node("AnimationPlayer"), "finished")
-	die()
 
 
 func die():

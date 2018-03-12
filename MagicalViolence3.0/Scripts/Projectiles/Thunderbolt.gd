@@ -10,20 +10,20 @@ var direction = Vector2( 0, 0 ) # direction that the cloud flies to
 var parent
 
 
-func _ready():
-	get_node( "SFX" ).play( "thunderbolt" )
+#func _ready():
+#	get_node( "SFX" ).play( "thunderbolt" )
 
 
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_pos( parent.get_pos() )
+	set_position( parent.position )
 	get_node( "AnimationPlayer" ).play( "fire" )
 	set_process( true )
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 
 
 # does damage if take damage function exists in body
@@ -32,7 +32,7 @@ func _on_Detection_body_enter( body ):
 		if not "health" in body: # target is not another player
 			die()
 			return
-		set_pos( body.get_pos() )
+		set_position( body.position )
 		get_node( "Detection" ).queue_free()
 		get_node( "DelayTimer" ).start()
 		get_node("AnimationPlayer").play("death")
@@ -47,7 +47,7 @@ func _on_DelayTimer_timeout():
 	get_node( "AnimatedSprite" ).stop()
 	
 	get_node( "AnimationPlayer" ).play( "thunder" )
-	get_node( "SFX" ).play( "thunder" )
+#	get_node( "SFX" ).play( "thunder" )
 	for body in get_node( "Damage" ).get_overlapping_bodies():
 		if body != parent and body.has_method("take_damage"):
 			body.take_damage(DAMAGE, null)

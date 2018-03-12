@@ -19,7 +19,7 @@ func fire( direction, parent ):
 
 
 func _process(delta):
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 
 
 # does damage if take damage function exists

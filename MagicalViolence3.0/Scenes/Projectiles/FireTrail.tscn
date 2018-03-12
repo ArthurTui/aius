@@ -60,14 +60,14 @@ tracks/3/keys = {
 } ]
 }
 
-[node name="Trail" type="Sprite" index="0"]
+[node name="Trail" type="Sprite"]
 
 modulate = Color( 1, 1, 1, 0.4 )
 show_behind_parent = true
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 

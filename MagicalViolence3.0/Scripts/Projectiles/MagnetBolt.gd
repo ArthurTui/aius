@@ -12,14 +12,14 @@ var parent
 var state = "going"
 
 
-func _ready():
-	get_node( "SFX" ).play( "thunderbolt" )
+#func _ready():
+#	get_node( "SFX" ).play( "thunderbolt" )
 
 
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_pos( parent.get_pos() )
+	set_position( parent.position )
 	set_process( true )
 
 
@@ -31,12 +31,12 @@ func _process(delta):
 
 	if SPEED <= 0:
 		state = "returning"
-		angle = get_angle_to( parent.get_pos() )
+		angle = get_angle_to( parent.position )
 		# negative cos and sin because speed is also negative
-		direction = Vector2( -sin(angle), -cos(angle) )
+		direction = Vector2( -cos(angle), -sin(angle) )
 	get_node( "Sprite" ).rotate( ROT_SPEED * delta )
 
-	move( direction * SPEED )
+	move_and_collide( direction * SPEED )
 	SPEED -= 8*delta
 
 
