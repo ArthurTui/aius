@@ -82,6 +82,7 @@ func _ready():
 	btn_magic = input_states.new(KEY_SPACE)
 	
 	set_process(true)
+	set_physics_process(true)
 
 	magic_element = "fire"
 	get_node("ChargeBar").set_max(max_charge())
@@ -154,27 +155,9 @@ func _process(delta):
 				else:
 					active_proj.activate()
 		update_anim( new_anim )
-		
-		if btn_magic.state() == input_states.HOLD:
-			if active_proj == null:
-				charge += 1
-				get_node("ChargeBar").set_value(charge - current_spell_charge)
-				if get_node("ChargeBar").get_value() >= get_node("ChargeBar").get_max(): # Bar Maxed out
-					if not get_node("AnimationPlayer").is_playing():
-						get_node("AnimationPlayer").play("shake_charge_bar")
-					update_max_charge()
-			elif wait >= 15:
-				active_proj.activate()
-				wait = 0
-
-		var cd_bar = get_node("CooldownBar")
-		cd_bar.set_value( cd_bar.get_value() - 1 )
-
-		if wait <= 15:
-			wait += 1
 
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if !is_stunned:
 		if btn_magic.state() == input_states.HOLD:
 			if active_proj == null:
@@ -187,10 +170,10 @@ func _fixed_process(delta):
 			elif wait >= 15:
 				active_proj.activate()
 				wait = 0
-				
+
 		var cd_bar = get_node("CooldownBar")
 		cd_bar.set_value( cd_bar.get_value() - 1 )
-		
+
 		if wait <= 15:
 			wait += 1
 

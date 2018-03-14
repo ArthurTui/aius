@@ -23,9 +23,9 @@ func fire( direction, parent ):
 		else:
 			set_position(self.position + Vector2(60, 30))
 		get_node("AnimationPlayer").play("fireside")
-	elif direction.y == 1:
+	elif direction.y >= 0.9:
 		get_node("AnimationPlayer").play("firedown")
-	elif direction.y == -1:
+	elif direction.y <= -0.9:
 		get_node("AnimationPlayer").play("fireup")
 	set_process( true )
 

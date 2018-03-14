@@ -53,9 +53,9 @@ func activate():
 
 
 func die():
+	get_node( "AnimationPlayer" ).play( "explosion" )
 	alive = false
 #	get_node( "SFX" ).play( "firebolt" )
-	get_node( "AnimationPlayer" ).play( "explosion" )
 	set_process( false )
 	if !weakref(parent).get_ref(): # Parent was freed
 		return

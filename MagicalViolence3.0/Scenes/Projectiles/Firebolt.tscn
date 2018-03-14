@@ -101,7 +101,7 @@ tracks/6/keys = {
 "values": [ 0.0, 15.0 ]
 }
 
-[node name="Firebolt" type="KinematicBody2D"]
+[node name="Firebolt" type="KinematicBody2D" index="0"]
 
 modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 2, 2 )

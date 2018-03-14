@@ -31,9 +31,9 @@ func _on_Area2D_body_enter( body ):
 
 
 func die():
+	set_process( false )
 	if get_node( "AnimationPlayer" ).get_current_animation() != "death":
 		get_node( "AnimationPlayer" ).play( "death" )
-	set_process( false )
 
 
 func free_scn():

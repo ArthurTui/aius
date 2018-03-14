@@ -52,7 +52,7 @@ func spin_leaves(delta):
 			y = 25*cos(a)
 			leaf.set_position(Vector2(x, y))
 			# Rotates the leaves along with their movement around the character
-			leaf.set_rotation( Vector2(x, y).angle() + deg2rad(90) )
+			leaf.set_rotation( Vector2(x, y).angle() - deg2rad(180) )
 
 
 func _process(delta):
@@ -81,11 +81,9 @@ func next_leaf():
 
 
 func shoot_leaf(id):
-	print ("id = ", id)
 	var leaf = get_node(str("LeafShieldProj", id))
 	var pos = leaf.position + self.position
 	remove_child(leaf)
-	print (get_parent().get_name())
 	get_parent().add_child(leaf)
 	leaf.set_position(pos)
 	leaf.fire(self.direction, self.parent)
@@ -110,8 +108,6 @@ func die():
 		if child.get_name() != "AnimationPlayer" and child.get_name() != "Timer" and child.get_name() != "SFX":
 			child.die()
 	get_node("AnimationPlayer").play("death")
-	yield( get_node("AnimationPlayer"), "finished")
-	queue_free()
 
 
 func _on_Timer_timeout():
