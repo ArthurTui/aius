@@ -1,2 +1,4 @@
 ### 08/03
- - *Arthur:* Criação do repositório
+
+#### Arthur:
+ 1. Criação do repositório
