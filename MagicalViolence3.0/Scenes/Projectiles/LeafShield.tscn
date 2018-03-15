@@ -24,7 +24,7 @@ tracks/0/keys = {
 } ]
 }
 
-[node name="LeafShield" type="KinematicBody2D"]
+[node name="LeafShield" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 1.5, 1.5 )
 input_pickable = false
