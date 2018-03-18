@@ -11,7 +11,7 @@ enum ELEMENT {
 
 signal death
 
-#var input_states = preload("res://Scripts/input_states.gd")
+#var input_states = preload("res://input_states.gd")
 
 # We use the port, because actions are named ending on port,
 # and port - device_id association is made on the InputMap before
@@ -137,31 +137,31 @@ func _process(delta):
 			    change_element(ELEMENT.lightning)
 			if Input.is_key_pressed(KEY_4):
 			    change_element(ELEMENT.nature)
-	
-#		if ready_to_spell and charge > 0:
-#			if btn_magic.state() == input_states.NOT_PRESSED or btn_magic.state() == input_states.JUST_RELEASED:
-#				if active_proj == null:
-#					release_spell()
-#				else:
-#					active_proj.activate()
+		
+		if ready_to_spell and charge > 0:
+			if not Input.is_action_pressed("btn_magic") or Input.is_action_just_released("btn_magic"):
+				if active_proj == null:
+					release_spell()
+				else:
+					active_proj.activate()
 		update_animation(new_anim)
 
 
 func _physics_process(delta):
-#	if !is_stunned:
-#		if btn_magic.state() == input_states.HOLD:
-#			if active_proj == null:
-#				charge += 1
-#				$charge_bar.set_value(charge - current_spell_charge)
-#				if $charge_bar.get_value() >= $charge_bar.get_max(): # Bar Maxed out
-#					if not $charge_bar/anim.is_playing():
-#						$charge_bar/anim.play("pulse")
-#					update_max_charge()
-#			elif wait >= 15:
-#				active_proj.activate()
-#				wait = 0
-#			else:
-#				wait += 1
+	if !is_stunned:
+		if Input.is_key_pressed(KEY_SPACE):
+			if active_proj == null:
+				charge += 1
+				$charge_bar.set_value(charge - current_spell_charge)
+				if $charge_bar.get_value() >= $charge_bar.get_max(): # Bar Maxed out
+					if not $charge_bar/anim.is_playing():
+						$charge_bar/anim.play("pulse")
+					update_max_charge()
+			elif wait >= 15:
+				active_proj.activate()
+				wait = 0
+			else:
+				wait += 1
 		if $cooldown_bar.visible:
 			$cooldown_bar.value -= 1
 
@@ -210,10 +210,10 @@ func define_spell():
 	match magic_element:
 		ELEMENT.fire:
 			if charge < fire_charge[0]:
-				return fire3
+				return fire1
 			elif charge < fire_charge[1]:
 				return fire2
-			return fire1
+			return fire3
 		ELEMENT.water:
 			if charge < water_charge[0]:
 				return water1
@@ -272,7 +272,7 @@ func release_spell():
 	# Resets spell
 	ready_to_spell = false
 	current_spell = spell
-	if spell.has_activation:
+	if projectile.has_activation:
 		holding_spell = true
 		active_proj = projectile
 	else:
@@ -326,8 +326,8 @@ func stun(time):
 
 func root(time):
 	is_rooted = true
-	get_node( "RootTimer" ).set_wait_time(time)
-	get_node( "RootTimer" ).start()
+	$root_timer.set_wait_time(time)
+	$root_timer.start()
 
 
 # Slow time is over
@@ -347,7 +347,7 @@ func _on_root_timeout():
 
 func take_damage(damage, kb_dir, kb_str = 0):
 	health -= damage
-	get_node("HealthBar").set_value(health)
+	$health_bar.set_value(health)
 	if health <= 0:
 		die()
 	if kb_dir != null: # Knockback
