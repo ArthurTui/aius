@@ -8,4 +8,8 @@
 
 position = Vector2( 402.514, 263.889 )
 
+[node name="character2" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 613.385, 272.76 )
+
 

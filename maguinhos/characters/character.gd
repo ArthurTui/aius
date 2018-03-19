@@ -272,7 +272,7 @@ func release_spell():
 	# Resets spell
 	ready_to_spell = false
 	current_spell = spell
-	if projectile.has_activation:
+	if projectile.has_method("activate"):
 		holding_spell = true
 		active_proj = projectile
 	else:

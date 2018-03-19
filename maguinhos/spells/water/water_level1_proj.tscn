@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://spells/water/water_level2.gd" type="Script" id=1]
+[ext_resource path="res://spells/water/water_level1_proj.gd" type="Script" id=1]
 [ext_resource path="res://spells/water/sprites/waterSphere1.png" type="Texture" id=2]
 [ext_resource path="res://spells/water/sprites/waterSphere2.png" type="Texture" id=3]
 [ext_resource path="res://spells/water/sprites/waterSphere3.png" type="Texture" id=4]
@@ -18,7 +18,7 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 12.0
 
 [sub_resource type="Animation" id=3]
 
@@ -52,8 +52,9 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[node name="WaterSphere" type="KinematicBody2D" index="0"]
+[node name="Projectile" type="KinematicBody2D"]
 
+scale = Vector2( 0.5, 0.5 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -65,15 +66,13 @@ has_activation = false
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( -0.31811, -0.486071 )
-scale = Vector2( 0.400513, 0.400513 )
+scale = Vector2( 0.13379, 0.13379 )
 frames = SubResource( 1 )
 animation = "default"
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
-position = Vector2( 0, -0.323532 )
-scale = Vector2( 3.5, 3.5 )
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -81,10 +80,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-visible = false
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -96,16 +98,6 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/death = SubResource( 3 )
 blend_times = [  ]
-
-[node name="SFX" type="AudioStreamPlayer2D" parent="." index="3"]
-
-stream = null
-volume_db = 0.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
 

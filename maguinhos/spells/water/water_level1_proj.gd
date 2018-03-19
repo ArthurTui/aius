@@ -1,24 +1,19 @@
 extends "res://spells/base_spell.gd"
 
 const SPEED = 8
-const DAMAGE = 7
-const KNOCKBACK = 20
-var element = 2 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
+const DAMAGE = 4
+const KNOCKBACK = 8
+var element = 3 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
 var level = 1
 
 var direction = Vector2( 0, 0 ) # direction that the fireball flies to
 var parent
 
 
-#func _ready():
-#	get_node( "SFX" ).play( "fire" )
-
-
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-	set_position( parent.position )
-	set_rotation( direction.angle() )
+
 	set_process( true )
 
 
@@ -26,25 +21,18 @@ func _process(delta):
 	move_and_collide( direction * SPEED )
 
 
-# does damage if take damage function exists in body
+# does damage if take damage function exists
 func _on_Area2D_body_enter( body ):
 	if body != parent:
-		$Area2D.queue_free()
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
 		die()
 
 
-func _on_LifeTimer_timeout():
-	die()
-
-
 func die():
-#	get_node( "SFX" ).play( "fireball" )
-	$Area2D.queue_free()
-	$LifeTimer.queue_free()
-	$AnimationPlayer.play( "death" )
 	set_process( false )
+	if get_node( "AnimationPlayer" ).get_current_animation() != "death":
+		get_node( "AnimationPlayer" ).play( "death" )
 
 
 func free_scn():
