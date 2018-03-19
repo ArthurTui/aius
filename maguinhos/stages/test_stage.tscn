@@ -6,10 +6,10 @@
 
 [node name="character" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 402.514, 263.889 )
+position = Vector2( 299.02, 276.494 )
 
 [node name="character2" parent="." index="1" instance=ExtResource( 1 )]
 
-position = Vector2( 613.385, 272.76 )
+position = Vector2( 722.654, 288.721 )
 
 

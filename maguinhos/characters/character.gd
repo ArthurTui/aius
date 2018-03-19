@@ -44,23 +44,23 @@ var push_direction = Vector2(0, 0)
 var health = 100
 
 var wait = 0
+
+
 # Spells
 
 # Fire
-var fire1 = preload("res://spells/fire/fire_level1.tscn")
+var fire1 = preload("res://spells/fire/fire1.tscn")
 var fire2 = preload("res://spells/fire/fire_level2.tscn")
 var fire3 = preload("res://spells/fire/fire_level3.tscn")
 var fire_charge = [30, 120]
-var fire_cd = [0.2, 0.5, 1.5]
-var fire = [fire1, fire2, fire3]
+var fire_cd = [.2, .5, 1.5]
 
 # Water
 var water1 = preload("res://spells/water/water_level1.tscn")
 var water2 = preload("res://spells/water/water_level2.tscn")
 var water3 = preload("res://spells/water/water_level3.tscn")
 var water_charge = [40, 90]
-var water_cd = [0.7, 1, 1.5]
-var water = [water1, water2, water3]
+var water_cd = [.7, 1, 1.5]
 
 # Nature
 var nature1 = preload("res://spells/nature/nature_level1.tscn")
@@ -68,7 +68,6 @@ var nature2 = preload("res://spells/nature/nature_level2.tscn")
 var nature3 = preload("res://spells/nature/nature_level3.tscn")
 var nature_charge = [40, 80]
 var nature_cd = [0.4, 0.6, 0.8]
-var nature = [nature1, nature2, nature3]
 
 # Lightning
 var lightning1 = preload("res://spells/lightning/lightning_level1.tscn")
@@ -76,7 +75,13 @@ var lightning2 = preload("res://spells/lightning/lightning_level2.tscn")
 var lightning3 = preload("res://spells/lightning/lightning_level3.tscn")
 var lightning_charge = [60, 150]
 var lightning_cd = [0.6, 0.8, 1]
-var lightning = [lightning1, lightning2, lightning3]
+
+# Spells in the form spell[element][charge]
+var spell = [[fire1, fire2, fire3], [water1, water2, water3],
+		[lightning1, lightning2, lightning3], [nature1, nature2, nature3]]
+# Charge times
+#var charge = [[fire2.charge, fire3.charge], [water2.charge, water3.charge],
+#		[lightning2.charge, lightning3.charge], [nature2.charge, nature3.charge]]
 
 
 func _ready():
@@ -210,7 +215,7 @@ func define_spell():
 	match magic_element:
 		ELEMENT.fire:
 			if charge < fire_charge[0]:
-				return fire1
+				return spell[ELEMENT.fire][0]
 			elif charge < fire_charge[1]:
 				return fire2
 			return fire3
@@ -266,13 +271,13 @@ func define_cooldown(spell):
 func release_spell():
 	var spell = define_spell()
 	var projectile = spell.instance()
-	projectile.fire( current_direction.normalized(), self )
-	get_parent().add_child( projectile )
+	projectile.fire(current_direction.normalized(), self)
+	get_parent().add_child(projectile)
 
 	# Resets spell
 	ready_to_spell = false
 	current_spell = spell
-	if projectile.has_method("activate"):
+	if projectile.has_activation:
 		holding_spell = true
 		active_proj = projectile
 	else:

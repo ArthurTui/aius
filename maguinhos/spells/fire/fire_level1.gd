@@ -6,7 +6,7 @@ const KNOCKBACK = 20
 var element = 2 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
 var level = 1
 
-var direction = Vector2( 0, 0 ) # direction that the fireball flies to
+var direction = Vector2(0, 0) # direction that the fireball flies to
 var parent
 
 
