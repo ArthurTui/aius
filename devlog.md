@@ -26,7 +26,7 @@
 ### 14/03
 
 #### Henrique (14:00 ~ 15:30)
- 1. Tenrminando de portar as cenas das magias que faltavam e revivendo fixed process no personagem
+ 1. Terminando de portar as cenas das magias que faltavam e revivendo fixed process no personagem
 
 ### 15/03
 
@@ -40,3 +40,9 @@
 #### Henrique (13:00 ~ 15:00)
  1. Ajustando controles de teclado para funcionarem sem o script de input_states
  2. Tentando migrar cenas do projeto antigo, mas sem sorte em tudo além de firebolt
+
+### 19/03
+
+#### Arthur (16:00 ~ 20:00)
+ 1. Continuação da refatoração do personagem.
+ 2. Reorganização do código e estrutura de cenas das magias.
