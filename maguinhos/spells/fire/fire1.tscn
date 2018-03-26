@@ -54,12 +54,15 @@ tracks/2/keys = {
 } ]
 }
 
-[node name="fire1" type="Node2D"]
+[node name="fire1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
-charge = null
-cooldown = null
+__meta__ = {
+"_edit_group_": true
+}
+max_charge = 30
+cooldown = 0.2
 has_activation = null
 SPEED = 8
 DAMAGE = 7

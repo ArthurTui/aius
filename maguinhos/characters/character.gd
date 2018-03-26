@@ -25,25 +25,23 @@ var current_anim = "idle_down"
 var character_name = "skeleton"
 
 var current_direction = Vector2(0, 1)
-
-var magic_element
+var current_element
 var current_spell
-var charge = 0
-var current_spell_charge = 0
-# Doesn't represent level 3. A level 3 spell is ready when
-# this variable is 2 and chargeBar has a value >= max_charge
-var current_spell_level = 1
+var current_level
+var charge
+
 var ready_to_spell = true
 var holding_spell = false
 var is_stunned = false
 var is_rooted = false
-var active_proj
+
+var active_spell
 var slow_multiplier = 1
 var push_direction = Vector2(0, 0)
 
 var health = 100
 
-var wait = 0
+var activation_wait = 0
 
 
 # Spells
@@ -52,36 +50,36 @@ var wait = 0
 var fire1 = preload("res://spells/fire/fire1.tscn")
 var fire2 = preload("res://spells/fire/fire_level2.tscn")
 var fire3 = preload("res://spells/fire/fire_level3.tscn")
-var fire_charge = [30, 120]
+var fire_charge = [30, 90, 1]
 var fire_cd = [.2, .5, 1.5]
 
 # Water
 var water1 = preload("res://spells/water/water_level1.tscn")
 var water2 = preload("res://spells/water/water_level2.tscn")
 var water3 = preload("res://spells/water/water_level3.tscn")
-var water_charge = [40, 90]
+var water_charge = [40, 50, 1]
 var water_cd = [.7, 1, 1.5]
-
-# Nature
-var nature1 = preload("res://spells/nature/nature_level1.tscn")
-var nature2 = preload("res://spells/nature/nature_level2.tscn")
-var nature3 = preload("res://spells/nature/nature_level3.tscn")
-var nature_charge = [40, 80]
-var nature_cd = [0.4, 0.6, 0.8]
 
 # Lightning
 var lightning1 = preload("res://spells/lightning/lightning_level1.tscn")
 var lightning2 = preload("res://spells/lightning/lightning_level2.tscn")
 var lightning3 = preload("res://spells/lightning/lightning_level3.tscn")
-var lightning_charge = [60, 150]
+var lightning_charge = [60, 90, 1]
 var lightning_cd = [0.6, 0.8, 1]
 
-# Spells in the form spell[element][charge]
-var spell = [[fire1, fire2, fire3], [water1, water2, water3],
+# Nature
+var nature1 = preload("res://spells/nature/nature_level1.tscn")
+var nature2 = preload("res://spells/nature/nature_level2.tscn")
+var nature3 = preload("res://spells/nature/nature_level3.tscn")
+var nature_charge = [40, 40, 1]
+var nature_cd = [0.4, 0.6, 0.8]
+
+# Spells in the form spell[element][level]
+var spells = [[fire1, fire2, fire3], [water1, water2, water3],
 		[lightning1, lightning2, lightning3], [nature1, nature2, nature3]]
-# Charge times
-#var charge = [[fire2.charge, fire3.charge], [water2.charge, water3.charge],
-#		[lightning2.charge, lightning3.charge], [nature2.charge, nature3.charge]]
+
+var max_charge = [fire_charge, water_charge, lightning_charge, nature_charge]
+var cooldown = [fire_cd, water_cd, lightning_cd, nature_cd]
 
 
 func _ready():
@@ -96,10 +94,9 @@ func _ready():
 	
 	var node_name = self.get_name()
 	controller_port = node_name.substr(node_name.length() - 1, node_name.length()).to_int()
-#	btn_magic = input_states.new(KEY_SPACE)
-
+	
+	
 	change_element(ELEMENT.fire)
-	$charge_bar.set_max(max_charge())
 	
 	
 	var frames_src = "res://characters/sprites/%s.tres" % character_name
@@ -145,131 +142,57 @@ func _process(delta):
 		
 		if ready_to_spell and charge > 0:
 			if not Input.is_action_pressed("btn_magic") or Input.is_action_just_released("btn_magic"):
-				if active_proj == null:
+				if active_spell == null:
 					release_spell()
-				elif active_proj.has_activation:
-					active_proj.activate()
+				elif active_spell.has_activation:
+					active_spell.activate()
 		update_animation(new_anim)
 
 
 func _physics_process(delta):
 	if !is_stunned:
 		if Input.is_action_pressed("btn_magic"):
-			if active_proj == null:
+			if active_spell == null:
 				charge += 1
-				$charge_bar.set_value(charge - current_spell_charge)
-				if $charge_bar.get_value() >= $charge_bar.get_max(): # Bar Maxed out
+				$charge_bar.set_value(charge)
+				if charge >= $charge_bar.get_max(): # Bar maxed out
 					if not $charge_bar/anim.is_playing():
 						$charge_bar/anim.play("pulse")
 					update_max_charge()
-			elif wait >= 15:
-				active_proj.activate()
-				wait = 0
+			elif activation_wait >= 15:
+				active_spell.activate()
+				activation_wait = 0
 			else:
-				wait += 1
+				activation_wait += 1
 		if $cooldown_bar.visible:
 			$cooldown_bar.value -= 1
 
 
 func change_element(element):
-	if magic_element == element:
+	if current_element == element:
 		return
 	
 	var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
 	
 	$sprite/glow.set_self_modulate(colors[element])
-	magic_element = element
+	current_element = element
 	charge = 0
-	current_spell_charge = 0
-	current_spell_level = 1
+	current_level = 0
 	$charge_bar.set_value(0)
-	$charge_bar.set_max(max_charge())
-
-
-func max_charge():
-	var charge_index = 0
-	if current_spell_charge != 0:
-		charge_index = 1
-	
-	match magic_element:
-		ELEMENT.fire:
-			return fire_charge[charge_index]
-		ELEMENT.water:
-			return water_charge[charge_index]
-		ELEMENT.nature:
-			return nature_charge[charge_index]
-		ELEMENT.lightning:
-			return lightning_charge[charge_index]
+	$charge_bar.set_max(max_charge[element][0])
 
 
 func update_max_charge():
-	if current_spell_level == 1:
-		current_spell_charge = charge
-		current_spell_level += 1
-	$charge_bar.set_max(max_charge())
-
-
-# Returns what spell is suposed to be cast depending on
-# magic_element and charge
-func define_spell():
-	match magic_element:
-		ELEMENT.fire:
-			if charge < fire_charge[0]:
-				return spell[ELEMENT.fire][0]
-			elif charge < fire_charge[1]:
-				return fire2
-			return fire3
-		ELEMENT.water:
-			if charge < water_charge[0]:
-				return water1
-			elif charge < water_charge[1]:
-				return water2
-			return water3
-		ELEMENT.nature:
-			if charge < nature_charge[0]:
-				return nature1
-			elif charge < nature_charge[1]:
-				return nature2
-			return nature3
-		ELEMENT.lightning:
-			if charge < lightning_charge[0]:
-				return lightning1
-			elif charge < lightning_charge[1]:
-				return lightning2
-			return lightning3
-
-
-# Returns correct cooldown(in seconds) for spell
-func define_cooldown(spell):
-	match magic_element:
-		ELEMENT.fire:
-			if spell == fire1:
-				return fire_cd[0]
-			elif spell == fire2:
-				return fire_cd[1]
-			return fire_cd[2]
-		ELEMENT.water:
-			if spell == water1:
-				return water_cd[0]
-			elif spell == water2:
-				return water_cd[1]
-			return water_cd[2]
-		ELEMENT.nature:
-			if spell == nature1:
-				return nature_cd[0]
-			elif spell == nature2:
-				return nature_cd[1]
-			return nature_cd[2]
-		ELEMENT.lightning:
-			if spell == lightning1:
-				return lightning_cd[0]
-			elif spell == lightning2:
-				return lightning_cd[1]
-			return lightning_cd[2]
+	if current_level >= 2:
+		return
+	
+	current_level += 1
+	charge = 0
+	$charge_bar.set_max(max_charge[current_element][current_level])
 
 
 func release_spell():
-	var spell = define_spell()
+	var spell = spells[current_element][current_level]
 	var projectile = spell.instance()
 	projectile.fire(current_direction.normalized(), self)
 	get_parent().add_child(projectile)
@@ -279,17 +202,16 @@ func release_spell():
 	current_spell = spell
 	if projectile.has_activation:
 		holding_spell = true
-		active_proj = projectile
+		active_spell = projectile
 	else:
 		spell_ended()
 
 
 func spell_ended():
-	var cd = define_cooldown(current_spell)
-	set_cooldown(cd)
+	set_cooldown(cooldown[current_element][current_level])
 	holding_spell = false
 	current_spell = null
-	active_proj = null
+	active_spell = null
 
 
 func set_cooldown(time):
@@ -306,13 +228,12 @@ func set_cooldown(time):
 # Spell cooldown is over
 func _on_cooldown_timeout():
 	charge = 0
-	current_spell_charge = 0
-	current_spell_level = 1
+	current_level = 0
 	ready_to_spell = true
 
 	$cooldown_bar.hide()
 	$charge_bar.set_value(0)
-	$charge_bar.set_max(max_charge())
+	$charge_bar.set_max(max_charge[current_element][0])
 	$charge_bar.show()
 
 
