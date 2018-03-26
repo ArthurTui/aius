@@ -43,6 +43,9 @@
 
 ### 19/03
 
+#### Henrique (10:00 ~ 11:30)
+ 1. Migrando com sucesso cenas e scripts de magias do projeto antigo
+
 #### Arthur (16:00 ~ 20:00)
  1. Continuação da refatoração do personagem.
  2. Reorganização do código e estrutura de cenas das magias.
