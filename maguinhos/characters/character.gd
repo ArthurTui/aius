@@ -114,14 +114,14 @@ func _process(delta):
 	var new_anim
 	
 	if !is_stunned:
-		if Input.is_key_pressed(KEY_LEFT):
-			direction -= Vector2( 1, 0 )
-		if Input.is_key_pressed(KEY_RIGHT):
-			direction += Vector2( 1, 0 )
-		if Input.is_key_pressed(KEY_DOWN):
-			direction += Vector2( 0, 1 )
-		if Input.is_key_pressed(KEY_UP):
-			direction -= Vector2( 0, 1 )
+		if Input.is_action_pressed("move_left"):
+		    direction -= Vector2( 1, 0 )
+		if Input.is_action_pressed("move_right"):
+		    direction += Vector2( 1, 0 )
+		if Input.is_action_pressed("move_down"):
+		    direction += Vector2( 0, 1 )
+		if Input.is_action_pressed("move_up"):
+		    direction -= Vector2( 0, 1 )
 	
 		if direction == Vector2( 0, 0 ):
 			new_anim = str("idle_", current_anim.split("_")[1])
@@ -134,13 +134,13 @@ func _process(delta):
 			var mot = move_and_collide(direction.normalized()*RUN_SPEED*slow_multiplier + push_direction)
 			
 		if !holding_spell:
-			if Input.is_key_pressed(KEY_1):
+			if Input.is_action_pressed("element_fire"):
 			    change_element(ELEMENT.fire)
-			if Input.is_key_pressed(KEY_2):
+			if Input.is_action_pressed("element_water"):
 			    change_element(ELEMENT.water)
-			if Input.is_key_pressed(KEY_3):
+			if Input.is_action_pressed("element_lightning"):
 			    change_element(ELEMENT.lightning)
-			if Input.is_key_pressed(KEY_4):
+			if Input.is_action_pressed("element_nature"):
 			    change_element(ELEMENT.nature)
 		
 		if ready_to_spell and charge > 0:
@@ -148,14 +148,13 @@ func _process(delta):
 				if active_proj == null:
 					release_spell()
 				elif active_proj.has_activation:
-					print("activate")
 					active_proj.activate()
 		update_animation(new_anim)
 
 
 func _physics_process(delta):
 	if !is_stunned:
-		if Input.is_key_pressed(KEY_SPACE):
+		if Input.is_action_pressed("btn_magic"):
 			if active_proj == null:
 				charge += 1
 				$charge_bar.set_value(charge - current_spell_charge)

@@ -89,7 +89,7 @@ tracks/5/keys = {
 } ]
 }
 
-[node name="Firebolt" type="KinematicBody2D" index="0"]
+[node name="Firebolt" type="KinematicBody2D"]
 
 scale = Vector2( 2, 2 )
 input_pickable = false
