@@ -49,3 +49,11 @@
 #### Arthur (16:00 ~ 20:00)
  1. Continuação da refatoração do personagem.
  2. Reorganização do código e estrutura de cenas das magias.
+
+### 26/03
+
+#### Henrique (13:00 ~ 15:30)
+ 1. Consertando alguns bugs em timers
+ 2. Bindings para controles e teclas
+ 3. Entendendo melhor Node2D e KinematicBody2D
+ 4. Entendendo melhor telas de menu
