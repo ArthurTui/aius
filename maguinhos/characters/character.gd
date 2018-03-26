@@ -147,7 +147,8 @@ func _process(delta):
 			if not Input.is_action_pressed("btn_magic") or Input.is_action_just_released("btn_magic"):
 				if active_proj == null:
 					release_spell()
-				else:
+				elif active_proj.has_activation:
+					print("activate")
 					active_proj.activate()
 		update_animation(new_anim)
 

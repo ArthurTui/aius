@@ -103,7 +103,7 @@ blend_times = [  ]
 process_mode = 1
 wait_time = 2.0
 one_shot = false
-autostart = false
+autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
