@@ -9,11 +9,11 @@ func _ready():
 	parent = self.get_parent()
 	pass
 
-func _on_area_enter(area):
-	var other = area.parent
+func _on_projectile_area_entered(area):
+	var other = area.get_parent()
 	
 	# Handle exceptions
-	if area.get_name() == "DetectionArea":
+	if area.get_name() == "detection_area":
 		return
 	if other == self:
 		return
