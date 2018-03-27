@@ -5,27 +5,26 @@ export (int) var DAMAGE
 export (int) var KNOCKBACK
 
 var direction = Vector2(0, 0)
-var parent
+var owner_character
 
 func _ready():
 	pass
 
 
-func fire(direction, parent):
+func fire(direction, owner_character):
 	self.direction = direction
-	self.parent = parent
-	set_position(parent.position)
+	self.owner_character = owner_character
+	set_position(owner_character.position)
 	set_rotation(direction.angle())
 
 
 func _process(delta):
 	position += direction * SPEED
-#	move_and_collide( direction * SPEED )
 
 
 func _on_projectile_body_entered(body):
 	# does damage if take damage function exists in body
-	if body != parent:
+	if body != owner_character:
 		$projectile.queue_free()
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
