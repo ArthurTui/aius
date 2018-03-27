@@ -5,11 +5,6 @@
 [ext_resource path="res://spells/lightning/sprites/magnetBolt2.png" type="Texture" id=3]
 [ext_resource path="res://spells/lightning/sprites/magnetBolt3.png" type="Texture" id=4]
 
-
-
-
-
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
@@ -65,6 +60,9 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+charge = null
+cooldown = null
+has_activation = null
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
