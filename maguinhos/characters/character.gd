@@ -49,7 +49,7 @@ var activation_wait = 0
 # Fire
 var fire1 = preload("res://spells/fire/fire1.tscn")
 var fire2 = preload("res://spells/fire/fire2.tscn")
-var fire3 = preload("res://spells/fire/fire_level3.tscn")
+var fire3 = preload("res://spells/fire/fire3.tscn")
 var fire_charge = [30, 90, 1]
 var fire_cd = [.2, .5, 1.5]
 

@@ -1,0 +1,278 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://spells/fire/fire3.gd" type="Script" id=1]
+[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=2]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.501961, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.188477 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = -50.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.05
+scale_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Initial Velocity", "Scale" ]
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id=7]
+
+custom_solver_bias = 0.0
+radius = 120.0
+
+[sub_resource type="Gradient" id=8]
+
+offsets = PoolRealArray( 0, 0.0769231, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.792899, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+
+flags = 4
+gradient = SubResource( 8 )
+width = 2048
+
+[sub_resource type="Curve" id=10]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.671875 ), 0.0, 0.350906, 0, 0, Vector2( 0.788143, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+
+flags = 4
+width = 2048
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 80.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.01
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Scale", "Spread", "Trail" ]
+
+[node name="fire3" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+max_charge = null
+cooldown = null
+has_activation = true
+
+[node name="trail" type="Particles2D" parent="." index="0"]
+
+emitting = true
+amount = 60
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = false
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 1
+process_material = SubResource( 5 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="projectile" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+element = 0
+level = 3
+
+[node name="sprite" type="Sprite" parent="projectile" index="0"]
+
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="shape" type="CollisionShape2D" parent="projectile" index="1"]
+
+shape = SubResource( 6 )
+
+[node name="explosion" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+monitoring = false
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+element = 0
+level = 3
+
+[node name="shape" type="CollisionShape2D" parent="explosion" index="0"]
+
+shape = SubResource( 7 )
+
+[node name="particles" type="Particles2D" parent="explosion" index="1"]
+
+scale = Vector2( 0.5, 0.5 )
+emitting = false
+amount = 15
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.5
+randomness = 0.5
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 12 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="lifetime" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="explosion_duration" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="free_timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="area_entered" from="projectile" to="projectile" method="_on_projectile_area_entered"]
+
+[connection signal="body_entered" from="projectile" to="." method="_on_projectile_body_entered"]
+
+[connection signal="area_entered" from="explosion" to="explosion" method="_on_projectile_area_entered"]
+
+[connection signal="body_entered" from="explosion" to="." method="_on_explosion_body_entered"]
+
+[connection signal="timeout" from="lifetime" to="." method="_on_lifetime_timeout"]
+
+[connection signal="timeout" from="explosion_duration" to="." method="_on_explosion_duration_timeout"]
+
+[connection signal="timeout" from="free_timer" to="." method="_on_free_timer_timeout"]
+
+

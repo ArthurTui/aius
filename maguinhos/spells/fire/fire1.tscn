@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://spells/fire/fire1.gd" type="Script" id=1]
-[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=2]
-[ext_resource path="res://spells/base_projectile.gd" type="Script" id=3]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
+[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -68,13 +68,7 @@ SPEED = 8
 DAMAGE = 7
 KNOCKBACK = 20
 
-[node name="sprite" type="Sprite" parent="." index="0"]
-
-scale = Vector2( 0.05, 0.05 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="projectile" type="Area2D" parent="." index="1"]
+[node name="projectile" type="Area2D" parent="." index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -83,15 +77,21 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 element = 0
 level = 1
 
-[node name="shape" type="CollisionShape2D" parent="projectile" index="0"]
+[node name="sprite" type="Sprite" parent="projectile" index="0"]
+
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="shape" type="CollisionShape2D" parent="projectile" index="1"]
 
 shape = SubResource( 1 )
 
-[node name="anim" type="AnimationPlayer" parent="." index="2"]
+[node name="anim" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -101,11 +101,11 @@ playback_speed = 1.0
 anims/death = SubResource( 2 )
 blend_times = [  ]
 
-[node name="lifetime" type="Timer" parent="." index="3"]
+[node name="lifetime" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 2.0
-one_shot = false
+one_shot = true
 autostart = true
 
 [connection signal="area_entered" from="projectile" to="projectile" method="_on_projectile_area_entered"]
