@@ -57,3 +57,9 @@
  2. Bindings para controles e teclas
  3. Entendendo melhor Node2D e KinematicBody2D
  4. Entendendo melhor telas de menu
+
+### 27/03
+
+#### Henrique (14:30 ~ 17:00)
+ 1. Criando assets basicos para menu
+ 2. Criando cena de menu principal e conectando com cena de teste
