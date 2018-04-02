@@ -63,3 +63,8 @@
 #### Henrique (14:30 ~ 17:00)
  1. Criando assets basicos para menu
  2. Criando cena de menu principal e conectando com cena de teste
+
+### 02/04
+
+#### Henrique (10:00 ~ 11:30)
+ 1. Refatorando mais spells e consertando bugs
