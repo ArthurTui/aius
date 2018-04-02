@@ -63,7 +63,7 @@ __meta__ = {
 }
 max_charge = 30
 cooldown = 0.2
-has_activation = null
+has_activation = false
 SPEED = 8
 DAMAGE = 7
 KNOCKBACK = 20

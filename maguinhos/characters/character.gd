@@ -61,16 +61,16 @@ var water_charge = [40, 50, 1]
 var water_cd = [.7, 1, 1.5]
 
 # Lightning
-var lightning1 = preload("res://spells/lightning/lightning_level1.tscn")
+var lightning1 = preload("res://spells/lightning/lightning1.tscn")
 var lightning2 = preload("res://spells/lightning/lightning_level2.tscn")
 var lightning3 = preload("res://spells/lightning/lightning_level3.tscn")
 var lightning_charge = [60, 90, 1]
 var lightning_cd = [0.6, 0.8, 1]
 
 # Nature
-var nature1 = preload("res://spells/nature/nature_level1.tscn")
-var nature2 = preload("res://spells/nature/nature_level2.tscn")
-var nature3 = preload("res://spells/nature/nature_level3.tscn")
+var nature1 = preload("res://spells/nature/nature1.tscn")
+var nature2 = preload("res://spells/nature/nature2.tscn")
+var nature3 = preload("res://spells/nature/nature3.tscn")
 var nature_charge = [40, 40, 1]
 var nature_cd = [0.4, 0.6, 0.8]
 
@@ -159,7 +159,7 @@ func _physics_process(delta):
 					if not $charge_bar/anim.is_playing():
 						$charge_bar/anim.play("pulse")
 					update_max_charge()
-			elif activation_wait >= 15:
+			elif activation_wait >= 5:
 				active_spell.activate()
 				activation_wait = 0
 			else:

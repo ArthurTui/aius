@@ -16,6 +16,7 @@ func _ready():
 func fire(direction, parent):
 	self.direction = direction
 	self.parent = parent
+	self.has_activation = true
 	set_position(parent.position)
 
 

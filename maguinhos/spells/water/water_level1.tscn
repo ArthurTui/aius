@@ -7,40 +7,27 @@
 
 light_mask = 0
 script = ExtResource( 1 )
-
-[node name="Projectile1" parent="." index="0" instance=ExtResource( 2 )]
-
-charge = null
+max_charge = null
 cooldown = null
 has_activation = false
+
+[node name="Projectile1" parent="." index="0" instance=ExtResource( 2 )]
 
 [node name="Projectile2" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( -15, -5 )
-charge = null
-cooldown = null
-has_activation = false
 
 [node name="Projectile3" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 15, -5 )
-charge = null
-cooldown = null
-has_activation = false
 
 [node name="Projectile4" parent="." index="3" instance=ExtResource( 2 )]
 
 position = Vector2( -25, -18 )
-charge = null
-cooldown = null
-has_activation = false
 
 [node name="Projectile5" parent="." index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 25, -18 )
-charge = null
-cooldown = null
-has_activation = false
 
 [node name="LifeTimer" type="Timer" parent="." index="5"]
 

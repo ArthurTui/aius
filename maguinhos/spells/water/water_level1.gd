@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://spells/base_spell.gd"
 
 
 #func _ready():
@@ -7,8 +7,8 @@ extends Node2D
 
 func fire( direction, parent ):
 
-	set_rotation( direction.angle() - deg2rad(90))
-	set_position( parent.position + 30 * direction)
+	set_rotation( direction.angle() - deg2rad(90) )
+	set_position(parent.position + 30 * direction)
 	
 	get_node("Projectile1").fire(direction, parent)
 	get_node("Projectile2").fire(direction.rotated(deg2rad(10)), parent)
