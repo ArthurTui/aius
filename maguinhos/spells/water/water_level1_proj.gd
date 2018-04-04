@@ -13,7 +13,7 @@ var parent
 func fire( direction, parent ):
 	self.direction = direction
 	self.parent = parent
-
+	
 	set_process( true )
 
 

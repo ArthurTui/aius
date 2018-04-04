@@ -31,7 +31,7 @@ func fire( direction, parent ):
 
 
 func _process(delta):
-	move_and_collide( direction * SPEED )
+	position += direction * SPEED 
 
 
 # Pushes back if target is an enemy

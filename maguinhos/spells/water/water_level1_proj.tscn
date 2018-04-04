@@ -1,16 +1,16 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://spells/water/water_level1_proj.gd" type="Script" id=1]
-[ext_resource path="res://spells/water/sprites/waterSphere1.png" type="Texture" id=2]
-[ext_resource path="res://spells/water/sprites/waterSphere2.png" type="Texture" id=3]
-[ext_resource path="res://spells/water/sprites/waterSphere3.png" type="Texture" id=4]
-[ext_resource path="res://spells/water/sprites/waterSphere4.png" type="Texture" id=5]
-[ext_resource path="res://spells/base_projectile.gd" type="Script" id=6]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
+[ext_resource path="res://spells/water/sprites/waterSphere1.png" type="Texture" id=3]
+[ext_resource path="res://spells/water/sprites/waterSphere2.png" type="Texture" id=4]
+[ext_resource path="res://spells/water/sprites/waterSphere3.png" type="Texture" id=5]
+[ext_resource path="res://spells/water/sprites/waterSphere4.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -41,7 +41,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:frame")
+tracks/1/path = NodePath("Area2D/Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -61,13 +61,7 @@ max_charge = null
 cooldown = null
 has_activation = false
 
-[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
-
-scale = Vector2( 0.13379, 0.13379 )
-frames = SubResource( 1 )
-animation = "default"
-
-[node name="Area2D" type="Area2D" parent="." index="1"]
+[node name="Area2D" type="Area2D" parent="." index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -76,7 +70,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -84,11 +78,17 @@ __meta__ = {
 element = null
 level = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="Sprite" type="AnimatedSprite" parent="Area2D" index="0"]
+
+scale = Vector2( 0.13379, 0.13379 )
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="1"]
 
 shape = SubResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = ""

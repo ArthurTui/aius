@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://spells/water/water_level3.gd" type="Script" id=1]
 [ext_resource path="res://spells/water/sprites/tidalWaveUp1.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://spells/water/sprites/tidalWaveDown5.png" type="Texture" id=20]
 [ext_resource path="res://spells/water/sprites/tidalWaveDown6.png" type="Texture" id=21]
 [ext_resource path="res://spells/water/sprites/tidalWaveDown7.png" type="Texture" id=22]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -187,16 +188,12 @@ tracks/0/keys = {
 "values": [ 2, 3, 4 ]
 }
 
-[node name="TidalWave" type="KinematicBody2D"]
+[node name="TidalWave" type="Node2D"]
 
 position = Vector2( 0, 20 )
 scale = Vector2( 2, 2 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 1 )
-charge = null
+max_charge = null
 cooldown = null
 has_activation = false
 
@@ -216,6 +213,9 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 23 )
+element = null
+level = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
@@ -255,8 +255,6 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_enter"]
 

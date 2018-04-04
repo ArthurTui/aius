@@ -4,7 +4,7 @@ var SPEED = 3
 const DAMAGE = 20
 const KNOCKBACK = 50
 var element = 3 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
-var level = 2
+export var level = 2
 
 var direction = Vector2( 0, 0 ) # direction that the fireball flies to
 var parent
@@ -22,7 +22,7 @@ func fire( direction, parent ):
 
 
 func _process(delta):
-	move_and_collide( direction * SPEED )
+	position += direction * SPEED
 	SPEED -= 0.75*delta
 	if (SPEED <= 0):
 		die()

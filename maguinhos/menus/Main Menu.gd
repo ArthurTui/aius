@@ -1,11 +1,11 @@
 extends Control
 
 
-var selected = -1
-
-
 func _on_Play_pressed():
 	$fade.play("fade_out")
+
+
+func play_scene():
 	get_tree().change_scene("res://stages/test_stage.tscn")
 
 
