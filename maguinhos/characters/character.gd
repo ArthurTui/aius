@@ -111,13 +111,13 @@ func _process(delta):
 	var new_anim
 	
 	if !is_stunned:
-		if Input.is_action_pressed("move_left"):
+		if Input.is_action_pressed(str("p", controller_port, "_move_left")):
 		    direction -= Vector2( 1, 0 )
-		if Input.is_action_pressed("move_right"):
+		if Input.is_action_pressed(str("p", controller_port, "_move_right")):
 		    direction += Vector2( 1, 0 )
-		if Input.is_action_pressed("move_down"):
+		if Input.is_action_pressed(str("p", controller_port, "_move_down")):
 		    direction += Vector2( 0, 1 )
-		if Input.is_action_pressed("move_up"):
+		if Input.is_action_pressed(str("p", controller_port, "_move_up")):
 		    direction -= Vector2( 0, 1 )
 	
 		if direction == Vector2( 0, 0 ):
@@ -131,17 +131,18 @@ func _process(delta):
 			var mot = move_and_collide(direction.normalized()*RUN_SPEED*slow_multiplier + push_direction)
 			
 		if !holding_spell:
-			if Input.is_action_pressed("element_fire"):
+			if Input.is_action_pressed(str("p", controller_port, "_element_fire")):
 			    change_element(ELEMENT.fire)
-			if Input.is_action_pressed("element_water"):
+			if Input.is_action_pressed(str("p", controller_port, "_element_water")):
 			    change_element(ELEMENT.water)
-			if Input.is_action_pressed("element_lightning"):
+			if Input.is_action_pressed(str("p", controller_port, "_element_lightning")):
 			    change_element(ELEMENT.lightning)
-			if Input.is_action_pressed("element_nature"):
+			if Input.is_action_pressed(str("p", controller_port, "_element_nature")):
 			    change_element(ELEMENT.nature)
 		
 		if ready_to_spell and charge > 0:
-			if not Input.is_action_pressed("btn_magic") or Input.is_action_just_released("btn_magic"):
+			var action = str("p", controller_port, "_btn_magic")
+			if not Input.is_action_pressed(action) or Input.is_action_just_released(action):
 				if active_spell == null:
 					release_spell()
 				elif active_spell.has_activation:
@@ -151,7 +152,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	if !is_stunned:
-		if Input.is_action_pressed("btn_magic"):
+		if Input.is_action_pressed(str("p", controller_port, "_btn_magic")):
 			if active_spell == null:
 				charge += 1
 				$charge_bar.set_value(charge)
