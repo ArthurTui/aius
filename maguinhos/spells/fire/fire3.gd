@@ -18,6 +18,7 @@ func fire(direction, parent):
 	self.parent = parent
 	self.has_activation = true
 	set_position(parent.position)
+	$trail.rotation = direction.angle()
 
 
 func _process(delta):
