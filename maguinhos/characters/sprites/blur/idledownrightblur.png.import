@@ -7,10 +7,10 @@ path="res://.import/idledownrightblur.png-4e02d69136f3f50e6c93da77c0095aae.stex"
 [deps]
 
 source_file="res://characters/sprites/blur/idledownrightblur.png"
-source_md5="906d6b5cda8d011641209d7f9e3b3738"
+source_md5="7bad693aee26553b2fc6499d7192a49d"
 
 dest_files=[ "res://.import/idledownrightblur.png-4e02d69136f3f50e6c93da77c0095aae.stex" ]
-dest_md5="825db07c7ba71e4c1dad1e13032011a6"
+dest_md5="d15ed781f72560bed03de56a03eca3e7"
 
 [params]
 

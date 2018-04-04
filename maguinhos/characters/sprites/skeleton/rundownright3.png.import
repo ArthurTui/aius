@@ -7,10 +7,10 @@ path="res://.import/rundownright3.png-3815c9e42a2bdbc78b5cb9d32e8339d3.stex"
 [deps]
 
 source_file="res://characters/sprites/skeleton/rundownright3.png"
-source_md5="e4bd35ce96e3d11b311633f671c609ea"
+source_md5="d4aa985f8f8af798b66efe6161b0c2cb"
 
 dest_files=[ "res://.import/rundownright3.png-3815c9e42a2bdbc78b5cb9d32e8339d3.stex" ]
-dest_md5="5cbc1aaef9f528a3a5d666ba504acfc6"
+dest_md5="961a322317a2a1d0af50ca180f63e2a2"
 
 [params]
 

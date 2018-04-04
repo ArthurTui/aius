@@ -7,10 +7,10 @@ path="res://.import/idleleftblur.png-93982949b4e4d09c82ccdea43caa6004.stex"
 [deps]
 
 source_file="res://characters/sprites/blur/idleleftblur.png"
-source_md5="26693a0fe81ed5835b36fcf565b37630"
+source_md5="17fbdc6ff8acaae8466e466c64cec17b"
 
 dest_files=[ "res://.import/idleleftblur.png-93982949b4e4d09c82ccdea43caa6004.stex" ]
-dest_md5="a4b54af7503bf76743c9c5117025ce64"
+dest_md5="fc16730be019e12a3f91a418d022f3b8"
 
 [params]
 

@@ -7,10 +7,10 @@ path="res://.import/runup1.png-73a80b52063c8d575ad87641364283db.stex"
 [deps]
 
 source_file="res://characters/sprites/skeleton/runup1.png"
-source_md5="bcc335057f09ec38d45592c90566a4ad"
+source_md5="fc339fc7ab694cb6f8568b46e4073447"
 
 dest_files=[ "res://.import/runup1.png-73a80b52063c8d575ad87641364283db.stex" ]
-dest_md5="4fd16c444a75cf98a0877e98114de99e"
+dest_md5="2327359822771e3651272c06c8dc897f"
 
 [params]
 

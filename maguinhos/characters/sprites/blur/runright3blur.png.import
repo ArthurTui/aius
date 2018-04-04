@@ -7,10 +7,10 @@ path="res://.import/runright3blur.png-4a753a32e05b0432cacc02f3be9d3b8d.stex"
 [deps]
 
 source_file="res://characters/sprites/blur/runright3blur.png"
-source_md5="4d979a6e193b5a4bfb85d983d992a8e6"
+source_md5="643c664169ce8773329f050e8e9970ee"
 
 dest_files=[ "res://.import/runright3blur.png-4a753a32e05b0432cacc02f3be9d3b8d.stex" ]
-dest_md5="76ff474074be1a609a9f0c4f93a9bcb5"
+dest_md5="3bf105e8120918d46178e65d6217ff3b"
 
 [params]
 
