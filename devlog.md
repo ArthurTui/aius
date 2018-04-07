@@ -82,3 +82,4 @@
 
 #### Henrique (11:00 ~ )
  1. Iédia báscia de dash implementada (dash = shift/control)
+ 2. Spells de fogo não afetam personagens no meio de dash
