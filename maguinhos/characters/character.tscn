@@ -239,7 +239,7 @@ scale = Vector2( 0.6, 0.6 )
 frames = ExtResource( 2 )
 animation = "idle_down"
 playing = true
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }

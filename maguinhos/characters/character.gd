@@ -27,6 +27,7 @@ var character_name = "skeleton"
 
 var current_direction = Vector2(0, 1)
 var current_element
+var current_color
 var current_spell
 var current_level
 var charge
@@ -116,6 +117,7 @@ func _process(delta):
 	var mot
 	
 	if !is_stunned:
+		# determines movement
 		if Input.is_action_pressed(str("p", controller_port, "_move_left")):
 		    direction -= Vector2( 1, 0 )
 		if Input.is_action_pressed(str("p", controller_port, "_move_right")):
@@ -131,12 +133,15 @@ func _process(delta):
 			current_direction = direction
 			new_anim = define_animation(current_direction)
 		
-		# should take external forces into consideration
+		# applies the determined movement
 		if !is_rooted:
 			# if dash is not on cooldown
-			if can_dash and Input.is_action_pressed(str("p", controller_port, "_dash")):
+			if can_dash and Input.is_action_just_pressed(str("p", controller_port, "_dash")):
 				is_dashing = true
+				can_dash = false
 				dash_direction = direction
+				$sprite.set_self_modulate(Color(1,1,1,0.5))
+				$sprite/glow.set_self_modulate(Color(1,1,1,0.5))
 				$dash_timer.start()
 			if not is_dashing:
 				mot = move_and_collide(direction.normalized()*RUN_SPEED*slow_multiplier + push_direction)
@@ -188,7 +193,9 @@ func change_element(element):
 	
 	var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
 	
-	$sprite/glow.set_self_modulate(colors[element])
+	current_color = colors[element]
+	if not is_dashing:
+		$sprite/glow.set_self_modulate(current_color)
 	current_element = element
 	charge = 0
 	current_level = 0
@@ -287,8 +294,9 @@ func _on_root_timeout():
 # Duration of the dash
 func _on_dash_timer_timeout():
 	is_dashing = false
-	can_dash = false
 	dash_direction = Vector2(0, 0)
+	$sprite.set_self_modulate(Color(1,1,1,1))
+	$sprite/glow.set_self_modulate(current_color)
 	$dash_cd.start()
 
 
