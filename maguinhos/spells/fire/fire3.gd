@@ -26,13 +26,13 @@ func _process(delta):
 
 
 func _on_projectile_body_entered(body):
-	if alive and body != parent:
+	if alive and body != parent and body.is_dashing == false:
 		die()
 
 
 # does damage if take damage function exists in body
 func _on_explosion_body_entered( body ):
-	if body != parent:
+	if body != parent and body.is_dashing == false:
 		if body.has_method("take_damage") and not body in damaged_bodies:
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
 			damaged_bodies.append(body)

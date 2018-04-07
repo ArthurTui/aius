@@ -48,7 +48,7 @@ func home():
 
 # does damage if take damage function exists in body
 func _on_projectile_body_entered(body):
-	if body != parent:
+	if body != parent and body.is_dashing == false:
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
 		die()

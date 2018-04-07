@@ -24,7 +24,7 @@ func _process(delta):
 
 func _on_projectile_body_entered(body):
 	# does damage if take damage function exists in body
-	if body != owner_character:
+	if body != owner_character and body.is_dashing == false:
 		$projectile.queue_free()
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
