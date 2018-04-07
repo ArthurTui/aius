@@ -59,7 +59,6 @@ script = ExtResource( 1 )
 max_charge = null
 cooldown = null
 has_activation = false
-level = 2
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 

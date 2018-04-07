@@ -3,7 +3,7 @@
 [ext_resource path="res://spells/water/water_level1.gd" type="Script" id=1]
 [ext_resource path="res://spells/water/water_level1_proj.tscn" type="PackedScene" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 light_mask = 0
 script = ExtResource( 1 )
@@ -15,19 +15,19 @@ has_activation = false
 
 [node name="Projectile2" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( -15, -5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Projectile3" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 15, -5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Projectile4" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( -25, -18 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Projectile5" parent="." index="4" instance=ExtResource( 2 )]
 
-position = Vector2( 25, -18 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="LifeTimer" type="Timer" parent="." index="5"]
 

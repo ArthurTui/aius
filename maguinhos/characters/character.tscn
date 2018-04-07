@@ -221,7 +221,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Corner Radius", "Expand Margin" ]
 
-[node name="character" type="KinematicBody2D"]
+[node name="character" type="KinematicBody2D" index="0"]
 
 position = Vector2( -0.12851, -0.128513 )
 input_pickable = false
@@ -393,6 +393,20 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="dash_timer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+autostart = false
+
+[node name="dash_cd" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
 [connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timeout"]
 
 [connection signal="timeout" from="stun_timer" to="." method="_on_stun_timeout"]
@@ -400,5 +414,9 @@ autostart = false
 [connection signal="timeout" from="slow_timer" to="." method="_on_slow_timeout"]
 
 [connection signal="timeout" from="root_timer" to="." method="_on_root_timeout"]
+
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+
+[connection signal="timeout" from="dash_cd" to="." method="_on_dash_cd_timeout"]
 
 

@@ -4,7 +4,7 @@ var SPEED = 3
 const DAMAGE = 20
 const KNOCKBACK = 50
 var element = 3 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
-export var level = 2
+var level = 2
 
 var direction = Vector2( 0, 0 ) # direction that the fireball flies to
 var parent
@@ -33,7 +33,7 @@ func _on_Area2D_body_enter( body ):
 	if body != parent:
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
-		if body.has_method("Slow"):
+		if body.has_method("slow"):
 			# Applies slow effect 
 			body.slow(2, 0.4)
 		die()

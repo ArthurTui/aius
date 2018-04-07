@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const RUN_SPEED = 4
+const DASH_SPEED = 8
 
 enum ELEMENT {
 	fire,
@@ -34,10 +35,13 @@ var ready_to_spell = true
 var holding_spell = false
 var is_stunned = false
 var is_rooted = false
+var is_dashing = false
+var can_dash = true
 
 var active_spell
 var slow_multiplier = 1
 var push_direction = Vector2(0, 0)
+var dash_direction = Vector2(0, 0)
 
 var health = 100
 
@@ -109,6 +113,7 @@ func _process(delta):
 	
 	var direction = Vector2(0, 0)
 	var new_anim
+	var mot
 	
 	if !is_stunned:
 		if Input.is_action_pressed(str("p", controller_port, "_move_left")):
@@ -128,8 +133,16 @@ func _process(delta):
 		
 		# should take external forces into consideration
 		if !is_rooted:
-			var mot = move_and_collide(direction.normalized()*RUN_SPEED*slow_multiplier + push_direction)
-			
+			# if dash is not on cooldown
+			if can_dash and Input.is_action_pressed(str("p", controller_port, "_dash")):
+				is_dashing = true
+				dash_direction = direction
+				$dash_timer.start()
+			if not is_dashing:
+				mot = move_and_collide(direction.normalized()*RUN_SPEED*slow_multiplier + push_direction)
+			else:
+				mot = move_and_collide(dash_direction.normalized()*DASH_SPEED*slow_multiplier)
+				
 		if !holding_spell:
 			if Input.is_action_pressed(str("p", controller_port, "_element_fire")):
 			    change_element(ELEMENT.fire)
@@ -271,6 +284,18 @@ func _on_stun_timeout():
 func _on_root_timeout():
 	is_rooted = false
 
+# Duration of the dash
+func _on_dash_timer_timeout():
+	is_dashing = false
+	can_dash = false
+	dash_direction = Vector2(0, 0)
+	$dash_cd.start()
+
+
+# Time until dash can be used again
+func _on_dash_cd_timeout():
+	can_dash = true
+
 
 func take_damage(damage, kb_dir, kb_str = 0):
 	health -= damage
@@ -305,7 +330,7 @@ func define_animation(direction):
 func update_animation(new_animation):
 	current_anim = $sprite.animation
 
-	if new_animation != current_anim:
+	if new_animation != current_anim and not is_dashing:
 		$sprite.play(new_animation)
 		$sprite/glow.play(new_animation)
 		current_anim = new_animation
@@ -316,4 +341,3 @@ func update_animation(new_animation):
 # the input map.
 func name_adapter(name):
 	return str(name, "_", controller_port)
-
