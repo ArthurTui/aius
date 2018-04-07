@@ -81,4 +81,4 @@
 ### 07/04
 
 #### Henrique (11:00 ~ )
- 1. Iédia báscia de dash implementada
+ 1. Iédia báscia de dash implementada (dash = shift/control)
