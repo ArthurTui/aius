@@ -68,3 +68,17 @@
 
 #### Henrique (10:00 ~ 11:30)
  1. Refatorando mais spells e consertando bugs
+
+### 04/04
+
+#### Henrique (15:00 ~ 17:30)
+ 1. Revivendo controles de teclado para dois jogadores
+ 2. Mapeando inputs para dois controles, ainda não testado
+ 3. Redimensionamento de sprites de personagem, agora abrem bem mais rapido
+ 4. Fade-in e fade-out no menu
+ 5. Outros ajustes, mais detalhes no commit de hoje
+
+### 07/04
+
+#### Henrique (11:00 ~ )
+ 1. Iédia báscia de dash implementada
