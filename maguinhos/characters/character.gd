@@ -140,6 +140,11 @@ func _process(delta):
 				is_dashing = true
 				can_dash = false
 				dash_direction = direction
+				# Disables collision with spells.
+				# We may need to add another shape so that the
+				# character still collides with structures
+				# when dashing
+				$shape.set_disabled(true)
 				$sprite.set_self_modulate(Color(1,1,1,0.5))
 				$sprite/glow.set_self_modulate(Color(1,1,1,0.5))
 				$dash_timer.start()
@@ -295,6 +300,7 @@ func _on_root_timeout():
 func _on_dash_timer_timeout():
 	is_dashing = false
 	dash_direction = Vector2(0, 0)
+	$shape.set_disabled(false)
 	$sprite.set_self_modulate(Color(1,1,1,1))
 	$sprite/glow.set_self_modulate(current_color)
 	$dash_cd.start()
