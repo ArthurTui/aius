@@ -83,3 +83,10 @@
 #### Henrique (11:00 ~ )
  1. Iédia báscia de dash implementada (dash = shift/control)
  2. Spells de fogo não afetam personagens no meio de dash
+
+### 12/04
+
+#### Arthur (16:30 ~ 18:30)
+ 1. Padronização dos tempos de charge e cooldown das magias.
+ 2. Conserto das animações de desaparecer das magias de fogo.
+ 3. Início da refatoração das magias de água.
