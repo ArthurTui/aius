@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="test_stage" type="Node2D" index="0"]
+[node name="test_stage" type="Node2D"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
 

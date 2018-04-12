@@ -145,15 +145,13 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Scale", "Spread", "Trail" ]
 
-[node name="fire3" type="Node2D"]
+[node name="fire3" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
-max_charge = null
-cooldown = null
 has_activation = true
 
 [node name="trail" type="Particles2D" parent="." index="0"]
