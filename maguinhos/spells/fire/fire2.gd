@@ -65,8 +65,7 @@ func _on_lifetime_timeout():
 
 
 func die():
-	$projectile.call_deferred("set_monitoring", false)
-	$projectile.call_deferred("set_monitorable", false)
+	$projectile/shape.disabled = true
 	$lifetime.queue_free()
 	$anim.play("death")
 	set_process(false)

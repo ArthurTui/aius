@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://spells/water/sprites/waterSphere1.png" type="Texture" id=1]
+[ext_resource path="res://spells/water/sprites/waterSphere2.png" type="Texture" id=2]
+[ext_resource path="res://spells/water/sprites/waterSphere3.png" type="Texture" id=3]
+[ext_resource path="res://spells/water/sprites/waterSphere4.png" type="Texture" id=4]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), null ],
+"loop": false,
+"name": "death",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 86.8666
+
+[node name="water2" type="Node2D" index="0"]
+
+[node name="sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="projectile" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+element = 1
+level = 2
+
+[node name="shape" type="CollisionShape2D" parent="projectile" index="0"]
+
+shape = SubResource( 2 )
+
+

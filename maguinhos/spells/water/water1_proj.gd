@@ -21,7 +21,6 @@ func _process(delta):
 # does damage if take damage function exists
 func _on_projectile_body_entered(body):
 	if body != caster:
-		print(caster)
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
 		die()
@@ -30,7 +29,6 @@ func _on_projectile_body_entered(body):
 func die():
 	if $sprite.animation == "death":
 		return
-	call_deferred("set_monitoring", false)
-	call_deferred("set_monitorable", false)
+	$shape.disabled = true
 	set_process(false)
 	$sprite.play("death")
