@@ -56,9 +56,8 @@ tracks/2/keys = {
 
 [node name="fire1" type="Node2D"]
 
-scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }

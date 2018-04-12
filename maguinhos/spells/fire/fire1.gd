@@ -5,16 +5,15 @@ export (int) var DAMAGE
 export (int) var KNOCKBACK
 
 var direction = Vector2(0, 0)
-var owner_character
 
 func _ready():
 	pass
 
 
-func fire(direction, owner_character):
+func fire(direction, caster):
 	self.direction = direction
-	self.owner_character = owner_character
-	set_position(owner_character.position)
+	self.caster = caster
+	set_position(caster.position)
 	set_rotation(direction.angle())
 
 
@@ -24,7 +23,7 @@ func _process(delta):
 
 func _on_projectile_body_entered(body):
 	# does damage if take damage function exists in body
-	if body != owner_character:
+	if body != caster:
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
 		die()

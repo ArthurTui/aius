@@ -57,7 +57,7 @@ var fire2 = preload("res://spells/fire/fire2.tscn")
 var fire3 = preload("res://spells/fire/fire3.tscn")
 
 # Water
-var water1 = preload("res://spells/water/water_level1.tscn")
+var water1 = preload("res://spells/water/water1.tscn")
 var water2 = preload("res://spells/water/water_level2.tscn")
 var water3 = preload("res://spells/water/water_level3.tscn")
 
