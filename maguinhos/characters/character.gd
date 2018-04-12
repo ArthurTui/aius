@@ -55,36 +55,28 @@ var activation_wait = 0
 var fire1 = preload("res://spells/fire/fire1.tscn")
 var fire2 = preload("res://spells/fire/fire2.tscn")
 var fire3 = preload("res://spells/fire/fire3.tscn")
-var fire_charge = [30, 90, 1]
-var fire_cd = [.2, .5, 1.5]
 
 # Water
 var water1 = preload("res://spells/water/water_level1.tscn")
 var water2 = preload("res://spells/water/water_level2.tscn")
 var water3 = preload("res://spells/water/water_level3.tscn")
-var water_charge = [40, 50, 1]
-var water_cd = [.7, 1, 1.5]
 
 # Lightning
 var lightning1 = preload("res://spells/lightning/lightning1.tscn")
 var lightning2 = preload("res://spells/lightning/lightning_level2.tscn")
 var lightning3 = preload("res://spells/lightning/lightning_level3.tscn")
-var lightning_charge = [60, 90, 1]
-var lightning_cd = [0.6, 0.8, 1]
 
 # Nature
 var nature1 = preload("res://spells/nature/nature1.tscn")
 var nature2 = preload("res://spells/nature/nature2.tscn")
 var nature3 = preload("res://spells/nature/nature3.tscn")
-var nature_charge = [40, 40, 1]
-var nature_cd = [0.4, 0.6, 0.8]
 
 # Spells in the form spell[element][level]
 var spells = [[fire1, fire2, fire3], [water1, water2, water3],
 		[lightning1, lightning2, lightning3], [nature1, nature2, nature3]]
 
-var max_charge = [fire_charge, water_charge, lightning_charge, nature_charge]
-var cooldown = [fire_cd, water_cd, lightning_cd, nature_cd]
+var max_charge = [40, 80, 1]
+var cooldown = [0.5, 1.0, 1.5]
 
 
 func _ready():
@@ -152,7 +144,7 @@ func _process(delta):
 				mot = move_and_collide(direction.normalized()*RUN_SPEED*slow_multiplier + push_direction)
 			else:
 				mot = move_and_collide(dash_direction.normalized()*DASH_SPEED*slow_multiplier)
-				
+		
 		if !holding_spell:
 			if Input.is_action_pressed(str("p", controller_port, "_element_fire")):
 			    change_element(ELEMENT.fire)
@@ -205,7 +197,7 @@ func change_element(element):
 	charge = 0
 	current_level = 0
 	$charge_bar.set_value(0)
-	$charge_bar.set_max(max_charge[element][0])
+	$charge_bar.set_max(max_charge[0])
 
 
 func update_max_charge():
@@ -214,7 +206,7 @@ func update_max_charge():
 	
 	current_level += 1
 	charge = 0
-	$charge_bar.set_max(max_charge[current_element][current_level])
+	$charge_bar.set_max(max_charge[current_level])
 
 
 func release_spell():
@@ -234,7 +226,7 @@ func release_spell():
 
 
 func spell_ended():
-	set_cooldown(cooldown[current_element][current_level])
+	set_cooldown(cooldown[current_level])
 	holding_spell = false
 	current_spell = null
 	active_spell = null
@@ -259,7 +251,7 @@ func _on_cooldown_timeout():
 
 	$cooldown_bar.hide()
 	$charge_bar.set_value(0)
-	$charge_bar.set_max(max_charge[current_element][0])
+	$charge_bar.set_max(max_charge[0])
 	$charge_bar.show()
 
 
