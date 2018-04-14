@@ -221,7 +221,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Corner Radius", "Expand Margin" ]
 
-[node name="character" type="KinematicBody2D" index="0"]
+[node name="character" type="KinematicBody2D"]
 
 position = Vector2( -0.12851, -0.128513 )
 input_pickable = false
