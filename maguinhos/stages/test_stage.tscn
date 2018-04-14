@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="test_stage" type="Node2D" index="0"]
+[node name="test_stage" type="Node2D"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
 
@@ -47,6 +47,7 @@ blend_times = [  ]
 [node name="pause_menu" type="Panel" parent="." index="3"]
 
 pause_mode = 2
+visible = false
 self_modulate = Color( 1, 1, 1, 0.414353 )
 anchor_left = 0.0
 anchor_top = 0.0
