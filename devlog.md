@@ -80,7 +80,7 @@
 
 ### 07/04
 
-#### Henrique (11:00 ~ )
+#### Henrique (11:00 ~ 12:00)
  1. Iédia báscia de dash implementada (dash = shift/control)
  2. Spells de fogo não afetam personagens no meio de dash
 
@@ -90,3 +90,15 @@
  1. Padronização dos tempos de charge e cooldown das magias.
  2. Conserto das animações de desaparecer das magias de fogo.
  3. Início da refatoração das magias de água.
+
+### 14/04
+
+#### Henrique (10:30 ~ 14:00)
+ 1. Character Select Screen em progresso
+ 2. Tela de pause implementada, com opção de retornar ao menu
+
+### 16/04
+
+#### Henrique (10:00 ~ 11:30)
+ 1. CSS não permite dois players selecionarem o mesmo personagem (não testado)
+ 2. Opção de player "sair" da tela/desselecionar personagem
