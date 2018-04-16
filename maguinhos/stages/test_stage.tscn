@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://characters/character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://stages/pause_menu.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -43,113 +42,5 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/fade_in = SubResource( 1 )
 blend_times = [  ]
-
-[node name="pause_menu" type="Panel" parent="." index="3"]
-
-pause_mode = 2
-visible = false
-self_modulate = Color( 1, 1, 1, 0.414353 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1020.0
-margin_bottom = 600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-script = ExtResource( 2 )
-_sections_unfolded = [ "Pause", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="pause_menu" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 440.0
-margin_top = 140.0
-margin_right = 491.0
-margin_bottom = 154.0
-rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_colors/font_color = Color( 0.949219, 0.48834, 0.26326, 1 )
-custom_colors/font_color_shadow = Color( 0.144531, 0.0615387, 0.0615387, 1 )
-text = "PAUSED"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
-[node name="unpause" type="Button" parent="pause_menu" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 460.0
-margin_top = 210.0
-margin_right = 526.0
-margin_bottom = 230.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "unpause"
-flat = false
-align = 1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="quit" type="Button" parent="pause_menu" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 474.0
-margin_top = 260.0
-margin_right = 511.0
-margin_bottom = 280.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "quit"
-flat = false
-align = 1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[connection signal="pressed" from="pause_menu/unpause" to="pause_menu" method="_on_unpause_pressed"]
-
-[connection signal="pressed" from="pause_menu/quit" to="pause_menu" method="_on_quit_pressed"]
 
 

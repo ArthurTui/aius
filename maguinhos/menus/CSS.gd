@@ -1,12 +1,13 @@
-extends Container
+extends Control
 
-const characters = ["skeleton", "broleton"]
+const characters = ["skeleton", "broleton", "sealeton", "bloodyskel"]
 
 var active_devices = {} # which device controls which player
 var selected_characters = [0,0,0,0]
+var available_characters = [0,1,2,3]
 
-var active_players = 0
-var ready_players = []
+var active_players = 0 # number of active players
+var ready_players = [] # which players are active
 
 var player
 
@@ -14,18 +15,24 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
+	var id = event.device
 	# player enters the game
 	if Input.is_action_just_pressed("pause"):
-		if not event.device in active_devices and active_players < 4:
+		if not id in active_devices and active_players < 4:
 			active_players += 1
-			active_devices[event.device] = active_players
-			get_node(str("P", active_players)).set_visible(true)
+			active_devices[id] = active_players
+			player = active_devices[id]
+			selected_characters[player - 1] = available_characters.pop_front()
+			get_node(str("P", active_players,"/bg")).set_visible(false)
+			get_node(str("P", active_players,"/character")).set_visible(true)
+			get_node(str("P", active_players,"/arrows")).set_visible(true)
+			get_node(str("P", active_players,"/label")).set_text("Ready?")
 		
 		else:
-			player = active_devices[event.device]
+			player = active_devices[id]
 			# Ready
 			if get_node(str("P", player, "/label")).get_text() == "Ready?":
-				get_node(str("P", player, "/label")).set_text("LESGO!!")
+				get_node(str("P", player, "/label")).set_text("Ready for battle!!")
 				ready_players.append(player)
 			# Unready
 			else:
@@ -39,21 +46,39 @@ func _input(event):
 			pass
 		print(active_devices)
 	
-	if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
+	elif Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 		if active_players > 0:
-			player = active_devices[event.device]
-			# selects next character
-			if Input.is_action_just_pressed("ui_right"):
-				selected_characters[player - 1] += 1
-			else:
-				selected_characters[player - 1] -= 1
-			selected_characters[player - 1] %= characters.size()
+			player = active_devices[id]
 			
-			var character = characters[selected_characters[player - 1]]
-			print(character)
-			get_node(str("P", player, "/character")).set_animation(character)
+			# ready players cannot change character
+			if not player in ready_players:
+				# selects next available character
+				if Input.is_action_just_pressed("ui_right"):
+					# updates the list of available characters
+					available_characters.append(selected_characters[player - 1])
+					selected_characters[player - 1] = available_characters.pop_front()
+				else:
+					available_characters.push_front(selected_characters[player - 1])
+					selected_characters[player - 1] = available_characters.pop_back()
+				
+				var character = characters[selected_characters[player - 1]]
+				get_node(str("P", player, "/character")).set_animation(character)
+	
+	# player "exits"
+	elif Input.is_action_just_pressed("ui_cancel"):
+		if id in active_devices and not active_devices[id] in ready_players:
+			player = active_devices[id]
+			available_characters.push_back(selected_characters[player - 1])
+			selected_characters[player - 1] = -1
+			get_node(str("P", player,"/bg")).set_visible(true)
+			get_node(str("P", player,"/character")).set_visible(false)
+			get_node(str("P", active_players,"/arrows")).set_visible(false)
+			get_node(str("P", player,"/label")).set_text("Press Start")
+			active_players -= 1
+			active_devices.erase(id)
 			
-
+# MOST ARRAYS STILL UNTESTED/PRINTED
+	
 
 
 
