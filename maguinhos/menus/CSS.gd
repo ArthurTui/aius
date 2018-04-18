@@ -23,10 +23,10 @@ func _input(event):
 			active_devices[id] = active_players
 			player = active_devices[id]
 			selected_characters[player - 1] = available_characters.pop_front()
-			get_node(str("P", active_players,"/bg")).set_visible(false)
-			get_node(str("P", active_players,"/character")).set_visible(true)
-			get_node(str("P", active_players,"/arrows")).set_visible(true)
-			get_node(str("P", active_players,"/label")).set_text("Ready?")
+			get_node(str("P", active_players,"/anim")).play("enter")
+			
+			var character = characters[selected_characters[player - 1]]
+			get_node(str("P", active_players,"/character")).set_animation(character)
 		
 		else:
 			player = active_devices[id]
@@ -46,6 +46,7 @@ func _input(event):
 			pass
 		print(active_devices)
 	
+	# player changes character
 	elif Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 		if active_players > 0:
 			player = active_devices[id]
@@ -67,18 +68,15 @@ func _input(event):
 	# player "exits"
 	elif Input.is_action_just_pressed("ui_cancel"):
 		if id in active_devices and not active_devices[id] in ready_players:
+			get_node(str("P", active_players,"/anim")).play("exit")
+			
 			player = active_devices[id]
-			available_characters.push_back(selected_characters[player - 1])
+			available_characters.push_front(selected_characters[player - 1])
 			selected_characters[player - 1] = -1
-			get_node(str("P", player,"/bg")).set_visible(true)
-			get_node(str("P", player,"/character")).set_visible(false)
-			get_node(str("P", active_players,"/arrows")).set_visible(false)
-			get_node(str("P", player,"/label")).set_text("Press Start")
 			active_players -= 1
 			active_devices.erase(id)
 			
 # MOST ARRAYS STILL UNTESTED/PRINTED
-	
 
 
 
