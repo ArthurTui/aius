@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://menus/CSS.gd" type="Script" id=1]
 [ext_resource path="res://menus/resources/arrow.png" type="Texture" id=2]
@@ -10,16 +10,17 @@
 [ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=8]
 [ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=9]
 [ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=10]
-[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=11]
-[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=12]
-[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=13]
-[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=14]
-[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=15]
-[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=16]
-[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=17]
-[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=11]
+[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=12]
+[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=13]
+[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=14]
+[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=15]
+[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=16]
+[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=17]
+[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=18]
 [ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://menus/resources/black.jpg" type="Texture" id=20]
+[ext_resource path="res://stages/battle.tscn" type="PackedScene" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -36,12 +37,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "broleton",
+"name": "sealeton",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "sealeton",
+"name": "broleton",
 "speed": 5.0
 } ]
 
@@ -242,6 +243,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Size Flags" ]
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -322,7 +324,7 @@ position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -419,6 +421,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="arrows" type="Control" parent="P2" index="0"]
 
@@ -497,6 +503,7 @@ position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -593,6 +600,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="arrows" type="Control" parent="P3" index="0"]
 
@@ -671,7 +682,7 @@ position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 3
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -768,6 +779,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="arrows" type="Control" parent="P4" index="0"]
 
@@ -846,7 +861,6 @@ position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -925,5 +939,9 @@ playback_speed = 1.0
 anims/enter = SubResource( 9 )
 anims/exit = SubResource( 10 )
 blend_times = [  ]
+
+[node name="battle" parent="." index="4" instance=ExtResource( 21 )]
+
+visible = false
 
 
