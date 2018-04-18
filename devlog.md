@@ -102,3 +102,12 @@
 #### Henrique (10:00 ~ 11:30)
  1. CSS não permite dois players selecionarem o mesmo personagem (não testado)
  2. Opção de player "sair" da tela/desselecionar personagem
+
+### 18/04
+
+#### Henrique (13:30 ~ 16:30)
+ 1. Tela de pause reinserida (aparentemente nao comitei sem querer)
+ 2. Novas animações na CSS de entrada e saida
+ 3. Correções no comportamento da CSS
+ 4. Transição da CSS para batalha em andamento
+ 5. Alguns esboços de personagens
