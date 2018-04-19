@@ -111,3 +111,8 @@
  3. Correções no comportamento da CSS
  4. Transição da CSS para batalha em andamento
  5. Alguns esboços de personagens
+
+### 19/04
+
+#### Arthur (16:30 ~ 19:30)
+ 1. Refatoração das magias de água e eletricidade.
