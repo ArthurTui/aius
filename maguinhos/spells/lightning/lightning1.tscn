@@ -1,36 +1,50 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://spells/lightning/lightning1.gd" type="Script" id=1]
 [ext_resource path="res://spells/lightning/sprites/magnetBolt1.png" type="Texture" id=2]
 [ext_resource path="res://spells/lightning/sprites/magnetBolt2.png" type="Texture" id=3]
 [ext_resource path="res://spells/lightning/sprites/magnetBolt3.png" type="Texture" id=4]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "MagnetBolt",
-"speed": 5.0
+"name": "default",
+"speed": 7.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 22.2065
 
 [sub_resource type="Animation" id=3]
 
+resource_name = "death"
 length = 0.2
 loop = false
 step = 0.1
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -38,38 +52,22 @@ tracks/0/keys = {
 "method": "free_scn"
 } ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 2, 2 ), Vector2( 1e-05, 1e-05 ) ]
-}
 
-[node name="MagnetBolt" type="Node2D"]
+[node name="lightning1" type="Node2D"]
 
-scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-max_charge = null
-cooldown = null
 has_activation = false
 
-[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+[node name="sprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 0, -0.128513 )
-scale = Vector2( 0.132981, 0.132981 )
+scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
-animation = "MagnetBolt"
-frame = 1
+animation = "default"
+frame = 2
 playing = true
+_sections_unfolded = [ "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="1"]
+[node name="projectile" type="Area2D" parent="." index="1"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -78,12 +76,15 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 5 )
+element = 2
+level = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="shape" type="CollisionShape2D" parent="projectile" index="0"]
 
 shape = SubResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="anim" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -93,16 +94,8 @@ playback_speed = 1.0
 anims/death = SubResource( 3 )
 blend_times = [  ]
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="." index="3"]
+[connection signal="area_entered" from="projectile" to="projectile" method="_on_projectile_area_entered"]
 
-stream = null
-volume_db = 0.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_enter"]
+[connection signal="body_entered" from="projectile" to="." method="_on_projectile_body_entered"]
 
 

@@ -3,22 +3,19 @@ extends "res://spells/base_spell.gd"
 var SPEED = 3
 const DAMAGE = 20
 const KNOCKBACK = 50
-var element = 3 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
-var level = 2
 
-var direction = Vector2( 0, 0 ) # direction that the fireball flies to
-var parent
+var direction = Vector2(0, 0) # direction that the fireball flies to
 
 
 #func _ready():
 #	get_node( "SFX" ).play( "bubble" )
 
 
-func fire( direction, parent ):
+func fire(direction, caster):
 	self.direction = direction
-	self.parent = parent
-	set_position( parent.position )
-	set_process( true )
+	self.caster = caster
+	set_position(caster.position)
+	set_process(true)
 
 
 func _process(delta):
@@ -29,8 +26,8 @@ func _process(delta):
 
 
 # does damage if take damage function exists in body
-func _on_Area2D_body_enter( body ):
-	if body != parent:
+func _on_projectile_body_entered(body):
+	if body != caster:
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
 		if body.has_method("slow"):
@@ -40,10 +37,10 @@ func _on_Area2D_body_enter( body ):
 
 
 func die():
-	$Area2D.queue_free()
-	$AnimationPlayer.play( "death" )
-	set_process( false )
+	$projectile.queue_free()
+	$sprite.play("death")
+	set_process(false)
 
 
-func free_scn():
+func _on_sprite_animation_finished():
 	queue_free()

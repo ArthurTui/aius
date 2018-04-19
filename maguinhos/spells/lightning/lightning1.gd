@@ -3,46 +3,39 @@ extends "res://spells/base_spell.gd"
 var SPEED = 10
 const DAMAGE = 5
 var ROT_SPEED = 3
-var element = 0 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
-var level = 1
 
-var direction = Vector2( 0, 0 ) # direction that the fireball flies to
+var direction = Vector2(0, 0) # direction that the fireball flies to
 var angle
-var parent
 var state = "going"
 
 
-#func _ready():
-#	get_node( "SFX" ).play( "thunderbolt" )
-
-
-func fire( direction, parent ):
+func fire(direction, caster):
 	self.direction = direction
-	self.parent = parent
-	set_position( parent.position )
-	set_process( true )
+	self.caster = caster
+	set_position(caster.position)
+	set_process(true)
 
 
 func _process(delta):
-	if !weakref(parent).get_ref(): # parent was freed
-		parent = null
+	if !weakref(caster).get_ref(): # caster was freed
+		caster = null
 		die()
 		return
-
+	
 	if SPEED <= 0:
 		state = "returning"
-		angle = get_angle_to( parent.position )
+		angle = get_angle_to(caster.position)
 		# negative cos and sin because speed is also negative
-		direction = Vector2( -cos(angle), -sin(angle) )
-	get_node( "Sprite" ).rotate( ROT_SPEED * delta )
-
+		direction = Vector2(-cos(angle), -sin(angle))
+	$sprite.rotate(ROT_SPEED * delta)
+	
 	position += direction * SPEED
 	SPEED -= 8*delta
 
 
 # does damage if take damage function exists in body
-func _on_Area2D_body_enter( body ):
-	if body != parent:
+func _on_projectile_body_entered(body):
+	if body != caster:
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, null)
 	elif state == "returning":
@@ -50,9 +43,9 @@ func _on_Area2D_body_enter( body ):
 
 
 func die():
-	get_node( "AnimationPlayer" ).play( "death" )
-	get_node("Area2D").queue_free()
-	set_process( false )
+	$anim.play("death")
+	$projectile.queue_free()
+	set_process(false)
 
 
 func free_scn():

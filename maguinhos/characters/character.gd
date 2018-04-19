@@ -58,13 +58,13 @@ var fire3 = preload("res://spells/fire/fire3.tscn")
 
 # Water
 var water1 = preload("res://spells/water/water1.tscn")
-var water2 = preload("res://spells/water/water_level2.tscn")
-var water3 = preload("res://spells/water/water_level3.tscn")
+var water2 = preload("res://spells/water/water2.tscn")
+var water3 = preload("res://spells/water/water3.tscn")
 
 # Lightning
 var lightning1 = preload("res://spells/lightning/lightning1.tscn")
-var lightning2 = preload("res://spells/lightning/lightning_level2.tscn")
-var lightning3 = preload("res://spells/lightning/lightning_level3.tscn")
+var lightning2 = preload("res://spells/lightning/lightning2.tscn")
+var lightning3 = preload("res://spells/lightning/lightning3.tscn")
 
 # Nature
 var nature1 = preload("res://spells/nature/nature1.tscn")

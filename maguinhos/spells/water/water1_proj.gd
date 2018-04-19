@@ -32,3 +32,24 @@ func die():
 	$shape.disabled = true
 	set_process(false)
 	$sprite.play("death")
+
+
+func _on_projectile_area_entered(area):
+	var other = area.get_parent()
+	
+	# Handle exceptions
+	if area.get_name() == "detection_area":
+		return
+	if other == self:
+		return
+	if "parent" in other and other.parent == self.parent:
+		return
+	
+	if "element" in area: # Makes sure it's something interactable with projectile
+		if area.level > self.level:
+			parent.die()
+		elif area.element == (self.element + 1) % 4: # Oposing element
+			if area.level < self.level: # Lower leveled spells have no effect
+				return
+			die()
+# Fire = 0, Water = 1, Lightning = 2, Nature = 3
