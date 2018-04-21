@@ -18,10 +18,14 @@ func start(active_players, selected_characters):
 		var player = active_players[key]
 		living.append(player)
 		
+		var character = selected_characters[player - 1]
+		print(character)
+		var sprite_frames = load(str("res://characters/sprites/",character,".tres"))
+		
 		# creates a character and sets its skin and position
 		var char_inst = char_scn.instance()
 		char_inst.set_name(str("Character", player))
-		char_inst.get_node("sprite").set_animation(selected_characters[player - 1])
+		char_inst.get_node("sprite").set_sprite_frames(sprite_frames)
 		char_inst.position = positions[player - 1]
 		char_inst.controller_device = key
 		

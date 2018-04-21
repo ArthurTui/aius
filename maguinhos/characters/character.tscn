@@ -221,7 +221,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Corner Radius", "Expand Margin" ]
 
-[node name="character" type="KinematicBody2D"]
+[node name="character" type="KinematicBody2D" index="0"]
 
 position = Vector2( -0.12851, -0.128513 )
 input_pickable = false
@@ -235,6 +235,7 @@ __meta__ = {
 
 [node name="sprite" type="AnimatedSprite" parent="." index="0"]
 
+position = Vector2( 4.76837e-07, -0.540371 )
 scale = Vector2( 0.6, 0.6 )
 frames = ExtResource( 2 )
 animation = "idle_down"

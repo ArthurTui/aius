@@ -18,11 +18,7 @@ signal death
 # We use the port, because actions are named ending on port,
 # and port - device_id association is made on the InputMap before
 # each game.
-var controller_port = 0
 var controller_device = 100
-
-#var btn_magic = input_states.new(KEY_SPACE)
-#var btn_melee = input_states.new(name_adapter("char_melee"))
 
 var current_anim = "idle_down"
 var character_name = "skeleton"
@@ -80,57 +76,11 @@ var spells = [[fire1, fire2, fire3], [water1, water2, water3],
 var max_charge = [40, 80, 1]
 var cooldown = [0.5, 1.0, 1.5]
 
-var moving_left = false
-var moving_right = false
-var moving_up = false
-var moving_down = false
-
 
 func _ready():
 	add_to_group("Player")
-	
-	# This is a port test.
-	# The reassingment of btn_magic (and other future buttons)
-	# may be necessary, though, because we only know of ports
-	# after the game has started.
-	# Having an _init would also be wise, for we may construct
-	# the battle scene manually later.
-	
-	var node_name = self.get_name()
-	controller_port = node_name.substr(node_name.length() - 1, node_name.length()).to_int()
-	
-	
 	change_element(ELEMENT.fire)
-	
-	print("hi im ",controller_device)
-	
-	
-	var frames_src = "res://characters/sprites/%s.tres" % character_name
-	$sprite.frames = load(frames_src)
 
-
-func _input(event):
-	# detects keyboard input
-	if event is InputEventKey:
-		event.device = KB_CUSTOM_ID
-		
-	if event.device == controller_device:
-		if Input.is_action_pressed(str("move_left")):
-		    moving_left = true
-		else:
-			moving_left = false
-		if Input.is_action_pressed(str("move_right")):
-		    moving_right = true
-		else:
-			moving_right = false
-		if Input.is_action_pressed(str("move_down")):
-		    moving_down = true
-		else:
-			moving_down = false
-		if Input.is_action_pressed(str("move_up")):
-			moving_up = true
-		else:
-			moving_up = false
 
 func _process(delta):
 	
@@ -320,6 +270,7 @@ func _on_stun_timeout():
 func _on_root_timeout():
 	is_rooted = false
 
+
 # Duration of the dash
 func _on_dash_timer_timeout():
 	is_dashing = false
@@ -372,10 +323,3 @@ func update_animation(new_animation):
 		$sprite.play(new_animation)
 		$sprite/glow.play(new_animation)
 		current_anim = new_animation
-
-
-# Function that adds controller_port to the end of
-# the name srnt, so that it can be understood by
-# the input map.
-func name_adapter(name):
-	return str(name, "_", controller_port)
