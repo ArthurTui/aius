@@ -15,13 +15,14 @@ func _process(delta):
 func start(active_players, selected_characters):
 	# which ports are living
 	for key in active_players.keys():
-		living.append(key)
+		var player = active_players[key]
+		living.append(player)
 		
-		var char_inst = char_scn.insance()
-		char_inst.set_name(str("Character", active_players[key]))
-		char_inst.position = positions[active_players[key] - 1]
-		
-		char_inst.get_node("sprite").set_animation(selected_characters[active_players[key] - 1])
+		# creates a character and sets its skin and position
+		var char_inst = char_scn.instance()
+		char_inst.set_name(str("Character", player))
+		char_inst.get_node("sprite").set_animation(selected_characters[player - 1])
+		char_inst.position = positions[player - 1]
 		
 		add_child(char_inst)
 	set_process(true)
