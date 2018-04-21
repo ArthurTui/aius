@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const RUN_SPEED = 4
 const DASH_SPEED = 8
+const KB_CUSTOM_ID = 100
 
 enum ELEMENT {
 	fire,
@@ -18,6 +19,7 @@ signal death
 # and port - device_id association is made on the InputMap before
 # each game.
 var controller_port = 0
+var controller_device = 100
 
 #var btn_magic = input_states.new(KEY_SPACE)
 #var btn_melee = input_states.new(name_adapter("char_melee"))
@@ -78,6 +80,11 @@ var spells = [[fire1, fire2, fire3], [water1, water2, water3],
 var max_charge = [40, 80, 1]
 var cooldown = [0.5, 1.0, 1.5]
 
+var moving_left = false
+var moving_right = false
+var moving_up = false
+var moving_down = false
+
 
 func _ready():
 	add_to_group("Player")
@@ -95,10 +102,35 @@ func _ready():
 	
 	change_element(ELEMENT.fire)
 	
+	print("hi im ",controller_device)
+	
 	
 	var frames_src = "res://characters/sprites/%s.tres" % character_name
 	$sprite.frames = load(frames_src)
 
+
+func _input(event):
+	# detects keyboard input
+	if event is InputEventKey:
+		event.device = KB_CUSTOM_ID
+		
+	if event.device == controller_device:
+		if Input.is_action_pressed(str("move_left")):
+		    moving_left = true
+		else:
+			moving_left = false
+		if Input.is_action_pressed(str("move_right")):
+		    moving_right = true
+		else:
+			moving_right = false
+		if Input.is_action_pressed(str("move_down")):
+		    moving_down = true
+		else:
+			moving_down = false
+		if Input.is_action_pressed(str("move_up")):
+			moving_up = true
+		else:
+			moving_up = false
 
 func _process(delta):
 	
@@ -110,13 +142,13 @@ func _process(delta):
 	
 	if !is_stunned:
 		# determines movement
-		if Input.is_action_pressed(str("p", controller_port, "_move_left")):
+		if Input.is_action_pressed(str("d", controller_device,"_move_left")):
 		    direction -= Vector2( 1, 0 )
-		if Input.is_action_pressed(str("p", controller_port, "_move_right")):
+		if Input.is_action_pressed(str("d", controller_device,"_move_right")):
 		    direction += Vector2( 1, 0 )
-		if Input.is_action_pressed(str("p", controller_port, "_move_down")):
+		if Input.is_action_pressed(str("d", controller_device,"_move_down")):
 		    direction += Vector2( 0, 1 )
-		if Input.is_action_pressed(str("p", controller_port, "_move_up")):
+		if Input.is_action_pressed(str("d", controller_device,"_move_up")):
 		    direction -= Vector2( 0, 1 )
 	
 		if direction == Vector2( 0, 0 ):
@@ -128,7 +160,7 @@ func _process(delta):
 		# applies the determined movement
 		if !is_rooted:
 			# if dash is not on cooldown
-			if can_dash and Input.is_action_just_pressed(str("p", controller_port, "_dash")):
+			if can_dash and Input.is_action_just_pressed(str("d", controller_device,"_dash")):
 				is_dashing = true
 				can_dash = false
 				dash_direction = direction
@@ -146,17 +178,17 @@ func _process(delta):
 				mot = move_and_collide(dash_direction.normalized()*DASH_SPEED*slow_multiplier)
 		
 		if !holding_spell:
-			if Input.is_action_pressed(str("p", controller_port, "_element_fire")):
+			if Input.is_action_pressed(str("d", controller_device,"_element_fire")):
 			    change_element(ELEMENT.fire)
-			if Input.is_action_pressed(str("p", controller_port, "_element_water")):
+			if Input.is_action_pressed(str("d", controller_device,"_element_water")):
 			    change_element(ELEMENT.water)
-			if Input.is_action_pressed(str("p", controller_port, "_element_lightning")):
+			if Input.is_action_pressed(str("d", controller_device,"_element_lightning")):
 			    change_element(ELEMENT.lightning)
-			if Input.is_action_pressed(str("p", controller_port, "_element_nature")):
+			if Input.is_action_pressed(str("d", controller_device,"_element_nature")):
 			    change_element(ELEMENT.nature)
 		
 		if ready_to_spell and charge > 0:
-			var action = str("p", controller_port, "_btn_magic")
+			var action = str("d", controller_device,"_btn_magic")
 			if not Input.is_action_pressed(action) or Input.is_action_just_released(action):
 				if active_spell == null:
 					release_spell()
@@ -167,7 +199,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	if !is_stunned:
-		if Input.is_action_pressed(str("p", controller_port, "_btn_magic")):
+		if Input.is_action_pressed(str("d", controller_device,"_btn_magic")):
 			if active_spell == null:
 				charge += 1
 				$charge_bar.set_value(charge)

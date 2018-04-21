@@ -23,6 +23,7 @@ func start(active_players, selected_characters):
 		char_inst.set_name(str("Character", player))
 		char_inst.get_node("sprite").set_animation(selected_characters[player - 1])
 		char_inst.position = positions[player - 1]
+		char_inst.controller_device = key
 		
 		add_child(char_inst)
 	set_process(true)

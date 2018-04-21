@@ -6,18 +6,18 @@
 [ext_resource path="res://characters/sprites/skeleton/rundown2.png" type="Texture" id=4]
 [ext_resource path="res://characters/sprites/skeleton/rundown3.png" type="Texture" id=5]
 [ext_resource path="res://characters/sprites/skeleton/rundown4.png" type="Texture" id=6]
-[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=7]
-[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=8]
-[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=9]
-[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=10]
-[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=11]
-[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=12]
-[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=13]
-[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=14]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=15]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=16]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=17]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=7]
+[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=8]
+[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=9]
+[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=10]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=11]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=12]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=13]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=14]
+[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=15]
+[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=16]
+[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=17]
+[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=18]
 [ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://menus/resources/black.jpg" type="Texture" id=20]
 [ext_resource path="res://stages/battle.tscn" type="PackedScene" id=21]
@@ -32,17 +32,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "broleton",
+"name": "sealeton",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "sealeton",
+"name": "bloodyskel",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "bloodyskel",
+"name": "broleton",
 "speed": 5.0
 } ]
 
@@ -206,7 +206,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 600 ), Vector2( 0, 0 ) ]
 }
 
-[node name="CSS" type="Control" index="0"]
+[node name="Control" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -226,7 +226,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="P1" type="Container" parent="." index="0"]
+[node name="CSS" type="Control" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="P1" type="Container" parent="CSS" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -247,7 +262,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="arrows" type="Control" parent="P1" index="0"]
+[node name="arrows" type="Control" parent="CSS/P1" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -267,7 +282,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="right" type="TextureRect" parent="P1/arrows" index="0"]
+[node name="right" type="TextureRect" parent="CSS/P1/arrows" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -292,7 +307,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="left" type="TextureRect" parent="P1/arrows" index="1"]
+[node name="left" type="TextureRect" parent="CSS/P1/arrows" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -318,17 +333,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="character" type="AnimatedSprite" parent="P1" index="1"]
+[node name="character" type="AnimatedSprite" parent="CSS/P1" index="1"]
 
 position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 1
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="label" type="Label" parent="P1" index="2"]
+[node name="label" type="Label" parent="CSS/P1" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -351,7 +366,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="bg" type="TextureRect" parent="P1" index="3"]
+[node name="bg" type="TextureRect" parent="CSS/P1" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -370,7 +385,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="press start" type="Label" parent="P1/bg" index="0"]
+[node name="press start" type="Label" parent="CSS/P1/bg" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -393,7 +408,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="anim" type="AnimationPlayer" parent="P1" index="4"]
+[node name="anim" type="AnimationPlayer" parent="CSS/P1" index="4"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -404,7 +419,7 @@ anims/enter = SubResource( 3 )
 anims/exit = SubResource( 4 )
 blend_times = [  ]
 
-[node name="P2" type="Container" parent="." index="1"]
+[node name="P2" type="Container" parent="CSS" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -426,7 +441,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="arrows" type="Control" parent="P2" index="0"]
+[node name="arrows" type="Control" parent="CSS/P2" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -446,7 +461,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="right" type="TextureRect" parent="P2/arrows" index="0"]
+[node name="right" type="TextureRect" parent="CSS/P2/arrows" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -471,7 +486,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="left" type="TextureRect" parent="P2/arrows" index="1"]
+[node name="left" type="TextureRect" parent="CSS/P2/arrows" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -497,16 +512,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="character" type="AnimatedSprite" parent="P2" index="1"]
+[node name="character" type="AnimatedSprite" parent="CSS/P2" index="1"]
 
 position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="label" type="Label" parent="P2" index="2"]
+[node name="label" type="Label" parent="CSS/P2" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -529,7 +545,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="bg" type="TextureRect" parent="P2" index="3"]
+[node name="bg" type="TextureRect" parent="CSS/P2" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -548,7 +564,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="press start" type="Label" parent="P2/bg" index="0"]
+[node name="press start" type="Label" parent="CSS/P2/bg" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -571,7 +587,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="anim" type="AnimationPlayer" parent="P2" index="4"]
+[node name="anim" type="AnimationPlayer" parent="CSS/P2" index="4"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -582,7 +598,7 @@ anims/enter = SubResource( 5 )
 anims/exit = SubResource( 6 )
 blend_times = [  ]
 
-[node name="P3" type="Container" parent="." index="2"]
+[node name="P3" type="Container" parent="CSS" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -604,7 +620,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="arrows" type="Control" parent="P3" index="0"]
+[node name="arrows" type="Control" parent="CSS/P3" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -624,7 +640,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="right" type="TextureRect" parent="P3/arrows" index="0"]
+[node name="right" type="TextureRect" parent="CSS/P3/arrows" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -649,7 +665,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="left" type="TextureRect" parent="P3/arrows" index="1"]
+[node name="left" type="TextureRect" parent="CSS/P3/arrows" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -675,16 +691,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="character" type="AnimatedSprite" parent="P3" index="1"]
+[node name="character" type="AnimatedSprite" parent="CSS/P3" index="1"]
 
 position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="label" type="Label" parent="P3" index="2"]
+[node name="label" type="Label" parent="CSS/P3" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -707,7 +724,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="bg" type="TextureRect" parent="P3" index="3"]
+[node name="bg" type="TextureRect" parent="CSS/P3" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -726,7 +743,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="press start" type="Label" parent="P3/bg" index="0"]
+[node name="press start" type="Label" parent="CSS/P3/bg" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -749,7 +766,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="anim" type="AnimationPlayer" parent="P3" index="4"]
+[node name="anim" type="AnimationPlayer" parent="CSS/P3" index="4"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -760,7 +777,7 @@ anims/enter = SubResource( 7 )
 anims/exit = SubResource( 8 )
 blend_times = [  ]
 
-[node name="P4" type="Container" parent="." index="3"]
+[node name="P4" type="Container" parent="CSS" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -782,7 +799,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="arrows" type="Control" parent="P4" index="0"]
+[node name="arrows" type="Control" parent="CSS/P4" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -802,7 +819,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="right" type="TextureRect" parent="P4/arrows" index="0"]
+[node name="right" type="TextureRect" parent="CSS/P4/arrows" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -827,7 +844,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="left" type="TextureRect" parent="P4/arrows" index="1"]
+[node name="left" type="TextureRect" parent="CSS/P4/arrows" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -853,17 +870,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="character" type="AnimatedSprite" parent="P4" index="1"]
+[node name="character" type="AnimatedSprite" parent="CSS/P4" index="1"]
 
 position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 3
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="label" type="Label" parent="P4" index="2"]
+[node name="label" type="Label" parent="CSS/P4" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -886,7 +903,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="bg" type="TextureRect" parent="P4" index="3"]
+[node name="bg" type="TextureRect" parent="CSS/P4" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -905,7 +922,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="press start" type="Label" parent="P4/bg" index="0"]
+[node name="press start" type="Label" parent="CSS/P4/bg" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -928,7 +945,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="anim" type="AnimationPlayer" parent="P4" index="4"]
+[node name="anim" type="AnimationPlayer" parent="CSS/P4" index="4"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -939,7 +956,7 @@ anims/enter = SubResource( 9 )
 anims/exit = SubResource( 10 )
 blend_times = [  ]
 
-[node name="battle" parent="." index="4" instance=ExtResource( 21 )]
+[node name="battle" parent="." index="1" instance=ExtResource( 21 )]
 
 visible = false
 

@@ -31,9 +31,13 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="test_stage" type="Node2D"]
+[node name="test_stage" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="character1" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -53,7 +57,7 @@ playback_speed = 1.0
 anims/fade_in = SubResource( 1 )
 blend_times = [  ]
 
-[node name="Panel" type="Panel" parent="." index="3"]
+[node name="pause screen" type="Panel" parent="." index="3"]
 
 pause_mode = 2
 self_modulate = Color( 1, 1, 1, 0.301961 )
@@ -75,7 +79,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label" type="Label" parent="Panel" index="0"]
+[node name="Label" type="Label" parent="pause screen" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -98,7 +102,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="resume" type="Button" parent="Panel" index="1"]
+[node name="resume" type="Button" parent="pause screen" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -123,7 +127,7 @@ text = "resume"
 flat = false
 align = 1
 
-[node name="quit" type="Button" parent="Panel" index="2"]
+[node name="quit" type="Button" parent="pause screen" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -148,8 +152,8 @@ text = "quit"
 flat = false
 align = 1
 
-[connection signal="pressed" from="Panel/resume" to="Panel" method="_on_resume_pressed"]
+[connection signal="pressed" from="pause screen/resume" to="pause screen" method="_on_resume_pressed"]
 
-[connection signal="pressed" from="Panel/quit" to="Panel" method="_on_quit_pressed"]
+[connection signal="pressed" from="pause screen/quit" to="pause screen" method="_on_quit_pressed"]
 
 
