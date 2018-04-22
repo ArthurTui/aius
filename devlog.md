@@ -116,3 +116,13 @@
 
 #### Arthur (16:30 ~ 19:30)
  1. Refatoração das magias de água e eletricidade.
+
+### 21/04
+
+#### Henrique (18:15 ~ 21:00)
+ 1. Raio lv2 é castada sem mostrar o raio logo de cara
+ 2. CSS detecta teclado e o diferencia do primeiro controle antes conflitado
+ 3. Leve refatoração no código da CSS
+ 4. Remapeamento de inputs, agora baseados em device ao invés de player
+ 5. Cena de batalha agora inicia os jogadores na posição e com skin certas
+ 6. Código obsoleto removido do script do personagem
