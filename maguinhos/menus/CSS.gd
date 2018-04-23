@@ -1,6 +1,6 @@
 extends Control
 
-const KB_CUSTOM_ID = 100
+const KB_CUSTOM_ID = 100 # would be preferrable not to change this number
 
 var active_devices = {} # which device controls which player
 var selected_characters = [null,null,null,null]

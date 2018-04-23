@@ -338,7 +338,7 @@ position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 2
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -517,7 +517,7 @@ position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -696,7 +696,7 @@ position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -875,6 +875,7 @@ position = Vector2( 128, 303.725 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "skeleton"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
