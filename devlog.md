@@ -126,3 +126,12 @@
  4. Remapeamento de inputs, agora baseados em device ao invés de player
  5. Cena de batalha agora inicia os jogadores na posição e com skin certas
  6. Código obsoleto removido do script do personagem
+
+### 23/04
+
+#### Henrique (10:00 ~ 11:30)
+ 1. Play no main menu leva para CSS
+ 2. Adicionadas variaveis globais para mais facil instanciamento da batalha
+ 3. Battle.tscn agora é independente da CSS
+ 4. Condição de vitória adicionada na batalha
+ 5. Tela de pause agora é uma cena para mais facil instanciamento na batalha
