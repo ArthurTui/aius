@@ -11,6 +11,8 @@ func _ready():
 	var a_d = player_data.active_devices
 	var s_c = player_data. selected_characters
 	
+	$winner.hide()
+	
 	# which ports are living
 	for key in a_d.keys():
 		var player = a_d[key]
@@ -43,6 +45,16 @@ func anotherOneBitesTheDust():
 func check_end_condition():
 	if living <= 1:
 		set_process(false)
+		$win_timer.start()
 		for node in get_children():
 			if node.is_in_group("Player"):
-				print(str(node.character_name, " wins!!"))
+				$winner.set_text(str(node.character_name, " wins!!"))
+				$winner.show()
+				$winner/rainbow.play("rainbow")
+
+
+func _on_win_timer_timeout():
+	for node in get_children():
+		if node.is_in_group("Player"):
+			node.queue_free()
+	get_tree().change_scene("res://menus/CSS.tscn")
