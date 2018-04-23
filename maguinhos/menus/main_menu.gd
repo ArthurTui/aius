@@ -6,7 +6,7 @@ func _on_Play_pressed():
 
 
 func play_scene():
-	get_tree().change_scene("res://stages/test_stage.tscn")
+	get_tree().change_scene("res://menus/CSS.tscn")
 
 
 func _on_Quit_pressed():
