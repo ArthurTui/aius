@@ -14,7 +14,6 @@ var started = false # has the game started?
 
 
 func _ready():
-	$battle.hide()
 	set_process_input(true)
 
 
@@ -69,12 +68,11 @@ func player_start(id):
 	
 	
 	# starts game
-	if ready_players.size() == active_players and active_players >= 2:
-		$battle.start(active_devices, selected_characters)
-		$battle.show()
-		$CSS.hide()
-		started = true
-		print("lesgo")
+	if ready_players.size() == active_players and active_players >= 1:
+		# sets the global variables to be used in the battle scene
+		player_data.active_devices = active_devices
+		player_data.selected_characters = selected_characters
+		get_tree().change_scene("res://stages/battle.tscn")
 		
 	print(active_devices)
 

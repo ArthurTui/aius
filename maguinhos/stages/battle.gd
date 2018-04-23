@@ -7,18 +7,16 @@ var char_scn = preload("res://characters/character.tscn")
 var living = []
 
 func _ready():
-	pass
-
-func _process(delta):
-	pass
-
-func start(active_players, selected_characters):
+	# gets the variables set in the CSS
+	var a_d = player_data.active_devices
+	var s_c = player_data. selected_characters
+	
 	# which ports are living
-	for key in active_players.keys():
-		var player = active_players[key]
+	for key in a_d.keys():
+		var player = a_d[key]
 		living.append(player)
 		
-		var character = selected_characters[player - 1]
+		var character = s_c[player - 1]
 		print(character)
 		var sprite_frames = load(str("res://characters/sprites/",character,".tres"))
 		
@@ -31,3 +29,6 @@ func start(active_players, selected_characters):
 		
 		add_child(char_inst)
 	set_process(true)
+
+func _process(delta):
+	pass
