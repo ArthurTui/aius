@@ -7,10 +7,10 @@ path="res://.import/runleft5.png-398f24e523544bd769c3b463075b97ed.stex"
 [deps]
 
 source_file="res://characters/sprites/bloodyskel/runleft5.png"
-source_md5="f30ab0ba52aae60fac49ffa5e00a5ce1"
+source_md5="58c5b02b895f9a1f90906df1fe05d0ba"
 
 dest_files=[ "res://.import/runleft5.png-398f24e523544bd769c3b463075b97ed.stex" ]
-dest_md5="e0cf60543532f5a187541d22a8f6f6c0"
+dest_md5="8543953cd9967c700d07bd4bd601cb8e"
 
 [params]
 

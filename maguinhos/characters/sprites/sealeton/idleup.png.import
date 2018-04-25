@@ -7,10 +7,10 @@ path="res://.import/idleup.png-da5d06d7f9c446e7eb3b51e6cdf608a5.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/idleup.png"
-source_md5="aec4495c9606e48d7200c7ff9622aa7e"
+source_md5="0e3f0711442054a9be21189afa122929"
 
 dest_files=[ "res://.import/idleup.png-da5d06d7f9c446e7eb3b51e6cdf608a5.stex" ]
-dest_md5="91281fd0d5bdd32fe14ec9e152f56039"
+dest_md5="000b69faaea9973cad786826d169ca62"
 
 [params]
 

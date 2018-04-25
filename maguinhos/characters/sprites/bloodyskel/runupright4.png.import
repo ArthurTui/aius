@@ -7,10 +7,10 @@ path="res://.import/runupright4.png-1833ca314a21ae09bccd3f5db14cbcd3.stex"
 [deps]
 
 source_file="res://characters/sprites/bloodyskel/runupright4.png"
-source_md5="69f030ef8bb50a5979ac794aaf930546"
+source_md5="3d276631f6f73ac862fcbf0a1ca4d256"
 
 dest_files=[ "res://.import/runupright4.png-1833ca314a21ae09bccd3f5db14cbcd3.stex" ]
-dest_md5="7ce6ae121a3cf0bc233dd7103de9b48d"
+dest_md5="addbb68cf0f0e969060c70eb19c225a1"
 
 [params]
 

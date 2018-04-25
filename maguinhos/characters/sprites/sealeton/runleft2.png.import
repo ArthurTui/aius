@@ -7,10 +7,10 @@ path="res://.import/runleft2.png-3befcadd38f5d9543871784f061955a0.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/runleft2.png"
-source_md5="4b651d9bdecccb2ac3278e6bfa6f8a15"
+source_md5="bc57ea65c99c304a32b2bcb48789faa2"
 
 dest_files=[ "res://.import/runleft2.png-3befcadd38f5d9543871784f061955a0.stex" ]
-dest_md5="feaf11dce0f9ebbbff57f4da13d3b46e"
+dest_md5="a29900cabbd2d4633ea1d0e709a51b21"
 
 [params]
 

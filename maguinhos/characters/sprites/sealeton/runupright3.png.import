@@ -7,10 +7,10 @@ path="res://.import/runupright3.png-97c4e439c1b15c5f2a9fc9164a38dcff.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/runupright3.png"
-source_md5="0ec131de2dd5c5cc35030ec4cb474805"
+source_md5="41e322dbd6225aadcd0fee5cc5eb6240"
 
 dest_files=[ "res://.import/runupright3.png-97c4e439c1b15c5f2a9fc9164a38dcff.stex" ]
-dest_md5="146ceba98ab87e8914e22fa4eb92f8ce"
+dest_md5="fabe651b277aba3ce3b2bff4fa25f90f"
 
 [params]
 

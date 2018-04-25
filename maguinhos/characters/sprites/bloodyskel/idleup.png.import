@@ -7,10 +7,10 @@ path="res://.import/idleup.png-a235e6bb52a479c18a1eab381f942cb2.stex"
 [deps]
 
 source_file="res://characters/sprites/bloodyskel/idleup.png"
-source_md5="7bbe364652f1642c56de4abd1c984d01"
+source_md5="e60e26536aa8b3396c85f08ef566e554"
 
 dest_files=[ "res://.import/idleup.png-a235e6bb52a479c18a1eab381f942cb2.stex" ]
-dest_md5="d2f07e38610066df27a085053ad2d5e2"
+dest_md5="5bd3c8b0e674f620b291a8f026cfe591"
 
 [params]
 
