@@ -21,7 +21,7 @@ func _input(event):
 	if event is InputEventKey:
 	    id = KB_CUSTOM_ID
 	
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_accept"):
 	    player_start(id)
 	
 	
