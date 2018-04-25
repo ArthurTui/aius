@@ -47,8 +47,7 @@ func player_start(id):
 				
 				var character = selected_characters[pl]
 				get_node(str("CSS/P", pl + 1,"/anim")).play("enter")
-				print("player",pl)
-				get_node(str("CSS/P", active_players,"/character")).set_animation(character)
+				get_node(str("CSS/P", pl + 1,"/character")).set_animation(character)
 				break
 	
 	# Removes the player if he's already there
