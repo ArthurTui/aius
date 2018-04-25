@@ -9,31 +9,28 @@ var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel"]
 var active_players = 0 # number of active players
 var ready_players = [] # which players are ready
 
-var started = false # has the game started?
-
-
 
 func _ready():
 	set_process_input(true)
 
 
 func _input(event):
-	if not started:
-		# detects a keyboard event and changes id so that the first
-		# controller and the keyboard don't overlap inputs
-		if event is InputEventKey:
-			event.device = KB_CUSTOM_ID
-		
-		if Input.is_action_just_pressed("pause"):
-			player_start(event.device)
-		
-		
-		elif Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
-			player_change_char(event.device)
-		
-		
-		elif Input.is_action_just_pressed("ui_cancel"):
-			player_exit(event.device)
+	var id = event.device
+	# detects a keyboard event and changes id so that the first
+	# controller and the keyboard don't overlap inputs
+	if event is InputEventKey:
+	    id = KB_CUSTOM_ID
+	
+	if Input.is_action_just_pressed("pause"):
+	    player_start(id)
+	
+	
+	elif Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
+	    player_change_char(id)
+	
+	
+	elif Input.is_action_just_pressed("ui_cancel"):
+	    player_exit(id)
 
 
 # player enters the game

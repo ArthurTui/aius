@@ -3,6 +3,7 @@ extends Node2D
 var positions = [Vector2(200, 300), Vector2(800, 300), Vector2(510, 100), Vector2(510, 500)]
 
 var char_scn = preload("res://characters/character.tscn")
+var pause_scn = preload("res://menus/pause_screen.tscn")
 
 var living = 0
 
@@ -31,6 +32,9 @@ func _ready():
 		char_inst.controller_device = key
 		
 		add_child(char_inst)
+	# we instance the pause scene last so that is stays above everything and everyone
+	add_child(pause_scn.instance())
+		
 	set_process(true)
 
 

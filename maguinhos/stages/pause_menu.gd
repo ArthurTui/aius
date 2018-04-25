@@ -2,8 +2,9 @@ extends Panel
 
 
 func _ready():
+	self.hide()
 	get_tree().paused = false
-	self.visible = false
+	set_process(true)
 
 
 func _process(delta):
@@ -17,4 +18,5 @@ func _on_resume_pressed():
 	
 
 func _on_quit_pressed():
-	get_tree().change_scene("res://menus/main_menu.tscn")
+	get_tree().paused = false
+	get_tree().change_scene("res://menus/CSS.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://menus/resources/bg.png" type="Texture" id=2]
@@ -11,6 +11,25 @@
 [ext_resource path="res://menus/resources/credits_glow.png" type="Texture" id=9]
 [ext_resource path="res://menus/resources/quit.png" type="Texture" id=10]
 [ext_resource path="res://menus/resources/quit_glow.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "fade_in"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 
@@ -64,6 +83,614 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=7]
+
+resource_name = "credits_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 346 ), Vector2( 120, 346 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "credits_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 346 ), Vector2( 72, 346 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "play_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 228 ), Vector2( 120, 228 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "play_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 228 ), Vector2( 72, 228 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "quit_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 405 ), Vector2( 120, 405 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "quit_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 405 ), Vector2( 72, 405 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "settings_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 286 ), Vector2( 120, 286 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "settings_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 286 ), Vector2( 72, 286 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+
+resource_name = "credits_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 346 ), Vector2( 120, 346 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+
+resource_name = "credits_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 346 ), Vector2( 72, 346 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+
+resource_name = "play_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Play:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 228 ), Vector2( 120, 228 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+
+resource_name = "play_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Play:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 228 ), Vector2( 72, 228 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+
+resource_name = "quit_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 405 ), Vector2( 120, 405 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+
+resource_name = "quit_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 405 ), Vector2( 72, 405 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+
+resource_name = "settings_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 286 ), Vector2( 120, 286 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+
+resource_name = "settings_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 286 ), Vector2( 72, 286 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+
+resource_name = "credits_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 346 ), Vector2( 120, 346 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+
+resource_name = "credits_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 346 ), Vector2( 72, 346 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+
+resource_name = "play_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Play:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 228 ), Vector2( 120, 228 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+
+resource_name = "play_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Play:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 228 ), Vector2( 72, 228 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+
+resource_name = "quit_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 405 ), Vector2( 120, 405 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+
+resource_name = "quit_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 405 ), Vector2( 72, 405 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+
+resource_name = "settings_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 286 ), Vector2( 120, 286 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+
+resource_name = "settings_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 286 ), Vector2( 72, 286 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+
+resource_name = "credits_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 346 ), Vector2( 120, 346 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+
+resource_name = "credits_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 346 ), Vector2( 72, 346 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+
+resource_name = "play_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Play:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 228 ), Vector2( 120, 228 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+
+resource_name = "play_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Play:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 228 ), Vector2( 72, 228 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+
+resource_name = "quit_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 405 ), Vector2( 120, 405 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+
+resource_name = "quit_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 405 ), Vector2( 72, 405 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+
+resource_name = "settings_hover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 286 ), Vector2( 120, 286 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+
+resource_name = "settings_unhover"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 286 ), Vector2( 72, 286 ) ]
+}
+
 [node name="Main Menu" type="Control" index="0"]
 
 anchor_left = 0.0
@@ -80,14 +707,18 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="fade" type="AnimationPlayer" parent="." index="0"]
 
 root_node = NodePath("..")
-autoplay = ""
+autoplay = "fade_in"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
+anims/fade_in = SubResource( 4 )
 anims/fade_out = SubResource( 1 )
 blend_times = [  ]
 
@@ -97,8 +728,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = -1.0
 margin_right = 1024.0
-margin_bottom = 600.0
+margin_bottom = 599.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -108,85 +740,21 @@ size_flags_vertical = 3
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1020.0
-margin_bottom = 600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Spacer2" type="Control" parent="VBoxContainer" index="0"]
+[node name="Title" type="TextureRect" parent="." index="2"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1020.0
-margin_bottom = 38.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 42.0
-margin_right = 1020.0
-margin_bottom = 92.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 236.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="Title" type="TextureRect" parent="VBoxContainer/HBoxContainer2" index="1"]
-
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 240.0
+margin_top = 42.0
 margin_right = 780.0
-margin_bottom = 50.0
+margin_bottom = 92.0
 rect_pivot_offset = Vector2( 270, 25 )
 rect_clip_content = false
 mouse_filter = 1
@@ -196,8 +764,11 @@ size_flags_vertical = 1
 texture = ExtResource( 3 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/HBoxContainer2/Title" index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title" index="0"]
 
 root_node = NodePath("..")
 autoplay = "pulse"
@@ -207,98 +778,31 @@ playback_speed = 1.0
 anims/pulse = SubResource( 2 )
 blend_times = [  ]
 
-[node name="Spacer2" type="Control" parent="VBoxContainer/HBoxContainer2" index="2"]
+[node name="Buttons" type="Control" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 784.0
-margin_right = 1020.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="Spacer3" type="Control" parent="VBoxContainer" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 96.0
-margin_right = 1020.0
-margin_bottom = 224.0
+margin_right = 40.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 3
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 228.0
-margin_right = 1020.0
-margin_bottom = 466.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 1
-alignment = 0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 68.0
-margin_bottom = 238.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-_sections_unfolded = [ "Margin", "Size Flags" ]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="1"]
+[node name="Play" type="TextureButton" parent="Buttons" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 72.0
+margin_top = 228.0
 margin_right = 327.0
-margin_bottom = 238.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="Play" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 255.0
-margin_bottom = 55.0
+margin_bottom = 283.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Quit")
@@ -314,19 +818,38 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Settings" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Play" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/credits_hover = SubResource( 7 )
+anims/credits_unhover = SubResource( 8 )
+anims/play_hover = SubResource( 5 )
+anims/play_unhover = SubResource( 6 )
+anims/quit_hover = SubResource( 9 )
+anims/quit_unhover = SubResource( 10 )
+anims/settings_hover = SubResource( 11 )
+anims/settings_unhover = SubResource( 12 )
+blend_times = [  ]
+
+[node name="Settings" type="TextureButton" parent="Buttons" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 59.0
-margin_right = 255.0
-margin_bottom = 114.0
+margin_left = 72.0
+margin_top = 286.0
+margin_right = 327.0
+margin_bottom = 341.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Play")
@@ -342,20 +865,38 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
-_sections_unfolded = [ "Focus", "Textures" ]
+_sections_unfolded = [ "Focus", "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Credits" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Settings" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/credits_hover = SubResource( 13 )
+anims/credits_unhover = SubResource( 14 )
+anims/play_hover = SubResource( 15 )
+anims/play_unhover = SubResource( 16 )
+anims/quit_hover = SubResource( 17 )
+anims/quit_unhover = SubResource( 18 )
+anims/settings_hover = SubResource( 19 )
+anims/settings_unhover = SubResource( 20 )
+blend_times = [  ]
+
+[node name="Credits" type="TextureButton" parent="Buttons" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 118.0
-margin_right = 255.0
-margin_bottom = 173.0
+margin_left = 72.0
+margin_top = 346.0
+margin_right = 327.0
+margin_bottom = 401.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Settings")
@@ -371,20 +912,38 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 8 )
 texture_hover = ExtResource( 9 )
-_sections_unfolded = [ "Focus", "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Quit" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Credits" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/credits_hover = SubResource( 21 )
+anims/credits_unhover = SubResource( 22 )
+anims/play_hover = SubResource( 23 )
+anims/play_unhover = SubResource( 24 )
+anims/quit_hover = SubResource( 25 )
+anims/quit_unhover = SubResource( 26 )
+anims/settings_hover = SubResource( 27 )
+anims/settings_unhover = SubResource( 28 )
+blend_times = [  ]
+
+[node name="Quit" type="TextureButton" parent="Buttons" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 177.0
-margin_right = 255.0
-margin_bottom = 238.0
+margin_left = 72.0
+margin_top = 405.0
+margin_right = 327.0
+margin_bottom = 466.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Credits")
@@ -400,48 +959,46 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 10 )
 texture_hover = ExtResource( 11 )
-_sections_unfolded = [ "Focus", "Textures" ]
+_sections_unfolded = [ "Focus", "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer" index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Quit" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 331.0
-margin_right = 1020.0
-margin_bottom = 238.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 10.0
-_sections_unfolded = [ "Size Flags", "Theme" ]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/credits_hover = SubResource( 29 )
+anims/credits_unhover = SubResource( 30 )
+anims/play_hover = SubResource( 31 )
+anims/play_unhover = SubResource( 32 )
+anims/quit_hover = SubResource( 33 )
+anims/quit_unhover = SubResource( 34 )
+anims/settings_hover = SubResource( 35 )
+anims/settings_unhover = SubResource( 36 )
+blend_times = [  ]
 
-[node name="Spacer" type="Control" parent="VBoxContainer" index="4"]
+[connection signal="mouse_entered" from="Buttons/Play" to="." method="_on_play_mouse_entered"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 470.0
-margin_right = 1020.0
-margin_bottom = 600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 3
-_sections_unfolded = [ "Size Flags" ]
+[connection signal="mouse_exited" from="Buttons/Play" to="." method="_on_play_mouse_exited"]
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="mouse_entered" from="Buttons/Settings" to="." method="_on_settings_mouse_entered"]
+
+[connection signal="mouse_exited" from="Buttons/Settings" to="." method="_on_settings_mouse_exited"]
+
+[connection signal="mouse_entered" from="Buttons/Credits" to="." method="_on_credits_mouse_entered"]
+
+[connection signal="mouse_exited" from="Buttons/Credits" to="." method="_on_credits_mouse_exited"]
+
+[connection signal="mouse_entered" from="Buttons/Quit" to="." method="_on_quit_mouse_entered"]
+
+[connection signal="mouse_exited" from="Buttons/Quit" to="." method="_on_quit_mouse_exited"]
+
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
 
 

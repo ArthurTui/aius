@@ -13,8 +13,6 @@ enum ELEMENT {
 
 signal death
 
-#var input_states = preload("res://input_states.gd")
-
 # We use the port, because actions are named ending on port,
 # and port - device_id association is made on the InputMap before
 # each game.
