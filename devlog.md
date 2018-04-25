@@ -135,3 +135,13 @@
  3. Battle.tscn agora é independente da CSS
  4. Condição de vitória adicionada na batalha
  5. Tela de pause agora é uma cena para mais facil instanciamento na batalha
+
+### 25/04
+
+#### Henrique (15:10 ~ 18:00)
+ 1. Refatoração do main menu
+ 2. Tela de pause despausa quando der quit
+ 3. Battle instancia cena de pause por código e por ultimo, para ela ficar em cima de tudo
+ 4. Input map de UI para devices restantes
+ 5. Sprites de personagens restantes redimensionados
+ 6. Minor bug fixes para show-off amanhã >:D
