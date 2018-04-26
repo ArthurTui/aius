@@ -50,3 +50,7 @@ func die():
 
 func free_scn():
 	queue_free()
+
+
+func _on_lightning1_visibility_changed():
+	print("oi")
