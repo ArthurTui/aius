@@ -38,6 +38,7 @@ func _on_projectile_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, null)
+			$anim.play("blink")
 	elif state == "returning":
 		die()
 
@@ -45,12 +46,9 @@ func _on_projectile_body_entered(body):
 func die():
 	$anim.play("death")
 	$projectile.queue_free()
+	$particles.emitting = false
 	set_process(false)
 
 
 func free_scn():
 	queue_free()
-
-
-func _on_lightning1_visibility_changed():
-	print("oi")
