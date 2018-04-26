@@ -132,6 +132,7 @@ has_activation = false
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "default"
+frame = 1
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 

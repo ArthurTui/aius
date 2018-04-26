@@ -1,59 +1,54 @@
-extends "res://spells/base_spell.gd"
+extends Node2D
 
 const SPEED = 8
+const ROTATION = 10
 const DAMAGE = 5
 const KNOCKBACK = 15
-var element = 1 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
-var level = 1
 
-var direction = Vector2( 0, 0 ) # direction that the fireball flies to
-var parent
-var Owner
-var shot = false
-var id
+signal died(name)
 
+var angle
+var caster
+var direction
 
-func start( parent, owner, id ):
-	self.parent = parent
-	self.Owner = owner
-	self.id = id
+func _ready():
+	caster = get_parent().get_parent().caster
+	set_process(false)
 
 
-func fire( direction, parent = parent ):
+func shoot(direction):
+	$sprite.set_modulate(Color(1, 1, 1, 1))
+	$lifetime.start()
 	self.direction = direction
-	self.parent = parent
-	self.shot = true
-	$LifeTimer.start()
-	$AnimationPlayer.play("spin")
-	set_scale(Vector2(1.5, 1.5))
-#	get_node( "SFX" ).play( "leaf" )
-	set_process( true )
+	set_process(true)
 
 
 func _process(delta):
 	position += direction * SPEED
+	rotation_degrees += ROTATION
 
 
-# does damage if take damage function exists
-func _on_Area2D_body_enter( body ):
-	if body != parent:
-		$Area2D.queue_free()
+func _on_projectile_body_entered(body):
+	# does damage if take damage function exists in body
+	if body != caster:
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
 		die()
 
 
-func _on_LifeTimer_timeout():
-	die()
+func remove_area():
+	if $projectile:
+		$projectile.queue_free()
 
 
 func die():
-	if $AnimationPlayer.get_current_animation() != "death":
-		$AnimationPlayer.play( "death" )
-		if (not shot):
-			owner.leaf_death(id-1)
-	set_process( false )
+	remove_area()
+	emit_signal("died", get_name())
 
 
-func free_scn():
-	queue_free()
+func selected():
+	$sprite.set_modulate(Color(1, 5, 1, 1))
+
+
+func _on_lifetime_timeout():
+	die()

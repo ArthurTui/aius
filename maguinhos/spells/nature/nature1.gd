@@ -1,116 +1,74 @@
 extends "res://spells/base_spell.gd"
 
-var direction = Vector2( 0, 0 )
-var parent
-var proj_count = 4
-var leaf_count = 4
+const SHIELD_RADIUS = 60
 
-var leaves = [true, true, true, true]
+var can_shoot = false
 
-var leafProj = preload("res://spells/nature/nature1proj.tscn")
-
-var angle = 0
-
-var c = Color(1, 0.5, 0.2)
-
-
-#func _ready():
-#	get_node( "SFX" ).play( "leafshield" )
+func _ready():
+	var angle = 0
+	for leaf in $leaves.get_children():
+		leaf.angle = angle
+		leaf.set_rotation(rad2deg(angle))
+		$tween.interpolate_property(leaf, "position", Vector2(), Vector2(SHIELD_RADIUS, 0).rotated(angle),
+									.2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		angle += PI/2
+	$tween.start()
+	$leaves.get_child(0).selected()
 
 
-func fire( direction, parent ):
-	self.parent = parent
-	self.has_activation = true
-	
-	get_node("LeafShieldProj1").start( parent, self, 1 )
-	get_node("LeafShieldProj2").start( parent, self, 2 )
-	get_node("LeafShieldProj3").start( parent, self, 3 )
-	get_node("LeafShieldProj4").start( parent, self, 4 )
-	set_position( parent.position )
-	next_leaf()
-	set_process( true )
-
-
-func follow():
-	if !weakref(parent).get_ref(): # parent was freed
-		parent = null
-		die()
-		return
-	set_position(self.parent.position)
-
-
-func spin_leaves(delta):
-	var leaf
-	var a
-	var x
-	var y
-	angle += delta*5
-	for i in range(4):
-		if (leaves[i] == true):
-			leaf = get_node(str("LeafShieldProj", i+1))
-			a = angle + (i+1)*PI/2
-			x = 25*sin(a)
-			y = 25*cos(a)
-			leaf.set_position(Vector2(x, y))
-			# Rotates the leaves along with their movement around the character
-			leaf.set_rotation( Vector2(x, y).angle() - deg2rad(180) )
-
-
-func _process(delta):
-	if leaf_count < proj_count:
-		proj_count = leaf_count
-	if leaf_count < 1:
-		die()
-	spin_leaves(delta)
-	follow()
-	if parent:
-		self.direction = self.parent.current_direction.normalized()
+func fire(direction, caster):
+	self.caster = caster
+	set_position(caster.position)
+	$rotation.play("spin")
 
 
 func activate():
-	for i in range (4):
-		if (leaves[i] == true):
-			shoot_leaf(i+1)
-			break
+	if $leaves.get_child_count() > 0 and can_shoot:
+		var leaf = $leaves.get_child(0)
+		var pos = leaf.global_position
+		$leaves.remove_child(leaf)
+		get_parent().add_child(leaf)
+		leaf.position = pos
+		leaf.shoot(caster.current_direction.normalized())
+		if ($leaves.get_child_count() > 0):
+			$leaves.get_child(0).selected()
+		else:
+			die()
 
 
-func next_leaf():
-	for i in range (4):
-		if (leaves[i] == true):
-			get_node(str("LeafShieldProj", i+1, "/Sprite")).set_modulate(c)
-			break
+func _process(delta):
+	if caster:
+		position = caster.position
 
 
-func shoot_leaf(id):
-	var leaf = get_node(str("LeafShieldProj", id))
-	var pos = leaf.position + self.position
-	remove_child(leaf)
-	get_parent().add_child(leaf)
-	leaf.set_position(pos)
-	leaf.fire(self.direction, self.parent)
-	leaves[id-1] = false
-	leaf_count -= 1
-	next_leaf()
-
-
-func leaf_death(id):
-	leaf_count -= 1
-	if leaf_count == 0:
-		die()
-	leaves[id] = false
-	next_leaf()
+func _on_lifetime_timeout():
+	die()
 
 
 func die():
-	set_process( false )
-	if parent: # parent was not freed
-		parent.spell_ended()
-	for child in get_children():
-		if child.get_name() != "AnimationPlayer" and child.get_name() != "Timer" and child.get_name() != "SFX":
-			child.die()
-	get_node("AnimationPlayer").play("death")
+	$lifetime.queue_free()
+	if caster:
+		caster.spell_ended()
+	for leaf in $leaves.get_children():
+		leaf.remove_area()
+		$tween.interpolate_property(leaf, "position", leaf.position, Vector2(), .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	if $leaves.get_child_count() > 0:
+		$tween.start()
+		yield($tween, "tween_completed")
+	queue_free()
 
 
-func _on_Timer_timeout():
-	leaf_count = 0
-	die()
+func _on_leaf_died(name):
+	if not $leaves.has_node(name):
+		return
+	var leaf = $leaves.get_node(name)
+	var pos = leaf.global_position
+	$leaves.remove_child(leaf)
+	get_parent().add_child(leaf)
+	leaf.position = pos
+	if $leaves.get_child_count() == 0:
+		die()
+
+
+func _on_tween_tween_completed(object, key):
+	can_shoot = true

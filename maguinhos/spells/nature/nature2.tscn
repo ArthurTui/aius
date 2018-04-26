@@ -222,8 +222,6 @@ tracks/2/keys = {
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-max_charge = null
-cooldown = null
 has_activation = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]

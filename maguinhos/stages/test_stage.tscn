@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://characters/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://menus/pause_screen.tscn" type="PackedScene" id=2]
@@ -22,7 +22,12 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="test_stage" type="Node2D" index="0"]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 60, 300 )
+
+[node name="test_stage" type="Node2D"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
 __meta__ = {
@@ -49,5 +54,40 @@ anims/fade_in = SubResource( 1 )
 blend_times = [  ]
 
 [node name="pause_screen" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="wall" type="StaticBody2D" parent="." index="4"]
+
+position = Vector2( 960, 300 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="wall" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -60.0
+margin_top = -300.0
+margin_right = 60.0
+margin_bottom = 300.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 0.5 )
+_sections_unfolded = [ "Rect" ]
 
 
