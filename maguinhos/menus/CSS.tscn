@@ -10,14 +10,14 @@
 [ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=8]
 [ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=9]
 [ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=10]
-[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=11]
-[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=12]
-[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=13]
-[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=14]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=15]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=16]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=17]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=11]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=12]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=13]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=14]
+[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=15]
+[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=16]
+[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=17]
+[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=18]
 [ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://menus/resources/black.jpg" type="Texture" id=20]
 
@@ -36,12 +36,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "sealeton",
+"name": "bloodyskel",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "bloodyskel",
+"name": "sealeton",
 "speed": 5.0
 } ]
 

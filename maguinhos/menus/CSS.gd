@@ -64,7 +64,7 @@ func player_start(id):
 	
 	
 	# starts game
-	if ready_players.size() == active_players and active_players >= 1:
+	if ready_players.size() == active_players and active_players >= 2:
 		# sets the global variables to be used in the battle scene
 		player_data.active_devices = active_devices
 		player_data.selected_characters = selected_characters
