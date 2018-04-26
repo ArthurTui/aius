@@ -156,6 +156,7 @@ has_activation = true
 
 [node name="trail" type="Particles2D" parent="." index="0"]
 
+scale = Vector2( 2, 2 )
 emitting = true
 amount = 60
 lifetime = 1.0
