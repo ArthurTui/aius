@@ -145,3 +145,9 @@
  4. Input map de UI para devices restantes
  5. Sprites de personagens restantes redimensionados
  6. Minor bug fixes para show-off amanhã >:D
+
+### 26/04
+
+#### Arthur (16:00 ~ 20:30)
+ 1. Refatoração da magia de natureza nível 1.
+ 2. Polimento de algumas animações e partículas.
