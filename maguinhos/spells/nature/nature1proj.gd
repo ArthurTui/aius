@@ -10,6 +10,7 @@ signal died(name)
 var angle
 var caster
 var direction
+var moving = false
 
 func _ready():
 	caster = get_parent().get_parent().caster
@@ -20,12 +21,27 @@ func shoot(direction):
 	$sprite.set_modulate(Color(1, 1, 1, 1))
 	$lifetime.start()
 	self.direction = direction
+	moving = true
 	set_process(true)
 
 
 func _process(delta):
+	if moving:
+		update_pos()
+	update_trail(position)
+
+
+func update_pos():
 	position += direction * SPEED
 	rotation_degrees += ROTATION
+
+
+func update_trail(position):
+	$trail.global_position = Vector2()
+	$trail.global_rotation = 0
+	$trail.add_point($trail_pivot.global_position)
+	if $trail.get_point_count() > 10:
+		$trail.remove_point(0)
 
 
 func _on_projectile_body_entered(body):
@@ -48,8 +64,10 @@ func remove_area():
 
 
 func die():
+	if $anim.is_playing():
+		return
 	remove_area()
-	set_process(false)
+	moving = false
 	emit_signal("died", get_name())
 	$anim.play("death")
 	yield($anim, "animation_finished")

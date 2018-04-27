@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://spells/nature/nature1proj.gd" type="Script" id=1]
 [ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
 [ext_resource path="res://spells/nature/sprites/leaf.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=3]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0, 1, 0, 0.0588235, 0.196078, 1, 0.196078, 0.392157 )
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -45,7 +50,25 @@ tracks/1/keys = {
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="projectile" type="Area2D" parent="." index="0"]
+[node name="trail_pivot" type="Position2D" parent="." index="0"]
+
+position = Vector2( -3, -3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="trail" type="Line2D" parent="." index="1"]
+
+points = PoolVector2Array(  )
+width = 15.0
+default_color = Color( 0.196078, 1, 0.196078, 1 )
+gradient = SubResource( 3 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 2.0
+round_precision = 15
+_sections_unfolded = [ "Border", "Capping", "Fill" ]
+
+[node name="projectile" type="Area2D" parent="." index="2"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -64,20 +87,20 @@ level = 1
 
 shape = SubResource( 1 )
 
-[node name="sprite" type="Sprite" parent="." index="1"]
+[node name="sprite" type="Sprite" parent="." index="3"]
 
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="lifetime" type="Timer" parent="." index="2"]
+[node name="lifetime" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="anim" type="AnimationPlayer" parent="." index="3"]
+[node name="anim" type="AnimationPlayer" parent="." index="5"]
 
 root_node = NodePath("..")
 autoplay = ""
