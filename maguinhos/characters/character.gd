@@ -171,8 +171,10 @@ func change_element(element):
 	var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
 	
 	current_color = colors[element]
-	if not is_dashing:
-		$sprite/glow.set_self_modulate(current_color)
+	if !is_dashing:
+		$sprite/glow/tween.interpolate_property($sprite/glow, "modulate", $sprite/glow.modulate, current_color,
+												.2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$sprite/glow/tween.start()
 	current_element = element
 	charge = 0
 	current_level = 0

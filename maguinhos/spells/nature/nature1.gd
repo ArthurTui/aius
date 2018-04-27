@@ -37,6 +37,10 @@ func activate():
 
 
 func _process(delta):
+	if !weakref(caster).get_ref(): # caster was freed
+		caster = null
+		die()
+		return
 	if caster:
 		position = caster.position
 
@@ -72,3 +76,5 @@ func _on_leaf_died(name):
 
 func _on_tween_tween_completed(object, key):
 	can_shoot = true
+	for leaf in $leaves.get_children():
+		leaf.monitor()

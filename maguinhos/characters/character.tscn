@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -260,6 +260,15 @@ playback_speed = 1.0
 anims/pulse = SubResource( 1 )
 blend_times = [  ]
 
+[node name="tween" type="Tween" parent="sprite/glow" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 [node name="shape" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 2 )
@@ -279,7 +288,6 @@ margin_top = 50.0
 margin_right = 20.0
 margin_bottom = 60.0
 rect_pivot_offset = Vector2( 20, 5 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -318,7 +326,6 @@ margin_top = 50.0
 margin_right = 20.0
 margin_bottom = 60.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
@@ -346,7 +353,6 @@ margin_top = -55.0
 margin_right = 20.0
 margin_bottom = -45.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

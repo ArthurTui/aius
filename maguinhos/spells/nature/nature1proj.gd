@@ -36,14 +36,24 @@ func _on_projectile_body_entered(body):
 		die()
 
 
+func monitor():
+	if has_node("projectile"):
+		$projectile.monitoring = true
+		$projectile.monitorable = true
+
+
 func remove_area():
-	if $projectile:
+	if has_node("projectile"):
 		$projectile.queue_free()
 
 
 func die():
 	remove_area()
+	set_process(false)
 	emit_signal("died", get_name())
+	$anim.play("death")
+	yield($anim, "animation_finished")
+	queue_free()
 
 
 func selected():
