@@ -33,7 +33,7 @@ func _ready():
 		add_child(char_inst)
 		# move the children up so that they stay above the ground but below the pause
 		# screen and the winner label
-		move_child(get_node(str("Character", player)), 1)
+		move_child(get_node(str("Character", player)), 4)
 		
 	set_process(true)
 
