@@ -151,3 +151,10 @@
 #### Arthur (16:00 ~ 20:30)
  1. Refatoração da magia de natureza nível 1.
  2. Polimento de algumas animações e partículas.
+
+### 30/04
+
+#### Henrique (2:30 ~ 17:00)
+ 1. Conserto de bugs
+ 2. Barra e texto de indicação de tempo de stun, slow, root
+ 3. Cena de floresta praticamente pronta, com objetos (arvore e pedra)
