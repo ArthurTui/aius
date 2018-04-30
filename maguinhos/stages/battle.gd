@@ -35,7 +35,6 @@ func _ready():
 		# screen and the winner label
 		move_child(get_node(str("Character", player)), 1)
 		
-	$pause_screen.start()
 	set_process(true)
 
 
