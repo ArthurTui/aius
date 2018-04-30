@@ -32,6 +32,7 @@ var ready_to_spell = true
 var holding_spell = false
 var is_stunned = false
 var is_rooted = false
+var is_slowed = false
 var is_dashing = false
 var can_dash = true
 
@@ -78,6 +79,7 @@ var cooldown = [0.5, 1.0, 1.5]
 func _ready():
 	add_to_group("Player")
 	change_element(ELEMENT.fire)
+	$status_bar.hide()
 
 
 func _process(delta):
@@ -162,6 +164,10 @@ func _physics_process(delta):
 				activation_wait += 1
 		if $cooldown_bar.visible:
 			$cooldown_bar.value -= 1
+	
+	# processes status bar
+	if is_stunned or is_rooted or is_slowed:
+		$status_bar.value -= 1
 
 
 func change_element(element):
@@ -238,9 +244,12 @@ func _on_cooldown_timeout():
 
 
 func slow(time, multiplier):
+	is_slowed = true
 	slow_multiplier = multiplier
 	$slow_timer.set_wait_time(time)
 	$slow_timer.start()
+	$status_label/anim.play("slow")
+	start_status(time)
 
 
 func stun(time):
@@ -248,27 +257,35 @@ func stun(time):
 	update_animation(str("idle_", current_anim.split("_")[1]))
 	$stun_timer.set_wait_time(time)
 	$stun_timer.start()
+	$status_label/anim.play("stun")
+	start_status(time)
 
 
 func root(time):
 	is_rooted = true
 	$root_timer.set_wait_time(time)
 	$root_timer.start()
+	$status_label/anim.play("root")
+	start_status(time)
 
 
 # Slow time is over
 func _on_slow_timeout():
+	is_slowed = false
 	slow_multiplier = 1
+	$status_bar.hide()
 
 
 # Stun time is over
 func _on_stun_timeout():
 	is_stunned = false
+	$status_bar.hide()
 
 
 # Root time is over
 func _on_root_timeout():
 	is_rooted = false
+	$status_bar.hide()
 
 
 # Duration of the dash
@@ -284,6 +301,14 @@ func _on_dash_timer_timeout():
 # Time until dash can be used again
 func _on_dash_cd_timeout():
 	can_dash = true
+
+
+# Sets the status bar
+func start_status(time):
+	var value = time * 60
+	$status_bar.show()
+	$status_bar.set_max(value)
+	$status_bar.set_value(value)
 
 
 func take_damage(damage, kb_dir, kb_str = 0):

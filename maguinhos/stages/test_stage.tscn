@@ -27,7 +27,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 60, 300 )
 
-[node name="test_stage" type="Node2D"]
+[node name="test_stage" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
 __meta__ = {
@@ -54,6 +54,8 @@ anims/fade_in = SubResource( 1 )
 blend_times = [  ]
 
 [node name="pause_screen" parent="." index="3" instance=ExtResource( 2 )]
+
+visible = false
 
 [node name="wall" type="StaticBody2D" parent="." index="4"]
 

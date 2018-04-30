@@ -51,7 +51,6 @@ func _on_lifetime_timeout():
 func die():
 	$projectile.queue_free()
 	$anim.play("death")
-#	set_process(false)
 
 
 func free_scn():
