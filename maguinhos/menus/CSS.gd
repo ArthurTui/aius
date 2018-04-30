@@ -18,7 +18,7 @@ func _input(event):
 	var id = event.device
 	# detects a keyboard event and changes id so that the first
 	# controller and the keyboard don't overlap inputs
-	if event is InputEventKey:
+	if Input.is_action_just_pressed("kb_enter") or event is InputEventKey:
 	    id = KB_CUSTOM_ID
 	
 	if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_accept"):
