@@ -10,6 +10,7 @@ enum ELEMENT {
 	lightning,
 	nature
 }
+const elements_str = ["fire","water","lightning","nature"]
 
 signal death
 
@@ -141,6 +142,9 @@ func _process(delta):
 			var action = str("d", controller_device,"_btn_magic")
 			if not Input.is_action_pressed(action) or Input.is_action_just_released(action):
 				if active_spell == null:
+					$charge_bar/anim_inner.play("inner exit")
+					if current_level >= 1:
+						$charge_bar/anim_outer.play("outer exit")
 					release_spell()
 				elif active_spell.has_activation:
 					active_spell.activate()
@@ -149,14 +153,31 @@ func _process(delta):
 
 func _physics_process(delta):
 	if !is_stunned:
-		if Input.is_action_pressed(str("d", controller_device,"_btn_magic")):
+		var action = str("d", controller_device,"_btn_magic")
+		if Input.is_action_pressed(action):
+			# just started charging
+			if charge == 0 and current_level == 0:
+				$charge_bar/anim_inner.play("inner enter")
+				
 			if active_spell == null:
-				charge += 1
-				$charge_bar.set_value(charge)
-				if charge >= $charge_bar.get_max(): # Bar maxed out
-					if not $charge_bar/anim.is_playing():
-						$charge_bar/anim.play("pulse")
-					update_max_charge()
+				if not $cooldown_bar.visible:
+					charge += 1
+					
+					# charges first bar
+					if $charge_bar/inner.value < $charge_bar/inner.get_max():
+						$charge_bar/inner.set_value(charge)
+						if charge >= $charge_bar/inner.get_max():
+							# starts charging next bar
+							update_max_charge()
+							$charge_bar/anim_outer.play("outer enter")
+							
+					#charges second bar
+					elif $charge_bar/outer.value < $charge_bar/outer.get_max():
+						$charge_bar/outer.set_value(charge)
+						if charge >= $charge_bar/outer.get_max(): # Bar maxed out
+							update_max_charge()
+							$charge_bar/anim_inner.play(str("maxed ", elements_str[current_element]))
+						
 			elif activation_wait >= 5:
 				active_spell.activate()
 				activation_wait = 0
@@ -171,7 +192,7 @@ func _physics_process(delta):
 
 
 func change_element(element):
-	if current_element == element:
+	if current_element == element or $cooldown_bar.visible:
 		return
 	
 	var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
@@ -184,8 +205,8 @@ func change_element(element):
 	current_element = element
 	charge = 0
 	current_level = 0
-	$charge_bar.set_value(0)
-	$charge_bar.set_max(max_charge[0])
+	$charge_bar/inner.set_value(0)
+	$charge_bar/outer.set_value(0)
 
 
 func update_max_charge():
@@ -194,7 +215,6 @@ func update_max_charge():
 	
 	current_level += 1
 	charge = 0
-	$charge_bar.set_max(max_charge[current_level])
 
 
 func release_spell():
@@ -225,7 +245,6 @@ func set_cooldown(time):
 	$cooldown_timer.start()
 
 	# Display cooldown bar
-	$charge_bar.hide()
 	$cooldown_bar.show()
 	$cooldown_bar.set_max(time * 60)
 	$cooldown_bar.set_value($cooldown_bar.get_max())
@@ -238,9 +257,8 @@ func _on_cooldown_timeout():
 	ready_to_spell = true
 
 	$cooldown_bar.hide()
-	$charge_bar.set_value(0)
-	$charge_bar.set_max(max_charge[0])
-	$charge_bar.show()
+	$charge_bar/inner.set_value(0)
+	$charge_bar/outer.set_value(0)
 
 
 func slow(time, multiplier):
