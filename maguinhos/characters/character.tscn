@@ -7,7 +7,8 @@
 [ext_resource path="res://characters/sprites/chargebar/inner fill2.png" type="Texture" id=5]
 [ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=6]
 [ext_resource path="res://characters/sprites/chargebar/outer fill2.png" type="Texture" id=7]
-[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://characters/sprites/chargebar/cd outer fill2.png" type="Texture" id=8]
+[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="Animation" id=1]
 
@@ -331,63 +332,48 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="Animation" id=25]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.588235, 0.117647, 0.588235, 1 )
-draw_center = true
-border_width_left = 0
-border_width_top = 0
-border_width_right = 0
-border_width_bottom = 0
-border_color = Color( 0.8, 0.8, 0.8, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
-_sections_unfolded = [ "Border" ]
-
-[sub_resource type="StyleBoxFlat" id=15]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
-draw_center = true
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 1, 1, 1, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 1.0
-expand_margin_right = 1.0
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
-_sections_unfolded = [ "Border", "Border Width", "Expand Margin" ]
+resource_name = "enter"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.15, 0.15 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.590101, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.0828627 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="StyleBoxFlat" id=16]
 
@@ -510,7 +496,7 @@ size = 20
 use_mipmaps = false
 use_filter = false
 extra_spacing_char = 1
-font_data = ExtResource( 8 )
+font_data = ExtResource( 9 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="Animation" id=21]
@@ -693,7 +679,7 @@ tracks/3/keys = {
 "values": [ "stunned!" ]
 }
 
-[node name="character" type="KinematicBody2D" index="0"]
+[node name="character" type="KinematicBody2D"]
 
 position = Vector2( -0.12851, -0.128513 )
 input_pickable = false
@@ -751,6 +737,7 @@ __meta__ = {
 
 [node name="charge_bar" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Visibility" ]
 
 [node name="inner" type="TextureProgress" parent="charge_bar" index="0"]
@@ -886,25 +873,25 @@ playback_speed = 1.0
 anims/pulse = SubResource( 13 )
 blend_times = [  ]
 
-[node name="cooldown_bar" type="ProgressBar" parent="." index="4"]
+[node name="cooldown_bar" type="TextureProgress" parent="." index="4"]
 
 visible = false
+modulate = Color( 1, 1, 1, 0.0828627 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -20.0
-margin_top = 50.0
-margin_right = 20.0
-margin_bottom = 60.0
-rect_pivot_offset = Vector2( 0, 0 )
+margin_left = -83.0
+margin_top = -126.0
+margin_right = 167.0
+margin_bottom = 124.0
+rect_scale = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 125, 125 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 14 )
-custom_styles/bg = SubResource( 15 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -912,8 +899,24 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-percent_visible = false
-_sections_unfolded = [ "Margin", "Percent", "Size Flags", "custom_styles" ]
+texture_under = ExtResource( 6 )
+texture_over = null
+texture_progress = ExtResource( 8 )
+fill_mode = 4
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Margin", "Percent", "Rect", "Size Flags", "Visibility", "custom_styles" ]
+
+[node name="anim" type="AnimationPlayer" parent="cooldown_bar" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/enter = SubResource( 25 )
+blend_times = [  ]
 
 [node name="health_bar" type="ProgressBar" parent="." index="5"]
 

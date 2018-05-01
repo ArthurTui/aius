@@ -81,6 +81,7 @@ func _ready():
 	add_to_group("Player")
 	change_element(ELEMENT.fire)
 	$status_bar.hide()
+	$cooldown_bar.hide()
 
 
 func _process(delta):
@@ -183,7 +184,7 @@ func _physics_process(delta):
 				activation_wait = 0
 			else:
 				activation_wait += 1
-		if $cooldown_bar.visible:
+		if $cooldown_bar.visible and active_spell == null:
 			$cooldown_bar.value -= 1
 	
 	# processes status bar
@@ -222,6 +223,9 @@ func release_spell():
 	var projectile = spell.instance()
 	projectile.fire(current_direction.normalized(), self)
 	get_parent().add_child(projectile)
+	# show cooldown bar
+	$cooldown_bar.set_value($cooldown_bar.get_max())
+	$cooldown_bar/anim.play("enter")
 
 	# Resets spell
 	ready_to_spell = false
@@ -244,8 +248,7 @@ func set_cooldown(time):
 	$cooldown_timer.set_wait_time(time)
 	$cooldown_timer.start()
 
-	# Display cooldown bar
-	$cooldown_bar.show()
+	# start cooldown bar
 	$cooldown_bar.set_max(time * 60)
 	$cooldown_bar.set_value($cooldown_bar.get_max())
 
