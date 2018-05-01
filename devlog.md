@@ -154,7 +154,13 @@
 
 ### 30/04
 
-#### Henrique (2:30 ~ 17:00)
+#### Henrique (14:30 ~ 17:00)
  1. Conserto de bugs
  2. Barra e texto de indicação de tempo de stun, slow, root
  3. Cena de floresta praticamente pronta, com objetos (arvore e pedra)
+
+### 01/05
+
+#### Henrique (15:50 ~ 19:00)
+ 1. Visual rehaul da charge bar e cooldown bar
+ 2. Conserto de bug em fire3
