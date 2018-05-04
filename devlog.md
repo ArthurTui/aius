@@ -164,3 +164,9 @@
 #### Henrique (15:50 ~ 19:00)
  1. Visual rehaul da charge bar e cooldown bar
  2. Conserto de bug em fire3
+
+### 04/05
+
+#### Henrique (17:00 ~ 19:00)
+ 1. Status bar e status label deletadas
+ 2. Novas sprites de indicação de status (slow, stun e root)
