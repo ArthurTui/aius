@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+const ACC = 10
 const RUN_SPEED = 4
 const DASH_SPEED = 8
 const KB_CUSTOM_ID = 100

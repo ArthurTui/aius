@@ -27,7 +27,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 60, 300 )
 
-[node name="test_stage" type="Node2D" index="0"]
+[node name="test_stage" type="Node2D"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
 __meta__ = {
@@ -84,7 +84,6 @@ margin_top = -300.0
 margin_right = 60.0
 margin_bottom = 300.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

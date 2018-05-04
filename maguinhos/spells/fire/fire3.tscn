@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://spells/fire/fire3.gd" type="Script" id=1]
 [ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=2]
 [ext_resource path="res://spells/base_projectile.gd" type="Script" id=3]
+[ext_resource path="res://spells/fire/sprites/explosion_atlas_512x512.png" type="Texture" id=4]
 
 [sub_resource type="Gradient" id=1]
 
@@ -82,8 +83,8 @@ radius = 120.0
 
 [sub_resource type="Gradient" id=8]
 
-offsets = PoolRealArray( 0, 0.0769231, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.792899, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0, 0.147929, 0.473373, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.792899, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=9]
 
@@ -96,7 +97,7 @@ width = 2048
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
-_data = [ Vector2( 0, 0.671875 ), 0.0, 0.350906, 0, 0, Vector2( 0.788143, 1 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.779297 ), 0.0, 1.90897, 0, 0, Vector2( 0.844776, 1 ), -1.07802, -1.07802, 0, 0, Vector2( 1, 1 ), 0.12187, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=11]
 
@@ -109,12 +110,12 @@ curve = SubResource( 10 )
 render_priority = 0
 trail_divisor = 1
 emission_shape = 1
-emission_sphere_radius = 80.0
+emission_sphere_radius = 70.0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
 spread = 180.0
-flatness = 0.01
+flatness = 1.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 20.0
 initial_velocity_random = 0.0
@@ -140,10 +141,10 @@ hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
 anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
+anim_offset = 1.0
+anim_offset_random = 1.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Emission Shape", "Scale", "Spread", "Trail" ]
+_sections_unfolded = [ "Animation", "Color", "Emission Shape", "Scale", "Spread", "Trail" ]
 
 [node name="fire3" type="Node2D" index="0"]
 
@@ -220,26 +221,25 @@ shape = SubResource( 7 )
 
 [node name="particles" type="Particles2D" parent="explosion" index="1"]
 
-scale = Vector2( 0.5, 0.5 )
 emitting = false
-amount = 15
+amount = 30
 lifetime = 1.0
 one_shot = true
 preprocess = 0.0
 speed_scale = 1.0
-explosiveness = 0.5
-randomness = 0.5
+explosiveness = 0.6
+randomness = 0.0
 fixed_fps = 0
 fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 12 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+h_frames = 3
+v_frames = 3
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
 
 [node name="lifetime" type="Timer" parent="." index="3"]
 
