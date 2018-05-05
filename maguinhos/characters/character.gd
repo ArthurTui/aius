@@ -327,7 +327,7 @@ func _on_dash_cd_timeout():
 	can_dash = true
 
 
-func take_damage(damage, kb_dir, kb_str = 0):
+func take_damage(damage, kb_dir=null, kb_str=0):
 	health -= damage
 	$health_bar.set_value(health)
 	if health <= 0:

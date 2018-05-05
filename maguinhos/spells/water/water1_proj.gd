@@ -5,7 +5,6 @@ const DAMAGE = 4
 const KNOCKBACK = 8
 
 var direction = Vector2(0, 0)
-var caster
 
 func fire(direction, caster):
 	self.direction = direction
@@ -43,12 +42,12 @@ func _on_projectile_area_entered(area):
 		return
 	if other == self:
 		return
-	if "parent" in other and other.parent == self.parent:
+	if "caster" in other and other.caster == self.caster:
 		return
 	
 	if "element" in area: # Makes sure it's something interactable with projectile
 		if area.level > self.level:
-			parent.die()
+			get_parent().die()
 		elif area.element == (self.element + 1) % 4: # Oposing element
 			if area.level < self.level: # Lower leveled spells have no effect
 				return

@@ -5,7 +5,6 @@ const DAMAGE = 35
 const KNOCKBACK = 70
 
 var direction = Vector2( 0, 0 ) # direction that the fireball flies to
-var parent
 var alive = true
 var damaged_bodies = [] # prevents explosion from damaging more than once
 
@@ -13,11 +12,13 @@ func _ready():
 	pass
 
 
-func fire(direction, parent):
+func fire(direction, caster):
 	self.direction = direction
-	self.parent = parent
+	self.caster = caster
+	$projectile.caster = caster
+	$explosion.caster = caster
 	self.has_activation = true
-	set_position(parent.position)
+	set_position(caster.position)
 	$trail.rotation = direction.angle()
 
 
@@ -26,7 +27,7 @@ func _process(delta):
 
 
 func _on_projectile_body_entered(body):
-	if alive and body != parent:
+	if alive and body != caster:
 		# checks if it's a player before checking if it's dashing,
 		# so that only the fireball explodes, and not the code
 		if body.is_in_group("Player") and body.is_dashing == false:
@@ -37,7 +38,7 @@ func _on_projectile_body_entered(body):
 
 # does damage if take damage function exists in body
 func _on_explosion_body_entered( body ):
-	if body != parent:
+	if body != caster:
 		if body.has_method("take_damage") and not body in damaged_bodies:
 			var kb_direction = (body.position - position).normalized()
 			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
@@ -71,7 +72,7 @@ func die():
 	$explosion/particles.emitting = true
 	$explosion_duration.start()
 	
-	if !weakref(parent).get_ref(): # Parent was freed
+	if !weakref(caster).get_ref(): # Caster was freed
 		return
-	parent.spell_ended() # Alerts player that spell is finished
+	caster.spell_ended() # Alerts player that spell is finished
 

@@ -13,11 +13,11 @@ var direction
 var moving = false
 
 func _ready():
-	caster = get_parent().get_parent().caster
 	set_process(false)
 
 
-func shoot(direction):
+func shoot(direction, caster):
+	self.caster = caster
 	$sprite.set_modulate(Color(1, 1, 1, 1))
 	$lifetime.start()
 	self.direction = direction
@@ -76,7 +76,7 @@ func die():
 
 
 func selected():
-	$sprite.set_modulate(Color(1, 5, 1, 1))
+	$sprite.set_modulate(Color(2, 5, 2, 1))
 
 
 func _on_lifetime_timeout():

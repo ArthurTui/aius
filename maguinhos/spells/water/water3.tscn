@@ -90,6 +90,7 @@ has_activation = false
 
 frames = SubResource( 1 )
 animation = "side"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 

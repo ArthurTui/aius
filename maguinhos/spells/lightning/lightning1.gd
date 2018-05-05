@@ -12,6 +12,7 @@ var state = "going"
 func fire(direction, caster):
 	self.direction = direction
 	self.caster = caster
+	$projectile.caster = caster
 	set_position(caster.position)
 	set_process(true)
 
@@ -37,7 +38,7 @@ func _process(delta):
 func _on_projectile_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage"):
-			body.take_damage(DAMAGE, null)
+			body.take_damage(DAMAGE)
 			$anim.play("blink")
 	elif state == "returning":
 		die()

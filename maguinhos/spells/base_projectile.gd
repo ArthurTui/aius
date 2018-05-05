@@ -3,10 +3,9 @@ extends Area2D
 export (int, "Fire", "Water", "Lightning", "Nature") var element
 export (int, 1, 3) var level
 
-var parent
+var caster
 
 func _ready():
-	parent = self.get_parent()
 	pass
 
 func _on_projectile_area_entered(area):
@@ -17,14 +16,14 @@ func _on_projectile_area_entered(area):
 		return
 	if other == self:
 		return
-	if "parent" in other and other.parent == self.parent:
+	if "caster" in other and other.caster == self.caster:
 		return
 	
 	if "element" in area: # Makes sure it's something interactable with projectile
 		if area.level > self.level:
-			parent.die()
+			get_parent().die()
 		elif area.element == (self.element + 1) % 4: # Oposing element
 			if area.level < self.level: # Lower leveled spells have no effect
 				return
-			parent.die()
+			get_parent().die()
 # Fire = 0, Water = 1, Lightning = 2, Nature = 3

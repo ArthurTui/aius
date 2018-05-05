@@ -1,5 +1,6 @@
 extends "res://spells/base_spell.gd"
 
+const DAMAGE = 1
 const SPEED = 5
 
 var direction = Vector2(0, 0) # direction that the wave goes to
@@ -8,6 +9,7 @@ var direction = Vector2(0, 0) # direction that the wave goes to
 func fire(direction, caster):
 	self.direction = direction
 	self.caster = caster
+	$projectile.caster = caster
 	set_position(caster.position)
 	if direction.x != 0:
 		if direction.x < 0:
@@ -23,7 +25,12 @@ func fire(direction, caster):
 
 
 func _process(delta):
-	position += direction * SPEED 
+	position += direction * SPEED
+	if !has_node("projectile"):
+		return
+	for body in $projectile.get_overlapping_bodies():
+		if body.has_method("take_damage") and body != caster:
+			body.take_damage(DAMAGE)
 
 
 func _on_projectile_body_entered(body):
@@ -32,8 +39,6 @@ func _on_projectile_body_entered(body):
 		die()
 	elif body != caster:
 		# Pushes back if target is an enemy
-		var kb_direction = (body.position - position).normalized()
-		body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 		body.push_direction = direction * 5
 #		body.Slow(5, 0.3)
 

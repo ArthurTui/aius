@@ -13,6 +13,7 @@ func _ready():
 func fire(direction, caster):
 	self.direction = direction
 	self.caster = caster
+	$projectile.caster = caster
 	set_position(caster.position)
 	set_rotation(direction.angle())
 

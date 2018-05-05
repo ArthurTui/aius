@@ -10,6 +10,7 @@ var direction = Vector2(0, 0) # direction that the cloud flies to
 func fire(direction, caster):
 	self.direction = direction
 	self.caster = caster
+	$projectile.caster = caster
 	set_position(caster.position)
 	$sprite.hide()
 	$anim.play("fire")
@@ -28,7 +29,7 @@ func _on_projectile_body_entered(body):
 		# target is another player
 		for b in $projectile.get_overlapping_bodies():
 			if b != caster and body.has_method("take_damage"):
-				b.take_damage(DAMAGE, null)
+				b.take_damage(DAMAGE)
 				b.stun(STUN_TIME)
 		$sprite.show()
 		$sprite.play("lightning")

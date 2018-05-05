@@ -6,17 +6,17 @@ const KNOCKBACK = 25
 const HOMING_FACTOR = 20 # the lowest the factor is, the fastest the homing
 
 var direction = Vector2(0, 0)
-var parent
 
 var target
 var accel
 
 
-func fire(direction, parent):
+func fire(direction, caster):
 	self.direction = direction
-	self.parent = parent
+	self.caster = caster
+	$projectile.caster = caster
 	set_rotation(direction.angle())
-	set_position(parent.position)
+	set_position(caster.position)
 
 
 func _process(delta):
@@ -48,7 +48,7 @@ func home():
 
 # does damage if take damage function exists in body
 func _on_projectile_body_entered(body):
-	if body != parent:
+	if body != caster:
 		if body.has_method("take_damage"):
 			var kb_direction = (body.position - position).normalized()
 			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
@@ -56,7 +56,7 @@ func _on_projectile_body_entered(body):
 
 
 func _on_detection_area_body_entered(body):
-	if body.is_in_group("Player") and body != parent:
+	if body.is_in_group("Player") and body != caster:
 		target = body
 		$detection_area.queue_free()
 

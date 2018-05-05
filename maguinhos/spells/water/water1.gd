@@ -2,6 +2,7 @@ extends "res://spells/base_spell.gd"
 
 func fire(direction, caster):
 	set_position(caster.position + 30 * direction)
+	self.caster = caster
 	$proj1.fire(direction, caster)
 	$proj2.fire(direction.rotated(deg2rad(10)), caster)
 	$proj3.fire(direction.rotated(deg2rad(-10)), caster)

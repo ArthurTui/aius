@@ -29,7 +29,7 @@ func activate():
 		$leaves.remove_child(leaf)
 		get_parent().add_child(leaf)
 		leaf.position = pos
-		leaf.shoot(caster.current_direction.normalized())
+		leaf.shoot(caster.current_direction.normalized(), caster)
 		if ($leaves.get_child_count() > 0):
 			$leaves.get_child(0).selected()
 		else:
