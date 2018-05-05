@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-const ACC = 10
 const RUN_SPEED = 4
 const DASH_SPEED = 8
 const KB_CUSTOM_ID = 100
@@ -47,6 +46,7 @@ var health = 100
 
 var activation_wait = 0
 
+var vel = Vector2()
 
 # Spells
 
@@ -88,9 +88,9 @@ func _process(delta):
 	
 	# Movement
 	
-	var direction = Vector2(0, 0)
+	var direction = Vector2()
 	var new_anim
-	var mot
+	var mot = Vector2()
 	
 	if !is_stunned:
 		# determines movement
@@ -125,9 +125,13 @@ func _process(delta):
 				$sprite/glow.set_self_modulate(Color(1,1,1,0.5))
 				$dash_timer.start()
 			if not is_dashing:
-				mot = move_and_collide(direction.normalized()*RUN_SPEED*slow_multiplier + push_direction)
+				mot = direction.normalized()*RUN_SPEED*slow_multiplier + push_direction
 			else:
-				mot = move_and_collide(dash_direction.normalized()*DASH_SPEED*slow_multiplier)
+				mot = dash_direction.normalized()*DASH_SPEED*slow_multiplier
+		
+		if vel.length() > mot.length():
+			mot = vel.linear_interpolate(mot, .5)
+		vel = move_and_slide(mot/delta) * delta
 		
 		if !holding_spell:
 			if Input.is_action_pressed(str("d", controller_device,"_element_fire")):
@@ -329,7 +333,8 @@ func take_damage(damage, kb_dir, kb_str = 0):
 	if health <= 0:
 		die()
 	if kb_dir != null: # Knockback
-		set_position(self.position + kb_dir * kb_str)
+#		set_position(self.position + kb_dir * kb_str)
+		vel += kb_dir * kb_str
 
 
 func die():

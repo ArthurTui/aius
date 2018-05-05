@@ -27,7 +27,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 60, 300 )
 
-[node name="test_stage" type="Node2D"]
+[node name="test_stage" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
 __meta__ = {

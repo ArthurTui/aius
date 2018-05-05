@@ -29,7 +29,8 @@ func _process(delta):
 func _on_projectile_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage"):
-			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
+			var kb_direction = (body.position - position).normalized()
+			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 		if body.has_method("slow"):
 			# Applies slow effect 
 			body.slow(2, 0.4)

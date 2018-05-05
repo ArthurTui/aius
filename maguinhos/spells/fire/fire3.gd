@@ -39,7 +39,8 @@ func _on_projectile_body_entered(body):
 func _on_explosion_body_entered( body ):
 	if body != parent:
 		if body.has_method("take_damage") and not body in damaged_bodies:
-			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
+			var kb_direction = (body.position - position).normalized()
+			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 			damaged_bodies.append(body)
 
 

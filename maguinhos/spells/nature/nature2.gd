@@ -40,7 +40,8 @@ func _on_Area2D_body_enter( body ):
 				body.root(1)
 				_on_LifeTimer_timeout()
 			else:
-				body.take_damage(DAMAGE, self.direction, KNOCKBACK)
+				var kb_direction = (body.position - position).normalized()
+				body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 				die()
 
 

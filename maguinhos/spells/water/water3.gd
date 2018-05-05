@@ -32,7 +32,8 @@ func _on_projectile_body_entered(body):
 		die()
 	elif body != caster:
 		# Pushes back if target is an enemy
-		body.take_damage(5, self.direction, 0)
+		var kb_direction = (body.position - position).normalized()
+		body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 		body.push_direction = direction * 5
 #		body.Slow(5, 0.3)
 

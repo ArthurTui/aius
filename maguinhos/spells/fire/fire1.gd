@@ -25,7 +25,8 @@ func _on_projectile_body_entered(body):
 	# does damage if take damage function exists in body
 	if body != caster:
 		if body.has_method("take_damage"):
-			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
+			var kb_direction = (body.position - position).normalized()
+			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 		die()
 
 
