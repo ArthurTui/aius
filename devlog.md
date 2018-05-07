@@ -170,3 +170,9 @@
 #### Henrique (17:00 ~ 19:00)
  1. Status bar e status label deletadas
  2. Novas sprites de indicação de status (slow, stun e root)
+
+### 07/05
+
+#### Henrique (10:10 ~ 11:20)
+ 1. Pequenos consertos de bugs
+ 2. Inicio de implementação da tela de seleção de fases
