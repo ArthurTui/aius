@@ -1,6 +1,8 @@
 extends "res://spells/base_spell.gd"
 
 const SPEED = 5
+const DAMAGE = 0
+const KNOCKBACK = 0
 
 var direction = Vector2(0, 0) # direction that the wave goes to
 
