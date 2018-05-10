@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inner under.png-880abb68a71572b16c9cbeb2eef3d583.stex"
+path="res://.import/river.png-984b0e23b27e78c7fe1d79ff8016db51.stex"
 
 [deps]
 
-source_file="res://characters/sprites/chargebar/inner under.png"
-source_md5="ad5bcbc2f1747a0a0406337743f2ad50"
+source_file="res://stages/thumbnails/river.png"
+source_md5="9c7879a06440f8f7a6956ec012119ece"
 
-dest_files=[ "res://.import/inner under.png-880abb68a71572b16c9cbeb2eef3d583.stex" ]
-dest_md5="b82ace4c5f36f311fb742a881c7cdb45"
+dest_files=[ "res://.import/river.png-984b0e23b27e78c7fe1d79ff8016db51.stex" ]
+dest_md5="8288cefaa58fac19c5360332439bda5c"
 
 [params]
 

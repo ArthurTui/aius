@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/outer under.png-7755252484439a2231d8b746880a86f6.stex"
+path="res://.import/inner under3.png-0ffff9e2cd445bff6baaeb6fafcc402c.stex"
 
 [deps]
 
-source_file="res://characters/sprites/chargebar/outer under.png"
-source_md5="d6bfbf5de9269160a08b6f25a4fc3458"
+source_file="res://characters/sprites/chargebar/x4 size/inner under3.png"
+source_md5="2bd70f2d7dc1029a0ceb81df2fa5080c"
 
-dest_files=[ "res://.import/outer under.png-7755252484439a2231d8b746880a86f6.stex" ]
-dest_md5="01f33c77038d953e91fd70be3e3762cc"
+dest_files=[ "res://.import/inner under3.png-0ffff9e2cd445bff6baaeb6fafcc402c.stex" ]
+dest_md5="a464a5b44ff754ead7a2ea179c5252ee"
 
 [params]
 

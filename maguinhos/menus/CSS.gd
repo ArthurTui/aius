@@ -68,7 +68,7 @@ func player_start(id):
 		# sets the global variables to be used in the battle scene
 		player_data.active_devices = active_devices
 		player_data.selected_characters = selected_characters
-		get_tree().change_scene("res://stages/forest.tscn")
+		get_tree().change_scene("res://menus/stage_select.tscn")
 
 
 # player changes character

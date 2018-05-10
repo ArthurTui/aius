@@ -7,10 +7,10 @@ path="res://.import/forest.png-b8936d581679ad6d2dcbf2eab5074ff6.stex"
 [deps]
 
 source_file="res://stages/thumbnails/forest.png"
-source_md5="a16bffedef2d71309aa76ca49b6c446a"
+source_md5="739758f9b9f34567f4d180179f1ec7fa"
 
 dest_files=[ "res://.import/forest.png-b8936d581679ad6d2dcbf2eab5074ff6.stex" ]
-dest_md5="b6dcea75127bb7ceebef93d085051c03"
+dest_md5="2ea253cf9ac9b92568dcd07c7242ee73"
 
 [params]
 
