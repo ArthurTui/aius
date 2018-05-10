@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/forest.png-b8936d581679ad6d2dcbf2eab5074ff6.stex"
+path="res://.import/river.png-984b0e23b27e78c7fe1d79ff8016db51.stex"
 
 [deps]
 
-source_file="res://stages/thumbnails/forest.png"
-source_md5="739758f9b9f34567f4d180179f1ec7fa"
+source_file="res://stages/thumbnails/river.png"
+source_md5="9c7879a06440f8f7a6956ec012119ece"
 
-dest_files=[ "res://.import/forest.png-b8936d581679ad6d2dcbf2eab5074ff6.stex" ]
-dest_md5="2ea253cf9ac9b92568dcd07c7242ee73"
+dest_files=[ "res://.import/river.png-984b0e23b27e78c7fe1d79ff8016db51.stex" ]
+dest_md5="8288cefaa58fac19c5360332439bda5c"
 
 [params]
 

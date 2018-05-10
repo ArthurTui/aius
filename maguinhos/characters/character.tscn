@@ -452,7 +452,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Corner Radius", "Expand Margin" ]
 
-[node name="character" type="KinematicBody2D" index="0"]
+[node name="character" type="KinematicBody2D"]
 
 position = Vector2( -0.12851, -0.128513 )
 input_pickable = false
@@ -476,7 +476,6 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 1 )
 animation = "stun"
-frame = 2
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="1"]

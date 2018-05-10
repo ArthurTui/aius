@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/forest.png-b8936d581679ad6d2dcbf2eab5074ff6.stex"
+path="res://.import/city.png-6440a762e22a5efa38ccdd8110982d14.stex"
 
 [deps]
 
-source_file="res://stages/thumbnails/forest.png"
-source_md5="739758f9b9f34567f4d180179f1ec7fa"
+source_file="res://stages/thumbnails/city.png"
+source_md5="fb4dd24c6b1813fbac9c3499eecc4c53"
 
-dest_files=[ "res://.import/forest.png-b8936d581679ad6d2dcbf2eab5074ff6.stex" ]
-dest_md5="2ea253cf9ac9b92568dcd07c7242ee73"
+dest_files=[ "res://.import/city.png-6440a762e22a5efa38ccdd8110982d14.stex" ]
+dest_md5="3eb8f3d12d27d000133aa815d2579763"
 
 [params]
 
