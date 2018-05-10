@@ -184,3 +184,7 @@
  2. Progresso na stage select screen
  3. Suporte para controle para mover cursor
  4. CSS passa para stage select screen ao invés de ir direto para forest
+
+#### Arthur (14:00 ~ 19:00)
+ 1. Conserto de bugs.
+ 2. Refatoração das magia de natureza níveis 2 e 3.
