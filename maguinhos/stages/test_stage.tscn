@@ -37,11 +37,13 @@ __meta__ = {
 
 [node name="character1" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 299.02, 276.494 )
+position = Vector2( 300, 300 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="character2" parent="." index="1" instance=ExtResource( 1 )]
 
-position = Vector2( 722.654, 288.721 )
+position = Vector2( 500, 300 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="fade" type="AnimationPlayer" parent="." index="2"]
 

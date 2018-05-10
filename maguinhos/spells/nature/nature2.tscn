@@ -33,7 +33,7 @@ custom_solver_bias = 0.0
 radius = 15.0
 _sections_unfolded = [ "Resource" ]
 
-[node name="Nature2" type="Node2D" index="0"]
+[node name="Nature2" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]

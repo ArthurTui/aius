@@ -6,7 +6,7 @@ const KNOCKBACK = 5
 
 const SEED_ROOT = .5
 const THORN_ROOT = 1.5
-const THORN_RADIUS = 30
+const THORN_RADIUS = 35
 
 var direction = Vector2() # direction that the seed flies to
 var is_seed = true
