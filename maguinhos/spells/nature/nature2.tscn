@@ -1,21 +1,22 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://spells/nature/nature2.gd" type="Script" id=1]
 [ext_resource path="res://spells/nature/sprites/thorns1.png" type="Texture" id=2]
 [ext_resource path="res://spells/nature/sprites/thorns2.png" type="Texture" id=3]
 [ext_resource path="res://spells/nature/sprites/thorns3.png" type="Texture" id=4]
 [ext_resource path="res://spells/nature/sprites/seed.png" type="Texture" id=5]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ null, ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
+"loop": false,
 "name": "grow",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), null ],
-"loop": true,
+"loop": false,
 "name": "die",
 "speed": 10.0
 }, {
@@ -27,198 +28,12 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=2]
 
+resource_local_to_scene = true
 custom_solver_bias = 0.0
 radius = 15.0
+_sections_unfolded = [ "Resource" ]
 
-[sub_resource type="Animation" id=3]
-
-length = 0.3
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 3, 2, 1, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "grow" ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AnimatedSprite:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.6, 0.6 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath(".:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "die"
-} ]
-}
-
-[sub_resource type="Animation" id=4]
-
-length = 0.3
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "grow" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Area2D/CollisionShape2D:shape")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ SubResource( 2 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Area2D/CollisionShape2D:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1.4, 1.4 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("AnimatedSprite:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.6, 0.6 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath(".:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=5]
-
-length = 0.01
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "seed" ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AnimatedSprite:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.4, 0.4 ) ]
-}
-
-[node name="ConjureThorns" type="Node2D"]
+[node name="Nature2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -226,11 +41,12 @@ has_activation = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
-animation = "grow"
+animation = "seed"
+_sections_unfolded = [ "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="1"]
+[node name="Projectile" type="Area2D" parent="." index="1"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -239,49 +55,32 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 6 )
+element = 3
+level = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectile" index="0"]
 
-scale = Vector2( 1.4, 1.4 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-
-root_node = NodePath("..")
-autoplay = "seed"
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/die = SubResource( 3 )
-anims/grow = SubResource( 4 )
-anims/seed = SubResource( 5 )
-blend_times = [  ]
-
-[node name="LifeTimer" type="Timer" parent="." index="3"]
+[node name="LifeTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 5.0
 one_shot = true
 autostart = false
 
-[node name="GrowTimer" type="Timer" parent="." index="4"]
+[node name="GrowTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
-wait_time = 0.3
+wait_time = 0.4
 one_shot = true
 autostart = true
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="." index="5"]
+[connection signal="area_entered" from="Projectile" to="Projectile" method="_on_projectile_area_entered"]
 
-stream = null
-volume_db = 0.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_enter"]
+[connection signal="body_entered" from="Projectile" to="." method="_on_Area2D_body_enter"]
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
 
