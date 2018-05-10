@@ -37,7 +37,7 @@ func _on_projectile_body_entered(body):
 
 
 func remove_area():
-	if $projectile:
+	if has_node("projectile"):
 		$projectile.queue_free()
 
 
