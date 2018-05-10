@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inner fill2.png-73af0996d12db0ccc02bb7bf8f9f52eb.stex"
+path="res://.import/outer fill2.png-d972ac9c349fc6539c88eacbf6286dce.stex"
 
 [deps]
 
-source_file="res://characters/sprites/chargebar/inner fill2.png"
-source_md5="e7aa4f9e3a97b7f5e69ce28f14f2bbdd"
+source_file="res://characters/sprites/chargebar/x4 size/outer fill2.png"
+source_md5="39bb39defbfef2ac628b90572cc57042"
 
-dest_files=[ "res://.import/inner fill2.png-73af0996d12db0ccc02bb7bf8f9f52eb.stex" ]
-dest_md5="a5d6ff8cc6f8e82da757a4346d22c2a7"
+dest_files=[ "res://.import/outer fill2.png-d972ac9c349fc6539c88eacbf6286dce.stex" ]
+dest_md5="b78419eec8f3054b6241ec3a6f6f3660"
 
 [params]
 
