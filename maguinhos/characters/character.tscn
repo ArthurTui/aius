@@ -1,12 +1,118 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://characters/sprites/skeleton.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://characters/sprites/blur.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://characters/sprites/status effects/stun1.png" type="Texture" id=3]
+[ext_resource path="res://characters/sprites/status effects/stun2.png" type="Texture" id=4]
+[ext_resource path="res://characters/sprites/status effects/stun3.png" type="Texture" id=5]
+[ext_resource path="res://characters/sprites/status effects/stun4.png" type="Texture" id=6]
+[ext_resource path="res://characters/sprites/status effects/stun5.png" type="Texture" id=7]
+[ext_resource path="res://characters/sprites/status effects/slow1.png" type="Texture" id=8]
+[ext_resource path="res://characters/sprites/status effects/slow2.png" type="Texture" id=9]
+[ext_resource path="res://characters/sprites/status effects/slow3.png" type="Texture" id=10]
+[ext_resource path="res://characters/sprites/status effects/root1.png" type="Texture" id=11]
+[ext_resource path="res://characters/sprites/status effects/root2.png" type="Texture" id=12]
+[ext_resource path="res://characters/sprites/status effects/root3.png" type="Texture" id=13]
+[ext_resource path="res://characters/sprites/status effects/root4.png" type="Texture" id=14]
+[ext_resource path="res://characters/sprites/status effects/root5.png" type="Texture" id=15]
+[ext_resource path="res://characters/sprites/blur.tres" type="SpriteFrames" id=16]
+[ext_resource path="res://characters/sprites/chargebar/inner under3.png" type="Texture" id=17]
+[ext_resource path="res://characters/sprites/chargebar/inner fill2.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=19]
+[ext_resource path="res://characters/sprites/chargebar/outer fill2.png" type="Texture" id=20]
+[ext_resource path="res://characters/sprites/chargebar/cd outer fill2.png" type="Texture" id=21]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="SpriteFrames" id=1]
 
-resource_name = "pulse"
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "stun",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "slow",
+"speed": 6.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "root",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "enter"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "exit"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+
 length = 1.0
 loop = true
 step = 0.1
@@ -20,76 +126,235 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=7]
 
 custom_solver_bias = 0.0
 radius = 20.0
 height = 30.0
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="Animation" id=8]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.560616, 0.925781, 0.075943, 1 )
-draw_center = true
-border_width_left = 0
-border_width_top = 0
-border_width_right = 0
-border_width_bottom = 0
-border_color = Color( 0.8, 0.8, 0.8, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("inner:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("inner:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.15, 0.15 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="Animation" id=9]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
-draw_center = true
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 1, 1, 1, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 1.0
-expand_margin_right = 1.0
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
-_sections_unfolded = [ "Border", "Border Width", "Corner Radius", "Expand Margin", "Resource" ]
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("inner:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.15, 0.15 ), Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("inner:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
 
-resource_name = "pulse"
-length = 0.3
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.972656, 0.241264, 0.121582, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.958278, 0.964844, 0.124374, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.202633, 0.679688, 0.119476, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.327637, 0.542648, 0.953125, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("outer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("outer:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.15, 0.15 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("outer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.15, 0.15 ), Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("outer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+
+resource_name = "enter"
+length = 0.2
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -99,71 +364,37 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0.15, 0.15 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.590101, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.0828627 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=6]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.588235, 0.117647, 0.588235, 1 )
-draw_center = true
-border_width_left = 0
-border_width_top = 0
-border_width_right = 0
-border_width_bottom = 0
-border_color = Color( 0.8, 0.8, 0.8, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
-_sections_unfolded = [ "Border" ]
-
-[sub_resource type="StyleBoxFlat" id=7]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
-draw_center = true
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 1, 1, 1, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 1.0
-expand_margin_right = 1.0
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
-_sections_unfolded = [ "Border", "Border Width", "Expand Margin" ]
-
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=17]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -192,7 +423,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border" ]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=18]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -204,7 +435,7 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 1, 1, 1, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 1 )
 border_blend = false
 corner_radius_top_left = 0
 corner_radius_top_right = 0
@@ -232,20 +463,57 @@ script = ExtResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 4.76837e-07, -0.540371 )
+position = Vector2( 4.76837e-07, -0.606343 )
 scale = Vector2( 0.6, 0.6 )
 frames = ExtResource( 2 )
 animation = "idle_down"
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="glow" type="AnimatedSprite" parent="sprite" index="0"]
+[node name="stun" type="AnimatedSprite" parent="sprite" index="0"]
+
+visible = false
+position = Vector2( 0.531465, -112.198 )
+frames = SubResource( 1 )
+animation = "stun"
+frame = 2
+playing = true
+
+[node name="slow" type="AnimatedSprite" parent="sprite" index="1"]
+
+visible = false
+position = Vector2( 0, -8.33334 )
+scale = Vector2( 1.4353, 1.4353 )
+frames = SubResource( 2 )
+animation = "slow"
+frame = 1
+playing = true
+
+[node name="root" type="AnimatedSprite" parent="sprite" index="2"]
+
+visible = false
+position = Vector2( 110.297, 64.5693 )
+scale = Vector2( 1.77854, 1.77854 )
+frames = SubResource( 3 )
+animation = "root"
+offset = Vector2( -62.0152, -28.8079 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="anim" type="AnimationPlayer" parent="sprite/root" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/enter = SubResource( 4 )
+anims/exit = SubResource( 5 )
+blend_times = [  ]
+
+[node name="glow" type="AnimatedSprite" parent="sprite" index="3"]
 
 show_behind_parent = true
-frames = ExtResource( 3 )
+frames = ExtResource( 16 )
 animation = "idle_down"
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -257,74 +525,143 @@ autoplay = "pulse"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/pulse = SubResource( 1 )
+anims/pulse = SubResource( 6 )
 blend_times = [  ]
+
+[node name="tween" type="Tween" parent="sprite/glow" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 [node name="shape" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 2 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="charge_bar" type="ProgressBar" parent="." index="2"]
+[node name="charge_bar" type="Node2D" parent="." index="2"]
 
+_sections_unfolded = [ "Visibility" ]
+
+[node name="inner" type="TextureProgress" parent="charge_bar" index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -20.0
-margin_top = 50.0
-margin_right = 20.0
-margin_bottom = 60.0
-rect_pivot_offset = Vector2( 20, 5 )
+margin_left = -83.0
+margin_top = -126.0
+margin_right = 167.0
+margin_bottom = 124.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 125, 125 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+size_flags_vertical = 1
 min_value = 0.0
-max_value = 100.0
+max_value = 40.0
 step = 1.0
 page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-percent_visible = false
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Visibility", "custom_styles" ]
+texture_under = ExtResource( 17 )
+texture_over = null
+texture_progress = ExtResource( 18 )
+fill_mode = 4
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="anim" type="AnimationPlayer" parent="charge_bar" index="0"]
+[node name="outer" type="TextureProgress" parent="charge_bar" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -83.0
+margin_top = -126.0
+margin_right = 167.0
+margin_bottom = 124.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 125, 125 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 80.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 19 )
+texture_over = null
+texture_progress = ExtResource( 20 )
+fill_mode = 4
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
+
+[node name="anim_inner" type="AnimationPlayer" parent="charge_bar" index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/pulse = SubResource( 5 )
+"anims/inner enter" = SubResource( 8 )
+"anims/inner exit" = SubResource( 9 )
+"anims/maxed fire" = SubResource( 10 )
+"anims/maxed lightning" = SubResource( 11 )
+"anims/maxed nature" = SubResource( 12 )
+"anims/maxed water" = SubResource( 13 )
 blend_times = [  ]
 
-[node name="cooldown_bar" type="ProgressBar" parent="." index="3"]
+[node name="anim_outer" type="AnimationPlayer" parent="charge_bar" index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+"anims/outer enter" = SubResource( 14 )
+"anims/outer exit" = SubResource( 15 )
+blend_times = [  ]
+
+[node name="cooldown_bar" type="TextureProgress" parent="." index="3"]
 
 visible = false
+modulate = Color( 1, 1, 1, 0.0828627 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -20.0
-margin_top = 50.0
-margin_right = 20.0
-margin_bottom = 60.0
-rect_pivot_offset = Vector2( 0, 0 )
+margin_left = -83.0
+margin_top = -126.0
+margin_right = 167.0
+margin_bottom = 124.0
+rect_scale = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 125, 125 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 6 )
-custom_styles/bg = SubResource( 7 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -332,8 +669,24 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-percent_visible = false
-_sections_unfolded = [ "Margin", "Percent", "Size Flags", "custom_styles" ]
+texture_under = ExtResource( 19 )
+texture_over = null
+texture_progress = ExtResource( 21 )
+fill_mode = 4
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Margin", "Percent", "Rect", "Size Flags", "Visibility", "custom_styles" ]
+
+[node name="anim" type="AnimationPlayer" parent="cooldown_bar" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/enter = SubResource( 16 )
+blend_times = [  ]
 
 [node name="health_bar" type="ProgressBar" parent="." index="4"]
 
@@ -351,8 +704,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 8 )
-custom_styles/bg = SubResource( 9 )
+custom_styles/fg = SubResource( 17 )
+custom_styles/bg = SubResource( 18 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -391,14 +744,21 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="dash_timer" type="Timer" parent="." index="9"]
+[node name="root_anim_timer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="dash_timer" type="Timer" parent="." index="10"]
 
 process_mode = 1
 wait_time = 0.2
 one_shot = true
 autostart = false
 
-[node name="dash_cd" type="Timer" parent="." index="10"]
+[node name="dash_cd" type="Timer" parent="." index="11"]
 
 process_mode = 1
 wait_time = 0.5
@@ -412,6 +772,8 @@ autostart = false
 [connection signal="timeout" from="slow_timer" to="." method="_on_slow_timeout"]
 
 [connection signal="timeout" from="root_timer" to="." method="_on_root_timeout"]
+
+[connection signal="timeout" from="root_anim_timer" to="." method="_on_root_anim_timer_timeout"]
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 

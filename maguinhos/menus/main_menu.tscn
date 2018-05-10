@@ -687,7 +687,7 @@ tracks/0/keys = {
 "values": [ Vector2( 120, 286 ), Vector2( 72, 286 ) ]
 }
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -780,8 +780,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 39.0
+margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -799,6 +799,7 @@ margin_left = 72.0
 margin_top = 228.0
 margin_right = 327.0
 margin_bottom = 283.0
+rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Quit")
@@ -815,9 +816,6 @@ group = null
 texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Play" index="0"]
 
@@ -846,6 +844,7 @@ margin_left = 72.0
 margin_top = 286.0
 margin_right = 327.0
 margin_bottom = 341.0
+rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Play")
@@ -862,9 +861,6 @@ group = null
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
 _sections_unfolded = [ "Focus", "Rect", "Textures" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Settings" index="0"]
 
@@ -893,6 +889,7 @@ margin_left = 72.0
 margin_top = 346.0
 margin_right = 327.0
 margin_bottom = 401.0
+rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Settings")
@@ -909,9 +906,6 @@ group = null
 texture_normal = ExtResource( 8 )
 texture_hover = ExtResource( 9 )
 _sections_unfolded = [ "Rect", "Textures" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Credits" index="0"]
 
@@ -940,6 +934,7 @@ margin_left = 72.0
 margin_top = 405.0
 margin_right = 327.0
 margin_bottom = 466.0
+rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Credits")
@@ -956,9 +951,6 @@ group = null
 texture_normal = ExtResource( 10 )
 texture_hover = ExtResource( 11 )
 _sections_unfolded = [ "Focus", "Rect", "Textures" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Quit" index="0"]
 

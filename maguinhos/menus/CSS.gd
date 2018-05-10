@@ -18,7 +18,7 @@ func _input(event):
 	var id = event.device
 	# detects a keyboard event and changes id so that the first
 	# controller and the keyboard don't overlap inputs
-	if event is InputEventKey:
+	if Input.is_action_just_pressed("kb_enter") or event is InputEventKey:
 	    id = KB_CUSTOM_ID
 	
 	if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_accept"):
@@ -68,9 +68,8 @@ func player_start(id):
 		# sets the global variables to be used in the battle scene
 		player_data.active_devices = active_devices
 		player_data.selected_characters = selected_characters
-		get_tree().change_scene("res://stages/battle.tscn")
-		
-	print(active_devices)
+		get_tree().change_scene("res://stages/forest.tscn")
+
 
 # player changes character
 func player_change_char(id):
@@ -90,7 +89,7 @@ func player_change_char(id):
 			
 			var character = selected_characters[player - 1]
 			get_node(str("CSS/P", player, "/character")).set_animation(character)
-		print(selected_characters)
+
 
 # player "exits"
 func player_exit(id):

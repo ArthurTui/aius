@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="Jogo dos Maguinhos"
+config/name="Aius: Battle for Magic"
 run/main_scene="res://stages/test_stage.tscn"
 config/icon="res://spells/lightning/sprites/magnetBolt3.png"
 
@@ -239,6 +239,8 @@ pause=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"",
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":2,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":3,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":4,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+ ]
+kb_enter=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
  ]
 
 [rendering]

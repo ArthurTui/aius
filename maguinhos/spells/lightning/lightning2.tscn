@@ -13,10 +13,10 @@
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), null ],
+"frames": [ ExtResource( 3 ), null, null, ExtResource( 4 ), null, ExtResource( 5 ), null, ExtResource( 6 ), ExtResource( 7 ), null ],
 "loop": false,
 "name": "lightning",
-"speed": 7.0
+"speed": 20.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -76,7 +76,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -10 ), Vector2( 0, -210 ) ]
 }
 
-[node name="lightning2" type="Node2D" index="0"]
+[node name="lightning2" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]

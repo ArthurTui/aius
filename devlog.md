@@ -145,3 +145,34 @@
  4. Input map de UI para devices restantes
  5. Sprites de personagens restantes redimensionados
  6. Minor bug fixes para show-off amanhã >:D
+
+### 26/04
+
+#### Arthur (16:00 ~ 20:30)
+ 1. Refatoração da magia de natureza nível 1.
+ 2. Polimento de algumas animações e partículas.
+
+### 30/04
+
+#### Henrique (14:30 ~ 17:00)
+ 1. Conserto de bugs
+ 2. Barra e texto de indicação de tempo de stun, slow, root
+ 3. Cena de floresta praticamente pronta, com objetos (arvore e pedra)
+
+### 01/05
+
+#### Henrique (15:50 ~ 19:00)
+ 1. Visual rehaul da charge bar e cooldown bar
+ 2. Conserto de bug em fire3
+
+### 04/05
+
+#### Henrique (17:00 ~ 19:00)
+ 1. Status bar e status label deletadas
+ 2. Novas sprites de indicação de status (slow, stun e root)
+
+### 07/05
+
+#### Henrique (10:10 ~ 11:20)
+ 1. Pequenos consertos de bugs
+ 2. Inicio de implementação da tela de seleção de fases

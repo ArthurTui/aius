@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/slow1.png-9a0cc96993b1f36fdccb87a50108d5dd.stex"
+
+[deps]
+
+source_file="res://characters/sprites/status effects/slow1.png"
+source_md5="864191b2adcdde2a8ab7b07236b8cdae"
+
+dest_files=[ "res://.import/slow1.png-9a0cc96993b1f36fdccb87a50108d5dd.stex" ]
+dest_md5="fd6ed3dc8305f1566e964adb7ec3cad7"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

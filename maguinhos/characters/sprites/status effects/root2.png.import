@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/root2.png-ece6ecba4b27af45bc13f2d49674a072.stex"
+
+[deps]
+
+source_file="res://characters/sprites/status effects/root2.png"
+source_md5="2ac5a998f50d6f47c1a7bba190248ee3"
+
+dest_files=[ "res://.import/root2.png-ece6ecba4b27af45bc13f2d49674a072.stex" ]
+dest_md5="41be45edf0ef171fd036f6ba32548c81"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -4,7 +4,7 @@ const SPEED = 8
 const DAMAGE = 4
 const KNOCKBACK = 8
 
-var direction = Vector2(0, 0)
+var direction = Vector2()
 var caster
 
 func fire(direction, caster):
@@ -22,7 +22,9 @@ func _process(delta):
 func _on_projectile_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage"):
-			body.take_damage(DAMAGE, self.direction, KNOCKBACK)
+			var kb_direction = (body.position - global_position).normalized()
+#			printt(body.position, position)
+			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 		die()
 
 
