@@ -75,7 +75,7 @@ tracks/1/keys = {
 [sub_resource type="Gradient" id=5]
 
 offsets = PoolRealArray( 0, 0.514793 )
-colors = PoolColorArray( 1, 1, 1, 0.588235, 1, 1, 1, 0 )
+colors = PoolColorArray( 1, 1, 1, 0.196078, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=6]
 
@@ -132,7 +132,6 @@ has_activation = false
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
