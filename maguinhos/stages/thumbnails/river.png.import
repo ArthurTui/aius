@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/quarter-circle.png-22ed50825c0b8d94b94ca09b72ab2016.stex"
+path="res://.import/river.png-984b0e23b27e78c7fe1d79ff8016db51.stex"
 
 [deps]
 
-source_file="res://spells/nature/sprites/quarter-circle.png"
-source_md5="d6e8c7400f4836d17ac07f625cc0169f"
+source_file="res://stages/thumbnails/river.png"
+source_md5="9c7879a06440f8f7a6956ec012119ece"
 
-dest_files=[ "res://.import/quarter-circle.png-22ed50825c0b8d94b94ca09b72ab2016.stex" ]
-dest_md5="829a1bc671b6e5de3d6911e587a03d86"
+dest_files=[ "res://.import/river.png-984b0e23b27e78c7fe1d79ff8016db51.stex" ]
+dest_md5="8288cefaa58fac19c5360332439bda5c"
 
 [params]
 

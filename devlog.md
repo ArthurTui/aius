@@ -170,3 +170,21 @@
 #### Henrique (17:00 ~ 19:00)
  1. Status bar e status label deletadas
  2. Novas sprites de indicação de status (slow, stun e root)
+
+### 07/05
+
+#### Henrique (10:10 ~ 11:20)
+ 1. Pequenos consertos de bugs
+ 2. Inicio de implementação da tela de seleção de fases
+
+### 10/05
+
+#### Henrique (15:30 ~ 17:20)
+ 1. Resize em sprites de charge bar/cooldown bar
+ 2. Progresso na stage select screen
+ 3. Suporte para controle para mover cursor
+ 4. CSS passa para stage select screen ao invés de ir direto para forest
+
+#### Arthur (14:00 ~ 19:00)
+ 1. Conserto de bugs.
+ 2. Refatoração das magia de natureza níveis 2 e 3.

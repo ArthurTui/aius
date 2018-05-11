@@ -11,7 +11,7 @@ func _ready():
 		leaf.set_rotation(rad2deg(angle))
 		$tween.interpolate_property(leaf, "position", Vector2(), Vector2(SHIELD_RADIUS, 0).rotated(angle),
 									.2, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		angle += PI/2
+		angle -= PI/2
 	$tween.start()
 	$leaves.get_child(0).selected()
 
@@ -37,7 +37,7 @@ func activate():
 
 
 func _process(delta):
-	if !weakref(caster).get_ref(): # caster was freed
+	if caster and !weakref(caster).get_ref(): # caster was freed
 		caster = null
 		die()
 		return

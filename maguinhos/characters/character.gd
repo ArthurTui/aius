@@ -122,7 +122,6 @@ func _process(delta):
 				# when dashing
 				$shape.set_disabled(true)
 				$sprite.set_self_modulate(Color(1,1,1,0.5))
-				$sprite/glow.set_self_modulate(Color(1,1,1,0.5))
 				$dash_timer.start()
 			if not is_dashing:
 				mot = direction.normalized()*RUN_SPEED*slow_multiplier + push_direction
@@ -318,7 +317,6 @@ func _on_dash_timer_timeout():
 	dash_direction = Vector2(0, 0)
 	$shape.set_disabled(false)
 	$sprite.set_self_modulate(Color(1,1,1,1))
-	$sprite/glow.set_self_modulate(current_color)
 	$dash_cd.start()
 
 

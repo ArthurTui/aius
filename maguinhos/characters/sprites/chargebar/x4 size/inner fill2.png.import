@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/inner fill2.png-8a1f0efd54c8c312a32852ade902a5c7.stex"
+
+[deps]
+
+source_file="res://characters/sprites/chargebar/x4 size/inner fill2.png"
+source_md5="b02fa0485ea61dfe8c627a4209fa6ff0"
+
+dest_files=[ "res://.import/inner fill2.png-8a1f0efd54c8c312a32852ade902a5c7.stex" ]
+dest_md5="dbee12f6c7495f45d0a77514be23b4d2"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

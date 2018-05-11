@@ -1,54 +1,19 @@
 extends "res://spells/base_spell.gd"
 
-const SPEED = 0.25
 const DAMAGE = 10
-const ROOT_TIME = 1.5
-var element = 1 # Lightning = 0, Nature = 1, Fire = 2, Water = 3
-var level = 3
+const ROOT_TIME = 2
 
-var direction = Vector2( 0, 0 )
-var parent
-
-
-#func _ready():
-#	get_node( "SFX" ).play( "vines" )
-
-
-func fire( direction, parent ):
-	self.parent = parent
-	self.direction = direction
-	set_position( parent.position )
-	set_rotation( direction.angle() - deg2rad(90) )
-	get_node( "AnimationPlayer" ).play( "fire" )
+func fire(direction, caster):
+	self.caster = caster
+	position = caster.position
+	rotation = direction.angle()
+	$anim.play("grow")
+	yield($anim, "animation_finished")
+	queue_free()
 
 
-func _on_Area2D_body_enter( body ):
-	if body != parent:
+func _on_projectile_body_entered(body):
+	if body != caster:
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE, null)
 			body.root(ROOT_TIME)
-
-
-func _on_Area2D_area_enter( area ):
-	var other = area.get_parent()
-	
-	# Makes sure it's something interactable with projectile
-	if "element" in other:
-		if other.level > level:
-			die()
-		elif other.element == 0: # Opposing element
-			die()
-
-
-func _on_LifeTimer_timeout():
-	die()
-
-
-func die():
-	$Area2D.queue_free()
-	$AnimationPlayer.play("death")
-
-
-func free_scn():
-	queue_free()
-

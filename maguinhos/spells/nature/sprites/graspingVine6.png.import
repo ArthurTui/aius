@@ -7,10 +7,10 @@ path="res://.import/graspingVine6.png-ec3c2418ebc76d1dad55c8b82018a9ee.stex"
 [deps]
 
 source_file="res://spells/nature/sprites/graspingVine6.png"
-source_md5="72e23e51162ffa7bf34fa90ddf516d40"
+source_md5="e4e79391b25a24723854504e9560ec08"
 
 dest_files=[ "res://.import/graspingVine6.png-ec3c2418ebc76d1dad55c8b82018a9ee.stex" ]
-dest_md5="54769926ef68623ed6ac8a5d49bbb67d"
+dest_md5="63e2ded81819bbbf5e4868a476206eef"
 
 [params]
 
