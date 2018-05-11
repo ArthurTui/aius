@@ -20,6 +20,7 @@ func fire(direction, caster):
 
 func _process(delta):
 	position += direction * SPEED
+	$trail.scale.x = lerp($trail.scale.x, 1, .01)
 
 
 func _on_projectile_body_entered(body):
@@ -36,9 +37,17 @@ func _on_lifetime_timeout():
 
 
 func die():
+	if has_node("lifetime"):
+		$lifetime.queue_free()
+	if $anim.is_playing():
+		return
 	$projectile/shape.disabled = true
-	$lifetime.queue_free()
 	$anim.play("death")
+	$trail/tween.interpolate_property($trail, "scale", $trail.scale,
+		$trail.scale * Vector2(0, 1), .4, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$trail/tween.interpolate_property($trail, "modulate", $trail.modulate,
+		Color(1, 1, 1, 0), .4, Tween.TRANS_EXPO, Tween.EASE_OUT)
+	$trail/tween.start()
 	set_process(false)
 
 
