@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://characters/sprites/skeleton.tres" type="SpriteFrames" id=2]
@@ -22,7 +22,26 @@
 [ext_resource path="res://characters/sprites/chargebar/outer fill2.png" type="Texture" id=20]
 [ext_resource path="res://characters/sprites/chargebar/cd outer fill2.png" type="Texture" id=21]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="Animation" id=1]
+
+resource_name = "blink"
+length = 0.15
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 50, 50, 50, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -31,7 +50,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
@@ -40,7 +59,7 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
@@ -49,9 +68,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource_name = "enter"
 length = 0.4
 loop = false
 step = 0.1
@@ -80,9 +98,8 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource_name = "exit"
 length = 0.5
 loop = false
 step = 0.1
@@ -111,7 +128,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
 length = 1.0
 loop = true
@@ -129,13 +146,13 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=8]
 
 custom_solver_bias = 0.0
 radius = 20.0
 height = 30.0
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 length = 0.2
 loop = false
@@ -177,7 +194,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
 length = 0.2
 loop = false
@@ -219,7 +236,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
 length = 0.4
 loop = true
@@ -237,7 +254,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.972656, 0.241264, 0.121582, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
 length = 0.4
 loop = true
@@ -255,7 +272,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.958278, 0.964844, 0.124374, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 
 length = 0.4
 loop = true
@@ -273,7 +290,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.202633, 0.679688, 0.119476, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 
 length = 0.4
 loop = true
@@ -291,7 +308,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.327637, 0.542648, 0.953125, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 
 length = 0.2
 loop = false
@@ -321,7 +338,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.8, 0.8 ), Vector2( 0.6, 0.6 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 
 length = 0.2
 loop = false
@@ -351,9 +368,8 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 
-resource_name = "enter"
 length = 0.2
 loop = false
 step = 0.1
@@ -394,7 +410,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.0828627 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=17]
+[sub_resource type="StyleBoxFlat" id=18]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -423,7 +439,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border" ]
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=19]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -470,30 +486,40 @@ animation = "idle_down"
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="stun" type="AnimatedSprite" parent="sprite" index="0"]
+[node name="anim" type="AnimationPlayer" parent="sprite" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/blink = SubResource( 1 )
+blend_times = [  ]
+
+[node name="stun" type="AnimatedSprite" parent="sprite" index="1"]
 
 visible = false
 position = Vector2( 0.531465, -112.198 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "stun"
+frame = 3
 playing = true
 
-[node name="slow" type="AnimatedSprite" parent="sprite" index="1"]
+[node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
 
 visible = false
 position = Vector2( 0, -8.33334 )
 scale = Vector2( 1.4353, 1.4353 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "slow"
-frame = 1
 playing = true
 
-[node name="root" type="AnimatedSprite" parent="sprite" index="2"]
+[node name="root" type="AnimatedSprite" parent="sprite" index="3"]
 
 visible = false
 position = Vector2( 110.297, 64.5693 )
 scale = Vector2( 1.77854, 1.77854 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "root"
 offset = Vector2( -62.0152, -28.8079 )
 _sections_unfolded = [ "Visibility" ]
@@ -505,11 +531,11 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/enter = SubResource( 4 )
-anims/exit = SubResource( 5 )
+anims/enter = SubResource( 5 )
+anims/exit = SubResource( 6 )
 blend_times = [  ]
 
-[node name="glow" type="AnimatedSprite" parent="sprite" index="3"]
+[node name="glow" type="AnimatedSprite" parent="sprite" index="4"]
 
 show_behind_parent = true
 frames = ExtResource( 16 )
@@ -524,7 +550,7 @@ autoplay = "pulse"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/pulse = SubResource( 6 )
+anims/pulse = SubResource( 7 )
 blend_times = [  ]
 
 [node name="tween" type="Tween" parent="sprite/glow" index="1"]
@@ -538,7 +564,7 @@ playback/speed = 1.0
 
 [node name="shape" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -561,7 +587,6 @@ margin_right = 79.0
 margin_bottom = 31.0
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 32, 32 )
-rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -595,7 +620,6 @@ margin_right = 79.0
 margin_bottom = 31.0
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 32, 32 )
-rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -623,12 +647,12 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-"anims/inner enter" = SubResource( 8 )
-"anims/inner exit" = SubResource( 9 )
-"anims/maxed fire" = SubResource( 10 )
-"anims/maxed lightning" = SubResource( 11 )
-"anims/maxed nature" = SubResource( 12 )
-"anims/maxed water" = SubResource( 13 )
+"anims/inner enter" = SubResource( 9 )
+"anims/inner exit" = SubResource( 10 )
+"anims/maxed fire" = SubResource( 11 )
+"anims/maxed lightning" = SubResource( 12 )
+"anims/maxed nature" = SubResource( 13 )
+"anims/maxed water" = SubResource( 14 )
 blend_times = [  ]
 
 [node name="anim_outer" type="AnimationPlayer" parent="charge_bar" index="3"]
@@ -638,8 +662,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-"anims/outer enter" = SubResource( 14 )
-"anims/outer exit" = SubResource( 15 )
+"anims/outer enter" = SubResource( 15 )
+"anims/outer exit" = SubResource( 16 )
 blend_times = [  ]
 
 [node name="cooldown_bar" type="TextureProgress" parent="." index="3"]
@@ -656,7 +680,6 @@ margin_right = 79.0
 margin_bottom = 31.0
 rect_scale = Vector2( 0, 0 )
 rect_pivot_offset = Vector2( 32, 32 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
@@ -684,7 +707,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/enter = SubResource( 16 )
+anims/enter = SubResource( 17 )
 blend_times = [  ]
 
 [node name="health_bar" type="ProgressBar" parent="." index="4"]
@@ -698,13 +721,12 @@ margin_top = -55.0
 margin_right = 20.0
 margin_bottom = -45.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 17 )
-custom_styles/bg = SubResource( 18 )
+custom_styles/fg = SubResource( 18 )
+custom_styles/bg = SubResource( 19 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
