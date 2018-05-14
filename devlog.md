@@ -188,3 +188,10 @@
 #### Arthur (14:00 ~ 19:00)
  1. Conserto de bugs.
  2. Refatoração das magia de natureza níveis 2 e 3.
+
+### 14/05
+
+#### Henrique (10:00 ~ 11:30)
+ 1. Botão de random na seleção de fases
+ 2. Estéticas não terminadas ainda
+ 3. Conserto de bug na charge bar
