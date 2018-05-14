@@ -194,6 +194,9 @@ func _physics_process(delta):
 func change_element(element):
 	if current_element == element or $cooldown_bar.visible:
 		return
+	if current_level != null and current_level >= 1:
+		print("kekker")
+		$charge_bar/anim_outer.play("outer exit")
 	
 	var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
 	
