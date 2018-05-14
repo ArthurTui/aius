@@ -1,23 +1,288 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://menus/stage_select.gd" type="Script" id=1]
 [ext_resource path="res://stages/thumbnails/forest.png" type="Texture" id=2]
-[ext_resource path="res://stages/thumbnails/cave.png" type="Texture" id=3]
-[ext_resource path="res://stages/thumbnails/city.png" type="Texture" id=4]
-[ext_resource path="res://stages/thumbnails/river.png" type="Texture" id=5]
-[ext_resource path="res://menus/resources/arrow.png" type="Texture" id=6]
+[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://stages/thumbnails/cave.png" type="Texture" id=4]
+[ext_resource path="res://stages/thumbnails/city.png" type="Texture" id=5]
+[ext_resource path="res://stages/thumbnails/river.png" type="Texture" id=6]
+[ext_resource path="res://menus/resources/arrow.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10.5681, 10.1327 )
 
+[sub_resource type="DynamicFont" id=4]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font" ]
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "enter"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -50, 350 ), Vector2( -90, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "exit"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -90, 350 ), Vector2( -130, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "enter"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -50, 350 ), Vector2( -90, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "exit"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -90, 350 ), Vector2( -130, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "enter"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -50, 350 ), Vector2( -90, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "exit"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -90, 350 ), Vector2( -130, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "enter"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -50, 350 ), Vector2( -90, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "exit"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -90, 350 ), Vector2( -130, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font" ]
+
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="stage_select" type="Control"]
+[node name="stage_select" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -43,7 +308,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1024.0
-margin_bottom = 430.0
+margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 focus_mode = 2
@@ -61,9 +326,29 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="forest" type="TextureRect" parent="stages" index="1"]
+[node name="ColorRect" type="ColorRect" parent="stages" index="1"]
 
-editor/display_folded = true
+modulate = Color( 0.988281, 0.988281, 0.988281, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 430.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.0653076, 0.0721169, 0.078125, 1 )
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="forest" type="TextureRect" parent="stages" index="2"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -72,7 +357,7 @@ margin_left = 90.0
 margin_top = 80.0
 margin_right = 295.0
 margin_bottom = 200.0
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 1
@@ -84,7 +369,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
 
 [node name="Area2D" type="Area2D" parent="stages/forest" index="0"]
@@ -103,9 +388,44 @@ position = Vector2( 104.452, 60.4668 )
 scale = Vector2( 9.99015, 6.05611 )
 shape = SubResource( 1 )
 
-[node name="cave" type="TextureRect" parent="stages" index="2"]
+[node name="info" type="Label" parent="stages/forest" index="1"]
 
-editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -90.0
+margin_top = 350.0
+margin_right = 934.0
+margin_bottom = 520.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "aedhadf"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="anim" type="AnimationPlayer" parent="stages/forest/info" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/enter = SubResource( 5 )
+anims/exit = SubResource( 6 )
+blend_times = [  ]
+
+[node name="cave" type="TextureRect" parent="stages" index="3"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -114,16 +434,17 @@ margin_left = 530.0
 margin_top = 80.0
 margin_right = 735.0
 margin_bottom = 200.0
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 stretch_mode = 0
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="Area2D" type="Area2D" parent="stages/cave" index="0"]
@@ -143,9 +464,44 @@ position = Vector2( 28, -12.4351 )
 scale = Vector2( 9.94979, 6.05853 )
 shape = SubResource( 1 )
 
-[node name="city" type="TextureRect" parent="stages" index="3"]
+[node name="info" type="Label" parent="stages/cave" index="1"]
 
-editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -530.0
+margin_top = 350.0
+margin_right = 494.0
+margin_bottom = 520.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "aedhadf"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="anim" type="AnimationPlayer" parent="stages/cave/info" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/enter = SubResource( 7 )
+anims/exit = SubResource( 8 )
+blend_times = [  ]
+
+[node name="city" type="TextureRect" parent="stages" index="4"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -154,17 +510,18 @@ margin_left = 90.0
 margin_top = 220.0
 margin_right = 295.0
 margin_bottom = 340.0
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Rect" ]
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="Area2D" type="Area2D" parent="stages/city" index="0"]
@@ -184,9 +541,44 @@ position = Vector2( 118.889, 66.0213 )
 scale = Vector2( 9.88709, 6.09165 )
 shape = SubResource( 1 )
 
-[node name="river" type="TextureRect" parent="stages" index="4"]
+[node name="info" type="Label" parent="stages/city" index="1"]
 
-editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -90.0
+margin_top = 210.0
+margin_right = 934.0
+margin_bottom = 380.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "aedhadf"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="anim" type="AnimationPlayer" parent="stages/city/info" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/enter = SubResource( 9 )
+anims/exit = SubResource( 10 )
+blend_times = [  ]
+
+[node name="river" type="TextureRect" parent="stages" index="5"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -195,16 +587,17 @@ margin_left = 530.0
 margin_top = 220.0
 margin_right = 735.0
 margin_bottom = 340.0
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="Area2D" type="Area2D" parent="stages/river" index="0"]
@@ -224,31 +617,107 @@ position = Vector2( 112.88, 65.1639 )
 scale = Vector2( 9.94979, 6.09166 )
 shape = SubResource( 1 )
 
-[node name="configs" type="ItemList" parent="." index="1"]
+[node name="info" type="Label" parent="stages/river" index="1"]
 
-self_modulate = Color( 1, 1, 1, 0.34 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 430.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = -530.0
+margin_top = 210.0
+margin_right = 494.0
+margin_bottom = 380.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-focus_mode = 2
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "aedhadf"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="anim" type="AnimationPlayer" parent="stages/river/info" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/enter = SubResource( 11 )
+anims/exit = SubResource( 12 )
+blend_times = [  ]
+
+[node name="random" type="ColorRect" parent="stages" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 830.0
+margin_top = 181.0
+margin_right = 960.0
+margin_bottom = 241.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-items = [  ]
-select_mode = 0
-allow_reselect = false
-icon_mode = 1
-fixed_icon_size = Vector2( 0, 0 )
-_sections_unfolded = [ "Visibility" ]
+color = Color( 0.494662, 0.960938, 0.364105, 1 )
+_sections_unfolded = [ "Theme" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="cursor" type="KinematicBody2D" parent="." index="2"]
+[node name="Area2D" type="Area2D" parent="stages/random" index="0"]
+
+position = Vector2( 65, 30 )
+scale = Vector2( 2.03125, 0.9375 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/random/Area2D" index="0"]
+
+position = Vector2( -1.38283e-05, 5.72205e-06 )
+scale = Vector2( 2.35847, 2.43667 )
+shape = SubResource( 1 )
+
+[node name="label" type="Label" parent="stages/random" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 130.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Random"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="cursor" type="KinematicBody2D" parent="." index="1"]
 
 position = Vector2( 470, 240 )
 input_pickable = false
@@ -265,7 +734,7 @@ __meta__ = {
 position = Vector2( -1.20978, -2.54083 )
 rotation = -2.35619
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cursor" index="1"]
