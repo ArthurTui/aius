@@ -48,36 +48,34 @@ func _process(delta):
 				# shows stage info
 				if idx < 4 and not stages_hovered[idx]:
 					stages_hovered[idx] = true
-					$stages.get_node(str(name,"/info/anim")).play("enter")
+					$stages.get_node(str(name,"/info")).show()
 				
 				# changes random's color if hovered
-				if name == "random":
+				if idx == 4:
 					$stages/random.set_frame_color("7ef55c") # green
 				
 				# stage was selected
 				if Input.is_action_just_pressed("ui_accept"):
-					if name != "random":
+					if idx < 4: # name is not "random"
 						# we'll use this once all stages are instanceable
 						#get_tree().change_scene(str("res://stages/",name,".tscn"))
 						
-						print(name)
 						if name == "forest":
 							get_tree().change_scene("res://stages/forest.tscn")
 						
 					# random stage, also teleports the cursor to the stage
 					# the random chose
-					elif name == "random":
+					else:
 						var stage = stage_names[randi() % 4]
 						var pos = $stages.get_node(stage).get_position()
 						pos += $stages.get_node(stage).get_pivot_offset()
 						$cursor.position = pos
 						
-			# resets random's color
-			if not $stages/random/Area2D.overlaps_body($cursor):
-				$stages/random.set_frame_color("7ad6ef") # blue
-		
 			# hides stage info
 			elif idx < 4 and stages_hovered[idx]:
 				stages_hovered[idx] = false
-				$stages.get_node(str(name,"info/anim")).play("exit")
+				$stages.get_node(str(name,"/info")).hide()
 				
+			# resets random's color
+			if not $stages/random/Area2D.overlaps_body($cursor):
+				$stages/random.set_frame_color("7ad6ef") # blue

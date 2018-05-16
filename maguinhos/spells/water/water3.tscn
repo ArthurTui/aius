@@ -81,7 +81,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="water3" type="Node2D" index="0"]
+[node name="water3" type="Node2D"]
 
 script = ExtResource( 1 )
 has_activation = false
@@ -90,7 +90,7 @@ has_activation = false
 
 frames = SubResource( 1 )
 animation = "side"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 

@@ -142,7 +142,7 @@ func _process(delta):
 			if Input.is_action_pressed(str("d", controller_device,"_element_nature")):
 			    change_element(ELEMENT.nature)
 		
-		if ready_to_spell and charge > 0:
+		if ready_to_spell:
 			var action = str("d", controller_device,"_btn_magic")
 			if not Input.is_action_pressed(action) or Input.is_action_just_released(action):
 				if active_spell == null:
@@ -160,7 +160,7 @@ func _physics_process(delta):
 		var action = str("d", controller_device,"_btn_magic")
 		if Input.is_action_pressed(action):
 			# just started charging
-			if charge == 0 and current_level == 0:
+			if charge == 0 and current_level == 0 and ready_to_spell:
 				$charge_bar/anim_inner.play("inner enter")
 				
 			if active_spell == null:
@@ -175,7 +175,7 @@ func _physics_process(delta):
 							update_max_charge()
 							$charge_bar/anim_outer.play("outer enter")
 							
-					#charges second bar
+					# charges second bar
 					elif $charge_bar/outer.value < $charge_bar/outer.get_max():
 						$charge_bar/outer.set_value(charge)
 						if charge >= $charge_bar/outer.get_max(): # Bar maxed out
@@ -192,10 +192,9 @@ func _physics_process(delta):
 
 
 func change_element(element):
-	if current_element == element or $cooldown_bar.visible:
+	if current_element == element:
 		return
 	if current_level != null and current_level >= 1:
-		print("kekker")
 		$charge_bar/anim_outer.play("outer exit")
 	
 	var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
