@@ -29,6 +29,8 @@ var current_spell
 var current_level
 var charge
 
+var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
+
 var ready_to_spell = true
 var holding_spell = false
 var is_stunned = false
@@ -77,11 +79,20 @@ var spells = [[fire1, fire2, fire3], [water1, water2, water3],
 var max_charge = [40, 80, 1]
 var cooldown = [0.5, 1.0, 1.5]
 
+var dash_particles
 
 func _ready():
 	add_to_group("Player")
 	change_element(ELEMENT.fire)
 	$charge_bar/cooldown_bar.hide()
+	dash_particles = {Vector2(0, 1) : load("res://characters/sprites/blur/dash_down.png"),
+						Vector2(-1, 1) : load("res://characters/sprites/blur/dash_downleft.png"),
+						Vector2(1, 1) : load("res://characters/sprites/blur/dash_downright.png"),
+						Vector2(-1, 0) : load("res://characters/sprites/blur/dash_left.png"),
+						Vector2(1, 0) : load("res://characters/sprites/blur/dash_right.png"),
+						Vector2(0, -1) : load("res://characters/sprites/blur/dash_up.png"),
+						Vector2(-1, -1) : load("res://characters/sprites/blur/dash_upleft.png"),
+						Vector2(1, -1) : load("res://characters/sprites/blur/dash_upright.png")}
 
 
 func _process(delta):
@@ -116,6 +127,19 @@ func _process(delta):
 				is_dashing = true
 				can_dash = false
 				dash_direction = current_direction
+				
+				# Particles
+				var col = colors[current_element]
+				$sprite/particles.modulate = col.lightened(.7)
+				$sprite/particles.texture = dash_particles[dash_direction]
+				$sprite/particles.emitting = true
+				if dash_direction.y == 0:
+					$sprite/particles.h_frames = 6
+					$sprite/particles.z_index = -1
+				else:
+					$sprite/particles.h_frames = 4
+					$sprite/particles.z_index = -dash_direction.y
+				
 				# Disables collision with spells.
 				# We may need to add another shape so that the
 				# character still collides with structures
@@ -197,8 +221,6 @@ func change_element(element):
 		return
 	if current_level != null and current_level >= 1:
 		$charge_bar/anim_outer.play("outer exit")
-	
-	var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
 	
 	current_color = colors[element]
 	if !is_dashing:
@@ -322,6 +344,7 @@ func _on_dash_timer_timeout():
 	dash_direction = Vector2(0, 0)
 	$shape.set_disabled(false)
 	$sprite.set_self_modulate(Color(1,1,1,1))
+	$sprite/particles.emitting = false
 	$dash_cd.start()
 
 
@@ -400,7 +423,7 @@ func define_animation(direction):
 func update_animation(new_animation):
 	current_anim = $sprite.animation
 
-	if new_animation != current_anim:# and not is_dashing:
+	if new_animation != current_anim:
 		$sprite.play(new_animation)
 		$sprite/glow.play(new_animation)
 		current_anim = new_animation

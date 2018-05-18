@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://characters/sprites/skeleton.tres" type="SpriteFrames" id=2]
@@ -16,11 +16,12 @@
 [ext_resource path="res://characters/sprites/status effects/root4.png" type="Texture" id=14]
 [ext_resource path="res://characters/sprites/status effects/root5.png" type="Texture" id=15]
 [ext_resource path="res://characters/sprites/blur.tres" type="SpriteFrames" id=16]
-[ext_resource path="res://characters/sprites/chargebar/inner under3.png" type="Texture" id=17]
-[ext_resource path="res://characters/sprites/chargebar/inner fill2.png" type="Texture" id=18]
-[ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=19]
-[ext_resource path="res://characters/sprites/chargebar/outer fill2.png" type="Texture" id=20]
-[ext_resource path="res://characters/sprites/chargebar/cd outer fill2.png" type="Texture" id=21]
+[ext_resource path="res://characters/sprites/blur/dash_down.png" type="Texture" id=17]
+[ext_resource path="res://characters/sprites/chargebar/inner under3.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/chargebar/inner fill2.png" type="Texture" id=19]
+[ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=20]
+[ext_resource path="res://characters/sprites/chargebar/outer fill2.png" type="Texture" id=21]
+[ext_resource path="res://characters/sprites/chargebar/cd outer fill2.png" type="Texture" id=22]
 
 [sub_resource type="Animation" id=1]
 
@@ -145,6 +146,56 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
+
+[sub_resource type="Gradient" id=21]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.27451, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=22]
+
+flags = 4
+gradient = SubResource( 21 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=20]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 4.62428e-44
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 22 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 1.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = true
+_sections_unfolded = [ "Animation", "Color" ]
 
 [sub_resource type="CapsuleShape2D" id=8]
 
@@ -476,6 +527,9 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="sprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -501,7 +555,7 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 2 )
 animation = "stun"
-frame = 3
+frame = 1
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -511,6 +565,7 @@ position = Vector2( 0, -8.33334 )
 scale = Vector2( 1.4353, 1.4353 )
 frames = SubResource( 3 )
 animation = "slow"
+frame = 1
 playing = true
 
 [node name="root" type="AnimatedSprite" parent="sprite" index="3"]
@@ -561,6 +616,29 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
+[node name="particles" type="Particles2D" parent="sprite" index="5"]
+
+z_index = -1
+emitting = false
+amount = 10
+lifetime = 0.3
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 20 )
+texture = ExtResource( 17 )
+normal_map = null
+h_frames = 4
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility", "Z Index" ]
+
 [node name="shape" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 8 )
@@ -598,9 +676,9 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 17 )
+texture_under = ExtResource( 18 )
 texture_over = null
-texture_progress = ExtResource( 18 )
+texture_progress = ExtResource( 19 )
 fill_mode = 4
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -631,9 +709,9 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 19 )
+texture_under = ExtResource( 20 )
 texture_over = null
-texture_progress = ExtResource( 20 )
+texture_progress = ExtResource( 21 )
 fill_mode = 4
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -692,9 +770,9 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 19 )
+texture_under = ExtResource( 20 )
 texture_over = null
-texture_progress = ExtResource( 21 )
+texture_progress = ExtResource( 22 )
 fill_mode = 4
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -777,7 +855,7 @@ autostart = false
 [node name="dash_timer" type="Timer" parent="." index="9"]
 
 process_mode = 1
-wait_time = 0.3
+wait_time = 0.4
 one_shot = true
 autostart = false
 
