@@ -144,7 +144,7 @@ func _process(delta):
 		
 		if ready_to_spell:
 			var action = str("d", controller_device,"_btn_magic")
-			if not Input.is_action_pressed(action) or Input.is_action_just_released(action):
+			if not Input.is_action_pressed(action) and Input.is_action_just_released(action):
 				if active_spell == null:
 					$charge_bar/anim_inner.play("inner exit")
 					if current_level >= 1:
@@ -230,6 +230,7 @@ func release_spell():
 
 	# Resets spell
 	ready_to_spell = false
+	print("release: ready false")
 	current_spell = spell
 	if projectile.has_activation:
 		holding_spell = true
@@ -259,6 +260,7 @@ func _on_cooldown_timeout():
 	charge = 0
 	current_level = 0
 	ready_to_spell = true
+	print("cooldown timeout: ready true")
 
 	$cooldown_bar.hide()
 	$charge_bar/inner.set_value(0)
