@@ -3,6 +3,7 @@ extends Node2D
 var positions = [Vector2(200, 300), Vector2(800, 300), Vector2(510, 100), Vector2(510, 500)]
 
 var char_scn = preload("res://characters/character.tscn")
+var testing = true
 
 var living = 0
 
@@ -13,6 +14,8 @@ func _ready():
 	
 	$winner.hide()
 	
+	if a_d == null:
+		return
 	# which ports are living
 	for key in a_d.keys():
 		var player = a_d[key]

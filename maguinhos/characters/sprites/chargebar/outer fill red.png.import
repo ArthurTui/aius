@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/outer fill red.png-98e388035a1a4857892aa5bc01cda1ac.stex"
+
+[deps]
+
+source_file="res://characters/sprites/chargebar/outer fill red.png"
+source_md5="14ada6a1416b20c4b53b14d5bbe6bbbf"
+
+dest_files=[ "res://.import/outer fill red.png-98e388035a1a4857892aa5bc01cda1ac.stex" ]
+dest_md5="89423821de18ee02a58fc38641192d00"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

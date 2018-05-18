@@ -69,12 +69,10 @@ size_flags_vertical = 1
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="trees" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 581.059, 247.091 )
 __meta__ = {
 "_edit_lock_": true
@@ -197,6 +195,7 @@ shape = SubResource( 2 )
 
 [node name="rocks_r" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 1004.92, 187.813 )
 scale = Vector2( 0.901099, 0.901099 )
 

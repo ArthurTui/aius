@@ -27,7 +27,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 60, 300 )
 
-[node name="test_stage" type="Node2D"]
+[node name="test_stage" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
 __meta__ = {
@@ -37,13 +37,11 @@ __meta__ = {
 
 [node name="character1" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 300, 300 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 299.02, 276.494 )
 
 [node name="character2" parent="." index="1" instance=ExtResource( 1 )]
 
-position = Vector2( 500, 300 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 722.654, 288.721 )
 
 [node name="fade" type="AnimationPlayer" parent="." index="2"]
 
@@ -86,6 +84,7 @@ margin_top = -300.0
 margin_right = 60.0
 margin_bottom = 300.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

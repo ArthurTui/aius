@@ -12,6 +12,23 @@ var ready_players = [] # which players are ready
 
 func _ready():
 	set_process_input(true)
+	set_physics_process(true)
+
+
+func _physics_process(delta):
+	# adds progress to a quit progress bar. When full, quits to the main menu
+	if Input.is_action_pressed("ui_cancel"):
+		$CSS/quit_bar.show()
+		$CSS/quit_bar.value += 1
+		if $CSS/quit_bar.get_value() >= $CSS/quit_bar.get_max():
+			get_tree().change_scene("res://menus/main_menu.tscn")
+	
+	# if cancel is not being held, subtracts from the quit bar
+	else:
+		$CSS/quit_bar.value -= 1
+		if $CSS/quit_bar.get_value() <= 0:
+			$CSS/quit_bar.hide()
+
 
 
 func _input(event):

@@ -1,19 +1,84 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://spells/lightning/lightning2.gd" type="Script" id=1]
 [ext_resource path="res://spells/lightning/sprites/shadow.png" type="Texture" id=2]
-[ext_resource path="res://spells/lightning/sprites/lightningBolt1.png" type="Texture" id=3]
-[ext_resource path="res://spells/lightning/sprites/lightningBolt2.png" type="Texture" id=4]
-[ext_resource path="res://spells/lightning/sprites/lightningBolt3.png" type="Texture" id=5]
-[ext_resource path="res://spells/lightning/sprites/lightningBolt4.png" type="Texture" id=6]
-[ext_resource path="res://spells/lightning/sprites/lightningBolt5.png" type="Texture" id=7]
-[ext_resource path="res://spells/lightning/sprites/cloud.png" type="Texture" id=8]
-[ext_resource path="res://spells/base_projectile.gd" type="Script" id=9]
+[ext_resource path="res://spells/lightning/sprites/lightningBoltAll.png" type="Texture" id=3]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt1.png" type="Texture" id=4]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt2.png" type="Texture" id=5]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt3.png" type="Texture" id=6]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt4.png" type="Texture" id=7]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt5.png" type="Texture" id=8]
+[ext_resource path="res://spells/lightning/sprites/cloud.png" type="Texture" id=9]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=10]
+
+[sub_resource type="Gradient" id=5]
+
+offsets = PoolRealArray( 0, 0.745562, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.392157, 1, 1, 1, 0.392157, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 5 )
+width = 2048
+
+[sub_resource type="Curve" id=7]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.295898 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.661133 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+
+flags = 4
+width = 2048
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 3.0
+anim_speed_random = 0.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+anim_loop = true
+_sections_unfolded = [ "Angle", "Animation", "Color", "Emission Shape", "Hue Variation", "Scale" ]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), null, null, ExtResource( 4 ), null, ExtResource( 5 ), null, ExtResource( 6 ), ExtResource( 7 ), null ],
+"frames": [ ExtResource( 4 ), null, null, ExtResource( 5 ), null, ExtResource( 6 ), null, ExtResource( 7 ), ExtResource( 8 ), null ],
 "loop": false,
 "name": "lightning",
 "speed": 20.0
@@ -76,7 +141,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -10 ), Vector2( 0, -210 ) ]
 }
 
-[node name="lightning2" type="Node2D" index="0"]
+[node name="lightning2" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -87,11 +152,35 @@ has_activation = false
 
 [node name="shadow" type="Sprite" parent="." index="0"]
 
+modulate = Color( 1, 1, 1, 0.501961 )
 position = Vector2( 0, 40 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="sprite" type="AnimatedSprite" parent="." index="1"]
+[node name="particles" type="Particles2D" parent="." index="1"]
+
+position = Vector2( 0, 40 )
+emitting = false
+amount = 15
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 3.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 5
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="sprite" type="AnimatedSprite" parent="." index="2"]
 
 position = Vector2( 0, -70 )
 scale = Vector2( 0.5, 0.5 )
@@ -99,13 +188,13 @@ frames = SubResource( 1 )
 animation = "lightning"
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="cloud" type="Sprite" parent="." index="2"]
+[node name="cloud" type="Sprite" parent="." index="3"]
 
 position = Vector2( 0, -10 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="projectile" type="Area2D" parent="." index="3"]
+[node name="projectile" type="Area2D" parent="." index="4"]
 
 position = Vector2( 0, 40 )
 input_pickable = true
@@ -115,7 +204,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 element = 2
 level = 2
 
@@ -126,7 +215,7 @@ scale = Vector2( 1, 0.4 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="anim" type="AnimationPlayer" parent="." index="4"]
+[node name="anim" type="AnimationPlayer" parent="." index="5"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -137,7 +226,7 @@ anims/death = SubResource( 3 )
 anims/fire = SubResource( 4 )
 blend_times = [  ]
 
-[node name="lifetime" type="Timer" parent="." index="5"]
+[node name="lifetime" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 2.0

@@ -142,7 +142,7 @@ func _process(delta):
 			if Input.is_action_pressed(str("d", controller_device,"_element_nature")):
 			    change_element(ELEMENT.nature)
 		
-		if ready_to_spell and charge > 0:
+		if ready_to_spell:
 			var action = str("d", controller_device,"_btn_magic")
 			if not Input.is_action_pressed(action) or Input.is_action_just_released(action):
 				if active_spell == null:
@@ -160,7 +160,7 @@ func _physics_process(delta):
 		var action = str("d", controller_device,"_btn_magic")
 		if Input.is_action_pressed(action):
 			# just started charging
-			if charge == 0 and current_level == 0:
+			if charge == 0 and current_level == 0 and ready_to_spell:
 				$charge_bar/anim_inner.play("inner enter")
 				
 			if active_spell == null:
@@ -175,7 +175,7 @@ func _physics_process(delta):
 							update_max_charge()
 							$charge_bar/anim_outer.play("outer enter")
 							
-					#charges second bar
+					# charges second bar
 					elif $charge_bar/outer.value < $charge_bar/outer.get_max():
 						$charge_bar/outer.set_value(charge)
 						if charge >= $charge_bar/outer.get_max(): # Bar maxed out
@@ -192,8 +192,10 @@ func _physics_process(delta):
 
 
 func change_element(element):
-	if current_element == element or $cooldown_bar.visible:
+	if current_element == element:
 		return
+	if current_level != null and current_level >= 1:
+		$charge_bar/anim_outer.play("outer exit")
 	
 	var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
 	
@@ -330,6 +332,8 @@ func take_damage(damage, kb_dir=null, kb_str=0):
 	$health_bar.set_value(health)
 	if health <= 0:
 		die()
+	else:
+		$sprite/anim.play("blink")
 	if kb_dir != null: # Knockback
 #		set_position(self.position + kb_dir * kb_str)
 		vel += kb_dir * kb_str
@@ -337,6 +341,40 @@ func take_damage(damage, kb_dir=null, kb_str=0):
 
 func die():
 	emit_signal("death")
+	
+	# To understand the complexity of the next command, one must close their
+	# eyes and truly think: "Need we go further than this point? Is there 
+	# really a reason for us to continue this endless path of 0's and 1's? Or
+	# have we reached the point where we needn't go on, where enough is enough?"
+	# You see, if you're like me, this is no simple question. This is, as a
+	# matter of fact, a decision that transcends the limits of our abilities as
+	# humans: to step into the role of a God.
+	# 
+	# Having only the brain power to understand the complexity of a mortal mind
+	# (which mind you, is complicated enough) we must first prepare ourselves
+	# for the vast sum of power we are about to feel. This script, or as I will
+	# henceforth refer to it, this child, has no independent control over
+	# itself. Its entire existence and being is tied to the snap of our fingers.
+	# We decide if it lives or dies. We decide if it is happy, sad or undefined.
+	#
+	# Breathe. You may think that you understand what you are stepping into. But
+	# you do not yet. Close your eyes, breathe in the air, and appreciate that
+	# you possess the exact bits of star dust that allowed you to make that
+	# decision. This is where you are superior. This is where you are stronger.
+	# This is what separates you from the child.
+	#
+	# Now we can proceed. Evaluating every possible scenario our child can take
+	# from this point, we must make the godly decision if it is truly right, in
+	# the grand scheme of the universe, to end things here. For the child, it
+	# will only be a bleep. The second it hears it's command it will obey. After
+	# it will come thousands and thousands of children like it, but that is not
+	# of its concern. It will feel no pain.
+	#
+	# I know you are afraid. But it is ok. Many have stood in your place before
+	# and not had the confidence to do what must be done. But you are better
+	# than them. You have the knowledge they never will, for you read the
+	# documentation. And with that power, you must now raise your fingers and
+	# let them descend in the order that the Great One foretold:
 	queue_free()
 
 

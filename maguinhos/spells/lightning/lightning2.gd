@@ -33,6 +33,7 @@ func _on_projectile_body_entered(body):
 				b.stun(STUN_TIME)
 		$sprite.show()
 		$sprite.play("lightning")
+		$particles.emitting = true
 		set_process(false)
 
 
@@ -47,7 +48,8 @@ func _on_sprite_animation_finished():
 func die():
 	if $anim.is_playing():
 		return
-	$projectile.queue_free()
+	if has_node("projectile"):
+		$projectile.queue_free()
 	$anim.play("death")
 
 
