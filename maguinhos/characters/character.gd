@@ -253,7 +253,6 @@ func release_spell():
 
 	# Resets spell
 	ready_to_spell = false
-	print("release: ready false")
 	current_spell = spell
 	if projectile.has_activation:
 		holding_spell = true
@@ -283,7 +282,6 @@ func _on_cooldown_timeout():
 	charge = 0
 	current_level = 0
 	ready_to_spell = true
-	print("cooldown timeout: ready true")
 
 	$charge_bar/cooldown_bar.hide()
 	$charge_bar/inner.set_value(0)
