@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const RUN_SPEED = 4
-const DASH_SPEED = 8
+const RUN_SPEED = 5
+const DASH_SPEED = 10
 const KB_CUSTOM_ID = 100
 
 enum ELEMENT {
@@ -81,7 +81,7 @@ var cooldown = [0.5, 1.0, 1.5]
 func _ready():
 	add_to_group("Player")
 	change_element(ELEMENT.fire)
-	$cooldown_bar.hide()
+	$charge_bar/cooldown_bar.hide()
 
 
 func _process(delta):
@@ -95,17 +95,17 @@ func _process(delta):
 	if !is_stunned:
 		# determines movement
 		if Input.is_action_pressed(str("d", controller_device,"_move_left")):
-		    direction -= Vector2( 1, 0 )
+		    direction -= Vector2(1, 0)
 		if Input.is_action_pressed(str("d", controller_device,"_move_right")):
-		    direction += Vector2( 1, 0 )
+		    direction += Vector2(1, 0)
 		if Input.is_action_pressed(str("d", controller_device,"_move_down")):
-		    direction += Vector2( 0, 1 )
+		    direction += Vector2(0, 1)
 		if Input.is_action_pressed(str("d", controller_device,"_move_up")):
-		    direction -= Vector2( 0, 1 )
-	
-		if direction == Vector2( 0, 0 ):
+		    direction -= Vector2(0, 1)
+		
+		if direction == Vector2(0, 0):
 			new_anim = str("idle_", current_anim.split("_")[1])
-		else:
+		elif !is_dashing:
 			current_direction = direction
 			new_anim = define_animation(current_direction)
 		
@@ -115,7 +115,7 @@ func _process(delta):
 			if can_dash and Input.is_action_just_pressed(str("d", controller_device,"_dash")):
 				is_dashing = true
 				can_dash = false
-				dash_direction = direction
+				dash_direction = current_direction
 				# Disables collision with spells.
 				# We may need to add another shape so that the
 				# character still collides with structures
@@ -126,6 +126,7 @@ func _process(delta):
 			if not is_dashing:
 				mot = direction.normalized()*RUN_SPEED*slow_multiplier + push_direction
 			else:
+				new_anim = define_animation(current_direction)
 				mot = dash_direction.normalized()*DASH_SPEED*slow_multiplier
 		
 		if vel.length() > mot.length():
@@ -164,7 +165,7 @@ func _physics_process(delta):
 				$charge_bar/anim_inner.play("inner enter")
 				
 			if active_spell == null:
-				if not $cooldown_bar.visible:
+				if not $charge_bar/cooldown_bar.visible:
 					charge += 1
 					
 					# charges first bar
@@ -187,8 +188,8 @@ func _physics_process(delta):
 				activation_wait = 0
 			else:
 				activation_wait += 1
-		if $cooldown_bar.visible and active_spell == null:
-			$cooldown_bar.value -= 1
+		if $charge_bar/cooldown_bar.visible and active_spell == null:
+			$charge_bar/cooldown_bar.value -= 1
 
 
 func change_element(element):
@@ -225,8 +226,8 @@ func release_spell():
 	projectile.fire(current_direction.normalized(), self)
 	get_parent().add_child(projectile)
 	# show cooldown bar
-	$cooldown_bar.set_value($cooldown_bar.get_max())
-	$cooldown_bar/anim.play("enter")
+	$charge_bar/cooldown_bar.set_value($charge_bar/cooldown_bar.get_max())
+	$charge_bar/cooldown_bar/anim.play("enter")
 
 	# Resets spell
 	ready_to_spell = false
@@ -251,8 +252,8 @@ func set_cooldown(time):
 	$cooldown_timer.start()
 
 	# start cooldown bar
-	$cooldown_bar.set_max(time * 60)
-	$cooldown_bar.set_value($cooldown_bar.get_max())
+	$charge_bar/cooldown_bar.set_max(time * 60)
+	$charge_bar/cooldown_bar.set_value($charge_bar/cooldown_bar.get_max())
 
 
 # Spell cooldown is over
@@ -262,7 +263,7 @@ func _on_cooldown_timeout():
 	ready_to_spell = true
 	print("cooldown timeout: ready true")
 
-	$cooldown_bar.hide()
+	$charge_bar/cooldown_bar.hide()
 	$charge_bar/inner.set_value(0)
 	$charge_bar/outer.set_value(0)
 
@@ -399,7 +400,7 @@ func define_animation(direction):
 func update_animation(new_animation):
 	current_anim = $sprite.animation
 
-	if new_animation != current_anim and not is_dashing:
+	if new_animation != current_anim:# and not is_dashing:
 		$sprite.play(new_animation)
 		$sprite/glow.play(new_animation)
 		current_anim = new_animation
