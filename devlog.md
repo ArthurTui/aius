@@ -203,3 +203,12 @@
  2. Descrições de fases na tela de seleção de fases (provavelmente temporárias)
  3. Opção de voltar para menu principal da CSS
  4. Conserto de bugs na charge bar e water3
+
+### 18/05
+
+#### Arthur (15:30 ~ 20:00)
+ 1. Mudar a resolução do jogo para a final (1920x1080).
+ 2. Adaptar o personagem à nova resolução.
+ 3. Dash faz o personagem se mover caso esteja parado.
+ 4. Partículas no dash.
+ 5. Adaptar magias de fogo à nova resolução.
