@@ -6,7 +6,7 @@
 [ext_resource path="res://stages/thumbnails/cave.png" type="Texture" id=4]
 [ext_resource path="res://stages/thumbnails/city.png" type="Texture" id=5]
 [ext_resource path="res://stages/thumbnails/river.png" type="Texture" id=6]
-[ext_resource path="res://menus/resources/arrow.png" type="Texture" id=7]
+[ext_resource path="res://menus/resources/cursor.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,7 +21,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font" ]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=3]
 
 size = 30
 use_mipmaps = false
@@ -29,7 +29,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font" ]
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -59,8 +59,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 focus_mode = 2
@@ -74,9 +74,6 @@ allow_reselect = false
 icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
 _sections_unfolded = [ "Icon", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="ColorRect" type="ColorRect" parent="stages" index="1"]
 
@@ -85,8 +82,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 430.0
+margin_right = 1920.0
+margin_bottom = 806.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -95,9 +92,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0.0653076, 0.0721169, 0.078125, 1 )
 _sections_unfolded = [ "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="forest" type="TextureRect" parent="stages" index="2"]
 
@@ -105,10 +99,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 90.0
-margin_top = 80.0
-margin_right = 295.0
-margin_bottom = 200.0
+margin_left = 320.0
+margin_top = 130.0
+margin_right = 525.0
+margin_bottom = 250.0
+rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
 focus_mode = 2
@@ -120,9 +115,6 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Area2D" type="Area2D" parent="stages/forest" index="0"]
 
@@ -147,10 +139,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -90.0
-margin_top = 350.0
-margin_right = 934.0
-margin_bottom = 520.0
+margin_left = -179.0
+margin_top = 473.0
+margin_right = 1101.0
+margin_bottom = 653.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -175,10 +167,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 530.0
-margin_top = 80.0
-margin_right = 735.0
-margin_bottom = 200.0
+margin_left = 1240.0
+margin_top = 130.0
+margin_right = 1445.0
+margin_bottom = 250.0
+rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
 mouse_filter = 1
@@ -187,9 +180,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Area2D" type="Area2D" parent="stages/cave" index="0"]
 
@@ -215,10 +205,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -530.0
-margin_top = 350.0
-margin_right = 494.0
-margin_bottom = 520.0
+margin_left = -793.0
+margin_top = 473.0
+margin_right = 487.0
+margin_bottom = 653.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -244,10 +234,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 90.0
-margin_top = 220.0
-margin_right = 295.0
-margin_bottom = 340.0
+margin_left = 320.0
+margin_top = 520.0
+margin_right = 525.0
+margin_bottom = 640.0
+rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
 mouse_filter = 1
@@ -258,8 +249,7 @@ texture = ExtResource( 5 )
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Rect" ]
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="Area2D" type="Area2D" parent="stages/city" index="0"]
@@ -286,10 +276,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -90.0
+margin_left = -179.0
 margin_top = 210.0
-margin_right = 934.0
-margin_bottom = 380.0
+margin_right = 1101.0
+margin_bottom = 393.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -314,10 +304,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 530.0
-margin_top = 220.0
-margin_right = 735.0
-margin_bottom = 340.0
+margin_left = 1240.0
+margin_top = 520.0
+margin_right = 1445.0
+margin_bottom = 640.0
+rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
 mouse_filter = 1
@@ -326,10 +317,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 6 )
 stretch_mode = 0
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="Area2D" type="Area2D" parent="stages/river" index="0"]
 
@@ -355,10 +342,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -530.0
+margin_left = -793.0
 margin_top = 210.0
-margin_right = 494.0
-margin_bottom = 380.0
+margin_right = 487.0
+margin_bottom = 393.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -379,15 +366,15 @@ _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
 [node name="random" type="ColorRect" parent="stages" index="6"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 830.0
-margin_top = 181.0
-margin_right = 960.0
-margin_bottom = 241.0
+margin_left = 1590.0
+margin_top = 340.0
+margin_right = 1720.0
+margin_bottom = 400.0
+rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -395,10 +382,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0.494662, 0.960938, 0.364105, 1 )
-_sections_unfolded = [ "Theme" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Rect", "Theme" ]
 
 [node name="Area2D" type="Area2D" parent="stages/random" index="0"]
 
@@ -432,7 +416,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 3 )
 text = "Random"
 align = 1
 valign = 1
@@ -450,22 +434,35 @@ collision_mask = 1
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="cursor" index="0"]
+[node name="back" type="Sprite" parent="cursor" index="0"]
+
+modulate = Color( 255, 255, 255, 0.03 )
+position = Vector2( -1.20978, -2.54083 )
+rotation = 0.0174533
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sprite" type="Sprite" parent="cursor" index="1"]
 
 position = Vector2( -1.20978, -2.54083 )
-rotation = -2.35619
-scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cursor" index="2"]
+
+position = Vector2( -24.9278, -32.0538 )
+scale = Vector2( 3.44488, 3.27955 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cursor" index="1"]
-
-position = Vector2( -17.3157, -18.9076 )
-rotation = 2.35619
-scale = Vector2( 1.01661, 0.903544 )
-shape = SubResource( 12 )
 
 

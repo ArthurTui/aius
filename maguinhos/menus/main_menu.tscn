@@ -687,7 +687,7 @@ tracks/0/keys = {
 "values": [ Vector2( 120, 286 ), Vector2( 72, 286 ) ]
 }
 
-[node name="Main Menu" type="Control" index="0"]
+[node name="Main Menu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -703,9 +703,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="fade" type="AnimationPlayer" parent="." index="0"]
 
@@ -724,9 +721,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -1.0
-margin_right = 1024.0
-margin_bottom = 599.0
+margin_right = 1920.0
+margin_bottom = 1081.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -736,9 +732,6 @@ size_flags_vertical = 3
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Title" type="TextureRect" parent="." index="2"]
 
@@ -747,10 +740,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 240.0
-margin_top = 42.0
-margin_right = 780.0
-margin_bottom = 92.0
+margin_left = 710.0
+margin_top = 70.0
+margin_right = 1250.0
+margin_bottom = 218.0
 rect_pivot_offset = Vector2( 270, 25 )
 rect_clip_content = false
 mouse_filter = 1
@@ -760,9 +753,6 @@ size_flags_vertical = 1
 texture = ExtResource( 3 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Title" index="0"]
 
@@ -780,8 +770,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 39.0
-margin_bottom = 42.0
+margin_top = 210.0
+margin_right = 70.0
+margin_bottom = 280.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -799,7 +790,7 @@ margin_left = 72.0
 margin_top = 228.0
 margin_right = 327.0
 margin_bottom = 283.0
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 1.4, 1.4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Quit")
@@ -844,7 +835,7 @@ margin_left = 72.0
 margin_top = 286.0
 margin_right = 327.0
 margin_bottom = 341.0
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 1.4, 1.4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Play")
@@ -889,7 +880,7 @@ margin_left = 72.0
 margin_top = 346.0
 margin_right = 327.0
 margin_bottom = 401.0
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 1.4, 1.4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Settings")
@@ -934,7 +925,7 @@ margin_left = 72.0
 margin_top = 405.0
 margin_right = 327.0
 margin_bottom = 466.0
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 1.4, 1.4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_neighbour_top = NodePath("../Credits")

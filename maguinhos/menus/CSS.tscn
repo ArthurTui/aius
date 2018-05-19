@@ -6,18 +6,18 @@
 [ext_resource path="res://characters/sprites/skeleton/rundown2.png" type="Texture" id=4]
 [ext_resource path="res://characters/sprites/skeleton/rundown3.png" type="Texture" id=5]
 [ext_resource path="res://characters/sprites/skeleton/rundown4.png" type="Texture" id=6]
-[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=7]
-[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=8]
-[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=9]
-[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=10]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=11]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=12]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=13]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=14]
-[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=15]
-[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=16]
-[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=17]
-[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=7]
+[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=8]
+[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=9]
+[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=10]
+[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=11]
+[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=12]
+[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=13]
+[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=14]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=15]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=16]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=17]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=18]
 [ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://menus/resources/black.jpg" type="Texture" id=20]
 [ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=21]
@@ -33,23 +33,23 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "sealeton",
+"name": "broleton",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "bloodyskel",
+"name": "sealeton",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "broleton",
+"name": "bloodyskel",
 "speed": 5.0
 } ]
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 20
+size = 40
 use_mipmaps = true
 use_filter = false
 font_data = ExtResource( 19 )
@@ -71,7 +71,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 5.14527, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 600 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1080 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -109,7 +109,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 5.14527, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 600 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1080 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -147,7 +147,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 5.14527, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 600 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1080 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -185,7 +185,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 5.14527, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 600 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1080 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -207,7 +207,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 600 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -241,6 +241,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="P1" type="Container" parent="CSS" index="0"]
 
@@ -249,8 +252,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 256.0
-margin_bottom = 600.0
+margin_right = 480.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -265,13 +268,14 @@ __meta__ = {
 
 [node name="arrows" type="Control" parent="CSS/P1" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 24.0
+margin_top = 12.0
+margin_right = 64.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -279,9 +283,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Material" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="right" type="TextureRect" parent="CSS/P1/arrows" index="0"]
 
@@ -289,12 +290,12 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 179.0
-margin_top = 260.0
-margin_right = 435.0
-margin_bottom = 516.0
+margin_left = 196.0
+margin_top = 318.0
+margin_right = 596.0
+margin_bottom = 718.0
 rect_scale = Vector2( 0.3, 0.3 )
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 200, 200 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -304,23 +305,20 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="left" type="TextureRect" parent="CSS/P1/arrows" index="1"]
+[node name="right2" type="TextureRect" parent="CSS/P1/arrows" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 77.0
-margin_top = 337.0
-margin_right = 333.0
-margin_bottom = 593.0
+margin_left = -164.0
+margin_top = 318.0
+margin_right = 236.0
+margin_bottom = 718.0
 rect_rotation = 180.0
 rect_scale = Vector2( 0.3, 0.3 )
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 200, 200 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -330,16 +328,14 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="character" type="AnimatedSprite" parent="CSS/P1" index="1"]
 
-position = Vector2( 128, 303.725 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 240, 530 )
+scale = Vector2( 1.3, 1.3 )
 frames = SubResource( 1 )
 animation = "skeleton"
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -349,9 +345,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 256.0
-margin_bottom = 439.0
+margin_top = 710.0
+margin_right = 480.0
+margin_bottom = 758.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -372,8 +368,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 256.0
-margin_bottom = 600.0
+margin_right = 480.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -391,9 +387,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 256.0
-margin_bottom = 439.0
+margin_left = 3.0
+margin_top = 709.0
+margin_right = 479.0
+margin_bottom = 757.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -426,16 +423,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 256.0
-margin_right = 512.0
-margin_bottom = 600.0
+margin_left = 480.0
+margin_right = 960.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-_sections_unfolded = [ "Margin", "Size Flags" ]
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -443,13 +440,14 @@ __meta__ = {
 
 [node name="arrows" type="Control" parent="CSS/P2" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 24.0
+margin_top = 12.0
+margin_right = 64.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -457,9 +455,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Material" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="right" type="TextureRect" parent="CSS/P2/arrows" index="0"]
 
@@ -467,12 +462,12 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 179.0
-margin_top = 260.0
-margin_right = 435.0
-margin_bottom = 516.0
+margin_left = 196.0
+margin_top = 318.0
+margin_right = 596.0
+margin_bottom = 718.0
 rect_scale = Vector2( 0.3, 0.3 )
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 200, 200 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -482,23 +477,20 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="left" type="TextureRect" parent="CSS/P2/arrows" index="1"]
+[node name="right2" type="TextureRect" parent="CSS/P2/arrows" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 77.0
-margin_top = 337.0
-margin_right = 333.0
-margin_bottom = 593.0
+margin_left = -164.0
+margin_top = 318.0
+margin_right = 236.0
+margin_bottom = 718.0
 rect_rotation = 180.0
 rect_scale = Vector2( 0.3, 0.3 )
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 200, 200 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -508,14 +500,11 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="character" type="AnimatedSprite" parent="CSS/P2" index="1"]
 
-position = Vector2( 128, 303.725 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 240, 530 )
+scale = Vector2( 1.3, 1.3 )
 frames = SubResource( 1 )
 animation = "skeleton"
 frame = 3
@@ -528,9 +517,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 256.0
-margin_bottom = 439.0
+margin_top = 710.0
+margin_right = 480.0
+margin_bottom = 758.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -551,8 +540,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 256.0
-margin_bottom = 600.0
+margin_right = 480.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -562,7 +551,7 @@ size_flags_vertical = 1
 texture = ExtResource( 20 )
 expand = true
 stretch_mode = 0
-_sections_unfolded = [ "Rect", "Size Flags" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
 
 [node name="press start" type="Label" parent="CSS/P2/bg" index="0"]
 
@@ -570,9 +559,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 256.0
-margin_bottom = 439.0
+margin_left = 3.0
+margin_top = 709.0
+margin_right = 479.0
+margin_bottom = 757.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -605,16 +595,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 512.0
-margin_right = 768.0
-margin_bottom = 600.0
+margin_left = 960.0
+margin_right = 1440.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-_sections_unfolded = [ "Margin", "Size Flags" ]
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -622,13 +612,14 @@ __meta__ = {
 
 [node name="arrows" type="Control" parent="CSS/P3" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 24.0
+margin_top = 12.0
+margin_right = 64.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -636,9 +627,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Material" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="right" type="TextureRect" parent="CSS/P3/arrows" index="0"]
 
@@ -646,12 +634,12 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 179.0
-margin_top = 260.0
-margin_right = 435.0
-margin_bottom = 516.0
+margin_left = 196.0
+margin_top = 318.0
+margin_right = 596.0
+margin_bottom = 718.0
 rect_scale = Vector2( 0.3, 0.3 )
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 200, 200 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -661,23 +649,20 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="left" type="TextureRect" parent="CSS/P3/arrows" index="1"]
+[node name="right2" type="TextureRect" parent="CSS/P3/arrows" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 77.0
-margin_top = 337.0
-margin_right = 333.0
-margin_bottom = 593.0
+margin_left = -164.0
+margin_top = 318.0
+margin_right = 236.0
+margin_bottom = 718.0
 rect_rotation = 180.0
 rect_scale = Vector2( 0.3, 0.3 )
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 200, 200 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -687,17 +672,14 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="character" type="AnimatedSprite" parent="CSS/P3" index="1"]
 
-position = Vector2( 128, 303.725 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 240, 530 )
+scale = Vector2( 1.3, 1.3 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 3
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -707,9 +689,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 256.0
-margin_bottom = 439.0
+margin_top = 710.0
+margin_right = 480.0
+margin_bottom = 758.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -730,8 +712,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 256.0
-margin_bottom = 600.0
+margin_right = 480.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -741,7 +723,7 @@ size_flags_vertical = 1
 texture = ExtResource( 20 )
 expand = true
 stretch_mode = 0
-_sections_unfolded = [ "Rect", "Size Flags" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
 
 [node name="press start" type="Label" parent="CSS/P3/bg" index="0"]
 
@@ -749,9 +731,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 256.0
-margin_bottom = 439.0
+margin_left = 3.0
+margin_top = 709.0
+margin_right = 479.0
+margin_bottom = 757.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -784,16 +767,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 768.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = 1440.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-_sections_unfolded = [ "Margin", "Size Flags" ]
+_sections_unfolded = [ "Hint", "Margin", "Rect", "Size Flags" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -801,13 +784,14 @@ __meta__ = {
 
 [node name="arrows" type="Control" parent="CSS/P4" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 24.0
+margin_top = 12.0
+margin_right = 64.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -815,9 +799,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Material" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="right" type="TextureRect" parent="CSS/P4/arrows" index="0"]
 
@@ -825,12 +806,12 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 179.0
-margin_top = 260.0
-margin_right = 435.0
-margin_bottom = 516.0
+margin_left = 196.0
+margin_top = 318.0
+margin_right = 596.0
+margin_bottom = 718.0
 rect_scale = Vector2( 0.3, 0.3 )
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 200, 200 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -840,23 +821,20 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="left" type="TextureRect" parent="CSS/P4/arrows" index="1"]
+[node name="right2" type="TextureRect" parent="CSS/P4/arrows" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 77.0
-margin_top = 337.0
-margin_right = 333.0
-margin_bottom = 593.0
+margin_left = -164.0
+margin_top = 318.0
+margin_right = 236.0
+margin_bottom = 718.0
 rect_rotation = 180.0
 rect_scale = Vector2( 0.3, 0.3 )
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 200, 200 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -866,17 +844,14 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="character" type="AnimatedSprite" parent="CSS/P4" index="1"]
 
-position = Vector2( 128, 303.725 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 240, 530 )
+scale = Vector2( 1.3, 1.3 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -886,9 +861,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 256.0
-margin_bottom = 439.0
+margin_top = 710.0
+margin_right = 480.0
+margin_bottom = 758.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -909,8 +884,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 256.0
-margin_bottom = 600.0
+margin_right = 480.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -920,7 +895,7 @@ size_flags_vertical = 1
 texture = ExtResource( 20 )
 expand = true
 stretch_mode = 0
-_sections_unfolded = [ "Rect", "Size Flags" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
 
 [node name="press start" type="Label" parent="CSS/P4/bg" index="0"]
 
@@ -928,9 +903,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 256.0
-margin_bottom = 439.0
+margin_left = 3.0
+margin_top = 709.0
+margin_right = 479.0
+margin_bottom = 757.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -958,6 +934,7 @@ blend_times = [  ]
 
 [node name="quit_bar" type="TextureProgress" parent="CSS" index="4"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

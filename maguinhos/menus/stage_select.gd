@@ -34,7 +34,7 @@ func _process(delta):
 	if direction.y <= 0.05 and direction.y >= -0.05:
 		direction.y = 0
 		
-	$cursor.position += direction * 10
+	$cursor.position += direction * 16
 	var cursor_pos = $cursor.get_position()
 	
 	for node in $stages.get_children():
