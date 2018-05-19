@@ -212,3 +212,9 @@
  3. Dash faz o personagem se mover caso esteja parado.
  4. Partículas no dash.
  5. Adaptar magias de fogo à nova resolução.
+
+### 19/05
+
+#### Henrique (10:30 ~ 12:00)
+ 1. Novos sprites de cursor e título do jogo
+ 2. CSS e tela de seleção de fases redimensionadas para nova resolução
