@@ -218,3 +218,10 @@
 #### Henrique (10:30 ~ 12:00)
  1. Novos sprites de cursor e título do jogo
  2. CSS e tela de seleção de fases redimensionadas para nova resolução
+
+### 23/05
+
+#### Henrique (17:00 ~ 19:00)
+ 1. Forest redimensionada
+ 2. Personagem nao colide mais com estruturas durante dash
+ 3. Bug fixes
