@@ -1,10 +1,10 @@
 extends "res://spells/base_spell.gd"
 
-var SPEED = 10
+var SPEED = 12
 const DAMAGE = 5
 var ROT_SPEED = 3
 
-var direction = Vector2(0, 0) # direction that the fireball flies to
+var direction = Vector2() # direction that the fireball flies to
 var angle
 var state = "going"
 
@@ -18,7 +18,7 @@ func fire(direction, caster):
 
 
 func _process(delta):
-	if !weakref(caster).get_ref(): # caster was freed
+	if !caster or !weakref(caster).get_ref(): # caster was freed
 		caster = null
 		die()
 		return
@@ -40,13 +40,18 @@ func _on_projectile_body_entered(body):
 		if body.has_method("take_damage"):
 			body.take_damage(DAMAGE)
 			$anim.play("blink")
+		else:
+			die()
 	elif state == "returning":
 		die()
 
 
 func die():
+	if $anim.is_playing():
+		return
 	$anim.play("death")
-	$projectile.queue_free()
+	if has_node("projectile"):
+		$projectile.queue_free()
 	$particles.emitting = false
 	set_process(false)
 
