@@ -7,10 +7,20 @@ func _ready():
 	set_process(true)
 
 
+func check_null():
+	if hovering == 0:
+		hovering = 1
+		change_button(0, 1)
+		return true
+	return false
+
+
 func _input(event):
 	var prev = 0
 	
 	if Input.is_action_just_pressed("ui_up"):
+		if check_null():
+			return
 		prev = hovering
 		hovering -= 1
 		if hovering <= 0:
@@ -18,6 +28,8 @@ func _input(event):
 		change_button(prev, hovering)
 			
 	elif Input.is_action_just_pressed("ui_down"):
+		if check_null():
+			return
 		prev = hovering
 		hovering += 1
 		if hovering >= 5:
@@ -26,6 +38,8 @@ func _input(event):
 	
 	# settings and credits to be added here
 	elif Input.is_action_just_pressed("ui_accept"):
+		if check_null():
+			return
 		match hovering:
 			1:
 				_on_Play_pressed()
@@ -54,7 +68,8 @@ func change_button(prev, new):
 			_on_quit_mouse_entered()
 
 func _on_Play_pressed():
-	$fade.play("fade_out")
+	if not $fade.is_playing():
+		$fade.play("fade_out")
 	set_process(false)
 
 
