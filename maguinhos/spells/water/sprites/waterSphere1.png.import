@@ -7,10 +7,10 @@ path="res://.import/waterSphere1.png-da09220bbe019d3af1c3e8f21bfb2cad.stex"
 [deps]
 
 source_file="res://spells/water/sprites/waterSphere1.png"
-source_md5="deb55d178d31c4b918599e6a0ce7b97b"
+source_md5="81c30715d755bf2b09ceacec609c7851"
 
 dest_files=[ "res://.import/waterSphere1.png-da09220bbe019d3af1c3e8f21bfb2cad.stex" ]
-dest_md5="33bcc58d9a5f3fb5a59b84a24590b16b"
+dest_md5="e4bbb0da7a70308c97c0cb71b0d6266e"
 
 [params]
 

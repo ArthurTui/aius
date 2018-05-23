@@ -1,6 +1,6 @@
 extends "res://spells/base_projectile.gd"
 
-const SPEED = 8
+const SPEED = 10
 const DAMAGE = 4
 const KNOCKBACK = 8
 
@@ -9,6 +9,7 @@ var direction = Vector2()
 func fire(direction, caster):
 	self.direction = direction
 	self.caster = caster
+	$sprite.rotation = direction.angle()
 	
 	set_process(true)
 
@@ -22,7 +23,6 @@ func _on_projectile_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage"):
 			var kb_direction = (body.position - global_position).normalized()
-#			printt(body.position, position)
 			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 		die()
 
@@ -48,7 +48,7 @@ func _on_projectile_area_entered(area):
 	
 	if "element" in area: # Makes sure it's something interactable with projectile
 		if area.level > self.level:
-			get_parent().die()
+			die()
 		elif area.element == (self.element + 1) % 4: # Oposing element
 			if area.level < self.level: # Lower leveled spells have no effect
 				return

@@ -37,12 +37,11 @@ func activate():
 
 
 func _process(delta):
-	if caster and !weakref(caster).get_ref(): # caster was freed
+	if !caster or !weakref(caster).get_ref(): # caster was freed
 		caster = null
 		die()
 		return
-	if caster:
-		position = caster.position
+	position = caster.position
 
 
 func _on_lifetime_timeout():
@@ -67,12 +66,6 @@ func _on_leaf_died(name):
 		return
 	var leaf = $leaves.get_node(name)
 	call_deferred("remove_leaf", leaf)
-#	var pos = leaf.global_position
-#	$leaves.call_deferred("remove_child", leaf)
-#	get_parent().call_deferred("add_child", leaf)
-#	leaf.position = pos
-#	if $leaves.get_child_count() == 0:
-#		die()
 
 
 func remove_leaf(leaf):

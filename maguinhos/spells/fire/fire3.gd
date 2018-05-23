@@ -72,7 +72,7 @@ func die():
 	$explosion/particles.emitting = true
 	$explosion_duration.start()
 	
-	if !weakref(caster).get_ref(): # Caster was freed
+	if !caster or !weakref(caster).get_ref(): # Caster was freed
 		return
 	caster.spell_ended() # Alerts player that spell is finished
 

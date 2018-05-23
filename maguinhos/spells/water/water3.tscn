@@ -90,7 +90,7 @@ has_activation = false
 
 frames = SubResource( 1 )
 animation = "side"
-frame = 2
+frame = 4
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -115,7 +115,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="lifetime" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 2.5
 one_shot = true
 autostart = true
 

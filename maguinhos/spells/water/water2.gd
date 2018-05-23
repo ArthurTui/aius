@@ -4,11 +4,7 @@ var SPEED = 3
 const DAMAGE = 20
 const KNOCKBACK = 50
 
-var direction = Vector2(0, 0) # direction that the fireball flies to
-
-
-#func _ready():
-#	get_node( "SFX" ).play( "bubble" )
+var direction = Vector2()
 
 
 func fire(direction, caster):
@@ -32,13 +28,14 @@ func _on_projectile_body_entered(body):
 			var kb_direction = (body.position - position).normalized()
 			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
 		if body.has_method("slow"):
-			# Applies slow effect 
+			# Applies slow effect
 			body.slow(2, 0.4)
 		die()
 
 
 func die():
-	$projectile.queue_free()
+	if has_node("projectile"):
+		$projectile.queue_free()
 	$sprite.play("death")
 	set_process(false)
 

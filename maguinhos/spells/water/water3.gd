@@ -1,8 +1,7 @@
 extends "res://spells/base_spell.gd"
 
 const DAMAGE = 1
-const SPEED = 5
-const DAMAGE = 0
+const SPEED = 7
 const KNOCKBACK = 0
 
 var direction = Vector2(0, 0) # direction that the wave goes to
@@ -41,14 +40,14 @@ func _on_projectile_body_entered(body):
 		die()
 	elif body != caster:
 		# Pushes back if target is an enemy
-		body.push_direction = direction * 5
+		body.push_direction = direction * SPEED
 #		body.Slow(5, 0.3)
 
 
 # Resets the push factor when exiting enemy
 func _on_projectile_body_exited(body):
 	if body.is_in_group("Player") and body != caster:
-		body.push_direction = Vector2(0, 0)
+		body.push_direction = Vector2()
 		body.slow(0.1,1)
 
 
@@ -58,6 +57,7 @@ func _on_lifetime_timeout():
 
 func die():
 	$anim.play("death")
+	$projectile/shape.disabled = true
 
 
 func free_scn():
