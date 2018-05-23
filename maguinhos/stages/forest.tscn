@@ -48,7 +48,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 24.1909, 10 )
 
-[node name="battle" type="Node2D"]
+[node name="battle" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -58,8 +58,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -72,15 +72,15 @@ stretch_mode = 0
 
 [node name="trees" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-position = Vector2( 581.059, 247.091 )
+position = Vector2( 1752.16, 195.459 )
+scale = Vector2( 1.75958, 2.41019 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="trees" type="StaticBody2D" parent="trees" index="0"]
 
-position = Vector2( 401.311, -186.372 )
+position = Vector2( 12.1432, -24.4687 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -140,14 +140,15 @@ shape = SubResource( 1 )
 [node name="rocks" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
-position = Vector2( 24.0863, 174.79 )
-scale = Vector2( 0.851067, 0.911715 )
+position = Vector2( 16.3279, 306.491 )
+scale = Vector2( 1.87623, 1.84591 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="rock" type="StaticBody2D" parent="rocks" index="0"]
 
+editor/display_folded = true
 position = Vector2( 2, -36.0001 )
 input_pickable = false
 collision_layer = 1
@@ -190,14 +191,16 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rocks/rock" index="6"]
 
 position = Vector2( -39.0542, 171.589 )
-scale = Vector2( 10.8565, 27.0506 )
+scale = Vector2( 10.8565, 37.7075 )
 shape = SubResource( 2 )
 
 [node name="rocks_r" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
-position = Vector2( 1004.92, 187.813 )
-scale = Vector2( 0.901099, 0.901099 )
+position = Vector2( 1876.89, 317.494 )
+scale = Vector2( 1.71587, 1.95956 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="rock" type="StaticBody2D" parent="rocks_r" index="0"]
 
@@ -242,8 +245,8 @@ texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rocks_r/rock" index="6"]
 
-position = Vector2( 38.2366, 169.603 )
-scale = Vector2( 10.8565, 27.0506 )
+position = Vector2( 38.2366, 132.204 )
+scale = Vector2( 10.8565, 37.3265 )
 shape = SubResource( 2 )
 
 [node name="winner" type="Label" parent="." index="4"]
@@ -295,15 +298,15 @@ visible = false
 
 [node name="trees_b" type="Node2D" parent="." index="7"]
 
-editor/display_folded = true
-position = Vector2( 22.7259, 157.885 )
+position = Vector2( 225.884, 1248.82 )
+scale = Vector2( 1.82787, 1.76055 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="trees" type="StaticBody2D" parent="trees_b" index="0"]
 
-position = Vector2( 72.8402, 588.466 )
+position = Vector2( 2.34912, 24.5373 )
 scale = Vector2( 1.06395, 1.01383 )
 input_pickable = false
 collision_layer = 1
