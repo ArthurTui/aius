@@ -1,6 +1,6 @@
 extends "res://spells/base_spell.gd"
 
-const SHIELD_RADIUS = 60
+const SHIELD_RADIUS = 100
 
 var can_shoot = false
 

@@ -4,7 +4,7 @@ const SPEED = 7
 const DAMAGE = 35
 const KNOCKBACK = 70
 
-var direction = Vector2( 0, 0 ) # direction that the fireball flies to
+var direction = Vector2() # direction that the fireball flies to
 var alive = true
 var damaged_bodies = [] # prevents explosion from damaging more than once
 
@@ -37,7 +37,7 @@ func _on_projectile_body_entered(body):
 
 
 # does damage if take damage function exists in body
-func _on_explosion_body_entered( body ):
+func _on_explosion_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage") and not body in damaged_bodies:
 			var kb_direction = (body.position - position).normalized()
@@ -50,7 +50,8 @@ func _on_lifetime_timeout():
 
 
 func _on_explosion_duration_timeout():
-	$explosion.monitoring = false
+	if has_node("explosion"):
+		$explosion.monitoring = false
 	$free_timer.start()
 
 
@@ -65,12 +66,17 @@ func activate():
 func die():
 	alive = false
 	set_process(false)
-	$projectile.queue_free()
-	$lifetime.stop()
+	if has_node("projectile"):
+		$projectile/sprite.visible = false
+		$projectile.queue_free()
+	else:
+		print("why kei")
 	$trail.emitting = false
-	$explosion.monitoring = true
-	$explosion/particles.emitting = true
-	$explosion_duration.start()
+	if has_node("explosion"):
+		$explosion.monitoring = true
+		if has_node("explosion/particles"):
+			$explosion/particles.emitting = true
+		$explosion_duration.start()
 	
 	if !caster or !weakref(caster).get_ref(): # Caster was freed
 		return

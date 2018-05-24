@@ -66,8 +66,10 @@ func _on_lifetime_timeout():
 
 
 func die():
-	$projectile/shape.disabled = true
-	$lifetime.queue_free()
+	if has_node("projectile"):
+		$projectile/shape.disabled = true
+	if has_node("lifetime"):
+		$lifetime.queue_free()
 	$anim.play("death")
 	set_process(false)
 
