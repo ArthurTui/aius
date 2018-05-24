@@ -4,7 +4,6 @@ const SPEED = 7
 const DAMAGE = 35
 const KNOCKBACK = 70
 
-var direction = Vector2() # direction that the fireball flies to
 var alive = true
 var damaged_bodies = [] # prevents explosion from damaging more than once
 

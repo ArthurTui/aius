@@ -53,7 +53,7 @@ var vel = Vector2()
 # Spells
 
 # Fire
-var fire1 = preload("res://spells/fire/fire1.tscn")
+var fire1 = preload("res://spells/fire/Fire1.tscn")
 var fire2 = preload("res://spells/fire/fire2.tscn")
 var fire3 = preload("res://spells/fire/fire3.tscn")
 
@@ -240,10 +240,10 @@ func update_max_charge():
 
 
 func release_spell():
-	var spell = spells[current_element][current_level]
-	var projectile = spell.instance()
-	projectile.fire(current_direction.normalized(), self)
-	get_parent().add_child(projectile)
+	var spell_scene = spells[current_element][current_level]
+	var spell = spell_scene.instance()
+	spell.cast(self, current_direction.normalized())
+	get_parent().add_child(spell)
 	# show cooldown bar
 	$charge_bar/cooldown_bar.set_value($charge_bar/cooldown_bar.get_max())
 	$charge_bar/cooldown_bar/anim.play("enter")
@@ -251,9 +251,9 @@ func release_spell():
 	# Resets spell
 	ready_to_spell = false
 	current_spell = spell
-	if projectile.has_activation:
+	if spell.has_activation:
 		holding_spell = true
-		active_spell = projectile
+		active_spell = spell
 	else:
 		spell_ended()
 

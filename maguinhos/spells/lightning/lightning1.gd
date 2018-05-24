@@ -1,10 +1,7 @@
 extends "res://spells/base_spell.gd"
 
-var SPEED = 12
-const DAMAGE = 5
-var ROT_SPEED = 3
+const ROTATION_SPEED = 3
 
-var direction = Vector2() # direction that the fireball flies to
 var angle
 var state = "going"
 
@@ -28,7 +25,7 @@ func _process(delta):
 		angle = get_angle_to(caster.position)
 		# negative cos and sin because speed is also negative
 		direction = Vector2(-cos(angle), -sin(angle))
-	$sprite.rotate(ROT_SPEED * delta)
+	$sprite.rotate(ROTATION_SPEED * delta)
 	
 	position += direction * SPEED
 	SPEED -= 8*delta

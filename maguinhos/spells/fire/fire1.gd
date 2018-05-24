@@ -1,56 +1,46 @@
 extends "res://spells/base_spell.gd"
 
-export (int) var SPEED
-export (int) var DAMAGE
-export (int) var KNOCKBACK
 
-var direction = Vector2(0, 0)
-
-func _ready():
-	pass
-
-
-func fire(direction, caster):
-	self.direction = direction
-	self.caster = caster
-	$projectile.caster = caster
+func cast(caster, direction):
+	.cast(caster, direction)
+	$Projectile.caster = caster
 	set_position(caster.position)
 	set_rotation(direction.angle())
 
 
 func _process(delta):
-	position += direction * SPEED
-	$trail.scale.x = lerp($trail.scale.x, 1, .01)
-
-
-func _on_projectile_body_entered(body):
-	# does damage if take damage function exists in body
-	if body != caster:
-		if body.has_method("take_damage"):
-			var kb_direction = (body.position - position).normalized()
-			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
-		die()
-
-
-func _on_lifetime_timeout():
-	die()
+	if !dying:
+		# Update position
+		position += direction * speed
+	
+	# Update trail
+	$Trail.global_position = Vector2()
+	$Trail.add_point(global_position + Vector2())
+	if $Trail.get_point_count() > 10:
+		$Trail.remove_point(0)
 
 
 func die():
-	if has_node("lifetime"):
-		$lifetime.queue_free()
-	if $anim.is_playing():
-		return
-	if has_node("projectile"):
-		$projectile/shape.disabled = true
-	$anim.play("death")
-	$trail/tween.interpolate_property($trail, "scale", $trail.scale,
-		$trail.scale * Vector2(0, 1), .4, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	$trail/tween.interpolate_property($trail, "modulate", $trail.modulate,
-		Color(1, 1, 1, 0), .4, Tween.TRANS_EXPO, Tween.EASE_OUT)
-	$trail/tween.start()
-	set_process(false)
+	.die()
+	$Projectile/Shape.disabled = true
+	$Lifetime.stop()
+	death_animation()
 
 
-func free_scn():
+func death_animation():
+	# Animation duration
+	var dur = .4
+	
+	$DeathTween.interpolate_property($Sprite, "scale", $Sprite.scale,
+		Vector2(1.5, 1.5), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$DeathTween.interpolate_property($Sprite, "modulate", $Sprite.modulate,
+		Color(1, 1, 1, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$DeathTween.start()
+
+
+func _on_Lifetime_timeout():
+	die()
+
+
+func _on_DeathTween_tween_completed(object, key):
 	queue_free()

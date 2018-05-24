@@ -1,11 +1,5 @@
 extends "res://spells/base_spell.gd"
 
-const DAMAGE = 1
-const SPEED = 7
-const KNOCKBACK = 0
-
-var direction = Vector2(0, 0) # direction that the wave goes to
-
 
 func fire(direction, caster):
 	self.direction = direction

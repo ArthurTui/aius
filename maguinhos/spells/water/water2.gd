@@ -1,11 +1,5 @@
 extends "res://spells/base_spell.gd"
 
-var SPEED = 3
-const DAMAGE = 20
-const KNOCKBACK = 50
-
-var direction = Vector2()
-
 
 func fire(direction, caster):
 	self.direction = direction
@@ -15,9 +9,9 @@ func fire(direction, caster):
 
 
 func _process(delta):
-	position += direction * SPEED
-	SPEED -= 0.75*delta
-	if (SPEED <= 0):
+	position += direction * speed
+	speed -= 0.75*delta
+	if (speed <= 0):
 		die()
 
 
@@ -26,7 +20,7 @@ func _on_projectile_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage"):
 			var kb_direction = (body.position - position).normalized()
-			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
+			body.take_damage(damage, kb_direction, knockback)
 		if body.has_method("slow"):
 			# Applies slow effect
 			body.slow(2, 0.4)

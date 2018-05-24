@@ -1,11 +1,6 @@
 extends "res://spells/base_spell.gd"
 
-const SPEED = 4
-const DAMAGE = 20
 const STUN_TIME = 1
-
-var direction = Vector2(0, 0) # direction that the cloud flies to
-
 
 func fire(direction, caster):
 	self.direction = direction

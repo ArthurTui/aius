@@ -1,14 +1,9 @@
 extends "res://spells/base_spell.gd"
 
-const SPEED = 6
-const DAMAGE = 15
-const KNOCKBACK = 5
-
 const SEED_ROOT = .5
 const THORN_ROOT = 1.5
 const THORN_RADIUS = 35
 
-var direction = Vector2() # direction that the seed flies to
 var is_seed = true
 
 func fire(direction, caster):

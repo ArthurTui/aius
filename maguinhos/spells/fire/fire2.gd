@@ -5,8 +5,6 @@ const DAMAGE = 15
 const KNOCKBACK = 25
 const HOMING_FACTOR = 20 # the lowest the factor is, the fastest the homing
 
-var direction = Vector2(0, 0)
-
 var target
 var accel
 

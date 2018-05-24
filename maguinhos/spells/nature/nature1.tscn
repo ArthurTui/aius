@@ -27,6 +27,9 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 has_activation = true
+speed = null
+damage = null
+knockback = null
 
 [node name="leaves" type="Node2D" parent="." index="0"]
 
