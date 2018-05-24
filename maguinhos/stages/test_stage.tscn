@@ -27,7 +27,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 60, 300 )
 
-[node name="test_stage" type="Node2D" index="0"]
+[node name="test_stage" type="Node2D"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
 __meta__ = {
@@ -35,15 +35,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="character1" parent="." index="0" instance=ExtResource( 1 )]
+[node name="YSort" type="YSort" parent="." index="0"]
+
+sort_enabled = true
+
+[node name="character1" parent="YSort" index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 299.02, 276.494 )
 
-[node name="character2" parent="." index="1" instance=ExtResource( 1 )]
+[node name="character2" parent="YSort" index="1" instance=ExtResource( 1 )]
 
 position = Vector2( 722.654, 288.721 )
 
-[node name="fade" type="AnimationPlayer" parent="." index="2"]
+[node name="fade" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = "fade_in"
@@ -53,21 +57,21 @@ playback_speed = 1.0
 anims/fade_in = SubResource( 1 )
 blend_times = [  ]
 
-[node name="pause_screen" parent="." index="3" instance=ExtResource( 2 )]
+[node name="pause_screen" parent="." index="2" instance=ExtResource( 2 )]
 
 visible = false
 
-[node name="wall" type="StaticBody2D" parent="." index="4"]
+[node name="wall" type="StaticBody2D" parent="." index="3"]
 
 position = Vector2( 960, 300 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 8
+collision_mask = 13
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall" index="0"]
 

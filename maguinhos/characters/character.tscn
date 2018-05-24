@@ -519,14 +519,17 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Corner Radius", "Expand Margin" ]
 
-[node name="character" type="KinematicBody2D"]
+[node name="character" type="KinematicBody2D" groups=[
+"Player",
+]]
 
 position = Vector2( -0.12851, -0.128513 )
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 9
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -559,6 +562,7 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 2 )
 animation = "stun"
+frame = 3
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -568,6 +572,7 @@ position = Vector2( 0, -8.33334 )
 scale = Vector2( 1.4353, 1.4353 )
 frames = SubResource( 3 )
 animation = "slow"
+frame = 2
 playing = true
 
 [node name="root" type="AnimatedSprite" parent="sprite" index="3"]
@@ -641,7 +646,7 @@ h_frames = 4
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility", "Z Index" ]
 
-[node name="hitbox" type="CollisionShape2D" parent="." index="1"]
+[node name="collision_shape" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
@@ -649,15 +654,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="collision_shape" type="CollisionShape2D" parent="." index="2"]
-
-shape = SubResource( 11 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="charge_bar" type="Node2D" parent="." index="3"]
+[node name="charge_bar" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -800,7 +797,7 @@ playback_speed = 1.0
 anims/enter = SubResource( 20 )
 blend_times = [  ]
 
-[node name="health_bar" type="ProgressBar" parent="." index="4"]
+[node name="health_bar" type="ProgressBar" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -828,49 +825,49 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="cooldown_timer" type="Timer" parent="." index="5"]
+[node name="cooldown_timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="stun_timer" type="Timer" parent="." index="6"]
+[node name="stun_timer" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="slow_timer" type="Timer" parent="." index="7"]
+[node name="slow_timer" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="root_timer" type="Timer" parent="." index="8"]
+[node name="root_timer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="root_anim_timer" type="Timer" parent="." index="9"]
+[node name="root_anim_timer" type="Timer" parent="." index="8"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="dash_timer" type="Timer" parent="." index="10"]
+[node name="dash_timer" type="Timer" parent="." index="9"]
 
 process_mode = 1
 wait_time = 0.4
 one_shot = true
 autostart = false
 
-[node name="dash_cd" type="Timer" parent="." index="11"]
+[node name="dash_cd" type="Timer" parent="." index="10"]
 
 process_mode = 1
 wait_time = 0.5

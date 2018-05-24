@@ -12,7 +12,7 @@ func fire(direction, caster):
 
 
 func _process(delta):
-	position += direction * SPEED
+	position += direction * speed
 
 
 # does damage if take damage function exists in body
@@ -24,7 +24,7 @@ func _on_projectile_body_entered(body):
 		# target is another player
 		for b in $projectile.get_overlapping_bodies():
 			if b != caster and body.has_method("take_damage"):
-				b.take_damage(DAMAGE)
+				b.take_damage(damage)
 				b.stun(STUN_TIME)
 		$sprite.show()
 		$sprite.play("lightning")

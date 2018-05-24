@@ -20,22 +20,22 @@ func _process(delta):
 		die()
 		return
 	
-	if SPEED <= 0:
+	if speed <= 0:
 		state = "returning"
 		angle = get_angle_to(caster.position)
 		# negative cos and sin because speed is also negative
 		direction = Vector2(-cos(angle), -sin(angle))
 	$sprite.rotate(ROTATION_SPEED * delta)
 	
-	position += direction * SPEED
-	SPEED -= 8*delta
+	position += direction * speed
+	speed -= 8*delta
 
 
 # does damage if take damage function exists in body
 func _on_projectile_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage"):
-			body.take_damage(DAMAGE)
+			body.take_damage(damage)
 			$anim.play("blink")
 		else:
 			die()

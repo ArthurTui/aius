@@ -1,5 +1,7 @@
 extends Node2D
 
+const POSITION_OFFSET = 30
+
 export (bool) var has_activation = false # for spells that require activation
 export (int) var speed
 export (int) var damage
@@ -13,6 +15,9 @@ var dying = false
 func cast(caster, direction):
 	self.caster = caster
 	self.direction = direction
+	position = caster.position + POSITION_OFFSET * direction
+	if has_node("Projectile"):
+		$Projectile.caster = caster
 
 
 func on_hit(body):
@@ -21,8 +26,6 @@ func on_hit(body):
 
 
 func die():
-	if dying:
-		return
 	dying = true
 
 

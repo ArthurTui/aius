@@ -1,38 +1,40 @@
 extends "res://spells/base_spell.gd"
 
+const DAMPING = .01
+const MIN_SPEED = .2
+const SLOW_DURATION = 2
+const SLOW_MULTIPLIER = .4
 
-func fire(direction, caster):
-	self.direction = direction
-	self.caster = caster
-	set_position(caster.position)
-	set_process(true)
+var real_position
+var time = 0
 
+func cast(caster, direction):
+	.cast(caster, direction)
+	real_position = position
 
 func _process(delta):
-	position += direction * speed
-	speed -= 0.75*delta
-	if (speed <= 0):
+	real_position += direction * speed
+	time += delta
+	position = real_position + Vector2(0, 8 * cos(3 * time))
+	speed = lerp(speed, 0, DAMPING)
+	if (speed <= MIN_SPEED):
 		die()
 
 
-# does damage if take damage function exists in body
-func _on_projectile_body_entered(body):
-	if body != caster:
-		if body.has_method("take_damage"):
-			var kb_direction = (body.position - position).normalized()
-			body.take_damage(damage, kb_direction, knockback)
-		if body.has_method("slow"):
-			# Applies slow effect
-			body.slow(2, 0.4)
-		die()
+func on_hit(body):
+	.on_hit(body)
+	if body.has_method("slow"):
+		body.slow(SLOW_DURATION, SLOW_MULTIPLIER)
 
 
 func die():
-	if has_node("projectile"):
-		$projectile.queue_free()
-	$sprite.play("death")
+	if dying:
+		return
+	.die()
+	$Projectile/Shape.disabled = true
+	$Sprite.play("death")
 	set_process(false)
 
 
-func _on_sprite_animation_finished():
+func _on_Sprite_animation_finished():
 	queue_free()

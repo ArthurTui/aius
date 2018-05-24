@@ -4,6 +4,9 @@ const RUN_SPEED = 5
 const DASH_SPEED = 10
 const KB_CUSTOM_ID = 100
 
+const COLLISION_NORMAL = 1
+const COLLISION_DASH = 2
+
 enum ELEMENT {
 	fire,
 	water,
@@ -54,13 +57,13 @@ var vel = Vector2()
 
 # Fire
 var fire1 = preload("res://spells/fire/Fire1.tscn")
-var fire2 = preload("res://spells/fire/fire2.tscn")
-var fire3 = preload("res://spells/fire/fire3.tscn")
+var fire2 = preload("res://spells/fire/Fire2.tscn")
+var fire3 = preload("res://spells/fire/Fire3.tscn")
 
 # Water
-var water1 = preload("res://spells/water/water1.tscn")
-var water2 = preload("res://spells/water/water2.tscn")
-var water3 = preload("res://spells/water/water3.tscn")
+var water1 = preload("res://spells/water/Water1.tscn")
+var water2 = preload("res://spells/water/Water2.tscn")
+var water3 = preload("res://spells/water/Water3.tscn")
 
 # Lightning
 var lightning1 = preload("res://spells/lightning/lightning1.tscn")
@@ -82,23 +85,20 @@ var cooldown = [0.5, 1.0, 1.5]
 var dash_particles
 
 func _ready():
-	add_to_group("Player")
 	change_element(ELEMENT.fire)
 	$charge_bar/cooldown_bar.hide()
 	dash_particles = {Vector2(0, 1) : load("res://characters/sprites/blur/dash_down.png"),
-						Vector2(-1, 1) : load("res://characters/sprites/blur/dash_downleft.png"),
-						Vector2(1, 1) : load("res://characters/sprites/blur/dash_downright.png"),
-						Vector2(-1, 0) : load("res://characters/sprites/blur/dash_left.png"),
-						Vector2(1, 0) : load("res://characters/sprites/blur/dash_right.png"),
-						Vector2(0, -1) : load("res://characters/sprites/blur/dash_up.png"),
-						Vector2(-1, -1) : load("res://characters/sprites/blur/dash_upleft.png"),
-						Vector2(1, -1) : load("res://characters/sprites/blur/dash_upright.png")}
+		Vector2(-1, 1) : load("res://characters/sprites/blur/dash_downleft.png"),
+		Vector2(1, 1) : load("res://characters/sprites/blur/dash_downright.png"),
+		Vector2(-1, 0) : load("res://characters/sprites/blur/dash_left.png"),
+		Vector2(1, 0) : load("res://characters/sprites/blur/dash_right.png"),
+		Vector2(0, -1) : load("res://characters/sprites/blur/dash_up.png"),
+		Vector2(-1, -1) : load("res://characters/sprites/blur/dash_upleft.png"),
+		Vector2(1, -1) : load("res://characters/sprites/blur/dash_upright.png")}
 
 
 func _process(delta):
-	
 	# Movement
-	
 	var direction = Vector2()
 	var new_anim
 	var mot = Vector2()
@@ -141,7 +141,8 @@ func _process(delta):
 					$sprite/particles.z_index = -dash_direction.y
 				
 				# Disables collision with spells.
-				$hitbox.set_disabled(true)
+				collision_layer = COLLISION_DASH
+				
 				$sprite.set_self_modulate(Color(1,1,1,0.5))
 				$dash_timer.start()
 			if not is_dashing:
@@ -336,8 +337,8 @@ func _on_root_anim_timer_timeout():
 # Duration of the dash
 func _on_dash_timer_timeout():
 	is_dashing = false
-	dash_direction = Vector2(0, 0)
-	$hitbox.set_disabled(false)
+	collision_layer = COLLISION_NORMAL
+	dash_direction = Vector2()
 	$sprite.set_self_modulate(Color(1,1,1,1))
 	$sprite/particles.emitting = false
 	$dash_cd.start()

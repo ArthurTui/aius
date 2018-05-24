@@ -1,27 +1,27 @@
 extends "res://spells/base_spell.gd"
 
-func fire(direction, caster):
-	set_position(caster.position + 30 * direction)
-	self.caster = caster
-	$proj1.fire(direction, caster)
-	$proj2.fire(direction.rotated(deg2rad(10)), caster)
-	$proj3.fire(direction.rotated(deg2rad(-10)), caster)
-	$proj4.fire(direction.rotated(deg2rad(20)), caster)
-	$proj5.fire(direction.rotated(deg2rad(-20)), caster)
+func cast(caster, direction):
+	.cast(caster, direction)
+	var angle_offset = -20
+	for p in $Projectiles.get_children():
+		var dir = direction.rotated(deg2rad(angle_offset))
+		p.fire(caster, dir, speed, damage, knockback)
+		angle_offset += 10
 
 
-# murders all children
+# Murders all children
 func die():
-	for child in get_children():
-		if child.has_method("die"):
-			child.die()
-	set_process(false)
+	if dying:
+		return
+	.die()
+	for p in $Projectiles.get_children():
+		p.die()
 
 
-func _on_lifetime_timeout():
+func _on_Lifetime_timeout():
 	die()
-	$free_timer.start()
+	$FreeTimer.start()
 
 
-func _on_free_timer_timeout():
+func _on_FreeTimer_timeout():
 	queue_free()

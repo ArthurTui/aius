@@ -1,58 +1,54 @@
 extends "res://spells/base_spell.gd"
 
+const SLOW_DURATION = 1
+const SLOW_MULTIPLIER = .1
 
-func fire(direction, caster):
-	self.direction = direction
-	self.caster = caster
-	$projectile.caster = caster
-	set_position(caster.position)
+func cast(caster, direction):
+	.cast(caster, direction)
 	if direction.x != 0:
 		if direction.x < 0:
-			$sprite.flip_h = true
-			set_position(self.position + Vector2(-60, 30))
-		else:
-			set_position(self.position + Vector2(60, 30))
-		$sprite.play("side")
+			$Sprite.flip_h = true
+		$Sprite.play("side")
 	elif direction.y >= 0.9:
-		$sprite.play("down")
+		$Sprite.play("down")
 	elif direction.y <= -0.9:
-		$sprite.play("up")
+		$Sprite.play("up")
 
 
 func _process(delta):
-	position += direction * SPEED
-	if !has_node("projectile"):
-		return
-	for body in $projectile.get_overlapping_bodies():
+	position += direction * speed
+	for body in $Projectile.get_overlapping_bodies():
 		if body.has_method("take_damage") and body != caster:
-			body.take_damage(DAMAGE)
+			body.take_damage(damage)
 
 
-func _on_projectile_body_entered(body):
+func _on_Projectile_body_entered(body):
 	if (!body.is_in_group("Player")):
 		# Dies when colliding with static objects
 		die()
 	elif body != caster:
 		# Pushes back if target is an enemy
-		body.push_direction = direction * SPEED
-#		body.Slow(5, 0.3)
+		body.push_direction = direction * speed
 
 
-# Resets the push factor when exiting enemy
-func _on_projectile_body_exited(body):
+func _on_Projectile_body_exited(body):
+	# Resets the push factor when exiting enemy
 	if body.is_in_group("Player") and body != caster:
 		body.push_direction = Vector2()
-		body.slow(0.1,1)
-
-
-func _on_lifetime_timeout():
-	die()
+		body.slow(SLOW_DURATION, SLOW_MULTIPLIER)
 
 
 func die():
-	$anim.play("death")
-	$projectile/shape.disabled = true
-
-
-func free_scn():
+	if dying:
+		return
+	.die()
+	$Projectile/Shape.disabled = true
+	$Tween.interpolate_property($Sprite, "modulate", Color(1, 1, 1, 1),
+		Color(1, 1, 1, 0), .2, Tween.TRANS_SINE, Tween.EASE_IN)
+	$Tween.start()
+	yield($Tween, "tween_completed")
 	queue_free()
+
+
+func _on_Lifetime_timeout():
+	die()

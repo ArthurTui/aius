@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://spells/water/water1.gd" type="Script" id=1]
+[ext_resource path="res://spells/water/Water1Proj.tscn" type="PackedScene" id=2]
+
+[node name="Water1" type="Node2D"]
+
+script = ExtResource( 1 )
+has_activation = false
+speed = 10
+damage = 10
+knockback = 10
+
+[node name="Projectiles" type="Node2D" parent="." index="0"]
+
+[node name="P1" parent="Projectiles" index="0" instance=ExtResource( 2 )]
+
+[node name="P2" parent="Projectiles" index="1" instance=ExtResource( 2 )]
+
+[node name="P3" parent="Projectiles" index="2" instance=ExtResource( 2 )]
+
+[node name="P4" parent="Projectiles" index="3" instance=ExtResource( 2 )]
+
+[node name="P5" parent="Projectiles" index="4" instance=ExtResource( 2 )]
+
+[node name="Lifetime" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
+
+[node name="FreeTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
+
+[connection signal="timeout" from="FreeTimer" to="." method="_on_FreeTimer_timeout"]
+
+

@@ -1,56 +1,40 @@
 extends "res://spells/base_projectile.gd"
 
-const SPEED = 10
-const DAMAGE = 4
-const KNOCKBACK = 8
-
 var direction = Vector2()
+var speed
+var damage
+var knockback
 
-func fire(direction, caster):
-	self.direction = direction
+func fire(caster, direction, speed, damage, knockback):
 	self.caster = caster
-	$sprite.rotation = direction.angle()
-	
-	set_process(true)
+	self.direction = direction
+	$Sprite.rotation = direction.angle()
+	self.speed = speed
+	self.damage = damage
+	self.knockback = knockback
 
 
 func _process(delta):
-	position += direction * SPEED
-
-
-# does damage if take damage function exists
-func _on_projectile_body_entered(body):
-	if body != caster:
-		if body.has_method("take_damage"):
-			var kb_direction = (body.position - global_position).normalized()
-			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
-		die()
+	position += direction * speed
 
 
 func die():
-	if $sprite.animation == "death":
+	if $Tween.is_active():
 		return
-	$shape.disabled = true
+	$Shape.disabled = true
 	set_process(false)
-	$sprite.play("death")
+	$Tween.interpolate_property($Sprite, "scale", Vector2(.15, .15),
+		Vector2(.5, .5), .4, Tween.TRANS_QUAD, Tween.EASE_OUT)
+	$Tween.interpolate_property($Sprite, "modulate", Color(1, 1, 1, 1),
+		Color(1, 1, 1, 0), .4, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.start()
+	yield($Tween, "tween_completed")
+	queue_free()
 
 
-func _on_projectile_area_entered(area):
-	var other = area.get_parent()
-	
-	# Handle exceptions
-	if area.get_name() == "detection_area":
-		return
-	if other == self:
-		return
-	if "caster" in other and other.caster == self.caster:
-		return
-	
-	if "element" in area: # Makes sure it's something interactable with projectile
-		if area.level > self.level:
-			die()
-		elif area.element == (self.element + 1) % 4: # Oposing element
-			if area.level < self.level: # Lower leveled spells have no effect
-				return
-			die()
-# Fire = 0, Water = 1, Lightning = 2, Nature = 3
+func _on_Projectile_body_entered(body):
+	if body != caster:
+		if body.has_method("take_damage"):
+			var kb_direction = (body.position - global_position).normalized()
+			body.take_damage(damage, kb_direction, knockback)
+		die()

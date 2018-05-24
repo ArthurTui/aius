@@ -1,76 +1,65 @@
 extends "res://spells/base_spell.gd"
 
-const SPEED = 5
-const DAMAGE = 15
-const KNOCKBACK = 25
-const HOMING_FACTOR = 20 # the lowest the factor is, the fastest the homing
+const HOMING_FACTOR = 20 # The lower the factor is, the faster the homing
 
 var target
-var accel
 
-
-func fire(direction, caster):
-	self.direction = direction
-	self.caster = caster
-	$projectile.caster = caster
+func cast(caster, direction):
+	.cast(caster, direction)
 	set_rotation(direction.angle())
-	set_position(caster.position)
 
 
 func _process(delta):
-	position += direction * SPEED
-	if target != null:
+	position += direction * speed
+	if target:
 		home()
 
 
 # Given the conditions, homes in the direction of the target
 func home():
-	if !weakref(target).get_ref(): # target was freed
+	if target and !weakref(target).get_ref(): # target was freed
 		target = null
+	if !target:
 		return
-
+	
 	var target_pos = target.position
 	var dif = target_pos - self.position
 	direction += dif.normalized() / HOMING_FACTOR
 	
-	if direction.x > 1.1:
-		direction.x = 1.1
-	elif direction.x < - 1.1:
-		direction.x = - 1.1
-
-	if direction.y > 1.1:
-		direction.y = 1.1
-	elif direction.y < - 1.1:
-		direction.y = - 1.1
-
-
-# does damage if take damage function exists in body
-func _on_projectile_body_entered(body):
-	if body != caster:
-		if body.has_method("take_damage"):
-			var kb_direction = (body.position - position).normalized()
-			body.take_damage(DAMAGE, kb_direction, KNOCKBACK)
-		die()
-
-
-func _on_detection_area_body_entered(body):
-	if body.is_in_group("Player") and body != caster:
-		target = body
-		$detection_area.queue_free()
-
-
-func _on_lifetime_timeout():
-	die()
+	direction.x = clamp(direction.x, -1.1, 1.1)
+	direction.y = clamp(direction.y, -1.1, 1.1)
 
 
 func die():
-	if has_node("projectile"):
-		$projectile/shape.disabled = true
-	if has_node("lifetime"):
-		$lifetime.queue_free()
-	$anim.play("death")
+	if dying:
+		return
+	.die()
+	$Projectile/Shape.disabled = true
+	$Lifetime.stop()
 	set_process(false)
+	death_animation()
 
 
-func free_scn():
+func death_animation():
+	# Animation duration
+	var dur = .4
+	
+	$Tween.interpolate_property($Sprite, "scale", $Sprite.scale,
+		Vector2(1.5, 1.5), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Sprite, "modulate", $Sprite.modulate,
+		Color(1, 1, 1, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.start()
+
+
+func _on_DetectionArea_body_entered(body):
+	if body != caster:
+		target = body
+		$DetectionArea.queue_free()
+
+
+func _on_Lifetime_timeout():
+	die()
+
+
+func _on_Tween_tween_completed(object, key):
 	queue_free()

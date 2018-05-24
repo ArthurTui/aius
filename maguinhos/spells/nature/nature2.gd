@@ -15,7 +15,7 @@ func fire(direction, caster):
 
 
 func _process(delta):
-	position += direction * SPEED
+	position += direction * speed
 
 
 func _on_Area2D_body_enter(body):
@@ -25,12 +25,12 @@ func _on_Area2D_body_enter(body):
 			# If the thorns are grown, play death animation when enemy enters
 			# them. Otherwise, the seed just disappears dealing damage
 			if !is_seed:
-				body.take_damage(2 * DAMAGE, null)
+				body.take_damage(2 * damage, null)
 				body.root(THORN_ROOT)
 				die()
 			else:
 #				var kb_direction = (body.position - position).normalized()
-				body.take_damage(DAMAGE, null)
+				body.take_damage(damage, null)
 				body.root(SEED_ROOT)
 				die()
 		else:
