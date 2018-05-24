@@ -225,3 +225,8 @@
  1. Forest redimensionada
  2. Personagem nao colide mais com estruturas durante dash
  3. Bug fixes
+
+### 24/05
+
+#### Arthur (14:30 ~ 20:00)
+ 1. Conserto de bugs, melhora na orientação a objeto das magias e melhoras visuais.
