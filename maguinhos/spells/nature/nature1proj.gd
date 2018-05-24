@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = 8
+const SPEED = 15
 const ROTATION = 10
 const DAMAGE = 5
 const KNOCKBACK = 15

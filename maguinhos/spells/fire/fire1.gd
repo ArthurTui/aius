@@ -41,7 +41,8 @@ func die():
 		$lifetime.queue_free()
 	if $anim.is_playing():
 		return
-	$projectile/shape.disabled = true
+	if has_node("projectile"):
+		$projectile/shape.disabled = true
 	$anim.play("death")
 	$trail/tween.interpolate_property($trail, "scale", $trail.scale,
 		$trail.scale * Vector2(0, 1), .4, Tween.TRANS_LINEAR, Tween.EASE_IN)

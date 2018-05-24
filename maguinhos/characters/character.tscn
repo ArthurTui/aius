@@ -559,7 +559,6 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 2 )
 animation = "stun"
-frame = 4
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -569,7 +568,6 @@ position = Vector2( 0, -8.33334 )
 scale = Vector2( 1.4353, 1.4353 )
 frames = SubResource( 3 )
 animation = "slow"
-frame = 2
 playing = true
 
 [node name="root" type="AnimatedSprite" parent="sprite" index="3"]
@@ -677,6 +675,7 @@ margin_right = 109.0
 margin_bottom = 31.0
 rect_scale = Vector2( 1.1, 1.1 )
 rect_pivot_offset = Vector2( 32, 32 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -709,6 +708,7 @@ margin_top = -33.0
 margin_right = 109.0
 margin_bottom = 31.0
 rect_pivot_offset = Vector2( 32, 32 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -769,6 +769,7 @@ margin_right = 109.0
 margin_bottom = 31.0
 rect_scale = Vector2( 0, 0 )
 rect_pivot_offset = Vector2( 32, 32 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
@@ -810,6 +811,7 @@ margin_top = -80.0
 margin_right = 25.0
 margin_bottom = -65.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

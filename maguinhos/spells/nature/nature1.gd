@@ -49,7 +49,8 @@ func _on_lifetime_timeout():
 
 
 func die():
-	$lifetime.queue_free()
+	if has_node("lifetime"):
+		$lifetime.queue_free()
 	if caster:
 		caster.spell_ended()
 	for leaf in $leaves.get_children():

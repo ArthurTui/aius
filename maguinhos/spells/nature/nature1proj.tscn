@@ -57,7 +57,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="trail" type="Line2D" parent="." index="1"]
 
 points = PoolVector2Array(  )
-width = 15.0
+width = 25.0
 default_color = Color( 0.196078, 1, 0.196078, 1 )
 gradient = SubResource( 1 )
 texture_mode = 134148816
@@ -85,11 +85,13 @@ level = 1
 
 [node name="shape" type="CollisionShape2D" parent="projectile" index="0"]
 
+scale = Vector2( 2, 2 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="." index="3"]
 
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
