@@ -10,7 +10,7 @@ var living = 0
 func _ready():
 	# gets the variables set in the CSS
 	var a_d = player_data.active_devices
-	var s_c = player_data. selected_characters
+	var s_c = player_data.selected_characters
 	
 	$winner.hide()
 	
