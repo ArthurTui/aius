@@ -1,0 +1,179 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://spells/lightning/lightning2.gd" type="Script" id=1]
+[ext_resource path="res://spells/lightning/sprites/shadow.png" type="Texture" id=2]
+[ext_resource path="res://spells/lightning/sprites/lightningBoltAll.png" type="Texture" id=3]
+[ext_resource path="res://spells/lightning/sprites/cloud.png" type="Texture" id=4]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt1.png" type="Texture" id=5]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt2.png" type="Texture" id=6]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt3.png" type="Texture" id=7]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt4.png" type="Texture" id=8]
+[ext_resource path="res://spells/lightning/sprites/lightningBolt5.png" type="Texture" id=9]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=10]
+
+[sub_resource type="Gradient" id=3]
+
+offsets = PoolRealArray( 0, 0.877907 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+
+flags = 4
+gradient = SubResource( 3 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.5
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 90.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.5
+color_ramp = SubResource( 4 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 5.0
+anim_speed_random = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+anim_loop = true
+_sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Scale", "Spread" ]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), null, null, ExtResource( 6 ), null, ExtResource( 7 ), null, ExtResource( 8 ), ExtResource( 9 ), null ],
+"loop": false,
+"name": "lightning",
+"speed": 20.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 80.0
+
+[node name="Lightning2" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+has_activation = false
+speed = 5
+damage = 10
+knockback = 0
+
+[node name="Shadow" type="Sprite" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 40 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Particles" type="Particles2D" parent="." index="1"]
+
+position = Vector2( 0, 40 )
+scale = Vector2( 1, 0.7 )
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 5 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 5
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Cloud" type="Sprite" parent="." index="2"]
+
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="3"]
+
+position = Vector2( 0, -170 )
+frames = SubResource( 1 )
+animation = "lightning"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Projectile" type="Area2D" parent="." index="4"]
+
+position = Vector2( 0, 40 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 10 )
+element = 2
+level = 2
+
+[node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
+
+position = Vector2( 0, -2 )
+scale = Vector2( 1, 0.5 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Lifetime" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Tween" type="Tween" parent="." index="6"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+
+[connection signal="area_entered" from="Projectile" to="Projectile" method="_on_Projectile_area_entered"]
+
+[connection signal="body_entered" from="Projectile" to="." method="_on_Projectile_body_entered"]
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
+
+

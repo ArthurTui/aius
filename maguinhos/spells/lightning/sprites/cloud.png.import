@@ -7,10 +7,10 @@ path="res://.import/cloud.png-ebeb01f111ef67ec07023fd0a39e2565.stex"
 [deps]
 
 source_file="res://spells/lightning/sprites/cloud.png"
-source_md5="810555877f370ec0b802010dde13c37e"
+source_md5="617323a5592a4cecbbc9351e8d4c1845"
 
 dest_files=[ "res://.import/cloud.png-ebeb01f111ef67ec07023fd0a39e2565.stex" ]
-dest_md5="dbe286a530771bc19d5e39c8764b82af"
+dest_md5="43b98465e307cce01cc857a2c9367428"
 
 [params]
 

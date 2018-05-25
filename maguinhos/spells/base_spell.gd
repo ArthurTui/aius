@@ -30,7 +30,7 @@ func die():
 
 
 func _on_Projectile_body_entered(body):
-	# Hits body if "take_damage" function exists in it, else just dies
+	# Hits body if "take_damage" function exists in it then dies, else just dies
 	if body != caster:
 		if body.has_method("take_damage"):
 			on_hit(body)

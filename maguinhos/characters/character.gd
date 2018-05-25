@@ -66,14 +66,14 @@ var water2 = preload("res://spells/water/Water2.tscn")
 var water3 = preload("res://spells/water/Water3.tscn")
 
 # Lightning
-var lightning1 = preload("res://spells/lightning/lightning1.tscn")
-var lightning2 = preload("res://spells/lightning/lightning2.tscn")
-var lightning3 = preload("res://spells/lightning/lightning3.tscn")
+var lightning1 = preload("res://spells/lightning/Lightning1.tscn")
+var lightning2 = preload("res://spells/lightning/Lightning2.tscn")
+var lightning3 = preload("res://spells/lightning/Lightning3.tscn")
 
 # Nature
-var nature1 = preload("res://spells/nature/nature1.tscn")
-var nature2 = preload("res://spells/nature/nature2.tscn")
-var nature3 = preload("res://spells/nature/nature3.tscn")
+var nature1 = preload("res://spells/nature/Nature1.tscn")
+var nature2 = preload("res://spells/nature/Nature2.tscn")
+var nature3 = preload("res://spells/nature/Nature3.tscn")
 
 # Spells in the form spell[element][level]
 var spells = [[fire1, fire2, fire3], [water1, water2, water3],

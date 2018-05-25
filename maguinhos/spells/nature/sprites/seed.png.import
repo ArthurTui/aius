@@ -7,10 +7,10 @@ path="res://.import/seed.png-6fe104dd6d7b7f2ed906cae28211d566.stex"
 [deps]
 
 source_file="res://spells/nature/sprites/seed.png"
-source_md5="bac53fd3aba0cf65d41867908d762a3c"
+source_md5="b2c667592e9f013765f7dbb76703a4e2"
 
 dest_files=[ "res://.import/seed.png-6fe104dd6d7b7f2ed906cae28211d566.stex" ]
-dest_md5="5cb22685ddfb51059f9123f44387f812"
+dest_md5="aa0d4077561e83b7ac29e664b7fa1830"
 
 [params]
 

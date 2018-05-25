@@ -33,15 +33,17 @@ custom_solver_bias = 0.0
 radius = 15.0
 _sections_unfolded = [ "Resource" ]
 
-[node name="Nature2" type="Node2D"]
+[node name="Nature2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 has_activation = false
+speed = 10
+damage = 5
+knockback = 0
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
-scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
 animation = "seed"
 _sections_unfolded = [ "Transform" ]
@@ -59,8 +61,9 @@ script = ExtResource( 6 )
 element = 3
 level = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectile" index="0"]
+[node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
 
+scale = Vector2( 1, 0.7 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
@@ -78,9 +81,18 @@ wait_time = 0.4
 one_shot = true
 autostart = true
 
-[connection signal="area_entered" from="Projectile" to="Projectile" method="_on_projectile_area_entered"]
+[node name="Tween" type="Tween" parent="." index="4"]
 
-[connection signal="body_entered" from="Projectile" to="." method="_on_Area2D_body_enter"]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="area_entered" from="Projectile" to="Projectile" method="_on_Projectile_area_entered"]
+
+[connection signal="body_entered" from="Projectile" to="." method="_on_Projectile_body_entered"]
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
 

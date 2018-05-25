@@ -7,10 +7,10 @@ path="res://.import/thorns2.png-d6cc6a96a16afa12cdaae12dda754d2c.stex"
 [deps]
 
 source_file="res://spells/nature/sprites/thorns2.png"
-source_md5="a8e37d819c50ade423950ac83a54c703"
+source_md5="667a03f4f799a41f2927127920fbf589"
 
 dest_files=[ "res://.import/thorns2.png-d6cc6a96a16afa12cdaae12dda754d2c.stex" ]
-dest_md5="3895ba20f4941f699700840708ed205d"
+dest_md5="db1b0cf7cf2a8b4c98b685ddfb7e7e07"
 
 [params]
 

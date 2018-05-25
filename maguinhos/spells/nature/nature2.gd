@@ -1,44 +1,19 @@
 extends "res://spells/base_spell.gd"
 
 const SEED_ROOT = .5
+const THORN_OFFSET_Y = 15
 const THORN_ROOT = 1.5
-const THORN_RADIUS = 35
+const THORN_RADIUS = 60
 
 var is_seed = true
 
-func fire(direction, caster):
-	self.direction = direction
-	self.caster = caster
+func cast(caster, direction):
+	.cast(caster, direction)
 	rotation = direction.angle()
-	set_position(caster.position)
-	set_process(true)
 
 
 func _process(delta):
 	position += direction * speed
-
-
-func _on_Area2D_body_enter(body):
-	if body != caster:
-		$GrowTimer.stop()
-		if body.has_method("take_damage"):
-			# If the thorns are grown, play death animation when enemy enters
-			# them. Otherwise, the seed just disappears dealing damage
-			if !is_seed:
-				body.take_damage(2 * damage, null)
-				body.root(THORN_ROOT)
-				die()
-			else:
-#				var kb_direction = (body.position - position).normalized()
-				body.take_damage(damage, null)
-				body.root(SEED_ROOT)
-				die()
-		else:
-			grow()
-
-
-func _on_GrowTimer_timeout():
-	grow()
 
 
 # Projectile stops moving and expands
@@ -49,19 +24,50 @@ func grow():
 	$LifeTimer.start()
 	is_seed = false
 	rotation = 0
-	$AnimatedSprite.play("grow")
-	$Projectile/CollisionShape2D.shape.radius = THORN_RADIUS
+	$Sprite.play("grow")
+	$Projectile/Shape.shape.radius = THORN_RADIUS
+	$Projectile/Shape.position = Vector2(0, THORN_OFFSET_Y)
+
+
+func die():
+	if dying:
+		return
+	.die()
+	$Projectile/Shape.disabled = true
+	$GrowTimer.stop()
+	if !is_seed:
+		$Sprite.play("die")
+		yield($Sprite, "animation_finished")
+	else:
+		$Tween.interpolate_property($Sprite, "scale", $Sprite.scale,
+			Vector2(1.2, 1.2), .1, Tween.TRANS_SINE, Tween.EASE_IN)
+		$Tween.interpolate_property($Sprite, "modulate", Color(1, 1, 1, 1),
+			Color(1, 1, 1, 0), .1, Tween.TRANS_SINE, Tween.EASE_IN)
+		$Tween.start()
+		yield($Tween, "tween_completed")
+	queue_free()
+
+
+func _on_Projectile_body_entered(body):
+	if body != caster:
+		$GrowTimer.stop()
+		if body.has_method("take_damage"):
+			# If the thorns are grown, play death animation when enemy enters
+			# them. Otherwise, the seed just disappears dealing damage
+			if !is_seed:
+				body.take_damage(2 * damage)
+				body.root(THORN_ROOT)
+			else:
+				body.take_damage(damage)
+				body.root(SEED_ROOT)
+			die()
+		else:
+			grow()
 
 
 func _on_LifeTimer_timeout():
 	die()
 
 
-func die():
-	if !has_node("Projectile"):
-		return
-	$Projectile.queue_free()
-	if !is_seed:
-		$AnimatedSprite.play("die")
-		yield($AnimatedSprite, "animation_finished")
-	queue_free()
+func _on_GrowTimer_timeout():
+	grow()

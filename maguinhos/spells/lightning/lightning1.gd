@@ -1,18 +1,9 @@
 extends "res://spells/base_spell.gd"
 
+const ACCELERATION = -8
 const ROTATION_SPEED = 3
 
-var angle
-var state = "going"
-
-
-func fire(direction, caster):
-	self.direction = direction
-	self.caster = caster
-	$projectile.caster = caster
-	set_position(caster.position)
-	set_process(true)
-
+var returning = false
 
 func _process(delta):
 	if !caster or !weakref(caster).get_ref(): # caster was freed
@@ -21,37 +12,46 @@ func _process(delta):
 		return
 	
 	if speed <= 0:
-		state = "returning"
-		angle = get_angle_to(caster.position)
+		returning = true
+		var angle = get_angle_to(caster.position)
 		# negative cos and sin because speed is also negative
 		direction = Vector2(-cos(angle), -sin(angle))
-	$sprite.rotate(ROTATION_SPEED * delta)
+	
+	$Sprite.rotate(ROTATION_SPEED * delta)
 	
 	position += direction * speed
-	speed -= 8*delta
-
-
-# does damage if take damage function exists in body
-func _on_projectile_body_entered(body):
-	if body != caster:
-		if body.has_method("take_damage"):
-			body.take_damage(damage)
-			$anim.play("blink")
-		else:
-			die()
-	elif state == "returning":
-		die()
+	speed += ACCELERATION * delta
 
 
 func die():
-	if $anim.is_playing():
+	if dying:
 		return
-	$anim.play("death")
-	if has_node("projectile"):
-		$projectile.queue_free()
-	$particles.emitting = false
+	.die()
+	$Projectile/Shape.disabled = false
+	$Particles.emitting = false
 	set_process(false)
+	death_animation()
 
 
-func free_scn():
+func death_animation():
+	var duration = .3
+	
+	$Tween.interpolate_property($Sprite, "scale", Vector2(1, 1),
+		Vector2(.2, .2), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Sprite, "modulate", Color(1, 1, 1, 1),
+		Color(1, 1, 1, 0), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.start()
+	
+	yield($Tween, "tween_completed")
 	queue_free()
+
+
+func _on_Projectile_body_entered(body):
+	if body != caster:
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
+			$Animation.play("blink")
+		else:
+			die()
+	elif returning:
+		die()

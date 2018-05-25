@@ -32,7 +32,7 @@ length = 1.6
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("projectile/shape1:position")
+tracks/1/path = NodePath("Projectile/Shape1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -56,7 +56,7 @@ tracks/1/keys = {
 "values": [ Vector2( 62.3617, -53.1711 ), Vector2( 149.838, -141.382 ), Vector2( 149.838, -141.382 ), Vector2( 238.235, -228.552 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("projectile/shape1:shape:extents")
+tracks/2/path = NodePath("Projectile/Shape1:shape:extents")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -68,7 +68,7 @@ tracks/2/keys = {
 "values": [ Vector2( 36.5797, 10 ), Vector2( 157.809, 19.8094 ), Vector2( 157.809, 19.8094 ), Vector2( 34.2061, 19.8094 ), Vector2( 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("projectile/shape2:position")
+tracks/3/path = NodePath("Projectile/Shape2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -80,7 +80,7 @@ tracks/3/keys = {
 "values": [ Vector2( 73.64, -35.1614 ), Vector2( 197.7, -104.157 ), Vector2( 197.7, -104.157 ), Vector2( 297.147, -155.723 ), Vector2( 332.752, -158.178 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("projectile/shape2:shape:extents")
+tracks/4/path = NodePath("Projectile/Shape2:shape:extents")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -92,7 +92,7 @@ tracks/4/keys = {
 "values": [ Vector2( 37.7392, 10 ), Vector2( 173.504, 27.4133 ), Vector2( 173.504, 27.4133 ), Vector2( 55.19, 27.4133 ), Vector2( 25.5907, 15.9942 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("projectile/shape3:position")
+tracks/5/path = NodePath("Projectile/Shape3:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -104,7 +104,7 @@ tracks/5/keys = {
 "values": [ Vector2( 76.2936, -7.96107 ), Vector2( 212.295, -29.854 ), Vector2( 212.295, -29.854 ), Vector2( 328.931, -34.765 ), Vector2( 351.03, -35.9927 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("projectile/shape3:shape:extents")
+tracks/6/path = NodePath("Projectile/Shape3:shape:extents")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -116,7 +116,7 @@ tracks/6/keys = {
 "values": [ Vector2( 38.7956, 10 ), Vector2( 169.427, 25.5239 ), Vector2( 169.427, 25.5239 ), Vector2( 56.749, 25.5239 ), Vector2( 34.6497, 12.459 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("projectile/shape4:position")
+tracks/7/path = NodePath("Projectile/Shape4:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -128,7 +128,7 @@ tracks/7/keys = {
 "values": [ Vector2( 76.957, 20.5661 ), Vector2( 194.383, 59.708 ), Vector2( 194.383, 59.708 ), Vector2( 308.563, 94.0848 ), Vector2( 326.979, 113.729 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("projectile/shape4:shape:extents")
+tracks/8/path = NodePath("Projectile/Shape4:shape:extents")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -140,7 +140,7 @@ tracks/8/keys = {
 "values": [ Vector2( 44.8723, 10 ), Vector2( 165.467, 37.3422 ), Vector2( 165.467, 37.3422 ), Vector2( 53.7628, 37.3422 ), Vector2( 26.7018, 16.8161 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("projectile/shape5:position")
+tracks/9/path = NodePath("Projectile/Shape5:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -152,7 +152,7 @@ tracks/9/keys = {
 "values": [ Vector2( 65.6788, 43.7859 ), Vector2( 162.67, 138.322 ), Vector2( 162.67, 138.322 ), Vector2( 270.712, 225.492 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("projectile/shape5:shape:extents")
+tracks/10/path = NodePath("Projectile/Shape5:shape:extents")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -189,12 +189,15 @@ extents = Vector2( 44.8723, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 44.9049, 10 )
 
-[node name="nature3" type="Node2D" index="0"]
+[node name="Nature3" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 has_activation = false
+speed = 0
+damage = 10
+knockback = 0
 
-[node name="sprite" type="AnimatedSprite" parent="." index="0"]
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
 z_index = -1
 frames = SubResource( 1 )
@@ -204,7 +207,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="anim" type="AnimationPlayer" parent="." index="1"]
+[node name="Animation" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -213,8 +216,9 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/grow = SubResource( 2 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
-[node name="projectile" type="Area2D" parent="." index="2"]
+[node name="Projectile" type="Area2D" parent="." index="2"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -227,42 +231,42 @@ script = ExtResource( 15 )
 element = 3
 level = 3
 
-[node name="shape1" type="CollisionShape2D" parent="projectile" index="0"]
+[node name="Shape1" type="CollisionShape2D" parent="Projectile" index="0"]
 
 position = Vector2( 62.3617, -53.1711 )
 rotation = -0.785398
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="shape2" type="CollisionShape2D" parent="projectile" index="1"]
+[node name="Shape2" type="CollisionShape2D" parent="Projectile" index="1"]
 
 position = Vector2( 73.64, -35.1614 )
 rotation = -0.436332
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="shape3" type="CollisionShape2D" parent="projectile" index="2"]
+[node name="Shape3" type="CollisionShape2D" parent="Projectile" index="2"]
 
 position = Vector2( 76.2936, -7.96107 )
 shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="shape4" type="CollisionShape2D" parent="projectile" index="3"]
+[node name="Shape4" type="CollisionShape2D" parent="Projectile" index="3"]
 
 position = Vector2( 76.957, 20.5661 )
 rotation = 0.349066
 shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="shape5" type="CollisionShape2D" parent="projectile" index="4"]
+[node name="Shape5" type="CollisionShape2D" parent="Projectile" index="4"]
 
 position = Vector2( 65.6788, 43.7859 )
 rotation = 0.785398
 shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
-[connection signal="area_entered" from="projectile" to="projectile" method="_on_projectile_area_entered"]
+[connection signal="area_entered" from="Projectile" to="Projectile" method="_on_Projectile_area_entered"]
 
-[connection signal="body_entered" from="projectile" to="." method="_on_projectile_body_entered"]
+[connection signal="body_entered" from="Projectile" to="." method="_on_Projectile_body_entered"]
 
 

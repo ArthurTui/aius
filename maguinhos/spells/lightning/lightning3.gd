@@ -1,20 +1,26 @@
 extends "res://spells/base_spell.gd"
 
-const DAMAGE = 20
+const STUN_DURATION = 1.5
 
-func fire(direction, caster):
-	self.caster = caster
-	set_rotation(direction.angle())
-	set_position(caster.position)
-	$sprite.play()
+func cast(caster, direction):
+	.cast(caster, direction)
+	rotation = direction.angle()
+	$Sprite.play()
 
 
-func _on_projectile_body_entered(body):
+func die():
+	if dying:
+		return
+	.die()
+	$Projectile/Shape.disabled = true
+
+
+func _on_Projectile_body_entered(body):
 	if body != caster:
 		if body.has_method("take_damage"):
-			body.take_damage(DAMAGE, null)
-			body.stun(1.5)
+			body.take_damage(damage)
+			body.stun(STUN_DURATION)
 
 
-func _on_sprite_animation_finished():
+func _on_Sprite_animation_finished():
 	queue_free()
