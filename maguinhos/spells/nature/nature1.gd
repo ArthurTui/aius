@@ -9,7 +9,7 @@ func _ready():
 	for leaf in $Leaves.get_children():
 		leaf.set_rotation(rad2deg(angle))
 		$Tween.interpolate_property(leaf, "position", Vector2(),
-			Vector2(SHIELD_RADIUS, 0).rotated(angle), .2, Tween.TRANS_SINE,
+			Vector2(SHIELD_RADIUS, 0).rotated(angle), .2, Tween.TRANS_LINEAR,
 			Tween.EASE_OUT)
 		angle -= PI/2
 	$Tween.start()

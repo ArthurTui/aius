@@ -1,12 +1,8 @@
-extends "res://spells/base_projectile.gd"
-
-var direction = Vector2()
-var speed
-var damage
-var knockback
+extends "res://spells/base_spell.gd"
 
 func fire(caster, direction, speed, damage, knockback):
 	self.caster = caster
+	$Projectile.caster = caster
 	self.direction = direction
 	$Sprite.rotation = direction.angle()
 	self.speed = speed
@@ -21,7 +17,7 @@ func _process(delta):
 func die():
 	if $Tween.is_active():
 		return
-	$Shape.disabled = true
+	$Projectile/Shape.disabled = true
 	set_process(false)
 	$Tween.interpolate_property($Sprite, "scale", Vector2(.15, .15),
 		Vector2(.5, .5), .4, Tween.TRANS_QUAD, Tween.EASE_OUT)
