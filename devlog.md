@@ -230,3 +230,8 @@
 
 #### Arthur (14:30 ~ 20:00)
  1. Conserto de bugs, melhora na orientação a objeto das magias e melhoras visuais.
+
+### 25/05
+
+#### Arthur (12:30 ~ 17:00)
+ 1. Término do conserto das magias.
