@@ -235,3 +235,13 @@
 
 #### Arthur (12:30 ~ 17:00)
  1. Término do conserto das magias.
+
+### 28/05
+
+#### Henrique (10:40 ~ 14:10)
+ 1. Sprites mais dinamicas no menu principal
+ 2. Nova estrutura de nodes na CSS
+ 3. Novas sprite de botões, já inseridos na CSS
+ 4. Pause screen bem feito
+ 5. Background color na CSS
+ 6. water1 nerfado
