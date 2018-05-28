@@ -6,7 +6,6 @@ var active_devices = {} # which device controls which player
 var selected_characters = [null,null,null,null]
 var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel"]
 
-var active_players = 0 # number of active players
 var ready_players = [] # which players are ready
 
 
@@ -53,12 +52,11 @@ func _input(event):
 # player enters the game
 func player_start(id):
 	# Adds the player in the screen
-	if not id in active_devices and active_players < 4:
+	if not id in active_devices and active_devices.size() < 4:
 		for pl in range(4):
 			# searches for the first empty slot in the CSS
 			# and adds the player there
 			if selected_characters[pl] == null:
-				active_players += 1
 				selected_characters[pl] = available_characters.pop_front()
 				active_devices[id] = pl + 1
 				
@@ -70,23 +68,27 @@ func player_start(id):
 	# Removes the player if he's already there
 	else:
 		var player = active_devices[id]
-		# Ready
-		if not player in ready_players:
-			get_node(str("CSS/P", player, "/Items/anim")).play("ready")
-			ready_players.append(player)
-		# Unready
-		else:
-			get_node(str("CSS/P", player, "/Items/anim")).play("unready")
-			ready_players.remove(ready_players.find(player))
-		# updates the global variables
+		
+		# updates the global variables, because we might leave
+		# this scene after this point (after the animations end)
 		player_data.active_devices = active_devices
 		player_data.selected_characters = selected_characters
-		player_data.ready_players = ready_players
+		
+		# Ready
+		if not player in ready_players:
+			ready_players.append(player)
+			player_data.ready_players = ready_players
+			get_node(str("CSS/P", player, "/Items/anim")).play("ready")
+		# Unready
+		else:
+			ready_players.remove(ready_players.find(player))
+			player_data.ready_players = ready_players
+			get_node(str("CSS/P", player, "/Items/anim")).play("unready")
 
 
 # player changes character
 func player_change_char(id):
-	if active_players > 0 and id in active_devices:
+	if active_devices.size() > 0 and id in active_devices:
 		var player = active_devices[id]
 		
 		# ready players cannot change character
@@ -113,5 +115,4 @@ func player_exit(id):
 			
 		available_characters.push_front(selected_characters[player - 1])
 		selected_characters[player - 1] = null
-		active_players -= 1
 		active_devices.erase(id)
