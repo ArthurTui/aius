@@ -4,3 +4,4 @@ extends Node2D
 # the battle scene
 var active_devices
 var selected_characters
+var ready_players

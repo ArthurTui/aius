@@ -63,29 +63,25 @@ func player_start(id):
 				active_devices[id] = pl + 1
 				
 				var character = selected_characters[pl]
-				get_node(str("CSS/P", pl + 1,"/anim")).play("enter")
-				get_node(str("CSS/P", pl + 1,"/character")).set_animation(character)
+				get_node(str("CSS/P", pl + 1,"/Items/bg/anim")).play("enter")
+				get_node(str("CSS/P", pl + 1,"/Items/character")).set_animation(character)
 				break
 	
 	# Removes the player if he's already there
 	else:
 		var player = active_devices[id]
 		# Ready
-		if get_node(str("CSS/P", player, "/label")).get_text() == "Ready?":
-			get_node(str("CSS/P", player, "/label")).set_text("Ready for battle!!")
+		if not player in ready_players:
+			get_node(str("CSS/P", player, "/Items/anim")).play("ready")
 			ready_players.append(player)
 		# Unready
 		else:
-			get_node(str("CSS/P", player, "/label")).set_text("Ready?")
+			get_node(str("CSS/P", player, "/Items/anim")).play("unready")
 			ready_players.remove(ready_players.find(player))
-	
-	
-	# starts game
-	if ready_players.size() == active_players and active_players >= 2:
-		# sets the global variables to be used in the battle scene
+		# updates the global variables
 		player_data.active_devices = active_devices
 		player_data.selected_characters = selected_characters
-		get_tree().change_scene("res://menus/stage_select.tscn")
+		player_data.ready_players = ready_players
 
 
 # player changes character
@@ -105,7 +101,7 @@ func player_change_char(id):
 				selected_characters[player - 1] = available_characters.pop_back()
 			
 			var character = selected_characters[player - 1]
-			get_node(str("CSS/P", player, "/character")).set_animation(character)
+			get_node(str("CSS/P", player, "/Items/character")).set_animation(character)
 
 
 # player "exits"
@@ -113,7 +109,7 @@ func player_exit(id):
 	if id in active_devices and not active_devices[id] in ready_players:
 		var player = active_devices[id]
 			
-		get_node(str("CSS/P", player,"/anim")).play("exit")
+		get_node(str("CSS/P", player,"/Items/bg/anim")).play("exit")
 			
 		available_characters.push_front(selected_characters[player - 1])
 		selected_characters[player - 1] = null
