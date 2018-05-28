@@ -342,7 +342,7 @@ position = Vector2( 240, 530 )
 scale = Vector2( 1.3, 1.3 )
 frames = SubResource( 1 )
 animation = "skeleton"
-frame = 2
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
