@@ -3,12 +3,12 @@
 [ext_resource path="res://spells/water/water1.gd" type="Script" id=1]
 [ext_resource path="res://spells/water/Water1Proj.tscn" type="PackedScene" id=2]
 
-[node name="Water1" type="Node2D" index="0"]
+[node name="Water1" type="Node2D"]
 
 script = ExtResource( 1 )
 has_activation = false
 speed = 10
-damage = 10
+damage = 3
 knockback = 10
 
 [node name="Projectiles" type="Node2D" parent="." index="0"]

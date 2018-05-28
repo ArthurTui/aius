@@ -31,7 +31,7 @@ radius = 9.02354
 script = ExtResource( 1 )
 has_activation = false
 speed = 10
-damage = 10
+damage = 3
 knockback = 10
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
