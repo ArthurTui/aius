@@ -1,5 +1,16 @@
 extends Control
 
+# Load resources
+var play = preload("res://menus/resources/play.png")
+var settings = preload("res://menus/resources/settings.png")
+var credits = preload("res://menus/resources/credits.png")
+var quit = preload("res://menus/resources/quit.png")
+
+var play_glow = preload("res://menus/resources/play_glow.png")
+var settings_glow = preload("res://menus/resources/settings_glow.png")
+var credits_glow = preload("res://menus/resources/credits_glow.png")
+var quit_glow = preload("res://menus/resources/quit_glow.png")
+
 var hovering = 0 # which button is being hovered
 
 
@@ -85,36 +96,44 @@ func _on_Quit_pressed():
 
 func _on_play_mouse_entered():
 	hovering = 1
+	$Buttons/Play.texture_normal = play_glow
 	$Buttons/Play/AnimationPlayer.play("play_hover")
 
 func _on_settings_mouse_entered():
 	hovering = 2
+	$Buttons/Settings.texture_normal = settings_glow
 	$Buttons/Settings/AnimationPlayer.play("settings_hover")
 
 func _on_credits_mouse_entered():
 	hovering = 3
+	$Buttons/Credits.texture_normal = credits_glow
 	$Buttons/Credits/AnimationPlayer.play("credits_hover")
 
 func _on_quit_mouse_entered():
 	hovering = 4
+	$Buttons/Quit.texture_normal = quit_glow
 	$Buttons/Quit/AnimationPlayer.play("quit_hover")
 
 ######################################################
 func _on_play_mouse_exited():
 	hovering = 0
+	$Buttons/Play.texture_normal = play
 	$Buttons/Play/AnimationPlayer.play("play_unhover")
 
 
 func _on_settings_mouse_exited():
 	hovering = 0
+	$Buttons/Settings.texture_normal = settings
 	$Buttons/Settings/AnimationPlayer.play("settings_unhover")
 
 
 func _on_credits_mouse_exited():
 	hovering = 0
+	$Buttons/Credits.texture_normal = credits
 	$Buttons/Credits/AnimationPlayer.play("credits_unhover")
 
 
 func _on_quit_mouse_exited():
 	hovering = 0
+	$Buttons/Quit.texture_normal = quit
 	$Buttons/Quit/AnimationPlayer.play("quit_unhover")
