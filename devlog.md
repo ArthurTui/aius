@@ -245,3 +245,8 @@
  4. Pause screen bem feito
  5. Background color na CSS
  6. water1 nerfado
+ 
+ ### 30/05
+ 
+ #### Henrique (13:00 ~ 16:30)
+  1. Asstes para Temple of Kei
