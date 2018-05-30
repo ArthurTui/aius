@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 960, 200 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 200, 940 )
+
+[node name="Stage" type="Node2D"]
+
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Background" type="Node2D" parent="." index="0"]
+
+[node name="YSort" type="YSort" parent="." index="1"]
+
+sort_enabled = true
+
+[node name="Players" type="Node2D" parent="YSort" index="0"]
+
+[node name="Obstacles" type="Node2D" parent="YSort" index="1"]
+
+[node name="Walls" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Up" type="StaticBody2D" parent="Walls" index="0"]
+
+editor/display_folded = true
+position = Vector2( 960, -200 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Shape" type="CollisionShape2D" parent="Walls/Up" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Down" type="StaticBody2D" parent="Walls" index="1"]
+
+editor/display_folded = true
+position = Vector2( 960, 1280 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Shape" type="CollisionShape2D" parent="Walls/Down" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Left" type="StaticBody2D" parent="Walls" index="2"]
+
+editor/display_folded = true
+position = Vector2( -200, 540 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Shape" type="CollisionShape2D" parent="Walls/Left" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Right" type="StaticBody2D" parent="Walls" index="3"]
+
+editor/display_folded = true
+position = Vector2( 2120, 540 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Shape" type="CollisionShape2D" parent="Walls/Right" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="HUD" type="Control" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Pause" type="Control" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+

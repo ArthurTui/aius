@@ -1,0 +1,146 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://stages/temple/statue.gd" type="Script" id=1]
+[ext_resource path="res://stages/temple/statue.png" type="Texture" id=2]
+[ext_resource path="res://stages/temple/flares.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 58, -28, 67, 35, -73, 35, -58, -28 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 300.0
+
+[node name="Statue1" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0, -120 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Flares" type="Node2D" parent="." index="1"]
+
+position = Vector2( 0, -220 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Light2D" type="Light2D" parent="Flares" index="0"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.01
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+
+[node name="Sprite" type="Sprite" parent="Flares" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Lasers" type="Node2D" parent="." index="2"]
+
+modulate = Color( 1, 1, 1, 0 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Left" type="Line2D" parent="Lasers" index="0"]
+
+points = PoolVector2Array(  )
+width = 10.0
+default_color = Color( 1, 0, 0, 1 )
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Right" type="Line2D" parent="Lasers" index="1"]
+
+points = PoolVector2Array(  )
+width = 10.0
+default_color = Color( 1, 0, 0, 1 )
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 8
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="DetectionArea" type="Area2D" parent="." index="4"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="Cooldown" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="Tween" type="Tween" parent="." index="6"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
+
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
+
+
