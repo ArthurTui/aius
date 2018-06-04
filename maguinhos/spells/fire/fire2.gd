@@ -52,7 +52,7 @@ func death_animation():
 
 
 func _on_DetectionArea_body_entered(body):
-	if body != caster:
+	if body != caster and body.is_in_group("Player"):
 		target = body
 		$DetectionArea.queue_free()
 

@@ -572,7 +572,7 @@ position = Vector2( 0, -8.33334 )
 scale = Vector2( 1.4353, 1.4353 )
 frames = SubResource( 3 )
 animation = "slow"
-frame = 2
+frame = 1
 playing = true
 
 [node name="root" type="AnimatedSprite" parent="sprite" index="3"]

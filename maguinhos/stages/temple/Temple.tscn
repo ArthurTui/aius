@@ -5,7 +5,7 @@
 [ext_resource path="res://characters/character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://stages/temple/Statue.tscn" type="PackedScene" id=4]
 
-[node name="Stage" index="0" instance=ExtResource( 1 )]
+[node name="Stage" instance=ExtResource( 1 )]
 
 [node name="Background" parent="." index="0"]
 
@@ -17,6 +17,10 @@ _sections_unfolded = [ "Z Index" ]
 position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Players" parent="YSort" index="0"]
+
+visible = false
 
 [node name="character" parent="YSort/Players" index="0" instance=ExtResource( 3 )]
 
@@ -31,14 +35,9 @@ position = Vector2( 605, 540 )
 
 position = Vector2( 1315, 540 )
 
-[node name="Walls" parent="." index="3"]
-
-editor/display_folded = false
-
 [node name="Up" parent="Walls" index="0"]
 
-editor/display_folded = false
-position = Vector2( 960, -75 )
+position = Vector2( 960, -145 )
 
 [node name="Down" parent="Walls" index="1"]
 

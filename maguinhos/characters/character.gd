@@ -357,7 +357,6 @@ func take_damage(damage, kb_dir=null, kb_str=0):
 	else:
 		$sprite/anim.play("blink")
 	if kb_dir != null: # Knockback
-#		set_position(self.position + kb_dir * kb_str)
 		vel += kb_dir * kb_str
 
 
