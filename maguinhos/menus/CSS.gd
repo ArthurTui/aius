@@ -37,7 +37,6 @@ func _input(event):
 	# detects a keyboard event and changes id so that the first
 	# controller and the keyboard don't overlap inputs
 	if Input.is_action_just_pressed("d100_enter"):
-		print("hello 1")
 		id = KB_CUSTOM_ID_1
 	elif Input.is_action_just_pressed("d100_left") or Input.is_action_just_pressed("d100_right"):
 		id = KB_CUSTOM_ID_1
@@ -48,10 +47,10 @@ func _input(event):
 	elif Input.is_action_just_pressed("d200_left") or Input.is_action_just_pressed("d200_right"):
 		id = KB_CUSTOM_ID_2
 	elif Input.is_action_just_pressed("d200_cancel"):
-		print("hello 2")
 		id = KB_CUSTOM_ID_2
 	else:
 		 id = event.device
+	
 	
 	if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_accept"):
 	    player_start(id)
