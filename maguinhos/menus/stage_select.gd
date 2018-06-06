@@ -62,6 +62,8 @@ func _process(delta):
 						
 						if name == "forest":
 							get_tree().change_scene("res://stages/forest.tscn")
+						elif name == "cave":
+							get_tree().change_scene("res://stages/temple/Temple.tscn")
 						
 					# random stage, also teleports the cursor to the stage
 					# the random chose

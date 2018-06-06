@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Aius: Battle for Magic"
-run/main_scene="res://stages/test_stage.tscn"
+run/main_scene="res://menus/main_menu.tscn"
 config/icon="res://spells/lightning/sprites/magnetBolt3.png"
 
 [autoload]
