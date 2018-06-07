@@ -59,15 +59,16 @@ sort_enabled = true
 
 [node name="Up" type="StaticBody2D" parent="Walls" index="0"]
 
+editor/display_folded = true
 position = Vector2( 960, -200 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 8
+collision_mask = 7
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Shape" type="CollisionShape2D" parent="Walls/Up" index="0"]
 
@@ -78,13 +79,13 @@ shape = SubResource( 1 )
 editor/display_folded = true
 position = Vector2( 960, 1280 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 8
+collision_mask = 7
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Shape" type="CollisionShape2D" parent="Walls/Down" index="0"]
 
@@ -95,13 +96,13 @@ shape = SubResource( 1 )
 editor/display_folded = true
 position = Vector2( -200, 540 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 8
+collision_mask = 7
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Shape" type="CollisionShape2D" parent="Walls/Left" index="0"]
 
@@ -113,13 +114,13 @@ _sections_unfolded = [ "Transform" ]
 editor/display_folded = true
 position = Vector2( 2120, 540 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 8
+collision_mask = 7
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Shape" type="CollisionShape2D" parent="Walls/Right" index="0"]
 

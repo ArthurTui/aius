@@ -197,10 +197,11 @@ anim_offset_random = 0.0
 anim_loop = true
 _sections_unfolded = [ "Animation", "Color" ]
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CapsuleShape2D" id=23]
 
 custom_solver_bias = 0.0
-radius = 25.0
+radius = 30.0
+height = 60.0
 
 [sub_resource type="Animation" id=12]
 
@@ -524,7 +525,7 @@ _sections_unfolded = [ "Border", "Border Width", "Corner Radius", "Expand Margin
 
 input_pickable = false
 collision_layer = 1
-collision_mask = 9
+collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
@@ -561,7 +562,6 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 2 )
 animation = "stun"
-frame = 1
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -647,7 +647,8 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visib
 
 [node name="collision_shape" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 11 )
+position = Vector2( 0, -40 )
+shape = SubResource( 23 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
