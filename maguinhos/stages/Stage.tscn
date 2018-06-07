@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ Color( 0.96875, 1, 0, 1 ), Color( 0.03125, 0, 1, 1 ), Color( 1, 0, 0.046875, 1 ), Color( 0, 1, 0.390625, 1 ), Color( 1, 0, 0.9375, 1 ), Color( 0.968627, 1, 0, 1 ) ]
 }
 
-[node name="Stage" type="Node2D" index="0"]
+[node name="Stage" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -54,10 +54,6 @@ positions = null
 [node name="YSort" type="YSort" parent="." index="1"]
 
 sort_enabled = true
-
-[node name="Players" type="Node2D" parent="YSort" index="0"]
-
-[node name="Obstacles" type="Node2D" parent="YSort" index="1"]
 
 [node name="Walls" type="Node2D" parent="." index="2"]
 

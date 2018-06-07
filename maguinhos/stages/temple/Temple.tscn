@@ -19,17 +19,18 @@ position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Statue1" parent="YSort/Obstacles" index="0" instance=ExtResource( 3 )]
+[node name="Statue1" parent="YSort" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 605, 540 )
 
-[node name="Statue2" parent="YSort/Obstacles" index="1" instance=ExtResource( 3 )]
+[node name="Statue2" parent="YSort" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 1315, 540 )
 
 [node name="Up" parent="Walls" index="0"]
 
-position = Vector2( 960, -145 )
+editor/display_folded = true
+position = Vector2( 960, -75 )
 
 [node name="Down" parent="Walls" index="1"]
 
@@ -37,7 +38,6 @@ position = Vector2( 960, 1155 )
 
 [node name="Left" parent="Walls" index="2"]
 
-editor/display_folded = false
 position = Vector2( -10, 540 )
 
 [node name="Right" parent="Walls" index="3"]

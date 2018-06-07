@@ -19,7 +19,7 @@ func _ready():
 func cast(caster, direction):
 	self.caster = caster
 	self.direction = direction
-	set_position(caster.position)
+	set_position(caster.position + caster.CAST_ORIGIN)
 
 
 func activate():

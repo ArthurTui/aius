@@ -3,6 +3,7 @@ extends KinematicBody2D
 const RUN_SPEED = 5
 const DASH_SPEED = 10
 const KB_CUSTOM_ID = 100
+const CAST_ORIGIN = Vector2(0, -45)
 
 const COLLISION_NORMAL = 1
 const COLLISION_DASH = 2

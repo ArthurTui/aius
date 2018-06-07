@@ -197,11 +197,10 @@ anim_offset_random = 0.0
 anim_loop = true
 _sections_unfolded = [ "Animation", "Color" ]
 
-[sub_resource type="CapsuleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=11]
 
 custom_solver_bias = 0.0
 radius = 25.0
-height = 50.0
 
 [sub_resource type="Animation" id=12]
 
@@ -519,25 +518,25 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Corner Radius", "Expand Margin" ]
 
-[node name="character" type="KinematicBody2D" groups=[
+[node name="character" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 
-position = Vector2( -0.12851, -0.128513 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 9
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="sprite" type="AnimatedSprite" parent="." index="0"]
 
 editor/display_folded = true
-position = Vector2( 4.76837e-07, -0.606343 )
+position = Vector2( 0, -45 )
 frames = ExtResource( 2 )
 animation = "idle_down"
 playing = true
@@ -562,7 +561,7 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 2 )
 animation = "stun"
-frame = 3
+frame = 1
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -656,7 +655,7 @@ __meta__ = {
 
 [node name="charge_bar" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
+position = Vector2( 0, -45 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="inner" type="TextureProgress" parent="charge_bar" index="0"]
@@ -804,9 +803,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -25.0
-margin_top = -80.0
+margin_top = -125.0
 margin_right = 25.0
-margin_bottom = -65.0
+margin_bottom = -110.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -823,7 +822,7 @@ value = 100.0
 exp_edit = false
 rounded = false
 percent_visible = false
-_sections_unfolded = [ "custom_styles" ]
+_sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="cooldown_timer" type="Timer" parent="." index="4"]
 

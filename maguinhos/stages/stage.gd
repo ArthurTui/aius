@@ -29,11 +29,10 @@ func _ready():
 		char_inst.get_node("sprite").set_sprite_frames(sprite_frames)
 		char_inst.connect("death", self, "another_one_bites_the_dust")
 		char_inst.character_name = character
-		print(positions)
-#		char_inst.position = positions[player - 1]
+		char_inst.position = positions[player - 1]
 		char_inst.controller_device = key
 		
-		$YSort/Players.add_child(char_inst)
+		$YSort.add_child(char_inst)
 		# move the children up so that they stay above the ground but below the
 		# pause screen and the winner label
 #		move_child(get_node(str("Character", player)), 4)
@@ -51,7 +50,7 @@ func check_end_condition():
 	if living <= 1:
 		set_process(false)
 		$WinTimer.start()
-		for node in $YSort/Players.get_children():
+		for node in $YSort.get_children():
 			if node.is_in_group("Player"):
 				$HUD/Winner.set_text(str(node.character_name, " wins!!"))
 				$HUD/Winner.show()
@@ -59,7 +58,7 @@ func check_end_condition():
 
 
 func _on_WinTimer_timeout():
-	for node in $YSort/Players.get_children():
+	for node in $YSort.get_children():
 		if node.is_in_group("Player"):
 			node.queue_free()
 	get_tree().change_scene("res://menus/CSS.tscn")

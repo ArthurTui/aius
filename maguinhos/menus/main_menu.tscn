@@ -735,7 +735,6 @@ stretch_mode = 0
 
 [node name="Title" type="TextureRect" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -766,6 +765,7 @@ blend_times = [  ]
 
 [node name="Buttons" type="Control" parent="." index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -782,6 +782,7 @@ size_flags_vertical = 1
 
 [node name="Play" type="TextureButton" parent="Buttons" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -827,6 +828,7 @@ blend_times = [  ]
 
 [node name="Settings" type="TextureButton" parent="Buttons" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -872,6 +874,7 @@ blend_times = [  ]
 
 [node name="Credits" type="TextureButton" parent="Buttons" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -917,6 +920,7 @@ blend_times = [  ]
 
 [node name="Quit" type="TextureButton" parent="Buttons" index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
