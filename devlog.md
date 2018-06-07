@@ -257,3 +257,8 @@
  1. Suporte para dois jogadores em um teclado
  2. Conserto de bugs
  3. Temple na stage select
+
+### 07/06
+
+#### Arthur (17:00 ~ 20:30)
+ 1. Melhoras no Temple of Kei
