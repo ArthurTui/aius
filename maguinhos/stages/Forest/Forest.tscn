@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://stages/forest.gd" type="Script" id=1]
-[ext_resource path="res://stages/forest/ground only.jpg" type="Texture" id=2]
-[ext_resource path="res://stages/forest/tree.png" type="Texture" id=3]
-[ext_resource path="res://stages/forest/stone boi.png" type="Texture" id=4]
+[ext_resource path="res://stages/stage.gd" type="Script" id=1]
+[ext_resource path="res://stages/Forest/ground only.jpg" type="Texture" id=2]
+[ext_resource path="res://stages/Forest/tree.png" type="Texture" id=3]
+[ext_resource path="res://stages/Forest/stone boi.png" type="Texture" id=4]
 [ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://menus/pause_screen.tscn" type="PackedScene" id=6]
 
@@ -48,7 +48,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 24.1909, 10 )
 
-[node name="battle" type="Node2D"]
+[node name="Stage" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -56,6 +56,7 @@ __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
+positions = PoolVector2Array( 480, 480, 960, 240, 1440, 480, 960, 720 )
 
 [node name="bg" type="Node2D" parent="." index="0"]
 
@@ -265,7 +266,11 @@ position = Vector2( 38.2366, 132.204 )
 scale = Vector2( 10.8565, 37.3265 )
 shape = SubResource( 2 )
 
-[node name="winner" type="Label" parent="." index="4"]
+[node name="YSort" type="YSort" parent="." index="4"]
+
+sort_enabled = true
+
+[node name="winner" type="Label" parent="." index="5"]
 
 visible = false
 anchor_left = 0.0
@@ -305,18 +310,18 @@ playback_speed = 1.0
 anims/rainbow = SubResource( 4 )
 blend_times = [  ]
 
-[node name="win_timer" type="Timer" parent="." index="5"]
+[node name="win_timer" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = false
 
-[node name="pause_screen" parent="." index="6" instance=ExtResource( 6 )]
+[node name="pause_screen" parent="." index="7" instance=ExtResource( 6 )]
 
 visible = false
 
-[node name="trees_b" type="Node2D" parent="." index="7"]
+[node name="trees_b" type="Node2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 225.884, 1248.82 )

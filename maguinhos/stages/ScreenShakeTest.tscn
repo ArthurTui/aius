@@ -1,9 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://stages/forest/ground only.jpg" type="Texture" id=1]
-[ext_resource path="res://stages/forest/tree.png" type="Texture" id=2]
+[ext_resource path="res://stages/Forest/ground only.jpg" type="Texture" id=1]
+[ext_resource path="res://stages/Forest/tree.png" type="Texture" id=2]
 [ext_resource path="res://stages/ScreenShake.tscn" type="PackedScene" id=3]
 [ext_resource path="res://stages/screen_shake.gd" type="Script" id=4]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 

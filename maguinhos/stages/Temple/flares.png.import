@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stage.png-25da82e2bda8ac8c055d1f8bf43ab62a.stex"
+path="res://.import/flares.png-acde266c3a9a8c29b2eeee4b60bb6dfd.stex"
 
 [deps]
 
-source_file="res://stages/temple/stage.png"
-source_md5="d39d0d7ad6ffefd6d9e9fc9f2218c606"
+source_file="res://stages/Temple/flares.png"
+source_md5="434664ffcaa1d9b2077d9ea410ab3bd3"
 
-dest_files=[ "res://.import/stage.png-25da82e2bda8ac8c055d1f8bf43ab62a.stex" ]
-dest_md5="afbb4871dc1485c0412378d031eb0baf"
+dest_files=[ "res://.import/flares.png-acde266c3a9a8c29b2eeee4b60bb6dfd.stex" ]
+dest_md5="1bf593ee73cc059a99677b310a6a3abc"
 
 [params]
 

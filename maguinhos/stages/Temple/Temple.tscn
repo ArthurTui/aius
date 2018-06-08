@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://stages/Stage.tscn" type="PackedScene" id=1]
-[ext_resource path="res://stages/temple/statueless stage.png" type="Texture" id=2]
-[ext_resource path="res://stages/temple/area.png" type="Texture" id=3]
-[ext_resource path="res://stages/temple/Statue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://stages/Temple/statueless stage.png" type="Texture" id=2]
+[ext_resource path="res://stages/Temple/area.png" type="Texture" id=3]
+[ext_resource path="res://stages/Temple/Statue.tscn" type="PackedScene" id=4]
 
 [node name="Stage" instance=ExtResource( 1 )]
 
@@ -42,8 +42,7 @@ position = Vector2( 1315, 540 )
 
 [node name="Up" parent="Walls" index="0"]
 
-editor/display_folded = true
-position = Vector2( 960, -75 )
+position = Vector2( 960, -135 )
 
 [node name="Down" parent="Walls" index="1"]
 
@@ -56,5 +55,10 @@ position = Vector2( -10, 540 )
 [node name="Right" parent="Walls" index="3"]
 
 position = Vector2( 1930, 540 )
+
+[node name="Pause" parent="." index="4"]
+
+margin_top = -2.0
+margin_bottom = 1078.0
 
 

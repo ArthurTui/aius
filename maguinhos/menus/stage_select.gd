@@ -1,7 +1,7 @@
 extends Control
 
 
-const stage_names = ["forest", "river", "city", "cave", "random"]
+const stage_names = ["Forest", "River", "City", "Temple", "random"]
 var stages_hovered = [false, false, false, false]
 
 
@@ -58,12 +58,12 @@ func _process(delta):
 				if Input.is_action_just_pressed("ui_accept"):
 					if idx < 4: # name is not "random"
 						# we'll use this once all stages are instanceable
-						#get_tree().change_scene(str("res://stages/",name,".tscn"))
+						get_tree().change_scene(str("res://stages/",name,"/",name,".tscn"))
 						
-						if name == "forest":
-							get_tree().change_scene("res://stages/forest.tscn")
-						elif name == "cave":
-							get_tree().change_scene("res://stages/temple/Temple.tscn")
+#						if name == "forest":
+#							get_tree().change_scene("res://stages/forest.tscn")
+#						elif name == "cave":
+#							get_tree().change_scene("res://stages/temple/Temple.tscn")
 						
 					# random stage, also teleports the cursor to the stage
 					# the random chose

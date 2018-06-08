@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ground only.jpg-86cd94d0acea3dbd3e87276322425a01.stex"
+path="res://.import/area.png-aaa3676cba6f961c558eb07e15b689ff.stex"
 
 [deps]
 
-source_file="res://stages/forest/ground only.jpg"
-source_md5="99423245e2f8ccbc1e635eec0c423d9d"
+source_file="res://stages/Temple/area.png"
+source_md5="6076a69f12a359e5508bf414459ab865"
 
-dest_files=[ "res://.import/ground only.jpg-86cd94d0acea3dbd3e87276322425a01.stex" ]
-dest_md5="d89cf172e5b213594c741ab84009bdcc"
+dest_files=[ "res://.import/area.png-aaa3676cba6f961c558eb07e15b689ff.stex" ]
+dest_md5="7d6e06f39f1db264caeab686b058f73c"
 
 [params]
 

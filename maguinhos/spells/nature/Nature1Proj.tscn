@@ -14,7 +14,7 @@ colors = PoolColorArray( 0, 1, 0, 0.0588235, 0.196078, 1, 0.196078, 0.392157 )
 custom_solver_bias = 0.0
 radius = 13.0
 
-[node name="Nature1Proj" type="Node2D" index="0"]
+[node name="Nature1Proj" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/reticle.png-034a9a0f481cb1ce5643f089106be6a8.stex"
+path="res://.import/ground only.jpg-4b7381257ff7134535d9225e9c9e88e6.stex"
 
 [deps]
 
-source_file="res://stages/temple/reticle.png"
-source_md5="cbb4da55a69dd12fe0609079968a3edd"
+source_file="res://stages/Forest/ground only.jpg"
+source_md5="99423245e2f8ccbc1e635eec0c423d9d"
 
-dest_files=[ "res://.import/reticle.png-034a9a0f481cb1ce5643f089106be6a8.stex" ]
-dest_md5="e88f66a4eb6740f9a5c00fc1e8fc3745"
+dest_files=[ "res://.import/ground only.jpg-4b7381257ff7134535d9225e9c9e88e6.stex" ]
+dest_md5="d89cf172e5b213594c741ab84009bdcc"
 
 [params]
 

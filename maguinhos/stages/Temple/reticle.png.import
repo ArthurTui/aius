@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/circle.png-03776825633a0e64c196cc8264a72d36.stex"
+path="res://.import/reticle.png-47ca83c4c4813281279221a0ca485aae.stex"
 
 [deps]
 
-source_file="res://stages/temple/circle.png"
-source_md5="835a1b84729bd1b88b65de89505c7e39"
+source_file="res://stages/Temple/reticle.png"
+source_md5="cbb4da55a69dd12fe0609079968a3edd"
 
-dest_files=[ "res://.import/circle.png-03776825633a0e64c196cc8264a72d36.stex" ]
-dest_md5="84d7de07486f4389082018bbc139fa78"
+dest_files=[ "res://.import/reticle.png-47ca83c4c4813281279221a0ca485aae.stex" ]
+dest_md5="e88f66a4eb6740f9a5c00fc1e8fc3745"
 
 [params]
 

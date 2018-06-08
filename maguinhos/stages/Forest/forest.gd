@@ -1,5 +1,6 @@
 extends Node2D
 
+export (PoolVector2Array) var positions
 var positions = [Vector2(480, 480), Vector2(960, 240), Vector2(1440, 480), Vector2(960, 720)]
 
 var char_scn = preload("res://characters/character.tscn")

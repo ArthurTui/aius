@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tree.png-1b0b69e2840e7483f74d238eb028d79a.stex"
+path="res://.import/statue.png-a2c510e5f530bb8df3840f5459531448.stex"
 
 [deps]
 
-source_file="res://stages/forest/tree.png"
-source_md5="7883ccbd56f5b7a1b1cd18436aa6421a"
+source_file="res://stages/Temple/statue.png"
+source_md5="5117aebe28338c68ab0427f82cc9283b"
 
-dest_files=[ "res://.import/tree.png-1b0b69e2840e7483f74d238eb028d79a.stex" ]
-dest_md5="b60e56d44ee7d6644c3d2cb9d65177c8"
+dest_files=[ "res://.import/statue.png-a2c510e5f530bb8df3840f5459531448.stex" ]
+dest_md5="90645b6655f942e06aed9905f70a2ce7"
 
 [params]
 
