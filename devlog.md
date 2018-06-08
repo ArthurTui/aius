@@ -253,7 +253,7 @@
 
 ### 04/06
 
-#### Henrique (15:45 ~ 17:14)
+#### Henrique (15:45 ~ 17:15)
  1. Suporte para dois jogadores em um teclado
  2. Conserto de bugs
  3. Temple na stage select
@@ -262,3 +262,11 @@
 
 #### Arthur (17:00 ~ 20:30)
  1. Melhoras no Temple of Kei
+
+### 08/06
+
+#### Henrique (12:30 ~ 14:30)
+ 1. Novo fundo para menu principal (sem a chama horrivel)
+ 2. Nova sprite de outline para cursor
+ 3. Forest usa código de stage genércia
+ 4. Leves mudaças em beiras de fases/objetos
