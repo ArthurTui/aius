@@ -5,8 +5,8 @@ const KB_CUSTOM_ID_1 = 100
 const KB_CUSTOM_ID_2 = 200
 
 var active_devices = {} # which device controls which player
-var selected_characters = [null,null,null,null]
-var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel"]
+var selected_characters = [null,null,null,null,null]
+var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel", "char 1"]
 
 var ready_players = [] # which players are ready
 
@@ -118,7 +118,11 @@ func player_change_char(id):
 				selected_characters[player - 1] = available_characters.pop_back()
 			
 			var character = selected_characters[player - 1]
-			get_node(str("CSS/P", player, "/Items/character")).set_animation(character)
+			
+			# update global variables, because the CSS_player code is going to use
+			# them in the next animation
+			player_data.selected_characters = selected_characters
+			get_node(str("CSS/P", player,"/Items/character/anim")).play("change")
 
 
 # player "exits"
