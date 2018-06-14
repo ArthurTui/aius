@@ -9,3 +9,12 @@ func check_game_start():
 	
 	if ready_players == active_players and ready_players >= 2:
 		get_tree().change_scene("res://menus/stage_select.tscn")
+
+
+# changes sprite animation frames (mid character change animation)
+func change_animation():
+	var player = self.get_name().substr(1,1).to_int()
+	print(player)
+	var character = player_data.selected_characters[player - 1]
+	print(character)
+	$Items/character.set_animation(character)
