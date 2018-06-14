@@ -86,7 +86,6 @@ var cooldown = [0.5, 1.0, 1.5]
 var dash_particles
 
 func _ready():
-	cast_pos = $hurtbox.position
 	change_element(ELEMENT.fire)
 	$charge_bar/cooldown_bar.hide()
 	dash_particles = {Vector2(0, 1) : load("res://characters/sprites/blur/dash_down.png"),
@@ -144,6 +143,9 @@ func _process(delta):
 				
 				# Disables collision with spells.
 				$hurtbox.monitorable = false
+				# Disables collision with characters.
+				collision_layer = 0
+				collision_mask = 8 # Obstacles
 				
 				$sprite.set_self_modulate(Color(1,1,1,0.5))
 				$dash_timer.start()
@@ -341,6 +343,8 @@ func _on_root_anim_timer_timeout():
 func _on_dash_timer_timeout():
 	is_dashing = false
 	$hurtbox.monitorable = true
+	collision_layer = 1 # Character
+	collision_mask = 9 # Character + Obstacle
 	dash_direction = Vector2()
 	$sprite.set_self_modulate(Color(1,1,1,1))
 	$sprite/particles.emitting = false

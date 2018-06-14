@@ -6,7 +6,7 @@ var target
 
 func cast(caster, direction):
 	.cast(caster, direction)
-	set_rotation(direction.angle())
+	$DetectionArea.set_rotation(direction.angle())
 
 
 func _process(delta):
@@ -48,11 +48,15 @@ func death_animation():
 		Vector2(1.5, 1.5), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.interpolate_property($Sprite, "modulate", $Sprite.modulate,
 		Color(1, 1, 1, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Shadow, "scale", $Shadow.scale,
+		1.5 * $Shadow.scale, dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Shadow, "modulate", $Shadow.modulate,
+		Color(0, 0, 0, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()
 
 
 func _on_DetectionArea_body_entered(body):
-	if body != caster and body.is_in_group("Player"):
+	if body.is_in_group("Player") and body != caster:
 		target = body
 		$DetectionArea.queue_free()
 

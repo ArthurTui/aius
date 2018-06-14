@@ -29,6 +29,7 @@ func die():
 	.die()
 	set_process(false)
 	$Sprite.visible = false
+	$Shadow.visible = false
 	$Projectile/Shape.disabled = true
 	$Trail.emitting = false
 	$Explosion/Shape.disabled = false

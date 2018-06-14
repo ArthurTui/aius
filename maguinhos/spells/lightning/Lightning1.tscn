@@ -1,21 +1,23 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://spells/lightning/lightning1.gd" type="Script" id=1]
 [ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
-[ext_resource path="res://spells/lightning/sprites/magnetBolt1.png" type="Texture" id=3]
-[ext_resource path="res://spells/lightning/sprites/magnetBolt2.png" type="Texture" id=4]
-[ext_resource path="res://spells/lightning/sprites/magnetBolt3.png" type="Texture" id=5]
-[ext_resource path="res://spells/lightning/sprites/magnetBolt.png" type="Texture" id=6]
+[ext_resource path="res://resources/circle-100.png" type="Texture" id=3]
+[ext_resource path="res://spells/lightning/sprites/magnetBolt1.png" type="Texture" id=4]
+[ext_resource path="res://spells/lightning/sprites/magnetBolt2.png" type="Texture" id=5]
+[ext_resource path="res://spells/lightning/sprites/magnetBolt3.png" type="Texture" id=6]
+[ext_resource path="res://spells/lightning/sprites/magnetBolt.png" type="Texture" id=7]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 35.8728
+radius = 17.0
+height = 35.0
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 7.0
@@ -89,9 +91,10 @@ tracks/0/keys = {
 "values": [ Color( 20, 20, 20, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Lightning1" type="Node2D" index="0"]
+[node name="Lightning1" type="Node2D"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 has_activation = false
 speed = 10
 damage = 5
@@ -115,18 +118,29 @@ level = 1
 
 [node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
 
-shape = SubResource( 2 )
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="AnimatedSprite" parent="." index="1"]
+[node name="Shadow" type="Sprite" parent="." index="1"]
 
-frames = SubResource( 1 )
+modulate = Color( 0, 0, 0, 0.270588 )
+scale = Vector2( 0.7, 0.35 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 0, -55 )
+frames = SubResource( 2 )
 animation = "default"
 frame = 2
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="Particles" type="Particles2D" parent="." index="2"]
+[node name="Particles" type="Particles2D" parent="." index="3"]
 
+position = Vector2( 0, -55 )
 scale = Vector2( 1.5, 1.5 )
 emitting = true
 amount = 10
@@ -142,13 +156,13 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 normal_map = null
 h_frames = 3
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="Animation" type="AnimationPlayer" parent="." index="3"]
+[node name="Animation" type="AnimationPlayer" parent="." index="4"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -158,7 +172,7 @@ playback_speed = 1.0
 anims/blink = SubResource( 6 )
 blend_times = [  ]
 
-[node name="Tween" type="Tween" parent="." index="4"]
+[node name="Tween" type="Tween" parent="." index="5"]
 
 repeat = false
 playback_process_mode = 1

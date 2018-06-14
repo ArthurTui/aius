@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://spells/fire/fire2.gd" type="Script" id=1]
 [ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
-[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=3]
+[ext_resource path="res://resources/circle-100.png" type="Texture" id=3]
+[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 23.0
+radius = 11.0
+height = 24.0
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
@@ -44,7 +46,9 @@ level = 2
 
 [node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
 
+rotation = 1.5708
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="DetectionArea" type="Area2D" parent="." index="1"]
 
@@ -62,19 +66,27 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="." index="2"]
+[node name="Shadow" type="Sprite" parent="." index="2"]
 
+modulate = Color( 0, 0, 0, 0.270588 )
+scale = Vector2( 0.46, 0.23 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Lifetime" type="Timer" parent="." index="3"]
+[node name="Sprite" type="Sprite" parent="." index="3"]
+
+position = Vector2( 0, -55 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Lifetime" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="Tween" type="Tween" parent="." index="4"]
+[node name="Tween" type="Tween" parent="." index="5"]
 
 repeat = false
 playback_process_mode = 1

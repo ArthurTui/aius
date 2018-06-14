@@ -1,14 +1,16 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://spells/fire/fire3.gd" type="Script" id=1]
 [ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
 [ext_resource path="res://spells/fire/sprites/explosion_atlas_512x512.png" type="Texture" id=3]
-[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=4]
+[ext_resource path="res://resources/circle-100.png" type="Texture" id=4]
+[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=5]
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 5.0
+radius = 2.5
+height = 5.0
 
 [sub_resource type="Gradient" id=2]
 
@@ -176,7 +178,9 @@ level = 3
 
 [node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
 
-shape = SubResource( 13 )
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Explosion" type="Area2D" parent="." index="1"]
 
@@ -223,8 +227,16 @@ _sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z I
 shape = SubResource( 7 )
 disabled = true
 
-[node name="Trail" type="Particles2D" parent="." index="2"]
+[node name="Shadow" type="Sprite" parent="." index="2"]
 
+modulate = Color( 0, 0, 0, 0.270588 )
+scale = Vector2( 0.1, 0.05 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Trail" type="Particles2D" parent="." index="3"]
+
+position = Vector2( 0, -55 )
 emitting = true
 amount = 60
 lifetime = 1.0
@@ -239,33 +251,34 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 1
 process_material = SubResource( 12 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
 
-[node name="Sprite" type="Sprite" parent="." index="3"]
+[node name="Sprite" type="Sprite" parent="." index="4"]
 
+position = Vector2( 0, -55 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Lifetime" type="Timer" parent="." index="4"]
+[node name="Lifetime" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="ExplosionDuration" type="Timer" parent="." index="5"]
+[node name="ExplosionDuration" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="FreeTimer" type="Timer" parent="." index="6"]
+[node name="FreeTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 1.0

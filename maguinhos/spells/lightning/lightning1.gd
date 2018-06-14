@@ -1,6 +1,6 @@
 extends "res://spells/base_spell.gd"
 
-const ACCELERATION = -8
+const ACCELERATION = 8
 const ROTATION_SPEED = 3
 
 var returning = false
@@ -20,7 +20,7 @@ func _process(delta):
 	$Sprite.rotate(ROTATION_SPEED * delta)
 	
 	position += direction * speed
-	speed += ACCELERATION * delta
+	speed -= ACCELERATION * delta
 
 
 func die():
@@ -52,6 +52,7 @@ func on_hit(character):
 
 
 func _on_Projectile_area_entered(area):
+	print("area: ", area, "\narea parent: ", area.get_parent(), "\nreturning?: ", returning)
 	if area.get_parent() == caster and returning:
 		die()
 		return

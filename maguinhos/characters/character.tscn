@@ -1,38 +1,34 @@
 [gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
-[ext_resource path="res://characters/sprites/skeleton.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://characters/sprites/status effects/stun1.png" type="Texture" id=3]
-[ext_resource path="res://characters/sprites/status effects/stun2.png" type="Texture" id=4]
-[ext_resource path="res://characters/sprites/status effects/stun3.png" type="Texture" id=5]
-[ext_resource path="res://characters/sprites/status effects/stun4.png" type="Texture" id=6]
-[ext_resource path="res://characters/sprites/status effects/stun5.png" type="Texture" id=7]
-[ext_resource path="res://characters/sprites/status effects/slow1.png" type="Texture" id=8]
-[ext_resource path="res://characters/sprites/status effects/slow2.png" type="Texture" id=9]
-[ext_resource path="res://characters/sprites/status effects/slow3.png" type="Texture" id=10]
-[ext_resource path="res://characters/sprites/status effects/root1.png" type="Texture" id=11]
-[ext_resource path="res://characters/sprites/status effects/root2.png" type="Texture" id=12]
-[ext_resource path="res://characters/sprites/status effects/root3.png" type="Texture" id=13]
-[ext_resource path="res://characters/sprites/status effects/root4.png" type="Texture" id=14]
-[ext_resource path="res://characters/sprites/status effects/root5.png" type="Texture" id=15]
-[ext_resource path="res://characters/sprites/blur.tres" type="SpriteFrames" id=16]
-[ext_resource path="res://characters/sprites/blur/dash_down.png" type="Texture" id=17]
-[ext_resource path="res://characters/sprites/chargebar/inner under3.png" type="Texture" id=18]
-[ext_resource path="res://characters/sprites/chargebar/inner fill2.png" type="Texture" id=19]
-[ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=20]
-[ext_resource path="res://characters/sprites/chargebar/outer fill2.png" type="Texture" id=21]
-[ext_resource path="res://characters/sprites/chargebar/cd outer fill2.png" type="Texture" id=22]
+[ext_resource path="res://resources/circle-100.png" type="Texture" id=2]
+[ext_resource path="res://characters/sprites/skeleton.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://characters/sprites/status effects/stun1.png" type="Texture" id=4]
+[ext_resource path="res://characters/sprites/status effects/stun2.png" type="Texture" id=5]
+[ext_resource path="res://characters/sprites/status effects/stun3.png" type="Texture" id=6]
+[ext_resource path="res://characters/sprites/status effects/stun4.png" type="Texture" id=7]
+[ext_resource path="res://characters/sprites/status effects/stun5.png" type="Texture" id=8]
+[ext_resource path="res://characters/sprites/status effects/slow1.png" type="Texture" id=9]
+[ext_resource path="res://characters/sprites/status effects/slow2.png" type="Texture" id=10]
+[ext_resource path="res://characters/sprites/status effects/slow3.png" type="Texture" id=11]
+[ext_resource path="res://characters/sprites/status effects/root1.png" type="Texture" id=12]
+[ext_resource path="res://characters/sprites/status effects/root2.png" type="Texture" id=13]
+[ext_resource path="res://characters/sprites/status effects/root3.png" type="Texture" id=14]
+[ext_resource path="res://characters/sprites/status effects/root4.png" type="Texture" id=15]
+[ext_resource path="res://characters/sprites/status effects/root5.png" type="Texture" id=16]
+[ext_resource path="res://characters/sprites/blur.tres" type="SpriteFrames" id=17]
+[ext_resource path="res://characters/sprites/blur/dash_down.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/chargebar/inner under3.png" type="Texture" id=19]
+[ext_resource path="res://characters/sprites/chargebar/inner fill2.png" type="Texture" id=20]
+[ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=21]
+[ext_resource path="res://characters/sprites/chargebar/outer fill2.png" type="Texture" id=22]
+[ext_resource path="res://characters/sprites/chargebar/cd outer fill2.png" type="Texture" id=23]
 
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 30.0
-
-[sub_resource type="CapsuleShape2D" id=23]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 30.0
-height = 60.0
+radius = 15.0
+height = 40.0
 
 [sub_resource type="Animation" id=2]
 
@@ -55,7 +51,7 @@ tracks/0/keys = {
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "stun",
 "speed": 8.0
@@ -64,7 +60,7 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "slow",
 "speed": 6.0
@@ -73,7 +69,7 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": false,
 "name": "root",
 "speed": 5.0
@@ -540,6 +536,7 @@ __meta__ = {
 
 [node name="collision_shape" type="CollisionShape2D" parent="." index="0"]
 
+rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -548,28 +545,39 @@ __meta__ = {
 
 [node name="hurtbox" type="Area2D" parent="." index="1"]
 
-position = Vector2( 0, -40 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-monitoring = false
 collision_layer = 2
 collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision" ]
 
 [node name="shape" type="CollisionShape2D" parent="hurtbox" index="0"]
 
-shape = SubResource( 23 )
+rotation = 1.5708
+shape = SubResource( 1 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="sprite" type="AnimatedSprite" parent="." index="2"]
+[node name="shadow" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0, 0, 0, 0.270588 )
+scale = Vector2( 0.7, 0.35 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="sprite" type="AnimatedSprite" parent="." index="3"]
 
 editor/display_folded = true
-position = Vector2( 0, -45 )
-frames = ExtResource( 2 )
+position = Vector2( 0, -55 )
+frames = ExtResource( 3 )
 animation = "idle_down"
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -593,7 +601,6 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 3 )
 animation = "stun"
-frame = 2
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -603,7 +610,6 @@ position = Vector2( 0, -8.33334 )
 scale = Vector2( 1.4353, 1.4353 )
 frames = SubResource( 4 )
 animation = "slow"
-frame = 1
 playing = true
 
 [node name="root" type="AnimatedSprite" parent="sprite" index="3"]
@@ -630,7 +636,7 @@ blend_times = [  ]
 [node name="glow" type="AnimatedSprite" parent="sprite" index="4"]
 
 show_behind_parent = true
-frames = ExtResource( 16 )
+frames = ExtResource( 17 )
 animation = "idle_down"
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -671,15 +677,15 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 11 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 normal_map = null
 h_frames = 4
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility", "Z Index" ]
 
-[node name="charge_bar" type="Node2D" parent="." index="3"]
+[node name="charge_bar" type="Node2D" parent="." index="4"]
 
-position = Vector2( 0, -45 )
+position = Vector2( 0, -55 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="inner" type="TextureProgress" parent="charge_bar" index="0"]
@@ -695,6 +701,7 @@ margin_right = 109.0
 margin_bottom = 31.0
 rect_scale = Vector2( 1.1, 1.1 )
 rect_pivot_offset = Vector2( 32, 32 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -706,9 +713,9 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 18 )
+texture_under = ExtResource( 19 )
 texture_over = null
-texture_progress = ExtResource( 19 )
+texture_progress = ExtResource( 20 )
 fill_mode = 4
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -727,6 +734,7 @@ margin_top = -33.0
 margin_right = 109.0
 margin_bottom = 31.0
 rect_pivot_offset = Vector2( 32, 32 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -738,9 +746,9 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 20 )
+texture_under = ExtResource( 21 )
 texture_over = null
-texture_progress = ExtResource( 21 )
+texture_progress = ExtResource( 22 )
 fill_mode = 4
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -787,6 +795,7 @@ margin_right = 109.0
 margin_bottom = 31.0
 rect_scale = Vector2( 0, 0 )
 rect_pivot_offset = Vector2( 32, 32 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
@@ -798,9 +807,9 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 20 )
+texture_under = ExtResource( 21 )
 texture_over = null
-texture_progress = ExtResource( 22 )
+texture_progress = ExtResource( 23 )
 fill_mode = 4
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -817,17 +826,18 @@ playback_speed = 1.0
 anims/enter = SubResource( 20 )
 blend_times = [  ]
 
-[node name="health_bar" type="ProgressBar" parent="." index="4"]
+[node name="health_bar" type="ProgressBar" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -25.0
-margin_top = -125.0
+margin_top = -135.0
 margin_right = 25.0
-margin_bottom = -110.0
+margin_bottom = -120.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -842,51 +852,51 @@ value = 100.0
 exp_edit = false
 rounded = false
 percent_visible = false
-_sections_unfolded = [ "Rect", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Rect", "custom_styles" ]
 
-[node name="cooldown_timer" type="Timer" parent="." index="5"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="stun_timer" type="Timer" parent="." index="6"]
+[node name="cooldown_timer" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="slow_timer" type="Timer" parent="." index="7"]
+[node name="stun_timer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="root_timer" type="Timer" parent="." index="8"]
+[node name="slow_timer" type="Timer" parent="." index="8"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="root_anim_timer" type="Timer" parent="." index="9"]
+[node name="root_timer" type="Timer" parent="." index="9"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="dash_timer" type="Timer" parent="." index="10"]
+[node name="root_anim_timer" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="dash_timer" type="Timer" parent="." index="11"]
 
 process_mode = 1
 wait_time = 0.4
 one_shot = true
 autostart = false
 
-[node name="dash_cd" type="Timer" parent="." index="11"]
+[node name="dash_cd" type="Timer" parent="." index="12"]
 
 process_mode = 1
 wait_time = 0.5

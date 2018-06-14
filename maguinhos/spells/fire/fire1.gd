@@ -3,11 +3,6 @@ extends "res://spells/base_spell.gd"
 const TRAIL_LENGTH = 20
 const TRAIL_OFFSET = 2.5
 
-func cast(caster, direction):
-	.cast(caster, direction)
-	set_rotation(direction.angle())
-
-
 func _process(delta):
 	if !dying:
 		# Update position
@@ -20,7 +15,7 @@ func _process(delta):
 		$Trail.remove_point(0)
 	
 	# Update trail
-	$Trail.global_position = Vector2()
+	$Trail.global_position = Vector2() + $Sprite.position
 	$Trail.global_rotation = 0
 	if $Trail.get_point_count() > TRAIL_LENGTH:
 		$Trail.remove_point(0)
@@ -39,10 +34,12 @@ func death_animation():
 	# Animation duration
 	var dur = .4
 	
-	$Tween.interpolate_property($Sprite, "scale", $Sprite.scale,
-		Vector2(1.5, 1.5), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
-	$Tween.interpolate_property($Sprite, "modulate", $Sprite.modulate,
-		Color(1, 1, 1, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	for sprite in [$Sprite, $Shadow]:
+		$Tween.interpolate_property(sprite, "scale", sprite.scale,
+			1.5 * sprite.scale, dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+		$Tween.interpolate_property(sprite, "modulate", sprite.modulate,
+			Color(sprite.modulate.r, sprite.modulate.g, sprite.modulate.b, 0),
+			dur, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.interpolate_property($Trail, "modulate", $Trail.modulate,
 		Color(1, 1, 1, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()

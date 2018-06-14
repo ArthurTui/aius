@@ -15,7 +15,7 @@ var dying = false
 func cast(caster, direction):
 	self.caster = caster
 	self.direction = direction
-	position = caster.position + caster.cast_pos + POSITION_OFFSET * direction
+	position = caster.position + POSITION_OFFSET * direction
 	if has_node("Projectile"):
 		$Projectile.caster = caster
 

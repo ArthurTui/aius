@@ -6,6 +6,7 @@ export (int, 1, 3) var level
 var caster
 
 func _on_Projectile_area_entered(area):
+	print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 	var other = area.get_parent()
 	
 	# Handle exceptions
