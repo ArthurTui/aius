@@ -5,13 +5,6 @@ export (int, 1, 3) var level
 
 var caster
 
-func _ready():
-	# Collision Layer: Projectiles;
-	collision_layer = 4
-	
-	#Collision Mask: Characters; Projectiles; Obstacles;
-	collision_mask = 13
-
 func _on_Projectile_area_entered(area):
 	var other = area.get_parent()
 	
@@ -21,6 +14,13 @@ func _on_Projectile_area_entered(area):
 	if "caster" in other and other.caster == self.caster:
 		return
 	
+	# Projectile - Player collision:
+	if area.collision_layer == 2:
+		if other != caster:
+			get_parent().on_hit(other)
+		return
+	
+	# Projectile - Projectile collision:
 	if "element" in area:
 		# Makes sure it's something interactable with projectile
 		if area.level > self.level:

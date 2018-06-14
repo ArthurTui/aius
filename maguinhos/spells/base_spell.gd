@@ -15,14 +15,15 @@ var dying = false
 func cast(caster, direction):
 	self.caster = caster
 	self.direction = direction
-	position = caster.position + caster.CAST_ORIGIN + POSITION_OFFSET*direction
+	position = caster.position + caster.cast_pos + POSITION_OFFSET * direction
 	if has_node("Projectile"):
 		$Projectile.caster = caster
 
 
-func on_hit(body):
-	var kb_direction = (body.position - position).normalized()
-	body.take_damage(damage, kb_direction, knockback)
+func on_hit(character):
+	var kb_direction = (character.position - position).normalized()
+	character.take_damage(damage, kb_direction, knockback)
+	die()
 
 
 func die():
@@ -30,8 +31,6 @@ func die():
 
 
 func _on_Projectile_body_entered(body):
-	# Hits body if "take_damage" function exists in it then dies, else just dies
-	if body != caster:
-		if body.has_method("take_damage"):
-			on_hit(body)
-		die()
+	# This will always be a collision with an obstacle, since it's the only kind
+	# of PhysicsBody the Projectile's Area2D scans.
+	die()

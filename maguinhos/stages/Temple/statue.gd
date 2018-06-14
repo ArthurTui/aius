@@ -17,7 +17,7 @@ func _ready():
 	
 	bar = TextureProgress.new()
 	bar.fill_mode = bar.FILL_CLOCKWISE
-	bar.texture_progress = load("res://stages/temple/reticle.png")
+	bar.texture_progress = load("res://stages/Temple/reticle.png")
 	bar.max_value = 1
 	bar.value = 0
 	bar.step = .01

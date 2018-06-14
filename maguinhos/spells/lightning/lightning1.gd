@@ -13,7 +13,7 @@ func _process(delta):
 	
 	if speed <= 0:
 		returning = true
-		var angle = get_angle_to(caster.position)
+		var angle = get_angle_to(caster.position + caster.cast_pos)
 		# negative cos and sin because speed is also negative
 		direction = Vector2(-cos(angle), -sin(angle))
 	
@@ -46,12 +46,14 @@ func death_animation():
 	queue_free()
 
 
-func _on_Projectile_body_entered(body):
-	if body != caster:
-		if body.has_method("take_damage"):
-			body.take_damage(damage)
-			$Animation.play("blink")
-		else:
-			die()
-	elif returning:
+func on_hit(character):
+	character.take_damage(damage)
+	$Animation.play("blink")
+
+
+func _on_Projectile_area_entered(area):
+	if area.get_parent() == caster and returning:
 		die()
+		return
+	else:
+		$Projectile._on_Projectile_area_entered(area)
