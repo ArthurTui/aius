@@ -270,3 +270,14 @@
  2. Nova sprite de outline para cursor
  3. Forest usa código de stage genércia
  4. Leves mudaças em beiras de fases/objetos
+
+### 11/06
+
+#### Henrique (10:00 ~ 11:30)
+ 1. Design de personagens
+
+### 13/06
+
+#### Henrique (16:10 ~ 21:20)
+ 1. Ilustração de novo personagem para CSS
+ 2. Nova animação de mudança de personagem na CSS
