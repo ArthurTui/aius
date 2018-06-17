@@ -296,7 +296,7 @@ d200_cancel=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_nam
 [layer_names]
 
 2d_physics/layer_1="Character"
-2d_physics/layer_2="Hurtbox"
+2d_physics/layer_2="Character_Dash"
 2d_physics/layer_3="Projectile"
 2d_physics/layer_4="Obstacle"
 2d_physics/layer_5="Auxiliar"

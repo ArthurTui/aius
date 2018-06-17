@@ -37,6 +37,7 @@ func die():
 	.die()
 	$Projectile/Shape.disabled = true
 	$Lifetime.stop()
+	$Particles2D.emitting = false
 #	set_process(false)
 	death_animation()
 
@@ -67,4 +68,10 @@ func _on_Lifetime_timeout():
 
 
 func _on_Tween_tween_completed(object, key):
+	# Allow time for particles to disappear
+	$Lifetime.wait_time = .5
+	$Lifetime.start()
+	
+	yield($Lifetime, "timeout")
+	
 	queue_free()

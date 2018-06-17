@@ -141,10 +141,8 @@ func _process(delta):
 					$sprite/particles.h_frames = 4
 					$sprite/particles.z_index = -dash_direction.y
 				
-				# Disables collision with spells.
-				$hurtbox.monitorable = false
-				# Disables collision with characters.
-				collision_layer = 0
+				# Disables collision with spells and characters.
+				collision_layer = 2 # Character_Dash
 				collision_mask = 8 # Obstacles
 				
 				$sprite.set_self_modulate(Color(1,1,1,0.5))
@@ -342,7 +340,6 @@ func _on_root_anim_timer_timeout():
 # Duration of the dash
 func _on_dash_timer_timeout():
 	is_dashing = false
-	$hurtbox.monitorable = true
 	collision_layer = 1 # Character
 	collision_mask = 9 # Character + Obstacle
 	dash_direction = Vector2()
