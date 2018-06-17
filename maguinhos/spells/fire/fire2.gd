@@ -10,6 +10,7 @@ func cast(caster, direction):
 
 
 func _process(delta):
+	$Sprite.rotation = direction.angle()
 	position += direction * speed
 	if target:
 		home()
@@ -36,13 +37,13 @@ func die():
 	.die()
 	$Projectile/Shape.disabled = true
 	$Lifetime.stop()
-	set_process(false)
+#	set_process(false)
 	death_animation()
 
 
 func death_animation():
 	# Animation duration
-	var dur = .4
+	var dur = .2
 	
 	$Tween.interpolate_property($Sprite, "scale", $Sprite.scale,
 		Vector2(1.5, 1.5), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
