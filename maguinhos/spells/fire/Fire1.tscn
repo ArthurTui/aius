@@ -1,19 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://spells/fire/fire1.gd" type="Script" id=1]
-[ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
+[ext_resource path="res://spells/Projectile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=3]
 [ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=4]
 
-[sub_resource type="CapsuleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 11.0
-height = 24.0
-
 [sub_resource type="Gradient" id=2]
 
-offsets = PoolRealArray( 0, 0.52907, 0.930233, 1 )
+offsets = PoolRealArray( 0, 0.534137, 0.930233, 1 )
 colors = PoolColorArray( 1, 0.392157, 0, 0.0784314, 1, 0.54902, 0, 0.607843, 1, 0.901961, 0, 0.607843, 1, 0.901961, 0, 0.0784314 )
 
 [sub_resource type="Animation" id=3]
@@ -46,27 +40,10 @@ speed = 10
 damage = 5
 knockback = 20
 
-[node name="Projectile" type="Area2D" parent="." index="0"]
+[node name="Projectile" parent="." index="0" instance=ExtResource( 2 )]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 4
-collision_mask = 14
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 2 )
-_sections_unfolded = [ "Collision" ]
 element = 0
 level = 1
-
-[node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
-
-rotation = 1.5708
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Trail" type="Line2D" parent="." index="1"]
 
@@ -120,10 +97,6 @@ process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = true
-
-[connection signal="area_entered" from="Projectile" to="Projectile" method="_on_Projectile_area_entered"]
-
-[connection signal="body_entered" from="Projectile" to="." method="_on_Projectile_body_entered"]
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 

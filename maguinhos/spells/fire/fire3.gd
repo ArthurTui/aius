@@ -33,18 +33,13 @@ func die():
 	$Projectile/Shape.disabled = true
 	$Trail.emitting = false
 	$Explosion/Shape.disabled = false
-	$Explosion/Particles.emitting = true
+	$ExplosionParticles.emitting = true
 	$ExplosionDuration.start()
 	$Lifetime.stop()
 	
 	if !caster or !weakref(caster).get_ref(): # Caster was freed
 		return
 	caster.spell_ended() # Alerts player that spell is finished
-
-
-func _on_Explosion_body_entered(body):
-	if body != caster and body.has_method("take_damage"):
-		on_hit(body)
 
 
 func _on_Lifetime_timeout():

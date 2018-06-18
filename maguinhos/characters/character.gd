@@ -32,7 +32,10 @@ var current_spell
 var current_level
 var charge
 
-var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
+var colors = [Color(1, .1, .1),	# Red
+	Color(.2, .2, 1),			# Blue
+	Color(1, 1, .2),			# Yellow
+	Color(.2, 1, .2)]			# Green
 
 var ready_to_spell = true
 var holding_spell = false

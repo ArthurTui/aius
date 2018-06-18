@@ -5,17 +5,15 @@ const MIN_SPEED = .2
 const SLOW_DURATION = 2
 const SLOW_MULTIPLIER = .4
 
-var real_position
 var time = 0
 
 func cast(caster, direction):
 	.cast(caster, direction)
-	real_position = position
 
 func _process(delta):
-	real_position += direction * speed
+	position += direction * speed
 	time += delta
-	position = real_position + Vector2(0, 8 * cos(3 * time))
+	$Sprite.position = Vector2(0, -75 + 8 * cos(3 * time))
 	speed = lerp(speed, 0, DAMPING)
 	if (speed <= MIN_SPEED):
 		die()

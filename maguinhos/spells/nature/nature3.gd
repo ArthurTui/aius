@@ -31,7 +31,6 @@ func die():
 
 
 func _on_Projectile_body_entered(body):
-	if body != caster:
-		if body.has_method("take_damage"):
-			body.take_damage(damage)
-			body.root(ROOT_TIME)
+	if body != caster and body.collision_layer == 1:
+		body.take_damage(damage)
+		body.root(ROOT_TIME)

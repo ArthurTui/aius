@@ -6,7 +6,6 @@ export (int, 1, 3) var level
 var caster
 
 func _on_Projectile_area_entered(area):
-	print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 	var other = area.get_parent()
 	
 	# Handle exceptions
@@ -16,10 +15,10 @@ func _on_Projectile_area_entered(area):
 		return
 	
 	# Projectile - Player collision:
-	if area.collision_layer == 2:
-		if other != caster:
-			get_parent().on_hit(other)
-		return
+#	if area.collision_layer == 2:
+#		if other != caster:
+#			get_parent().on_hit(other)
+#		return
 	
 	# Projectile - Projectile collision:
 	if "element" in area:
@@ -30,4 +29,10 @@ func _on_Projectile_area_entered(area):
 			if area.level == self.level: # Lower leveled spells have no effect
 				get_parent().die()
 
-# Fire = 0, Water = 1, Lightning = 2, Nature = 3
+
+func _on_Projectile_body_entered(body):
+	if body.collision_layer == 1: # Character
+		if body == caster:
+			return
+		get_parent().on_hit(body)
+	get_parent().die()

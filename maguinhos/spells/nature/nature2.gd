@@ -1,32 +1,20 @@
 extends "res://spells/base_spell.gd"
 
 const SEED_ROOT = .5
-const THORN_OFFSET_Y = 15
 const THORN_ROOT = 1.5
-const THORN_RADIUS = 60
 
 var is_seed = true
 
 func cast(caster, direction):
 	.cast(caster, direction)
-	rotation = direction.angle()
+	$Sprite.rotation = direction.angle()
+	$Tween.interpolate_property($Sprite, "position", $Sprite.position,
+		Vector2(), $GrowTimer.wait_time, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.start()
 
 
 func _process(delta):
 	position += direction * speed
-
-
-# Projectile stops moving and expands
-func grow():
-	if !is_seed:
-		return
-	set_process(false)
-	$LifeTimer.start()
-	is_seed = false
-	rotation = 0
-	$Sprite.play("grow")
-	$Projectile/Shape.shape.radius = THORN_RADIUS
-	$Projectile/Shape.position = Vector2(0, THORN_OFFSET_Y)
 
 
 func die():
@@ -39,6 +27,7 @@ func die():
 		$Sprite.play("die")
 		yield($Sprite, "animation_finished")
 	else:
+		$Tween.stop_all()
 		$Tween.interpolate_property($Sprite, "scale", $Sprite.scale,
 			Vector2(1.2, 1.2), .1, Tween.TRANS_SINE, Tween.EASE_IN)
 		$Tween.interpolate_property($Sprite, "modulate", Color(1, 1, 1, 1),
@@ -51,7 +40,7 @@ func die():
 func _on_Projectile_body_entered(body):
 	if body != caster:
 		$GrowTimer.stop()
-		if body.has_method("take_damage"):
+		if body.collision_layer == 1: # Character
 			# If the thorns are grown, play death animation when enemy enters
 			# them. Otherwise, the seed just disappears dealing damage
 			if !is_seed:
@@ -70,4 +59,16 @@ func _on_LifeTimer_timeout():
 
 
 func _on_GrowTimer_timeout():
-	grow()
+	# Projectile stops moving and expands
+	if !is_seed:
+		return
+	set_process(false)
+	$LifeTimer.start()
+	is_seed = false
+	$Tween.stop($Sprite, "position")
+	$Sprite.position = Vector2(0, -35)
+	$Sprite.rotation = 0
+	$Sprite.play("grow")
+	$Shadow.scale = Vector2(1.4, .7)
+	$Projectile/Shape.shape.radius = 25
+	$Projectile/Shape.shape.height = 80

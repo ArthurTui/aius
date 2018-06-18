@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=2]
@@ -133,24 +133,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
-}
-
-[sub_resource type="Animation" id=8]
-
-length = 1.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Gradient" id=9]
@@ -552,7 +534,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="sprite" type="AnimatedSprite" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 0, -55 )
 frames = ExtResource( 3 )
 animation = "idle_down"
@@ -578,7 +559,7 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 3 )
 animation = "stun"
-frame = 2
+frame = 4
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -620,17 +601,7 @@ animation = "idle_down"
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="anim" type="AnimationPlayer" parent="sprite/glow" index="0"]
-
-root_node = NodePath("..")
-autoplay = "pulse"
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/pulse = SubResource( 8 )
-blend_times = [  ]
-
-[node name="tween" type="Tween" parent="sprite/glow" index="1"]
+[node name="tween" type="Tween" parent="sprite/glow" index="0"]
 
 repeat = false
 playback_process_mode = 1

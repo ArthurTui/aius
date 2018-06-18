@@ -309,3 +309,4 @@ common/enable_object_picking=false
 
 quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"
+environment/main_loop_type=""

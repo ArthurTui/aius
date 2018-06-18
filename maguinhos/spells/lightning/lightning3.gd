@@ -4,6 +4,7 @@ const STUN_DURATION = 1.5
 
 func cast(caster, direction):
 	.cast(caster, direction)
+	position.y -= 55
 	rotation = direction.angle()
 	$Sprite.play()
 

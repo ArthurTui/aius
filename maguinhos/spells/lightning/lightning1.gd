@@ -12,7 +12,6 @@ func _process(delta):
 		return
 	
 	if speed <= 0:
-		returning = true
 		var angle = get_angle_to(caster.position + caster.cast_pos)
 		# negative cos and sin because speed is also negative
 		direction = Vector2(-cos(angle), -sin(angle))
@@ -40,6 +39,10 @@ func death_animation():
 		Vector2(.2, .2), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.interpolate_property($Sprite, "modulate", Color(1, 1, 1, 1),
 		Color(1, 1, 1, 0), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Shadow, "scale", $Shadow.scale,
+		.2 * $Shadow.scale, duration, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Shadow, "modulate", $Shadow.modulate,
+		Color(0, 0, 0, 0), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()
 	
 	yield($Tween, "tween_completed")
@@ -51,10 +54,15 @@ func on_hit(character):
 	$Animation.play("blink")
 
 
-func _on_Projectile_area_entered(area):
-	print("area: ", area, "\narea parent: ", area.get_parent(), "\nreturning?: ", returning)
-	if area.get_parent() == caster and returning:
-		die()
-		return
-	else:
-		$Projectile._on_Projectile_area_entered(area)
+func _on_Projectile_body_entered(body):
+	if body.collision_layer == 1: # Character
+		if body != caster:
+			on_hit(body)
+			return
+		elif !returning:
+			return
+	die()
+
+
+func _on_Return_timeout():
+	returning = true

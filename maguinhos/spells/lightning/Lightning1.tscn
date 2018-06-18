@@ -12,7 +12,7 @@
 
 custom_solver_bias = 0.0
 radius = 17.0
-height = 35.0
+height = 36.0
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -91,7 +91,7 @@ tracks/0/keys = {
 "values": [ Color( 20, 20, 20, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Lightning1" type="Node2D"]
+[node name="Lightning1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -108,7 +108,7 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 4
-collision_mask = 14
+collision_mask = 13
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 2 )
@@ -134,7 +134,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 position = Vector2( 0, -55 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 2
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
@@ -181,8 +180,17 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[connection signal="area_entered" from="Projectile" to="." method="_on_Projectile_area_entered"]
+[node name="Return" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="Projectile" to="Projectile" method="_on_Projectile_area_entered"]
 
 [connection signal="body_entered" from="Projectile" to="." method="_on_Projectile_body_entered"]
+
+[connection signal="timeout" from="Return" to="." method="_on_Return_timeout"]
 
 

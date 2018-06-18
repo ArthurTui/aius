@@ -28,9 +28,3 @@ func on_hit(character):
 
 func die():
 	dying = true
-
-
-func _on_Projectile_body_entered(body):
-	# This will always be a collision with an obstacle, since it's the only kind
-	# of PhysicsBody the Projectile's Area2D scans.
-	die()
