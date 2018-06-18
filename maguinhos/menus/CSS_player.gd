@@ -14,7 +14,5 @@ func check_game_start():
 # changes sprite animation frames (mid character change animation)
 func change_animation():
 	var player = self.get_name().substr(1,1).to_int()
-	print(player)
 	var character = player_data.selected_characters[player - 1]
-	print(character)
 	$Items/character.set_animation(character)
