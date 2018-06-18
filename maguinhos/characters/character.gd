@@ -3,7 +3,6 @@ extends KinematicBody2D
 const RUN_SPEED = 5
 const DASH_SPEED = 10
 const KB_CUSTOM_ID = 100
-const CAST_ORIGIN = Vector2(0, -45)
 
 const COLLISION_NORMAL = 1
 const COLLISION_DASH = 2
@@ -33,7 +32,10 @@ var current_spell
 var current_level
 var charge
 
-var colors = [Color(1, 0, 0), Color(0, 0, 1), Color(1, 1, 0), Color(0, 1, 0)]
+var colors = [Color(1, .1, .1),	# Red
+	Color(.2, .2, 1),			# Blue
+	Color(1, 1, .2),			# Yellow
+	Color(.2, 1, .2)]			# Green
 
 var ready_to_spell = true
 var holding_spell = false
@@ -44,9 +46,10 @@ var is_dashing = false
 var can_dash = true
 
 var active_spell
+var cast_pos = Vector2()
 var slow_multiplier = 1
-var push_direction = Vector2(0, 0)
-var dash_direction = Vector2(0, 0)
+var push_direction = Vector2()
+var dash_direction = Vector2()
 
 var health = 100
 
@@ -141,8 +144,9 @@ func _process(delta):
 					$sprite/particles.h_frames = 4
 					$sprite/particles.z_index = -dash_direction.y
 				
-				# Disables collision with spells.
-				collision_layer = COLLISION_DASH
+				# Disables collision with spells and characters.
+				collision_layer = 2 # Character_Dash
+				collision_mask = 8 # Obstacles
 				
 				$sprite.set_self_modulate(Color(1,1,1,0.5))
 				$dash_timer.start()
@@ -223,8 +227,9 @@ func change_element(element):
 	
 	current_color = colors[element]
 	if !is_dashing:
-		$sprite/glow/tween.interpolate_property($sprite/glow, "modulate", $sprite/glow.modulate, current_color,
-												.2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$sprite/glow/tween.interpolate_property($sprite/glow, "modulate",
+			$sprite/glow.modulate, current_color,.2, Tween.TRANS_LINEAR,
+			Tween.EASE_IN)
 		$sprite/glow/tween.start()
 	current_element = element
 	charge = 0
@@ -338,7 +343,8 @@ func _on_root_anim_timer_timeout():
 # Duration of the dash
 func _on_dash_timer_timeout():
 	is_dashing = false
-	collision_layer = COLLISION_NORMAL
+	collision_layer = 1 # Character
+	collision_mask = 9 # Character + Obstacle
 	dash_direction = Vector2()
 	$sprite.set_self_modulate(Color(1,1,1,1))
 	$sprite/particles.emitting = false

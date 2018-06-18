@@ -1,35 +1,47 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://spells/fire/fire3.gd" type="Script" id=1]
-[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=2]
-[ext_resource path="res://spells/base_projectile.gd" type="Script" id=3]
-[ext_resource path="res://spells/fire/sprites/explosion_atlas_512x512.png" type="Texture" id=4]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
+[ext_resource path="res://resources/circle-100.png" type="Texture" id=3]
+[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=4]
+[ext_resource path="res://spells/fire/sprites/explosion_atlas_512x512.png" type="Texture" id=5]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 2.5
+height = 5.0
+
+[sub_resource type="CircleShape2D" id=13]
+
+custom_solver_bias = 0.0
+radius = 150.0
+
+[sub_resource type="Gradient" id=8]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 1, 1, 1, 0.501961, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=9]
 
 flags = 4
-gradient = SubResource( 1 )
+gradient = SubResource( 8 )
 width = 2048
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=10]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 0.188477 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
+[sub_resource type="CurveTexture" id=11]
 
 flags = 4
 width = 2048
-curve = SubResource( 3 )
+curve = SubResource( 10 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=12]
 
 resource_local_to_scene = true
 render_priority = 0
@@ -60,8 +72,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.2
 scale_random = 0.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -71,36 +83,31 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Damping", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Radial Accel", "Resource", "Scale", "Spread", "Trail" ]
 
-[sub_resource type="CircleShape2D" id=6]
-
-custom_solver_bias = 0.0
-radius = 5.0
-
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=3]
 
 offsets = PoolRealArray( 0, 0.147929, 0.473373, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.792899, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=8]
+[sub_resource type="GradientTexture" id=4]
 
 flags = 4
-gradient = SubResource( 7 )
+gradient = SubResource( 3 )
 width = 2048
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=5]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 0.779297 ), 0.0, 1.90897, 0, 0, Vector2( 0.844776, 1 ), -1.07802, -1.07802, 0, 0, Vector2( 1, 1 ), 0.12187, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=10]
+[sub_resource type="CurveTexture" id=6]
 
 flags = 4
 width = 2048
-curve = SubResource( 9 )
+curve = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -130,8 +137,8 @@ angle = 0.0
 angle_random = 1.0
 scale = 1.0
 scale_random = 0.0
-scale_curve = SubResource( 10 )
-color_ramp = SubResource( 8 )
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -141,12 +148,7 @@ anim_offset_random = 1.0
 anim_loop = false
 _sections_unfolded = [ "Animation", "Color", "Emission Shape", "Scale", "Spread", "Trail" ]
 
-[sub_resource type="CircleShape2D" id=12]
-
-custom_solver_bias = 0.0
-radius = 166.586
-
-[node name="Fire3" type="Node2D" index="0"]
+[node name="Fire3" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -158,8 +160,61 @@ speed = 7
 damage = 35
 knockback = 70
 
-[node name="Trail" type="Particles2D" parent="." index="0"]
+[node name="Projectile" type="Area2D" parent="." index="0"]
 
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 13
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision" ]
+element = 0
+level = 3
+
+[node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
+
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Explosion" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 13
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision" ]
+element = 0
+level = 3
+
+[node name="Shape" type="CollisionShape2D" parent="Explosion" index="0"]
+
+rotation = 1.5708
+shape = SubResource( 13 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Shadow" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0, 0, 0, 0.270588 )
+scale = Vector2( 0.1, 0.05 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Trail" type="Particles2D" parent="." index="3"]
+
+position = Vector2( 0, -55 )
 emitting = true
 amount = 60
 lifetime = 1.0
@@ -173,52 +228,14 @@ fract_delta = false
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 1
-process_material = SubResource( 5 )
-texture = ExtResource( 2 )
+process_material = SubResource( 12 )
+texture = ExtResource( 4 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
-
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Projectile" type="Area2D" parent="." index="2"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 4
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 3 )
-_sections_unfolded = [ "Collision" ]
-element = 0
-level = 3
-
-[node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
-
-shape = SubResource( 6 )
-
-[node name="Explosion" type="Area2D" parent="." index="3"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 3 )
-element = 0
-level = 3
-
-[node name="Particles" type="Particles2D" parent="Explosion" index="0"]
+[node name="ExplosionParticles" type="Particles2D" parent="." index="4"]
 
 z_index = 1
 z_as_relative = false
@@ -235,33 +252,35 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 11 )
-texture = ExtResource( 4 )
+process_material = SubResource( 7 )
+texture = ExtResource( 5 )
 normal_map = null
 h_frames = 3
 v_frames = 3
-_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
 
-[node name="Shape" type="CollisionShape2D" parent="Explosion" index="1"]
+[node name="Sprite" type="Sprite" parent="." index="5"]
 
-shape = SubResource( 12 )
-disabled = true
+position = Vector2( 0, -55 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Lifetime" type="Timer" parent="." index="4"]
+[node name="Lifetime" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="ExplosionDuration" type="Timer" parent="." index="5"]
+[node name="ExplosionDuration" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="FreeTimer" type="Timer" parent="." index="6"]
+[node name="FreeTimer" type="Timer" parent="." index="8"]
 
 process_mode = 1
 wait_time = 1.0
@@ -270,11 +289,11 @@ autostart = false
 
 [connection signal="area_entered" from="Projectile" to="Projectile" method="_on_Projectile_area_entered"]
 
-[connection signal="body_entered" from="Projectile" to="." method="_on_Projectile_body_entered"]
+[connection signal="body_entered" from="Projectile" to="Projectile" method="_on_Projectile_body_entered"]
 
 [connection signal="area_entered" from="Explosion" to="Explosion" method="_on_Projectile_area_entered"]
 
-[connection signal="body_entered" from="Explosion" to="." method="_on_Explosion_body_entered"]
+[connection signal="body_entered" from="Explosion" to="Explosion" method="_on_Projectile_body_entered"]
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
 

@@ -11,12 +11,10 @@ func cast(caster, direction):
 
 func entry_animation():
 	var duration = .2
-	$Tween.interpolate_property($Cloud, "position", $Cloud.position,
-		Vector2(0, CLOUD_Y), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.interpolate_property($Cloud, "modulate", Color(1, 1, 1, 0),
 		Color(1, 1, 1, 1), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
-	$Tween.interpolate_property($Shadow, "modulate", Color(1, 1, 1, 0),
-		Color(1, 1, 1, .5), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Shadow, "modulate", Color(0, 0, 0, 0),
+		Color(0, 0, 0, .27), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()
 
 
@@ -47,7 +45,7 @@ func die():
 	$Tween.interpolate_property($Cloud, "modulate", $Cloud.modulate,
 		Color(1, 1, 1, 0), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.interpolate_property($Shadow, "modulate", $Shadow.modulate,
-		Color(1, 1, 1, 0), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
+		Color(0, 0, 0, 0), duration, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()
 	
 	yield($Tween, "tween_completed")
@@ -55,9 +53,8 @@ func die():
 
 
 func _on_Projectile_body_entered(body):
-	# Hits body if "take_damage" function exists in it, else just dies
 	if body != caster:
-		if body.has_method("take_damage"):
+		if body.collision_layer == 1: # Character
 			on_hit(body)
 		else:
 			die()

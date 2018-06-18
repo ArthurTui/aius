@@ -33,9 +33,6 @@ func _ready():
 		char_inst.controller_device = key
 		
 		$YSort.add_child(char_inst)
-		# move the children up so that they stay above the ground but below the
-		# pause screen and the winner label
-#		move_child(get_node(str("Character", player)), 4)
 
 
 func _process(delta):

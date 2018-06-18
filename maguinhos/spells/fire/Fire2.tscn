@@ -1,20 +1,79 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://spells/fire/fire2.gd" type="Script" id=1]
-[ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=2]
-[ext_resource path="res://spells/base_projectile.gd" type="Script" id=3]
+[ext_resource path="res://spells/Projectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/circle-100.png" type="Texture" id=3]
+[ext_resource path="res://spells/fire/sprites/scorching_missile_1.png" type="Texture" id=4]
+[ext_resource path="res://spells/fire/sprites/scorching_missile_2.png" type="Texture" id=5]
+[ext_resource path="res://spells/fire/sprites/scorching_missile_3.png" type="Texture" id=6]
+[ext_resource path="res://spells/fire/sprites/fire_particles.png" type="Texture" id=7]
 
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 23.0
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 300, -120, 300, 120 )
 
-[node name="Fire2" type="Node2D"]
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="Gradient" id=3]
+
+offsets = PoolRealArray( 0, 0.208835, 0.614458, 0.827309, 0.911647, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.921569, 0.337255, 1, 0.94902, 0.411765, 0.254902, 0.752941, 0.67451, 0.00784314, 0.317647, 0.501961, 0.25098, 0.25098, 0.25098, 0.25098, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+
+flags = 4
+gradient = SubResource( 3 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -100, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 4 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+anim_loop = true
+_sections_unfolded = [ "Animation", "Color", "Emission Shape", "Gravity" ]
+
+[node name="Fire2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -26,32 +85,12 @@ speed = 7
 damage = 10
 knockback = 10
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Projectile" parent="." index="0" instance=ExtResource( 2 )]
 
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="Projectile" type="Area2D" parent="." index="1"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 4
-collision_mask = 13
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 3 )
-_sections_unfolded = [ "Collision" ]
 element = 0
 level = 2
 
-[node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="DetectionArea" type="Area2D" parent="." index="2"]
+[node name="DetectionArea" type="Area2D" parent="." index="1"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -66,16 +105,55 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Shape" type="CollisionShape2D" parent="DetectionArea" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
-[node name="Lifetime" type="Timer" parent="." index="3"]
+[node name="Shadow" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0, 0, 0, 0.270588 )
+scale = Vector2( 0.46, 0.23 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="3"]
+
+position = Vector2( 0, -55 )
+frames = SubResource( 2 )
+animation = "default"
+playing = true
+offset = Vector2( -15, 0 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
+
+[node name="Particles2D" type="Particles2D" parent="." index="4"]
+
+position = Vector2( 0, -55 )
+emitting = true
+amount = 20
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.5
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 5 )
+texture = ExtResource( 7 )
+normal_map = null
+h_frames = 4
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time", "Transform", "Visibility" ]
+
+[node name="Lifetime" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 3.5
 one_shot = true
 autostart = true
 
-[node name="Tween" type="Tween" parent="." index="4"]
+[node name="Tween" type="Tween" parent="." index="6"]
 
 repeat = false
 playback_process_mode = 1
@@ -83,10 +161,6 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
-
-[connection signal="area_entered" from="Projectile" to="Projectile" method="_on_Projectile_area_entered"]
-
-[connection signal="body_entered" from="Projectile" to="." method="_on_Projectile_body_entered"]
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 

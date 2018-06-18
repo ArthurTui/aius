@@ -1,37 +1,37 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://spells/nature/nature2.gd" type="Script" id=1]
-[ext_resource path="res://spells/nature/sprites/thorns1.png" type="Texture" id=2]
-[ext_resource path="res://spells/nature/sprites/thorns2.png" type="Texture" id=3]
-[ext_resource path="res://spells/nature/sprites/thorns3.png" type="Texture" id=4]
-[ext_resource path="res://spells/nature/sprites/seed.png" type="Texture" id=5]
-[ext_resource path="res://spells/base_projectile.gd" type="Script" id=6]
+[ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
+[ext_resource path="res://resources/circle-100.png" type="Texture" id=3]
+[ext_resource path="res://spells/nature/sprites/thorns1.png" type="Texture" id=4]
+[ext_resource path="res://spells/nature/sprites/thorns2.png" type="Texture" id=5]
+[ext_resource path="res://spells/nature/sprites/thorns3.png" type="Texture" id=6]
+[ext_resource path="res://spells/nature/sprites/seed.png" type="Texture" id=7]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ null, ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ null, ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "grow",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), null ],
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), null ],
 "loop": false,
 "name": "die",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "seed",
 "speed": 5.0
 } ]
-
-[sub_resource type="CircleShape2D" id=2]
-
-resource_local_to_scene = true
-custom_solver_bias = 0.0
-radius = 15.0
-_sections_unfolded = [ "Resource" ]
 
 [node name="Nature2" type="Node2D" index="0"]
 
@@ -42,46 +42,57 @@ speed = 10
 damage = 5
 knockback = 0
 
-[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
-
-frames = SubResource( 1 )
-animation = "seed"
-_sections_unfolded = [ "Transform" ]
-
-[node name="Projectile" type="Area2D" parent="." index="1"]
+[node name="Projectile" type="Area2D" parent="." index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 4
+collision_mask = 13
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision" ]
 element = 3
 level = 2
 
 [node name="Shape" type="CollisionShape2D" parent="Projectile" index="0"]
 
-scale = Vector2( 1, 0.7 )
-shape = SubResource( 2 )
+rotation = 1.5708
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="LifeTimer" type="Timer" parent="." index="2"]
+[node name="Shadow" type="Sprite" parent="." index="1"]
+
+modulate = Color( 0, 0, 0, 0.270588 )
+scale = Vector2( 0.4, 0.2 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 0, -55 )
+frames = SubResource( 2 )
+animation = "seed"
+_sections_unfolded = [ "Transform" ]
+
+[node name="LifeTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 5.0
 one_shot = true
 autostart = false
 
-[node name="GrowTimer" type="Timer" parent="." index="3"]
+[node name="GrowTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 0.4
 one_shot = true
 autostart = true
 
-[node name="Tween" type="Tween" parent="." index="4"]
+[node name="Tween" type="Tween" parent="." index="5"]
 
 repeat = false
 playback_process_mode = 1

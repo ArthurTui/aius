@@ -9,7 +9,7 @@ func _ready():
 
 
 func _input(event):
-	print("resume",$resume.rect_position)
+#	print("resume",$resume.rect_position)
 	if Input.is_action_just_pressed("pause") and can_process:
 		on_resume_pressed()
 	if Input.is_action_just_pressed("ui_up"):

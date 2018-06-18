@@ -2,16 +2,14 @@ extends "res://spells/base_spell.gd"
 
 const ROTATION = 10
 
-signal died(name)
+signal died(leaf)
 
 func _ready():
 	set_process(false)
 
 
 func shoot(caster, direction):
-	self.caster = caster
 	self.direction = direction
-	$Projectile.caster = caster
 	
 	$Sprite.set_modulate(Color(1, 1, 1, 1))
 	$Lifetime.start()
@@ -26,23 +24,20 @@ func _process(delta):
 
 func update_pos():
 	position += direction * speed
-	rotation_degrees += ROTATION
+	$Sprite.rotation_degrees += ROTATION
 
 
 func update_trail(position):
 	$Trail.global_position = Vector2()
 	$Trail.global_rotation = 0
-	$Trail.add_point($TrailPivot.global_position)
+	$Trail.add_point($Sprite/TrailPivot.global_position)
 	if $Trail.get_point_count() > 10:
 		$Trail.remove_point(0)
 
 
 func selected():
 	$Sprite.set_modulate(Color(2, 5, 2, 1))
-
-
-func set_shape_disabled(b):
-	$Projectile/Shape.disabled = b
+	return self
 
 
 func die():
@@ -51,7 +46,7 @@ func die():
 	.die()
 	$Projectile/Shape.disabled = true
 	$Sprite.modulate = Color(1, 1, 1, 1)
-	emit_signal("died", get_name())
+	emit_signal("died", self)
 	death_animation()
 
 
@@ -63,6 +58,10 @@ func death_animation():
 		Vector2(1.2, 1.2), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.interpolate_property($Sprite, "modulate", $Sprite.modulate,
 		Color(1, 1, 1, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Shadow, "scale", $Shadow.scale,
+		1.2 * $Shadow.scale, dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Shadow, "modulate", $Shadow.modulate,
+		Color(0, 0, 0, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.interpolate_property($Trail, "modulate", $Trail.modulate,
 		Color(1, 1, 1, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()

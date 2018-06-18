@@ -42,7 +42,7 @@ position = Vector2( 1315, 540 )
 
 [node name="Up" parent="Walls" index="0"]
 
-position = Vector2( 960, -135 )
+position = Vector2( 960, -75 )
 
 [node name="Down" parent="Walls" index="1"]
 

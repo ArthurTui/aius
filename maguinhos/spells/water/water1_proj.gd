@@ -19,18 +19,16 @@ func die():
 		return
 	$Projectile/Shape.disabled = true
 	set_process(false)
+	
+	var dur = .4
 	$Tween.interpolate_property($Sprite, "scale", Vector2(.15, .15),
-		Vector2(.5, .5), .4, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		Vector2(.5, .5), dur, Tween.TRANS_QUAD, Tween.EASE_OUT)
 	$Tween.interpolate_property($Sprite, "modulate", Color(1, 1, 1, 1),
-		Color(1, 1, 1, 0), .4, Tween.TRANS_QUAD, Tween.EASE_IN)
+		Color(1, 1, 1, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Tween.interpolate_property($Shadow, "scale", $Shadow.scale,
+		$Shadow.scale * 3.33, dur, Tween.TRANS_QUAD, Tween.EASE_OUT)
+	$Tween.interpolate_property($Shadow, "modulate", $Shadow.modulate,
+		Color(0, 0, 0, 0), dur, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()
 	yield($Tween, "tween_completed")
 	queue_free()
-
-
-func _on_Projectile_body_entered(body):
-	if body != caster:
-		if body.has_method("take_damage"):
-			var kb_direction = (body.position - global_position).normalized()
-			body.take_damage(damage, kb_direction, knockback)
-		die()

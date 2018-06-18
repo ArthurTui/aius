@@ -5,28 +5,66 @@
 [ext_resource path="res://stages/Temple/flares.png" type="Texture" id=3]
 [ext_resource path="res://stages/Temple/reticle.png" type="Texture" id=4]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-
-custom_solver_bias = 0.0
-points = PoolVector2Array( 58, -28, 67, 35, -73, 35, -58, -28 )
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 250.0
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 58, -28, 67, 35, -73, 35, -58, -28 )
 
 [node name="Statue" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="DetectionArea" type="Area2D" parent="." index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+collision_mask = 3
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+
+position = Vector2( -0.397217, 0 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+
+input_pickable = false
+collision_layer = 8
+collision_mask = 7
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
 
 position = Vector2( 0, -120 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Flares" type="Node2D" parent="." index="1"]
+[node name="Flares" type="Node2D" parent="." index="3"]
 
 position = Vector2( 0, -220 )
 _sections_unfolded = [ "Transform" ]
@@ -61,7 +99,7 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Lasers" type="Node2D" parent="." index="2"]
+[node name="Lasers" type="Node2D" parent="." index="4"]
 
 modulate = Color( 1, 1, 1, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -85,42 +123,6 @@ texture_mode = 32
 sharp_limit = 2.0
 round_precision = 8
 _sections_unfolded = [ "Visibility" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
-
-editor/display_folded = true
-input_pickable = false
-collision_layer = 8
-collision_mask = 7
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-
-position = Vector2( 0, -24.9479 )
-scale = Vector2( 1, 0.19523 )
-shape = SubResource( 1 )
-
-[node name="DetectionArea" type="Area2D" parent="." index="4"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 16
-collision_mask = 3
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
-
-position = Vector2( -0.397217, 0 )
-shape = SubResource( 2 )
 
 [node name="Cooldown" type="Timer" parent="." index="5"]
 
@@ -153,7 +155,6 @@ margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 160, 160 )
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

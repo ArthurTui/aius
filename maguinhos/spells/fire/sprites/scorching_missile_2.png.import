@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shadow.png-a47bddd14e5ed72eb5ea8aa551eed398.stex"
+path="res://.import/scorching_missile_2.png-fab2afce7abd36bd95610153cecda7ee.stex"
 
 [deps]
 
-source_file="res://spells/lightning/sprites/shadow.png"
-source_md5="0ced4315c337f0712eeab60ec29f1b6e"
+source_file="res://spells/fire/sprites/scorching_missile_2.png"
+source_md5="5d5486771febe9a1bfabb621e8d48c4d"
 
-dest_files=[ "res://.import/shadow.png-a47bddd14e5ed72eb5ea8aa551eed398.stex" ]
-dest_md5="1f53b7106abbb0debbe2d166e15e3e8b"
+dest_files=[ "res://.import/scorching_missile_2.png-fab2afce7abd36bd95610153cecda7ee.stex" ]
+dest_md5="99300c23cfbbe05b01ab9091267b9eed"
 
 [params]
 
