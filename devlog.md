@@ -281,3 +281,15 @@
 #### Henrique (16:10 ~ 21:20)
  1. Ilustração de novo personagem para CSS
  2. Nova animação de mudança de personagem na CSS
+
+### 18/06
+
+#### Henrique (17:20 ~ 20:05)
+ 1. Design de novo personagem
+
+### 20/06
+
+#### Henrique (13:40 ~ 17:40)
+ 1. Nova sprite de novo personagem já na CSS
+ 2. Agora é possivel voltar da stage select para CSS
+ 3. water3 nerfadam agora usa o delta
