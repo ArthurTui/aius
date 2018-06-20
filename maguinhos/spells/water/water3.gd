@@ -19,7 +19,7 @@ func _process(delta):
 	position += direction * speed
 	for body in $Projectile.get_overlapping_bodies():
 		if body.has_method("take_damage") and body != caster:
-			body.take_damage(damage)
+			body.take_damage(damage*delta)
 
 
 func _on_Projectile_body_entered(body):
