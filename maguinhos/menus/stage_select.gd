@@ -25,6 +25,8 @@ func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 	    direction -= Vector2( 1, 0 )
 	
+	if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("pause"): # esc or backspace or ctrl
+		get_tree().change_scene("res://menus/CSS.tscn")
 	
 	direction.x += h
 	direction.y += v

@@ -6,7 +6,7 @@ const KB_CUSTOM_ID_2 = 200
 
 var active_devices = {} # which device controls which player
 var selected_characters = [null,null,null,null,null]
-var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel", "char 1"]
+var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel", "char 1", "char 2"]
 
 var ready_players = [] # which players are ready
 

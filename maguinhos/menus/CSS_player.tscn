@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://menus/CSS_player.gd" type="Script" id=1]
 [ext_resource path="res://menus/resources/arrow.png" type="Texture" id=2]
@@ -6,23 +6,24 @@
 [ext_resource path="res://characters/sprites/skeleton/rundown2.png" type="Texture" id=4]
 [ext_resource path="res://characters/sprites/skeleton/rundown3.png" type="Texture" id=5]
 [ext_resource path="res://characters/sprites/skeleton/rundown4.png" type="Texture" id=6]
-[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=7]
-[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=8]
-[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=9]
-[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=10]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=11]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=12]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=13]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=14]
-[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=15]
-[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=16]
-[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=17]
-[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=7]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=8]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=9]
+[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=10]
+[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=11]
+[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=12]
+[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=13]
+[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=14]
+[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=15]
+[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=16]
+[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=17]
+[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=18]
 [ext_resource path="res://characters/sprites/CSS/char 1.png" type="Texture" id=19]
-[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=20]
-[ext_resource path="res://menus/resources/black.jpg" type="Texture" id=21]
-[ext_resource path="res://menus/resources/buttons/psX.png" type="Texture" id=22]
-[ext_resource path="res://menus/resources/buttons/xbA.png" type="Texture" id=23]
+[ext_resource path="res://characters/sprites/CSS/char 2.png" type="Texture" id=20]
+[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=21]
+[ext_resource path="res://menus/resources/black.jpg" type="Texture" id=22]
+[ext_resource path="res://menus/resources/buttons/psX.png" type="Texture" id=23]
+[ext_resource path="res://menus/resources/buttons/xbA.png" type="Texture" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -34,22 +35,27 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "broleton",
+"name": "bloodyskel",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "bloodyskel",
+"name": "sealeton",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "sealeton",
+"name": "broleton",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "char 1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "char 2",
 "speed": 5.0
 } ]
 
@@ -139,7 +145,7 @@ tracks/2/keys = {
 "values": [ "broleton" ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=4]
 
 resource_name = "change"
 length = 0.3
@@ -184,9 +190,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource_name = "char 1"
 length = 0.3
 loop = false
 step = 0.05
@@ -227,9 +232,8 @@ tracks/2/keys = {
 "values": [ "char 1" ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource_name = "sealeton"
 length = 0.3
 loop = false
 step = 0.05
@@ -270,9 +274,8 @@ tracks/2/keys = {
 "values": [ "sealeton" ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
-resource_name = "skeleton"
 length = 0.3
 loop = false
 step = 0.05
@@ -313,24 +316,24 @@ tracks/2/keys = {
 "values": [ "skeleton" ]
 }
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 
 size = 40
 use_mipmaps = true
 use_filter = false
-font_data = ExtResource( 20 )
+font_data = ExtResource( 21 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 
 size = 60
 use_mipmaps = false
 use_filter = false
 extra_spacing_char = 7
-font_data = ExtResource( 20 )
+font_data = ExtResource( 21 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
 length = 0.5
 loop = false
@@ -348,7 +351,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 1120 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
 length = 0.5
 loop = false
@@ -366,7 +369,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 1080 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
 length = 0.45
 loop = false
@@ -446,7 +449,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 
 length = 0.3
 loop = false
@@ -500,9 +503,8 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 
-resource_name = "enter"
 length = 0.3
 loop = false
 step = 0.1
@@ -519,9 +521,8 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 1120 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 
-resource_name = "exit"
 length = 0.5
 loop = false
 step = 0.1
@@ -674,10 +675,10 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/bloodyskel = SubResource( 2 )
 anims/broleton = SubResource( 3 )
-anims/change = SubResource( 15 )
-"anims/char 1" = SubResource( 4 )
-anims/sealeton = SubResource( 5 )
-anims/skeleton = SubResource( 6 )
+anims/change = SubResource( 4 )
+"anims/char 1" = SubResource( 5 )
+anims/sealeton = SubResource( 6 )
+anims/skeleton = SubResource( 7 )
 blend_times = [  ]
 
 [node name="label" type="Label" parent="Items" index="2"]
@@ -695,7 +696,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Ready?"
 align = 1
 percent_visible = 1.0
@@ -721,7 +722,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 0.226562, 0.226562, 1 )
 custom_colors/font_color_shadow = Color( 1, 0.796875, 0, 1 )
 custom_constants/shadow_offset_x = 2
@@ -752,7 +753,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
@@ -786,7 +787,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Join"
 align = 1
 percent_visible = 1.0
@@ -810,7 +811,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Spc   -       -"
 align = 1
 percent_visible = 1.0
@@ -822,14 +823,14 @@ _sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
 position = Vector2( 236.676, 26.119 )
 scale = Vector2( 1.62047, 1.62047 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="xb" type="Sprite" parent="Items/bg/labels/press start" index="1"]
 
 position = Vector2( 332.27, 26.1968 )
 scale = Vector2( 1.62048, 1.62048 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 
 [node name="anim" type="AnimationPlayer" parent="Items/bg" index="1"]
 
@@ -838,8 +839,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/enter = SubResource( 9 )
-anims/exit = SubResource( 10 )
+anims/enter = SubResource( 10 )
+anims/exit = SubResource( 11 )
 blend_times = [  ]
 
 [node name="anim" type="AnimationPlayer" parent="Items" index="5"]
@@ -849,8 +850,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/ready = SubResource( 11 )
-anims/unready = SubResource( 12 )
+anims/ready = SubResource( 12 )
+anims/unready = SubResource( 13 )
 blend_times = [  ]
 
 [node name="anim" type="AnimationPlayer" parent="." index="2"]
@@ -860,8 +861,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/enter = SubResource( 13 )
-anims/exit = SubResource( 14 )
+anims/enter = SubResource( 14 )
+anims/exit = SubResource( 15 )
 blend_times = [  ]
 
 

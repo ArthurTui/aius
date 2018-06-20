@@ -38,25 +38,6 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=7]
-
-resource_name = "glow"
-length = 2.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.898765, 0.957031, 0.564499, 1 ), Color( 0.964844, 0.614334, 0.852571, 1 ), Color( 0.898039, 0.956863, 0.560784, 1 ) ]
-}
-
 [sub_resource type="Animation" id=5]
 
 resource_name = "glow"
@@ -76,7 +57,25 @@ tracks/0/keys = {
 "values": [ Color( 0.898765, 0.957031, 0.564499, 1 ), Color( 0.964844, 0.614334, 0.852571, 1 ), Color( 0.898039, 0.956863, 0.560784, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="Animation" id=6]
+
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.898765, 0.957031, 0.564499, 1 ), Color( 0.964844, 0.614334, 0.852571, 1 ), Color( 0.898039, 0.956863, 0.560784, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -278,7 +277,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
-[node name="city" type="TextureRect" parent="stages" index="4"]
+[node name="City" type="TextureRect" parent="stages" index="4"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -300,7 +299,7 @@ texture = ExtResource( 5 )
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Rect" ]
 
-[node name="Area2D" type="Area2D" parent="stages/city" index="0"]
+[node name="Area2D" type="Area2D" parent="stages/City" index="0"]
 
 position = Vector2( -14.7393, -6.02129 )
 input_pickable = true
@@ -311,13 +310,13 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/city/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/City/Area2D" index="0"]
 
 position = Vector2( 118.889, 66.0213 )
 scale = Vector2( 9.88709, 6.09165 )
 shape = SubResource( 1 )
 
-[node name="info" type="Label" parent="stages/city" index="1"]
+[node name="info" type="Label" parent="stages/City" index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -346,7 +345,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
-[node name="river" type="TextureRect" parent="stages" index="5"]
+[node name="River" type="TextureRect" parent="stages" index="5"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -367,7 +366,7 @@ size_flags_vertical = 1
 texture = ExtResource( 6 )
 stretch_mode = 0
 
-[node name="Area2D" type="Area2D" parent="stages/river" index="0"]
+[node name="Area2D" type="Area2D" parent="stages/River" index="0"]
 
 position = Vector2( -7.88031, -5.16394 )
 input_pickable = true
@@ -378,13 +377,13 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/river/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/River/Area2D" index="0"]
 
 position = Vector2( 112.88, 65.1639 )
 scale = Vector2( 9.94979, 6.09166 )
 shape = SubResource( 1 )
 
-[node name="info" type="Label" parent="stages/river" index="1"]
+[node name="info" type="Label" parent="stages/River" index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -505,11 +504,12 @@ autoplay = "glow"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/glow = SubResource( 7 )
+anims/glow = SubResource( 5 )
 blend_times = [  ]
 
 [node name="cursor" type="KinematicBody2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 940, 480 )
 input_pickable = false
 collision_layer = 1
@@ -517,20 +517,20 @@ collision_mask = 1
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Rect" ]
 
-[node name="back" type="Sprite" parent="cursor" index="0"]
+[node name="outline" type="Sprite" parent="cursor" index="0"]
 
 modulate = Color( 0.900554, 0.94397, 0.571768, 1 )
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="anim" type="AnimationPlayer" parent="cursor/back" index="0"]
+[node name="anim" type="AnimationPlayer" parent="cursor/outline" index="0"]
 
 root_node = NodePath("..")
 autoplay = "glow"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/glow = SubResource( 5 )
+anims/glow = SubResource( 6 )
 blend_times = [  ]
 
 [node name="sprite" type="Sprite" parent="cursor" index="1"]
@@ -545,7 +545,7 @@ __meta__ = {
 
 position = Vector2( -24.9278, -32.0538 )
 scale = Vector2( 3.44488, 3.27955 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 
