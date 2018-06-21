@@ -32,6 +32,7 @@ func die():
 	.die()
 	$Projectile/Shape.disabled = true
 	$Lifetime.stop()
+	$SFX_Die.play()
 	death_animation()
 
 

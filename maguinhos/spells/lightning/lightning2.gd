@@ -32,6 +32,7 @@ func on_hit(body):
 		$Sprite.show()
 		$Sprite.play("lightning")
 		$Particles.emitting = true
+		$SFX_Thunder.play()
 		set_process(false)
 		emit_signal("shake_screen", shake)
 

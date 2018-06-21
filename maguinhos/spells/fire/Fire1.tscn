@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://spells/fire/fire1.gd" type="Script" id=1]
 [ext_resource path="res://spells/Projectile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=3]
 [ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=4]
+[ext_resource path="res://resources/sfx/fire1_fshiu.wav" type="AudioStream" id=5]
+[ext_resource path="res://resources/sfx/fire1_fshau.wav" type="AudioStream" id=6]
 
 [sub_resource type="Gradient" id=1]
 
@@ -98,6 +100,22 @@ process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="SFX_Cast" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "SFX"
+
+[node name="SFX_Die" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "SFX"
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/water2_pa.wav-5560a7eeede6d800e012e0dfacaf5ac0.sample"
+
+[deps]
+
+source_file="res://resources/sfx/water2_pa.wav"
+source_md5="34d75f51312fe7ae42117a352a06cc78"
+
+dest_files=[ "res://.import/water2_pa.wav-5560a7eeede6d800e012e0dfacaf5ac0.sample" ]
+dest_md5="5ec4325f133a46baaf822bb24266fa69"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

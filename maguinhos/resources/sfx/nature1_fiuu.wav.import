@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/nature1_fiuu.wav-04f3e625cfb9f573775f2a8f233b14af.sample"
+
+[deps]
+
+source_file="res://resources/sfx/nature1_fiuu.wav"
+source_md5="aaf7652d4f3766778ccbc6bf8f81e5b0"
+
+dest_files=[ "res://.import/nature1_fiuu.wav-04f3e625cfb9f573775f2a8f233b14af.sample" ]
+dest_md5="f14ae9bd974e6a454f27e630620a4883"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

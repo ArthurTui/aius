@@ -11,6 +11,7 @@ func _ready():
 func shoot(caster, direction):
 	self.direction = direction
 	
+	$AudioStreamPlayer.play()
 	$Sprite.set_modulate(Color(1, 1, 1, 1))
 	$Lifetime.start()
 	set_process(true)

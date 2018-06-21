@@ -53,6 +53,7 @@ func on_hit(character):
 	character.take_damage(damage)
 	$Animation.play("blink")
 	emit_signal("shake_screen", shake)
+	$SFX_Hit.play()
 
 
 func _on_Projectile_body_entered(body):

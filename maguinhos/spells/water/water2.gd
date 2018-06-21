@@ -32,6 +32,7 @@ func die():
 	.die()
 	$Projectile/Shape.disabled = true
 	$Sprite.play("death")
+	$SFX_Die.play()
 	set_process(false)
 
 

@@ -44,6 +44,7 @@ func die():
 	$Lifetime.stop()
 	$Particles2D.emitting = false
 #	set_process(false)
+	$SFX_Die.play()
 	death_animation()
 
 

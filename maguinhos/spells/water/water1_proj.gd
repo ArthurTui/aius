@@ -24,6 +24,7 @@ func die():
 	if $Tween.is_active():
 		return
 	$Projectile/Shape.disabled = true
+	$SFX_Die.play()
 	set_process(false)
 	
 	var dur = .4

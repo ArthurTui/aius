@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fire1_fshiu.wav-8ef81a5c02b80c9a10322a54079acc23.sample"
+
+[deps]
+
+source_file="res://resources/sfx/fire1_fshiu.wav"
+source_md5="56803b71f55b8678303785802d89dbea"
+
+dest_files=[ "res://.import/fire1_fshiu.wav-8ef81a5c02b80c9a10322a54079acc23.sample" ]
+dest_md5="06efdf793b437ec54ee51895ccb9d2d0"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

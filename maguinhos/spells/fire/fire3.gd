@@ -37,6 +37,7 @@ func die():
 	$ExplosionParticles.emitting = true
 	$ExplosionDuration.start()
 	$Lifetime.stop()
+	$SFX_Die.play()
 	
 	if !caster or !weakref(caster).get_ref(): # Caster was freed
 		return

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lightning1_bzzt.wav-7552156d417f301fff71920c3a28db4b.sample"
+
+[deps]
+
+source_file="res://resources/sfx/lightning1_bzzt.wav"
+source_md5="015155a78ac5b357d89e06f58ff493a7"
+
+dest_files=[ "res://.import/lightning1_bzzt.wav-7552156d417f301fff71920c3a28db4b.sample" ]
+dest_md5="478f3fe53ca2fa1741004ad2bef15e96"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://spells/water/water1_proj.gd" type="Script" id=1]
 [ext_resource path="res://spells/base_projectile.gd" type="Script" id=2]
 [ext_resource path="res://spells/water/sprites/waterSphere1.png" type="Texture" id=3]
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=4]
+[ext_resource path="res://resources/sfx/water1_shpl.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -64,6 +65,14 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="SFX_Die" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "SFX"
 
 [connection signal="area_entered" from="Projectile" to="Projectile" method="_on_Projectile_area_entered"]
 

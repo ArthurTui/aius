@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lightning2_whoosh.wav-d61ccada72b376d1a82f79de603a54fb.sample"
+
+[deps]
+
+source_file="res://resources/sfx/lightning2_whoosh.wav"
+source_md5="764d2894da17e6c08ecf44bca3c8c079"
+
+dest_files=[ "res://.import/lightning2_whoosh.wav-d61ccada72b376d1a82f79de603a54fb.sample" ]
+dest_md5="fb3412b9076297f6bf22efd6e888d7d2"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

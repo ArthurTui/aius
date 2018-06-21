@@ -77,6 +77,7 @@ func grow():
 	$Shadow.scale = Vector2(1.4, .7)
 	$Projectile/Shape.shape.radius = 25
 	$Projectile/Shape.shape.height = 80
+	$AudioStreamPlayer.play()
 
 
 func _on_ShakeTimer_timeout():

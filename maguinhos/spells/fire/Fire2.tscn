@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://spells/fire/fire2.gd" type="Script" id=1]
 [ext_resource path="res://spells/Projectile.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://spells/fire/sprites/scorching_missile_2.png" type="Texture" id=5]
 [ext_resource path="res://spells/fire/sprites/scorching_missile_3.png" type="Texture" id=6]
 [ext_resource path="res://spells/fire/sprites/fire_particles.png" type="Texture" id=7]
+[ext_resource path="res://resources/sfx/fire2_shoo.wav" type="AudioStream" id=8]
+[ext_resource path="res://resources/sfx/fire2_pshh.wav" type="AudioStream" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -73,7 +75,7 @@ anim_offset_random = 1.0
 anim_loop = true
 _sections_unfolded = [ "Animation", "Color", "Emission Shape", "Gravity" ]
 
-[node name="Fire2" type="Node2D"]
+[node name="Fire2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -120,7 +122,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 position = Vector2( 0, -55 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 1
 playing = true
 offset = Vector2( -15, 0 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
@@ -163,6 +164,22 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="SFX_Cast" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "SFX"
+
+[node name="SFX_Die" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "SFX"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 

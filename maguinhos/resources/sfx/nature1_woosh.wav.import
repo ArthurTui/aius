@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/nature1_woosh.wav-28af356e45008a1329453244b839ce36.sample"
+
+[deps]
+
+source_file="res://resources/sfx/nature1_woosh.wav"
+source_md5="988083af915201c7a5d9e1f2850fa5a5"
+
+dest_files=[ "res://.import/nature1_woosh.wav-28af356e45008a1329453244b839ce36.sample" ]
+dest_md5="384444f535944288b92b15b3ce42a5c0"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0
