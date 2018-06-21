@@ -48,13 +48,14 @@ animations = [ {
 "speed": 7.0
 } ]
 
-[node name="Water3" type="Node2D"]
+[node name="Water3" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 has_activation = false
 speed = 5
 damage = 5
 knockback = 0
+shake = 0.028
 
 [node name="Projectile" type="Area2D" parent="." index="0"]
 
@@ -78,6 +79,7 @@ _sections_unfolded = [ "Transform" ]
 
 frames = SubResource( 2 )
 animation = "side"
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -88,7 +90,14 @@ wait_time = 2.5
 one_shot = true
 autostart = true
 
-[node name="Tween" type="Tween" parent="." index="3"]
+[node name="ShakeTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = false
+autostart = true
+
+[node name="Tween" type="Tween" parent="." index="4"]
 
 repeat = false
 playback_process_mode = 1
@@ -104,5 +113,7 @@ playback/speed = 1.0
 [connection signal="body_exited" from="Projectile" to="." method="_on_Projectile_body_exited"]
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
+
+[connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
 
 

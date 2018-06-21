@@ -40,6 +40,11 @@ func selected():
 	return self
 
 
+func on_hit(character):
+	.on_hit(character)
+	emit_signal("shake_screen", shake)
+
+
 func die():
 	if dying:
 		return

@@ -7,6 +7,7 @@ func cast(caster, direction):
 	position.y -= 55
 	rotation = direction.angle()
 	$Sprite.play()
+	emit_signal("shake_screen", shake)
 
 
 func die():

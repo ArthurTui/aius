@@ -8,10 +8,16 @@ func fire(caster, direction, speed, damage, knockback):
 	self.speed = speed
 	self.damage = damage
 	self.knockback = knockback
+	connect("shake_screen", caster.get_parent().get_parent(), "shake_screen")
 
 
 func _process(delta):
 	position += direction * speed
+
+
+func on_hit(character):
+	.on_hit(character)
+	emit_signal("shake_screen", shake)
 
 
 func die():

@@ -32,6 +32,8 @@ func cast(caster, direction):
 		leaf.caster = caster
 		leaf.get_node("Projectile").caster = caster
 		print(leaf.caster)
+		leaf.connect("shake_screen", caster.get_parent().get_parent(),
+			"shake_screen")
 
 
 func activate():

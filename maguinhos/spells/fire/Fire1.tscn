@@ -5,12 +5,12 @@
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=3]
 [ext_resource path="res://spells/fire/sprites/fireball.png" type="Texture" id=4]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.534137, 0.930233, 1 )
 colors = PoolColorArray( 1, 0.392157, 0, 0.0784314, 1, 0.54902, 0, 0.607843, 1, 0.901961, 0, 0.607843, 1, 0.901961, 0, 0.0784314 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 length = 0.5
 loop = true
@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="Fire1" type="Node2D"]
+[node name="Fire1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
@@ -39,6 +39,7 @@ has_activation = false
 speed = 10
 damage = 5
 knockback = 20
+shake = 0.2
 
 [node name="Projectile" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -50,7 +51,7 @@ level = 1
 points = PoolVector2Array(  )
 width = 25.0
 default_color = Color( 1, 0.784314, 0.392157, 1 )
-gradient = SubResource( 2 )
+gradient = SubResource( 1 )
 texture_mode = 205594352
 joint_mode = 2
 begin_cap_mode = 2
@@ -79,7 +80,7 @@ autoplay = "spin"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/spin = SubResource( 3 )
+anims/spin = SubResource( 2 )
 blend_times = [  ]
 
 [node name="Tween" type="Tween" parent="." index="4"]

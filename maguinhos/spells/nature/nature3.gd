@@ -10,10 +10,16 @@ func cast(caster, direction):
 	queue_free()
 
 
+func shake():
+	emit_signal("shake_screen", shake)
+
+
 func die():
 	if dying:
 		return
 	.die()
+	
+	set_process(false)
 	
 	# Disabling shapes:
 	for shape in $Projectile.get_children():

@@ -21,6 +21,7 @@ func _process(delta):
 
 func on_hit(body):
 	.on_hit(body)
+	emit_signal("shake_screen", shake)
 	if body.has_method("slow"):
 		body.slow(SLOW_DURATION, SLOW_MULTIPLIER)
 

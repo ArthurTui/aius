@@ -16,6 +16,7 @@ enum ELEMENT {
 const elements_str = ["fire","water","lightning","nature"]
 
 signal death
+signal shake_screen
 
 # We use the port, because actions are named ending on port,
 # and port - device_id association is made on the InputMap before

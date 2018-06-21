@@ -27,6 +27,7 @@ func die():
 	if dying:
 		return
 	.die()
+	emit_signal("shake_screen", shake)
 	set_process(false)
 	$Sprite.visible = false
 	$Shadow.visible = false

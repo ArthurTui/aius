@@ -31,6 +31,11 @@ func home():
 	direction.y = clamp(direction.y, -1.1, 1.1)
 
 
+func on_hit(character):
+	.on_hit(character)
+	emit_signal("shake_screen", shake)
+
+
 func die():
 	if dying:
 		return

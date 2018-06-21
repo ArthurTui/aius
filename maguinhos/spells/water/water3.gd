@@ -52,3 +52,7 @@ func die():
 
 func _on_Lifetime_timeout():
 	die()
+
+
+func _on_ShakeTimer_timeout():
+	emit_signal("shake_screen", shake)

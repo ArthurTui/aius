@@ -39,6 +39,11 @@ func _process(delta):
 	check_end_condition()
 
 
+# Called by signals
+func shake_screen(s):
+	$ScreenShake.add_shake(s)
+
+
 func another_one_bites_the_dust():
 	living -= 1
 

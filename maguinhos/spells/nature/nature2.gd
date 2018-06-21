@@ -64,6 +64,7 @@ func _on_GrowTimer_timeout():
 		return
 	set_process(false)
 	$LifeTimer.start()
+	$ShakeTimer.start()
 	is_seed = false
 	$Tween.stop($Sprite, "position")
 	$Sprite.position = Vector2(0, -35)
@@ -72,3 +73,11 @@ func _on_GrowTimer_timeout():
 	$Shadow.scale = Vector2(1.4, .7)
 	$Projectile/Shape.shape.radius = 25
 	$Projectile/Shape.shape.height = 80
+
+
+func _on_ShakeTimer_timeout():
+	emit_signal("shake_screen", shake)
+
+
+func _on_Sprite_animation_finished():
+	$ShakeTimer.stop()

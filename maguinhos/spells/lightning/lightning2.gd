@@ -28,10 +28,12 @@ func on_hit(body):
 			b.take_damage(damage)
 			b.stun(STUN_TIME)
 	
-	$Sprite.show()
-	$Sprite.play("lightning")
-	$Particles.emitting = true
-	set_process(false)
+	if !$Sprite.visible:
+		$Sprite.show()
+		$Sprite.play("lightning")
+		$Particles.emitting = true
+		set_process(false)
+		emit_signal("shake_screen", shake)
 
 
 func die():

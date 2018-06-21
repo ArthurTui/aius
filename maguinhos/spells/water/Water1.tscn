@@ -10,6 +10,7 @@ has_activation = false
 speed = 10
 damage = 3
 knockback = 10
+shake = 0.1
 
 [node name="Projectiles" type="Node2D" parent="." index="0"]
 

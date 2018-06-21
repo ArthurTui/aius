@@ -11,16 +11,23 @@ has_activation = true
 speed = null
 damage = null
 knockback = null
+shake = null
 
 [node name="Leaf1" parent="." index="0" instance=ExtResource( 2 )]
 
-_sections_unfolded = [ "Transform", "Z Index" ]
+shake = 0.15
 
 [node name="Leaf2" parent="." index="1" instance=ExtResource( 2 )]
 
+shake = 0.15
+
 [node name="Leaf3" parent="." index="2" instance=ExtResource( 2 )]
 
+shake = 0.15
+
 [node name="Leaf4" parent="." index="3" instance=ExtResource( 2 )]
+
+shake = 0.15
 
 [node name="Tween" type="Tween" parent="." index="4"]
 

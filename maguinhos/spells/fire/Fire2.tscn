@@ -73,7 +73,7 @@ anim_offset_random = 1.0
 anim_loop = true
 _sections_unfolded = [ "Animation", "Color", "Emission Shape", "Gravity" ]
 
-[node name="Fire2" type="Node2D" index="0"]
+[node name="Fire2" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -84,6 +84,7 @@ has_activation = false
 speed = 7
 damage = 10
 knockback = 10
+shake = 0.4
 
 [node name="Projectile" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -119,6 +120,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 position = Vector2( 0, -55 )
 frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 offset = Vector2( -15, 0 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]

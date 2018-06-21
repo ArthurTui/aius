@@ -21,6 +21,11 @@ func _process(delta):
 		$Trail.remove_point(0)
 
 
+func on_hit(character):
+	.on_hit(character)
+	emit_signal("shake_screen", shake)
+
+
 func die():
 	if dying:
 		return

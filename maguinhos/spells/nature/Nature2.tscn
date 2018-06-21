@@ -28,12 +28,12 @@ animations = [ {
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 7 ) ],
-"loop": true,
+"loop": false,
 "name": "seed",
 "speed": 5.0
 } ]
 
-[node name="Nature2" type="Node2D" index="0"]
+[node name="Nature2" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -41,6 +41,7 @@ has_activation = false
 speed = 10
 damage = 5
 knockback = 0
+shake = 0.1
 
 [node name="Projectile" type="Area2D" parent="." index="0"]
 
@@ -92,7 +93,14 @@ wait_time = 0.4
 one_shot = true
 autostart = true
 
-[node name="Tween" type="Tween" parent="." index="5"]
+[node name="ShakeTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.03
+one_shot = false
+autostart = false
+
+[node name="Tween" type="Tween" parent="." index="6"]
 
 repeat = false
 playback_process_mode = 1
@@ -105,8 +113,12 @@ playback/speed = 1.0
 
 [connection signal="body_entered" from="Projectile" to="." method="_on_Projectile_body_entered"]
 
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+
 [connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
 
 [connection signal="timeout" from="GrowTimer" to="." method="_on_GrowTimer_timeout"]
+
+[connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
 
 

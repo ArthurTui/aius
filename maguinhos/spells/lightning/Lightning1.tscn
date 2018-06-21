@@ -91,7 +91,7 @@ tracks/0/keys = {
 "values": [ Color( 20, 20, 20, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Lightning1" type="Node2D" index="0"]
+[node name="Lightning1" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -99,6 +99,7 @@ has_activation = false
 speed = 10
 damage = 5
 knockback = 0
+shake = 0.1
 
 [node name="Projectile" type="Area2D" parent="." index="0"]
 
@@ -134,6 +135,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 position = Vector2( 0, -55 )
 frames = SubResource( 2 )
 animation = "default"
+frame = 2
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
