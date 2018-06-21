@@ -130,8 +130,8 @@ func player_exit(id):
 	if id in active_devices and not active_devices[id] in ready_players:
 		var player = active_devices[id]
 			
-		get_node(str("CSS/P", player,"/Items/bg/anim")).play("exit")
 			
 		available_characters.push_front(selected_characters[player - 1])
 		selected_characters[player - 1] = null
 		active_devices.erase(id)
+		get_node(str("CSS/P", player,"/Items/bg/anim")).play("exit")

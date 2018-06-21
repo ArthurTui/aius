@@ -59,6 +59,10 @@ func _on_LifeTimer_timeout():
 
 
 func _on_GrowTimer_timeout():
+	grow()
+
+
+func grow():
 	# Projectile stops moving and expands
 	if !is_seed:
 		return

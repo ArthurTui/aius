@@ -18,8 +18,8 @@ func die():
 
 
 func _on_Projectile_body_entered(body):
-	if body != caster:
-		if body.has_method("take_damage"):
+	print("oi")
+	if body != caster and body.has_method("take_damage"):
 			body.take_damage(damage)
 			body.stun(STUN_DURATION)
 

@@ -1,12 +1,10 @@
 extends Node2D
 
-const DEBUG = 1
-
 # Values of positional and rotational offsets when the screen shake is at its
 # maximum
-const MAX_ANGLE = 10
-const MAX_OFFSET_X = 100
-const MAX_OFFSET_Y = 100
+const MAX_ANGLE = 5
+const MAX_OFFSET_X = 50
+const MAX_OFFSET_Y = 50
 
 # The ratio at which the screen shake decreases. It is multiplied by dt in
 # process, so screen_shake goes from 1 to 0 in (1 / DEC_RATIO) seconds.

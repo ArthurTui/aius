@@ -6,6 +6,7 @@ var stages_hovered = [false, false, false, false]
 
 
 func _ready():
+	set_process(false)
 	randomize()
 
 
@@ -25,7 +26,7 @@ func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 	    direction -= Vector2( 1, 0 )
 	
-	if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("pause"): # esc or backspace or ctrl
+	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("pause"): # esc or backspace or ctrl
 		get_tree().change_scene("res://menus/CSS.tscn")
 	
 	direction.x += h
@@ -83,3 +84,6 @@ func _process(delta):
 			# resets random's color
 			if not $stages/random/Area2D.overlaps_body($cursor):
 				$stages/random.set_frame_color("7ad6ef") # blue
+
+func _on_Timer_timeout():
+	set_process(true)
