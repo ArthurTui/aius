@@ -34,6 +34,7 @@ func on_resume_pressed():
 	
 
 func on_quit_pressed():
+	bgm.switch(bgm.menu)
 	get_tree().paused = false
 	get_tree().change_scene("res://menus/CSS.tscn")
 

@@ -41,7 +41,7 @@ tracks/0/keys = {
 "values": [ Color( 0.96875, 1, 0, 1 ), Color( 0.03125, 0, 1, 1 ), Color( 1, 0, 0.046875, 1 ), Color( 0, 1, 0.390625, 1 ), Color( 1, 0, 0.9375, 1 ), Color( 0.968627, 1, 0, 1 ) ]
 }
 
-[node name="Stage" type="Node2D"]
+[node name="Stage" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -49,6 +49,7 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 positions = null
+stage_bgm = null
 
 [node name="Background" type="Node2D" parent="." index="0"]
 

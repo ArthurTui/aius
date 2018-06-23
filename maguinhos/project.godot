@@ -17,6 +17,7 @@ config/icon="res://spells/lightning/sprites/magnetBolt3.png"
 [autoload]
 
 player_data="*res://menus/player_data.gd"
+bgm="*res://bgm/BGM.tscn"
 
 [display]
 

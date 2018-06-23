@@ -1,6 +1,7 @@
 extends Node2D
 
 export (PoolVector2Array) var positions
+export (AudioStream) var stage_bgm
 
 var char_scn = preload("res://characters/character.tscn")
 var testing = true
@@ -8,6 +9,9 @@ var testing = true
 var living = 0
 
 func _ready():
+	# change bgm
+	bgm.switch(stage_bgm)
+	
 	# gets the variables set in the CSS
 	var a_d = player_data.active_devices
 	var s_c = player_data.selected_characters
@@ -63,4 +67,5 @@ func _on_WinTimer_timeout():
 	for node in $YSort.get_children():
 		if node.is_in_group("Player"):
 			node.queue_free()
+	bgm.switch(bgm.menu)
 	get_tree().change_scene("res://menus/CSS.tscn")

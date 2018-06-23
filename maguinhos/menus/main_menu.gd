@@ -137,3 +137,11 @@ func _on_quit_mouse_exited():
 	hovering = 0
 	$Buttons/Quit.texture_normal = quit
 	$Buttons/Quit/AnimationPlayer.play("quit_unhover")
+
+
+func _on_Credits_pressed():
+	bgm.fade_out()
+
+
+func _on_Settings_pressed():
+	bgm.switch(bgm.temple)
