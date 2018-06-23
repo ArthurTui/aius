@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/settings_glow.png-cedb3f1c91a5587a0f9058bb77e79ec9.stex"
+
+[deps]
+
+source_file="res://menus/main menu/buttons/settings_glow.png"
+source_md5="791d6e593368f6630b729173f32ada0b"
+
+dest_files=[ "res://.import/settings_glow.png-cedb3f1c91a5587a0f9058bb77e79ec9.stex" ]
+dest_md5="383f73c6664923a0300a144b8c227c5f"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

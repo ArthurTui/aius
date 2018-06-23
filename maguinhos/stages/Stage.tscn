@@ -2,8 +2,9 @@
 
 [ext_resource path="res://stages/stage.gd" type="Script" id=1]
 [ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://menus/pause_screen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menus/pause/pause_screen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://stages/ScreenShake.tscn" type="PackedScene" id=4]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

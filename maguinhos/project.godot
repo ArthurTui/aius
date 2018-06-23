@@ -11,12 +11,12 @@ config_version=3
 [application]
 
 config/name="Aius: Battle for Magic"
-run/main_scene="res://menus/main_menu.tscn"
+run/main_scene="res://menus/main menu/main_menu.tscn"
 config/icon="res://spells/lightning/sprites/magnetBolt3.png"
 
 [autoload]
 
-player_data="*res://menus/player_data.gd"
+player_data="*res://player_data.gd"
 bgm="*res://bgm/BGM.tscn"
 
 [display]

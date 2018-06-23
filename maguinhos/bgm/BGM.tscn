@@ -7,7 +7,7 @@
 
 stream = ExtResource( 1 )
 volume_db = 0.0
-autoplay = true
+autoplay = false
 mix_target = 0
 bus = "Master"
 script = ExtResource( 2 )

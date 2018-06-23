@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/credits_glow.png-5c5a780d94ddd8606fba8e2678d7db1a.stex"
+
+[deps]
+
+source_file="res://menus/main menu/buttons/credits_glow.png"
+source_md5="ddc047fd248aed313c579d1d7785a752"
+
+dest_files=[ "res://.import/credits_glow.png-5c5a780d94ddd8606fba8e2678d7db1a.stex" ]
+dest_md5="6fcf41dfed0c67156bda73f532977fdb"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

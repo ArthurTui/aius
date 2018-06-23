@@ -1,0 +1,561 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://menus/stage select/stage_select.gd" type="Script" id=1]
+[ext_resource path="res://stages/thumbnails/forest.png" type="Texture" id=2]
+[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://stages/thumbnails/temple.png" type="Texture" id=4]
+[ext_resource path="res://stages/thumbnails/city.png" type="Texture" id=5]
+[ext_resource path="res://stages/thumbnails/river.png" type="Texture" id=6]
+[ext_resource path="res://menus/resources/cursor_outline.png" type="Texture" id=7]
+[ext_resource path="res://menus/resources/cursor.png" type="Texture" id=8]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.5681, 10.1327 )
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 70
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "glow"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.898765, 0.957031, 0.564499, 1 ), Color( 0.964844, 0.614334, 0.852571, 1 ), Color( 0.898039, 0.956863, 0.560784, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.898765, 0.957031, 0.564499, 1 ), Color( 0.964844, 0.614334, 0.852571, 1 ), Color( 0.898039, 0.956863, 0.560784, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="stage_select" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="stages" type="ItemList" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+items = [  ]
+select_mode = 0
+allow_reselect = false
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+_sections_unfolded = [ "Icon", "Rect" ]
+
+[node name="ColorRect" type="ColorRect" parent="stages" index="1"]
+
+modulate = Color( 0.988281, 0.988281, 0.988281, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 806.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.0653076, 0.0721169, 0.078125, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Forest" type="TextureRect" parent="stages" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 320.0
+margin_top = 260.0
+margin_right = 525.0
+margin_bottom = 380.0
+rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 102, 60 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Area2D" type="Area2D" parent="stages/Forest" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/Forest/Area2D" index="0"]
+
+position = Vector2( 104.452, 60.4668 )
+scale = Vector2( 9.99015, 6.05611 )
+shape = SubResource( 1 )
+
+[node name="info" type="Label" parent="stages/Forest" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -179.0
+margin_top = 384.0
+margin_right = 1101.0
+margin_bottom = 567.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Forest
+
+A simple and peaceful forest."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="Temple" type="TextureRect" parent="stages" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1240.0
+margin_top = 260.0
+margin_right = 1450.0
+margin_bottom = 381.0
+rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 102, 60 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="stages/Temple" index="0"]
+
+position = Vector2( 77, 72 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/Temple/Area2D" index="0"]
+
+position = Vector2( 28, -12.4351 )
+scale = Vector2( 9.94979, 6.05853 )
+shape = SubResource( 1 )
+
+[node name="info" type="Label" parent="stages/Temple" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -793.0
+margin_top = 384.0
+margin_right = 487.0
+margin_bottom = 567.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Temple of Kei
+
+A temple built for Kei, the God of Destruction.
+The interior is all lava because it destroys things just like the almighty Kei."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="City" type="TextureRect" parent="stages" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 320.0
+margin_top = 580.0
+margin_right = 525.0
+margin_bottom = 700.0
+rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 102, 60 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 0
+_sections_unfolded = [ "Hint", "Rect" ]
+
+[node name="Area2D" type="Area2D" parent="stages/City" index="0"]
+
+position = Vector2( -14.7393, -6.02129 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/City/Area2D" index="0"]
+
+position = Vector2( 118.889, 66.0213 )
+scale = Vector2( 9.88709, 6.09165 )
+shape = SubResource( 1 )
+
+[node name="info" type="Label" parent="stages/City" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -179.0
+margin_top = 171.0
+margin_right = 1101.0
+margin_bottom = 354.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Tower of Gyro
+
+The tower in which Gyro, the warrior of time, hid during the war because he wanted to play Xenoblade 2."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="River" type="TextureRect" parent="stages" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1240.0
+margin_top = 580.0
+margin_right = 1445.0
+margin_bottom = 700.0
+rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 102, 60 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="stages/River" index="0"]
+
+position = Vector2( -7.88031, -5.16394 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/River/Area2D" index="0"]
+
+position = Vector2( 112.88, 65.1639 )
+scale = Vector2( 9.94979, 6.09166 )
+shape = SubResource( 1 )
+
+[node name="info" type="Label" parent="stages/River" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -793.0
+margin_top = 171.0
+margin_right = 487.0
+margin_bottom = 354.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Icy lands
+
+It's pretty cold there."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="random" type="ColorRect" parent="stages" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1590.0
+margin_top = 430.0
+margin_right = 1720.0
+margin_bottom = 490.0
+rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.494662, 0.960938, 0.364105, 1 )
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="Area2D" type="Area2D" parent="stages/random" index="0"]
+
+position = Vector2( 65, 30 )
+scale = Vector2( 2.03125, 0.9375 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/random/Area2D" index="0"]
+
+position = Vector2( -1.38283e-05, 5.72205e-06 )
+scale = Vector2( 2.35847, 2.43667 )
+shape = SubResource( 1 )
+
+[node name="label" type="Label" parent="stages/random" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 130.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Random"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+
+[node name="Title" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 152.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Choose a Stage"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors" ]
+
+[node name="anim" type="AnimationPlayer" parent="Title" index="0"]
+
+root_node = NodePath("..")
+autoplay = "glow"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/glow = SubResource( 5 )
+blend_times = [  ]
+
+[node name="cursor" type="KinematicBody2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 940, 480 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Rect" ]
+
+[node name="outline" type="Sprite" parent="cursor" index="0"]
+
+modulate = Color( 0.900554, 0.94397, 0.571768, 1 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="anim" type="AnimationPlayer" parent="cursor/outline" index="0"]
+
+root_node = NodePath("..")
+autoplay = "glow"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/glow = SubResource( 6 )
+blend_times = [  ]
+
+[node name="sprite" type="Sprite" parent="cursor" index="1"]
+
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cursor" index="2"]
+
+position = Vector2( -24.9278, -32.0538 )
+scale = Vector2( 3.44488, 3.27955 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+
