@@ -42,6 +42,13 @@ func _ready():
 func _process(delta):
 	check_end_condition()
 
+func _input(event):
+	if Input.is_action_just_pressed("pause"):
+		print("pause")
+		var pause_scn = load("res://menus/pause/Pause.tscn")
+		get_tree().paused = true
+		add_child(pause_scn.instance())
+
 
 # Called by signals
 func shake_screen(s):

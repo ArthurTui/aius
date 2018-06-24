@@ -11,6 +11,10 @@
 positions = PoolVector2Array( 300, 240, 1620, 840, 1620, 240, 300, 840 )
 stage_bgm = ExtResource( 2 )
 
+[node name="Background" parent="." index="0"]
+
+editor/display_folded = true
+
 [node name="Ground" type="TextureRect" parent="Background" index="0"]
 
 anchor_left = 0.0
@@ -33,6 +37,10 @@ _sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="YSort" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="TheRock" parent="YSort" index="0" instance=ExtResource( 4 )]
 
@@ -241,9 +249,5 @@ position = Vector2( -50, 540 )
 [node name="Right" parent="Walls" index="3"]
 
 position = Vector2( 1970, 540 )
-
-[node name="Pause" parent="." index="4"]
-
-visible = false
 
 

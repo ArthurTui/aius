@@ -11,6 +11,10 @@
 positions = PoolVector2Array( 300, 240, 1620, 840, 1620, 240, 300, 840 )
 stage_bgm = ExtResource( 2 )
 
+[node name="Background" parent="." index="0"]
+
+editor/display_folded = true
+
 [node name="stage" type="Sprite" parent="Background" index="0"]
 
 position = Vector2( 960, 540 )
@@ -28,6 +32,10 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 1315, 540 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="YSort" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Statue1" parent="YSort" index="0" instance=ExtResource( 5 )]
 
@@ -52,10 +60,5 @@ position = Vector2( -10, 540 )
 [node name="Right" parent="Walls" index="3"]
 
 position = Vector2( 1930, 540 )
-
-[node name="Pause" parent="." index="4"]
-
-margin_top = -2.0
-margin_bottom = 1078.0
 
 

@@ -6,4 +6,5 @@ func _ready():
 
 func _on_Back_pressed():
 	$Popup/Back.focus_mode = FOCUS_NONE
+	$Popup/Back/FocusLabel.hide()
 	exit()

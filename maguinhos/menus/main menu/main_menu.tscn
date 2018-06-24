@@ -22,7 +22,7 @@ use_filter = true
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=3]
 
 length = 1.0
 loop = false
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=4]
 
 length = 1.0
 loop = false
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[node name="Main Menu" type="Control" index="0"]
+[node name="Main Menu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -276,8 +276,8 @@ autoplay = "fade_in"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/fade_in = SubResource( 36 )
-anims/fade_out = SubResource( 37 )
+anims/fade_in = SubResource( 3 )
+anims/fade_out = SubResource( 4 )
 blend_times = [  ]
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
