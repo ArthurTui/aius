@@ -10,7 +10,7 @@ func check_game_start():
 	print("consertado")
 	
 	if ready_players == active_players and ready_players >= 2:
-		get_tree().change_scene("res://menus/stage_select.tscn")
+		get_tree().change_scene("res://menus/stage select/stage_select.tscn")
 
 
 # changes sprite animation frames (mid character change animation)

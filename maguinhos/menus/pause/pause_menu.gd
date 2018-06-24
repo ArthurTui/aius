@@ -36,7 +36,7 @@ func on_resume_pressed():
 func on_quit_pressed():
 	bgm.switch(bgm.menu)
 	get_tree().paused = false
-	get_tree().change_scene("res://menus/CSS.tscn")
+	get_tree().change_scene("res://menus/character select/CSS.tscn")
 
 func _on_work_timer_timeout():
 	can_process = true

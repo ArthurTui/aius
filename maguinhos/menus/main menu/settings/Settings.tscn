@@ -1,0 +1,466 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://menus/Popup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://menus/main menu/settings/settings.gd" type="Script" id=2]
+[ext_resource path="res://menus/main menu/settings/slider.theme" type="Theme" id=3]
+[ext_resource path="res://menus/main menu/settings/settings_item.gd" type="Script" id=4]
+[ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://resources/sfx/click.wav" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 40
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[node name="Settings" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="Title" parent="Popup" index="0"]
+
+text = "Settings"
+
+[node name="VBox" type="VBoxContainer" parent="Popup" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -135.0
+margin_right = 430.0
+margin_bottom = 277.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Mouse", "Rect" ]
+
+[node name="Master" type="HSlider" parent="Popup/VBox" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 500.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 500, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+min_value = 0.0
+max_value = 100.0
+step = 10.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+script = ExtResource( 4 )
+_sections_unfolded = [ "Focus", "Theme" ]
+
+[node name="Label" type="Label" parent="Popup/VBox/Master" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -380.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 380, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.784314, 0.54902, 0.27451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.392157 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Master Volume:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="FocusLabel" type="Label" parent="Popup/VBox/Master" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -380.0
+margin_right = -180.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 380, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.784314, 0.54902, 0.27451, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.784314, 0, 0.392157 )
+custom_constants/shadow_as_outline = 1
+text = "Master Volume:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Music" type="HSlider" parent="Popup/VBox" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 104.0
+margin_right = 500.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 500, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+min_value = 0.0
+max_value = 100.0
+step = 10.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+script = ExtResource( 4 )
+_sections_unfolded = [ "Focus", "Mouse", "Rect", "Theme" ]
+
+[node name="Label" type="Label" parent="Popup/VBox/Music" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -380.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 380, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.784314, 0.54902, 0.27451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.392157 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Music Volume:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="FocusLabel" type="Label" parent="Popup/VBox/Music" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -380.0
+margin_right = -180.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 380, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.784314, 0.54902, 0.27451, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.784314, 0, 0.392157 )
+custom_constants/shadow_as_outline = 1
+text = "Music Volume:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="SFX" type="HSlider" parent="Popup/VBox" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 208.0
+margin_right = 500.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 500, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+min_value = 0.0
+max_value = 100.0
+step = 10.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+script = ExtResource( 4 )
+_sections_unfolded = [ "Focus", "Mouse", "Rect", "Theme" ]
+
+[node name="Label" type="Label" parent="Popup/VBox/SFX" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -380.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 380, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.784314, 0.54902, 0.27451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.392157 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "SFX Volume:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="FocusLabel" type="Label" parent="Popup/VBox/SFX" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -380.0
+margin_right = -180.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 380, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.784314, 0.54902, 0.27451, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.784314, 0, 0.392157 )
+custom_constants/shadow_as_outline = 1
+text = "SFX Volume:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Back" type="Button" parent="Popup/VBox" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 312.0
+margin_right = 500.0
+margin_bottom = 412.0
+rect_min_size = Vector2( 500, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Focus", "custom_styles" ]
+
+[node name="Label" type="Label" parent="Popup/VBox/Back" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -380.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 380, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.784314, 0.54902, 0.27451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.392157 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Back"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="FocusLabel" type="Label" parent="Popup/VBox/Back" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -380.0
+margin_right = -180.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 380, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.784314, 0.54902, 0.27451, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.784314, 0, 0.392157 )
+custom_constants/shadow_as_outline = 1
+text = "Back"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Click" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "SFX"
+
+[connection signal="focus_entered" from="Popup/VBox/Master" to="Popup/VBox/Master" method="_on_SettingsItem_focus_entered"]
+
+[connection signal="focus_exited" from="Popup/VBox/Master" to="Popup/VBox/Master" method="_on_SettingsItem_focus_exited"]
+
+[connection signal="value_changed" from="Popup/VBox/Master" to="." method="_on_Master_value_changed"]
+
+[connection signal="focus_entered" from="Popup/VBox/Music" to="Popup/VBox/Music" method="_on_SettingsItem_focus_entered"]
+
+[connection signal="focus_exited" from="Popup/VBox/Music" to="Popup/VBox/Music" method="_on_SettingsItem_focus_exited"]
+
+[connection signal="value_changed" from="Popup/VBox/Music" to="." method="_on_Music_value_changed"]
+
+[connection signal="focus_entered" from="Popup/VBox/SFX" to="Popup/VBox/SFX" method="_on_SettingsItem_focus_entered"]
+
+[connection signal="focus_exited" from="Popup/VBox/SFX" to="Popup/VBox/SFX" method="_on_SettingsItem_focus_exited"]
+
+[connection signal="value_changed" from="Popup/VBox/SFX" to="." method="_on_SFX_value_changed"]
+
+[connection signal="focus_entered" from="Popup/VBox/Back" to="Popup/VBox/Back" method="_on_SettingsItem_focus_entered"]
+
+[connection signal="focus_exited" from="Popup/VBox/Back" to="Popup/VBox/Back" method="_on_SettingsItem_focus_exited"]
+
+[connection signal="pressed" from="Popup/VBox/Back" to="." method="_on_Back_pressed"]
+
+

@@ -22,7 +22,7 @@ func _physics_process(delta):
 		$CSS/quit_bar.show()
 		$CSS/quit_bar.value += 1
 		if $CSS/quit_bar.get_value() >= $CSS/quit_bar.get_max():
-			get_tree().change_scene("res://menus/main_menu.tscn")
+			get_tree().change_scene("res://menus/main menu/main_menu.tscn")
 	
 	# if cancel is not being held, subtracts from the quit bar
 	else:

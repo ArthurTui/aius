@@ -68,4 +68,4 @@ func _on_WinTimer_timeout():
 		if node.is_in_group("Player"):
 			node.queue_free()
 	bgm.switch(bgm.menu)
-	get_tree().change_scene("res://menus/CSS.tscn")
+	get_tree().change_scene("res://menus/character select/CSS.tscn")

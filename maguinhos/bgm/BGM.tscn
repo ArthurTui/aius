@@ -7,9 +7,9 @@
 
 stream = ExtResource( 1 )
 volume_db = 0.0
-autoplay = false
+autoplay = true
 mix_target = 0
-bus = "Master"
+bus = "BGM"
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="." index="0"]
