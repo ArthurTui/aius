@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://menus/stage select/stage_select.gd" type="Script" id=1]
 [ext_resource path="res://stages/thumbnails/forest.png" type="Texture" id=2]
@@ -6,9 +6,9 @@
 [ext_resource path="res://stages/thumbnails/temple.png" type="Texture" id=4]
 [ext_resource path="res://stages/thumbnails/city.png" type="Texture" id=5]
 [ext_resource path="res://stages/thumbnails/river.png" type="Texture" id=6]
-[ext_resource path="res://menus/resources/cursor_outline.png" type="Texture" id=7]
-[ext_resource path="res://menus/resources/cursor.png" type="Texture" id=8]
-
+[ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://menus/resources/cursor_outline.png" type="Texture" id=8]
+[ext_resource path="res://menus/resources/cursor.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,18 +25,18 @@ _sections_unfolded = [ "Font" ]
 
 [sub_resource type="DynamicFont" id=3]
 
-size = 30
+size = 22
 use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 3 )
+use_filter = true
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
 
 size = 70
 use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 3 )
+use_filter = true
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="Animation" id=5]
@@ -81,7 +81,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="stage_select" type="Control"]
+[node name="stage_select" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -415,7 +415,6 @@ _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
 [node name="random" type="ColorRect" parent="stages" index="6"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -456,10 +455,8 @@ shape = SubResource( 1 )
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 130.0
-margin_bottom = 60.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -496,7 +493,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors" ]
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="anim" type="AnimationPlayer" parent="Title" index="0"]
 
@@ -521,7 +518,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="outline" type="Sprite" parent="cursor" index="0"]
 
 modulate = Color( 0.900554, 0.94397, 0.571768, 1 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="anim" type="AnimationPlayer" parent="cursor/outline" index="0"]
@@ -536,7 +533,7 @@ blend_times = [  ]
 
 [node name="sprite" type="Sprite" parent="cursor" index="1"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
