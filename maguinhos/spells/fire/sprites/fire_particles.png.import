@@ -7,10 +7,7 @@ path="res://.import/fire_particles.png-fee1d8af7d2d8be4fe1d6da1c6c75f61.stex"
 [deps]
 
 source_file="res://spells/fire/sprites/fire_particles.png"
-source_md5="2a81038b81452657a704f16287715851"
-
 dest_files=[ "res://.import/fire_particles.png-fee1d8af7d2d8be4fe1d6da1c6c75f61.stex" ]
-dest_md5="2ef78e71fc1723811dd859eadb7b30b2"
 
 [params]
 

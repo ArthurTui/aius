@@ -7,10 +7,7 @@ path="res://.import/idledownleft.png-d1b12a9fb1b7e207adcf2cad554ceb0a.stex"
 [deps]
 
 source_file="res://characters/sprites/bloodyskel/idledownleft.png"
-source_md5="35302cf31222e086f4897b46edc74487"
-
 dest_files=[ "res://.import/idledownleft.png-d1b12a9fb1b7e207adcf2cad554ceb0a.stex" ]
-dest_md5="2b67dec5f980804997ae7b95b97c6462"
 
 [params]
 

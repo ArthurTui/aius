@@ -7,10 +7,7 @@ path="res://.import/magnetBolt1.png-75c15274752a5953e82576c791e3e775.stex"
 [deps]
 
 source_file="res://spells/lightning/sprites/magnetBolt1.png"
-source_md5="4b6db64b30132076dc87e4a27f735aa3"
-
 dest_files=[ "res://.import/magnetBolt1.png-75c15274752a5953e82576c791e3e775.stex" ]
-dest_md5="6d2370df53888c5c79dddee94b9ba760"
 
 [params]
 

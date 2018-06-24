@@ -7,10 +7,7 @@ path="res://.import/psC.png-932a86e7e054bad0f03cc7a9243ea337.stex"
 [deps]
 
 source_file="res://menus/resources/buttons/psC.png"
-source_md5="5d726051e4daed289de637bf49ae4f85"
-
 dest_files=[ "res://.import/psC.png-932a86e7e054bad0f03cc7a9243ea337.stex" ]
-dest_md5="79c726efdd40e3f8cf84130811a7ceb3"
 
 [params]
 

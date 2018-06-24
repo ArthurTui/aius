@@ -7,10 +7,7 @@ path="res://.import/play_glow.png-6b7b654d223054745c1f5f7f9c2fde64.stex"
 [deps]
 
 source_file="res://menus/main menu/buttons/play_glow.png"
-source_md5="352bcd21d476cc67d44c96d0e2635776"
-
 dest_files=[ "res://.import/play_glow.png-6b7b654d223054745c1f5f7f9c2fde64.stex" ]
-dest_md5="973a437a0c68199cd585c1a35ab23175"
 
 [params]
 

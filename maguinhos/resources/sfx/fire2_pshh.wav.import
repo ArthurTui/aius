@@ -7,10 +7,7 @@ path="res://.import/fire2_pshh.wav-5597183ebb55a1021f48004767207316.sample"
 [deps]
 
 source_file="res://resources/sfx/fire2_pshh.wav"
-source_md5="5562533e1adc2466ef2a721cf6ef8796"
-
 dest_files=[ "res://.import/fire2_pshh.wav-5597183ebb55a1021f48004767207316.sample" ]
-dest_md5="e674992e13e8b51de58ffc50b011b01d"
 
 [params]
 

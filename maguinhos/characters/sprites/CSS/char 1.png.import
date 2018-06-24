@@ -7,10 +7,7 @@ path="res://.import/char 1.png-8f9ce095e84526b06127d4aac6b8d81f.stex"
 [deps]
 
 source_file="res://characters/sprites/CSS/char 1.png"
-source_md5="f01ca081a439348f7de801ec5c75c5ea"
-
 dest_files=[ "res://.import/char 1.png-8f9ce095e84526b06127d4aac6b8d81f.stex" ]
-dest_md5="66823a84ec6435bddfc31c71f571ddb9"
 
 [params]
 

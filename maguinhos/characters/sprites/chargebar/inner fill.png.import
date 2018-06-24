@@ -7,10 +7,7 @@ path="res://.import/inner fill.png-298391bdd19a2421fdca9dad9d15e4f0.stex"
 [deps]
 
 source_file="res://characters/sprites/chargebar/inner fill.png"
-source_md5="6cd88bc5d0c03bb71063f631800463cd"
-
 dest_files=[ "res://.import/inner fill.png-298391bdd19a2421fdca9dad9d15e4f0.stex" ]
-dest_md5="846e67fe7cb1b865ef19f5343ff7ecc0"
 
 [params]
 

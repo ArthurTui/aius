@@ -7,10 +7,7 @@ path="res://.import/water3_fshhaa.wav-35d10432a22faf78502d6a9f60c749bf.sample"
 [deps]
 
 source_file="res://resources/sfx/water3_fshhaa.wav"
-source_md5="6b1964dcd1c6f618b08d99364ece74de"
-
 dest_files=[ "res://.import/water3_fshhaa.wav-35d10432a22faf78502d6a9f60c749bf.sample" ]
-dest_md5="3335c21dbfcbb300549cc8aa6eaddc3f"
 
 [params]
 

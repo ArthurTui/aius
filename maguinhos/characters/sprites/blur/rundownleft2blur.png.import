@@ -7,10 +7,7 @@ path="res://.import/rundownleft2blur.png-df3666160d0e910f2c2ae17e2f1259e6.stex"
 [deps]
 
 source_file="res://characters/sprites/blur/rundownleft2blur.png"
-source_md5="6dfad8e73cf694fd6ce8825657a09b7f"
-
 dest_files=[ "res://.import/rundownleft2blur.png-df3666160d0e910f2c2ae17e2f1259e6.stex" ]
-dest_md5="9baaa813438ca7633df4d882ac96a22a"
 
 [params]
 

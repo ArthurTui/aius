@@ -7,10 +7,7 @@ path="res://.import/xbA.png-b11b62966a0c2e34833571153b6371e8.stex"
 [deps]
 
 source_file="res://menus/resources/buttons/xbA.png"
-source_md5="574e90f335fa7fab8a9b42eb3e88ac63"
-
 dest_files=[ "res://.import/xbA.png-b11b62966a0c2e34833571153b6371e8.stex" ]
-dest_md5="c32483297c9218da2f0b14dbd59e962f"
 
 [params]
 

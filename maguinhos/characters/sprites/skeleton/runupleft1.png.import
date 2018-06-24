@@ -7,10 +7,7 @@ path="res://.import/runupleft1.png-0d2efca517e2ce91cf051f3ad46ae966.stex"
 [deps]
 
 source_file="res://characters/sprites/skeleton/runupleft1.png"
-source_md5="39816b121a303f0532905300347ae676"
-
 dest_files=[ "res://.import/runupleft1.png-0d2efca517e2ce91cf051f3ad46ae966.stex" ]
-dest_md5="e636ec38628d09d65d09dc55896d6105"
 
 [params]
 

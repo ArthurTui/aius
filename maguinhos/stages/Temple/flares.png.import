@@ -7,10 +7,7 @@ path="res://.import/flares.png-acde266c3a9a8c29b2eeee4b60bb6dfd.stex"
 [deps]
 
 source_file="res://stages/Temple/flares.png"
-source_md5="434664ffcaa1d9b2077d9ea410ab3bd3"
-
 dest_files=[ "res://.import/flares.png-acde266c3a9a8c29b2eeee4b60bb6dfd.stex" ]
-dest_md5="1bf593ee73cc059a99677b310a6a3abc"
 
 [params]
 

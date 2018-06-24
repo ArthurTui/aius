@@ -7,10 +7,7 @@ path="res://.import/runupleft2.png-29556e6b2e2039a5297841f8ba1d361e.stex"
 [deps]
 
 source_file="res://characters/sprites/broleton/runupleft2.png"
-source_md5="4cb579afc45bd0ca0ac1a63d2153c61a"
-
 dest_files=[ "res://.import/runupleft2.png-29556e6b2e2039a5297841f8ba1d361e.stex" ]
-dest_md5="d6cdcb185f8f878998fad1b976de9eaf"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/fireball.png-a3002a7b47502c85bb28f7b90f353997.stex"
 [deps]
 
 source_file="res://spells/fire/sprites/fireball.png"
-source_md5="dcc7fdef8a024f22692d44b6945c19bf"
-
 dest_files=[ "res://.import/fireball.png-a3002a7b47502c85bb28f7b90f353997.stex" ]
-dest_md5="546265768e7ceab38e799cc85077fa98"
 
 [params]
 

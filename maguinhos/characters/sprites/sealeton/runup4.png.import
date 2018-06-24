@@ -7,10 +7,7 @@ path="res://.import/runup4.png-fbcabdf349dd992c7f75202b14a3237b.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/runup4.png"
-source_md5="7623b5f33194e7070426d9a2c7b7cacd"
-
 dest_files=[ "res://.import/runup4.png-fbcabdf349dd992c7f75202b14a3237b.stex" ]
-dest_md5="4c0efa50c5d9ddc40b7f2857435d9747"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/reticle.png-47ca83c4c4813281279221a0ca485aae.stex"
 [deps]
 
 source_file="res://stages/Temple/reticle.png"
-source_md5="cbb4da55a69dd12fe0609079968a3edd"
-
 dest_files=[ "res://.import/reticle.png-47ca83c4c4813281279221a0ca485aae.stex" ]
-dest_md5="e88f66a4eb6740f9a5c00fc1e8fc3745"
 
 [params]
 

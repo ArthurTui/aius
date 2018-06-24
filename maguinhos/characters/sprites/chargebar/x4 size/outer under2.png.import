@@ -7,10 +7,7 @@ path="res://.import/outer under2.png-4adb12c46108de3df43531a7d7717a17.stex"
 [deps]
 
 source_file="res://characters/sprites/chargebar/x4 size/outer under2.png"
-source_md5="6c48c508848b881390b5381586af2a0d"
-
 dest_files=[ "res://.import/outer under2.png-4adb12c46108de3df43531a7d7717a17.stex" ]
-dest_md5="df925d5811d24c07df4b5f25c2ccc803"
 
 [params]
 

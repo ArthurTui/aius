@@ -7,10 +7,7 @@ path="res://.import/emptySprite.png-eb0336e0fe9742a3e19360bee4863da5.stex"
 [deps]
 
 source_file="res://spells/nature/sprites/emptySprite.png"
-source_md5="d2aea2a5523a9cce4b91d33fc6380b74"
-
 dest_files=[ "res://.import/emptySprite.png-eb0336e0fe9742a3e19360bee4863da5.stex" ]
-dest_md5="363d0c7c72dca4809119e3209d581973"
 
 [params]
 

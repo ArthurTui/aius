@@ -7,10 +7,7 @@ path="res://.import/stun2.png-3413a9437714b35b0b14a17c1cab0b14.stex"
 [deps]
 
 source_file="res://characters/sprites/status effects/stun2.png"
-source_md5="0738a5114543eba68e3ba55f266f4af2"
-
 dest_files=[ "res://.import/stun2.png-3413a9437714b35b0b14a17c1cab0b14.stex" ]
-dest_md5="808f218999f5c53dba0897e68b654ac6"
 
 [params]
 

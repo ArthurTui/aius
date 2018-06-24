@@ -7,10 +7,7 @@ path="res://.import/statue.png-a2c510e5f530bb8df3840f5459531448.stex"
 [deps]
 
 source_file="res://stages/Temple/statue.png"
-source_md5="5117aebe28338c68ab0427f82cc9283b"
-
 dest_files=[ "res://.import/statue.png-a2c510e5f530bb8df3840f5459531448.stex" ]
-dest_md5="90645b6655f942e06aed9905f70a2ce7"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/circle-200.png-06c809a1544909d70390be15dd120219.stex"
 [deps]
 
 source_file="res://resources/circle-200.png"
-source_md5="953821d7e39e5e206a65dfe99ed0f690"
-
 dest_files=[ "res://.import/circle-200.png-06c809a1544909d70390be15dd120219.stex" ]
-dest_md5="7922ae20ec45a45806820f536bd6b394"
 
 [params]
 

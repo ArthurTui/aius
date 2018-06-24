@@ -7,10 +7,7 @@ path="res://.import/runup4blur.png-555547ee1e8a1125de5ac1ed51e38435.stex"
 [deps]
 
 source_file="res://characters/sprites/blur/runup4blur.png"
-source_md5="d7b3c8d6d637a39dbd56ff20f78f5b3f"
-
 dest_files=[ "res://.import/runup4blur.png-555547ee1e8a1125de5ac1ed51e38435.stex" ]
-dest_md5="95c56d820a990d95846c06d44edf08d3"
 
 [params]
 

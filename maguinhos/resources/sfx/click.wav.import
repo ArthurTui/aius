@@ -7,10 +7,7 @@ path="res://.import/click.wav-8f8971c7751bb14a6d68277825046e34.sample"
 [deps]
 
 source_file="res://resources/sfx/click.wav"
-source_md5="d510d5e83cdf02d1070274ea649cb241"
-
 dest_files=[ "res://.import/click.wav-8f8971c7751bb14a6d68277825046e34.sample" ]
-dest_md5="f6a8615c412bac01965cc5b0c909efa9"
 
 [params]
 

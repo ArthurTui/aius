@@ -7,10 +7,7 @@ path="res://.import/explosion_atlas_512x512.png-bea6e765a3fb4a03a51b2f773f30fd30
 [deps]
 
 source_file="res://spells/fire/sprites/explosion_atlas_512x512.png"
-source_md5="d37ff9e08d5888bba125bc2eb50405a4"
-
 dest_files=[ "res://.import/explosion_atlas_512x512.png-bea6e765a3fb4a03a51b2f773f30fd30.stex" ]
-dest_md5="09427b558e58a21d6c4671435806cf4b"
 
 [params]
 

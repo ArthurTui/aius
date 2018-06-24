@@ -7,10 +7,7 @@ path="res://.import/fire2_shoo.wav-5b4b67a819146a24d91671be10f4881a.sample"
 [deps]
 
 source_file="res://resources/sfx/fire2_shoo.wav"
-source_md5="5664ed2fd16d8d3f0beb9b27b239a127"
-
 dest_files=[ "res://.import/fire2_shoo.wav-5b4b67a819146a24d91671be10f4881a.sample" ]
-dest_md5="4adf34f11bc90b58e8042bf5770402c6"
 
 [params]
 

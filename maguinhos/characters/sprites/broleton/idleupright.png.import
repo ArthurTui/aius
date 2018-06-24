@@ -7,10 +7,7 @@ path="res://.import/idleupright.png-203fbae4fffbeaf96c0dfe7ddbbfe290.stex"
 [deps]
 
 source_file="res://characters/sprites/broleton/idleupright.png"
-source_md5="641446354e5b91f03382fed684549f43"
-
 dest_files=[ "res://.import/idleupright.png-203fbae4fffbeaf96c0dfe7ddbbfe290.stex" ]
-dest_md5="13887d0ca2c155a7da54d845931f2d31"
 
 [params]
 

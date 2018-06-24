@@ -7,10 +7,7 @@ path="res://.import/leaf.png-cd3c8dbf7295f9a480310b8dece71f93.stex"
 [deps]
 
 source_file="res://spells/nature/sprites/leaf.png"
-source_md5="0c715fdcae270b5b6da276a35d4d72aa"
-
 dest_files=[ "res://.import/leaf.png-cd3c8dbf7295f9a480310b8dece71f93.stex" ]
-dest_md5="d0354773df1d28f8e5906dea20b05ac0"
 
 [params]
 

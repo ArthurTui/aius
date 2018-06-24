@@ -1,24 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://menus/character select/CSS.gd" type="Script" id=1]
 [ext_resource path="res://menus/character select/CSS_player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=3]
-[ext_resource path="res://characters/sprites/chargebar/outer fill red.png" type="Texture" id=4]
-[ext_resource path="res://menus/resources/buttons/psT.png" type="Texture" id=5]
-[ext_resource path="res://menus/resources/buttons/xbY.png" type="Texture" id=6]
-[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=7]
-
-
+[ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://menus/resources/buttons/psT.png" type="Texture" id=4]
+[ext_resource path="res://menus/resources/buttons/xbY.png" type="Texture" id=5]
+[ext_resource path="res://menus/resources/buttons/Keyboard_White_Backspace.png" type="Texture" id=6]
+[ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=7]
+[ext_resource path="res://characters/sprites/chargebar/outer fill red.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 30
 use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 7 )
+use_filter = true
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -34,6 +33,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="." index="0"]
 
@@ -87,16 +90,150 @@ margin_right = 1440.0
 margin_left = 1440.0
 margin_right = 1920.0
 
-[node name="quit_bar" type="TextureProgress" parent="CSS" index="4"]
+[node name="Back" type="Control" parent="CSS" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 18.0
-margin_top = 102.0
-margin_right = 82.0
-margin_bottom = 166.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="VBox" type="VBoxContainer" parent="CSS/Back" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="CSS/Back/VBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 197.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Back (hold)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="HBox" type="HBoxContainer" parent="CSS/Back/VBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 54.0
+margin_right = 197.0
+margin_bottom = 124.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="PS3" type="TextureRect" parent="CSS/Back/VBox/HBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 50.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Rect", "Size Flags", "Transform" ]
+
+[node name="XBox" type="TextureRect" parent="CSS/Back/VBox/HBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Rect", "Size Flags", "Transform" ]
+
+[node name="Keyboard" type="TextureRect" parent="CSS/Back/VBox/HBox" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_right = 178.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Rect", "Size Flags", "Transform" ]
+
+[node name="QuitBar" type="TextureProgress" parent="CSS/Back/VBox" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 128.0
+margin_right = 197.0
+margin_bottom = 192.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -110,70 +247,12 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 3 )
+texture_under = ExtResource( 7 )
 texture_over = null
-texture_progress = ExtResource( 4 )
+texture_progress = ExtResource( 8 )
 fill_mode = 4
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-
-[node name="back" type="Sprite" parent="CSS" index="5"]
-
-position = Vector2( 31.3223, 75.0065 )
-scale = Vector2( 1.6706, 1.6706 )
-texture = ExtResource( 5 )
-
-[node name="back2" type="Sprite" parent="CSS" index="6"]
-
-position = Vector2( 71.3222, 74.374 )
-scale = Vector2( 1.6706, 1.6706 )
-texture = ExtResource( 6 )
-
-[node name="Label" type="Label" parent="CSS" index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 100.0
-margin_top = 56.0
-margin_right = 245.0
-margin_bottom = 92.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "backspace"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="Label2" type="Label" parent="CSS" index="8"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 18.0
-margin_top = 13.0
-margin_right = 163.0
-margin_bottom = 49.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "Back (hold)"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
 
 

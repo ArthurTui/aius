@@ -7,10 +7,7 @@ path="res://.import/water1_brlrbl.wav-e2eced0ab7e6253fc62b11b684fb13b6.sample"
 [deps]
 
 source_file="res://resources/sfx/water1_brlrbl.wav"
-source_md5="c7463dc9ab244159eee19fefaa79f1bb"
-
 dest_files=[ "res://.import/water1_brlrbl.wav-e2eced0ab7e6253fc62b11b684fb13b6.sample" ]
-dest_md5="1b12796ed903c33561fafff5f9bf4cec"
 
 [params]
 

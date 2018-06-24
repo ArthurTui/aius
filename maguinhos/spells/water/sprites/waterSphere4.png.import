@@ -7,10 +7,7 @@ path="res://.import/waterSphere4.png-04638075bbc483c3d03a5ae5bff8a7aa.stex"
 [deps]
 
 source_file="res://spells/water/sprites/waterSphere4.png"
-source_md5="61920bb985ef6f7b4e67a2ab84293ebb"
-
 dest_files=[ "res://.import/waterSphere4.png-04638075bbc483c3d03a5ae5bff8a7aa.stex" ]
-dest_md5="cbb17c95f7b5f9dbbd9c2198199e8c88"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/outer fill2.png-5423796beb34af7dc7f7679958001531.stex"
 [deps]
 
 source_file="res://characters/sprites/chargebar/outer fill2.png"
-source_md5="b1aa30fc80ee952fdd272b820426c09d"
-
 dest_files=[ "res://.import/outer fill2.png-5423796beb34af7dc7f7679958001531.stex" ]
-dest_md5="678532dc5c2496eef8a9483abc40a895"
 
 [params]
 

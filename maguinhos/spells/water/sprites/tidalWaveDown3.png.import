@@ -7,10 +7,7 @@ path="res://.import/tidalWaveDown3.png-f92e46bbb711539d624df057619df202.stex"
 [deps]
 
 source_file="res://spells/water/sprites/tidalWaveDown3.png"
-source_md5="a1205e62777e089458ad34fa281e06b8"
-
 dest_files=[ "res://.import/tidalWaveDown3.png-f92e46bbb711539d624df057619df202.stex" ]
-dest_md5="cdef2028503d33aacc8c340ee30d33e4"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/rundownright4.png-40a56a5c1d23968dce8f55aa228fdc46.stex"
 [deps]
 
 source_file="res://characters/sprites/broleton/rundownright4.png"
-source_md5="346a429dd265afc9ef0636e353658d0d"
-
 dest_files=[ "res://.import/rundownright4.png-40a56a5c1d23968dce8f55aa228fdc46.stex" ]
-dest_md5="7b10975b6d04c33a6c3ae184b5e94733"
 
 [params]
 

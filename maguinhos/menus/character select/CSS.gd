@@ -4,10 +4,12 @@ extends Control
 const KB_CUSTOM_ID_1 = 100
 const KB_CUSTOM_ID_2 = 200
 
+onready var quit_bar = $CSS/Back/VBox/QuitBar
+
 var active_devices = {} # which device controls which player
 var selected_characters = [null,null,null,null,null]
-var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel", "char 1", "char 2"]
-
+var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel",
+	"char 1", "char 2"]
 var ready_players = [] # which players are ready
 
 
@@ -19,16 +21,16 @@ func _ready():
 func _physics_process(delta):
 	# adds progress to a quit progress bar. When full, quits to the main menu
 	if Input.is_action_pressed("ui_cancel"):
-		$CSS/quit_bar.show()
-		$CSS/quit_bar.value += 1
-		if $CSS/quit_bar.get_value() >= $CSS/quit_bar.get_max():
+		quit_bar.show()
+		quit_bar.value += 1
+		if quit_bar.get_value() >= quit_bar.get_max():
 			get_tree().change_scene("res://menus/main menu/main_menu.tscn")
 	
 	# if cancel is not being held, subtracts from the quit bar
 	else:
-		$CSS/quit_bar.value -= 1
-		if $CSS/quit_bar.get_value() <= 0:
-			$CSS/quit_bar.hide()
+		quit_bar.value -= 1
+		if quit_bar.get_value() <= 0:
+			quit_bar.hide()
 
 
 

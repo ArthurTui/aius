@@ -7,10 +7,7 @@ path="res://.import/black.jpg-bca7aa52d969513dc941b678b9785a04.stex"
 [deps]
 
 source_file="res://menus/character select/black.jpg"
-source_md5="bffcbf48e00d91bd61a3758ae8b1dbaa"
-
 dest_files=[ "res://.import/black.jpg-bca7aa52d969513dc941b678b9785a04.stex" ]
-dest_md5="a3a0e13632c6de6dcc70440f42293af1"
 
 [params]
 

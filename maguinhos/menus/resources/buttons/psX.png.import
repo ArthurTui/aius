@@ -7,10 +7,7 @@ path="res://.import/psX.png-b991c75b72460a4cfc02c28776cc522a.stex"
 [deps]
 
 source_file="res://menus/resources/buttons/psX.png"
-source_md5="d05ee858ee99fa9c0ff3431118f18c04"
-
 dest_files=[ "res://.import/psX.png-b991c75b72460a4cfc02c28776cc522a.stex" ]
-dest_md5="825ee0fe1de0744b9d422bed2c305ac9"
 
 [params]
 

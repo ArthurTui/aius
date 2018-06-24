@@ -7,10 +7,7 @@ path="res://.import/mythica.ogg-d6955c82251f18eeb059b6e5b236c6c2.oggstr"
 [deps]
 
 source_file="res://bgm/mythica.ogg"
-source_md5="037c1d6e1e454b20f69b3baa8589325e"
-
 dest_files=[ "res://.import/mythica.ogg-d6955c82251f18eeb059b6e5b236c6c2.oggstr" ]
-dest_md5="dd804838259a6b9a31277ef0d28b6db2"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/idleupleft.png-7ce3caced4a197775aa93bc72d86191e.stex"
 [deps]
 
 source_file="res://characters/sprites/skeleton/idleupleft.png"
-source_md5="ef8a3088fe6aaa31891f751053d4c28c"
-
 dest_files=[ "res://.import/idleupleft.png-7ce3caced4a197775aa93bc72d86191e.stex" ]
-dest_md5="ffeaf4fa0d4f50534521ee19ab1527a6"
 
 [params]
 

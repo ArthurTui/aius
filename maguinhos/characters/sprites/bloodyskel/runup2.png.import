@@ -7,10 +7,7 @@ path="res://.import/runup2.png-ae6975ed0eb7e4b3f7bfca760677b921.stex"
 [deps]
 
 source_file="res://characters/sprites/bloodyskel/runup2.png"
-source_md5="181d31503a897ebed60a199ae304c3b5"
-
 dest_files=[ "res://.import/runup2.png-ae6975ed0eb7e4b3f7bfca760677b921.stex" ]
-dest_md5="1a23f010c709883763ade45acd66444d"
 
 [params]
 

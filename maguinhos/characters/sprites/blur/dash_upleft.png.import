@@ -7,10 +7,7 @@ path="res://.import/dash_upleft.png-b1087e6297661f91e4a7b9829ef24ec0.stex"
 [deps]
 
 source_file="res://characters/sprites/blur/dash_upleft.png"
-source_md5="07460b17653292446fce9cfa7c303d0e"
-
 dest_files=[ "res://.import/dash_upleft.png-b1087e6297661f91e4a7b9829ef24ec0.stex" ]
-dest_md5="2a7b6624b7830f835fc593bf9e0f5aa0"
 
 [params]
 

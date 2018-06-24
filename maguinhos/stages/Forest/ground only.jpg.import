@@ -7,10 +7,7 @@ path="res://.import/ground only.jpg-4b7381257ff7134535d9225e9c9e88e6.stex"
 [deps]
 
 source_file="res://stages/Forest/ground only.jpg"
-source_md5="99423245e2f8ccbc1e635eec0c423d9d"
-
 dest_files=[ "res://.import/ground only.jpg-4b7381257ff7134535d9225e9c9e88e6.stex" ]
-dest_md5="d89cf172e5b213594c741ab84009bdcc"
 
 [params]
 

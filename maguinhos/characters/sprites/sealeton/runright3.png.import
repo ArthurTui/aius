@@ -7,10 +7,7 @@ path="res://.import/runright3.png-dae12c541e8759cea88a3bb202f85d67.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/runright3.png"
-source_md5="d8c19608dfff4dc09f64a434d6bb0c9a"
-
 dest_files=[ "res://.import/runright3.png-dae12c541e8759cea88a3bb202f85d67.stex" ]
-dest_md5="85514939b1c8109987d5a58cfd710011"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/arrow.png-353e77f59c66cbcf439e4121bac35d24.stex"
 [deps]
 
 source_file="res://menus/character select/arrow.png"
-source_md5="8bd694bcdefa187555ea038e8030f759"
-
 dest_files=[ "res://.import/arrow.png-353e77f59c66cbcf439e4121bac35d24.stex" ]
-dest_md5="0d746ce6644dab8039098c5d4ab60b65"
 
 [params]
 

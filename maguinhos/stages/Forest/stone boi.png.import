@@ -7,10 +7,7 @@ path="res://.import/stone boi.png-6d6698a9dbc5c6cc186862e37dcb9101.stex"
 [deps]
 
 source_file="res://stages/Forest/stone boi.png"
-source_md5="dcd135b35f4fd9902629b864887213ff"
-
 dest_files=[ "res://.import/stone boi.png-6d6698a9dbc5c6cc186862e37dcb9101.stex" ]
-dest_md5="9562851c0a0f9e314bb4e9cf5e8c9ffb"
 
 [params]
 

@@ -7,6 +7,7 @@ const LASER_TIMER = 2
 const MAX_ENERGY = 2
 
 var bar
+var explosion_scn = preload("res://stages/Temple/Explosion.tscn")
 var in_cooldown = false
 var targets = []
 var time = 0
@@ -53,6 +54,10 @@ func shoot(target):
 	var local_target_pos = target.position - position
 	var dir = local_target_pos.normalized()
 	target.take_damage(DAMAGE, dir, KNOCKBACK)
+	
+	var explosion = explosion_scn.instance()
+	explosion.position = target.position
+	get_parent().add_child(explosion)
 	
 	$SFX.play()
 	

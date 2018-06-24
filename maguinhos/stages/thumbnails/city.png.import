@@ -7,10 +7,7 @@ path="res://.import/city.png-6440a762e22a5efa38ccdd8110982d14.stex"
 [deps]
 
 source_file="res://stages/thumbnails/city.png"
-source_md5="fb4dd24c6b1813fbac9c3499eecc4c53"
-
 dest_files=[ "res://.import/city.png-6440a762e22a5efa38ccdd8110982d14.stex" ]
-dest_md5="3eb8f3d12d27d000133aa815d2579763"
 
 [params]
 

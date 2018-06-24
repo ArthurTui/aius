@@ -7,10 +7,7 @@ path="res://.import/slow1.png-9a0cc96993b1f36fdccb87a50108d5dd.stex"
 [deps]
 
 source_file="res://characters/sprites/status effects/slow1.png"
-source_md5="864191b2adcdde2a8ab7b07236b8cdae"
-
 dest_files=[ "res://.import/slow1.png-9a0cc96993b1f36fdccb87a50108d5dd.stex" ]
-dest_md5="fd6ed3dc8305f1566e964adb7ec3cad7"
 
 [params]
 

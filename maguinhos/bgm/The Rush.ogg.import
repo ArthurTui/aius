@@ -7,10 +7,7 @@ path="res://.import/The Rush.ogg-39eb0336e4f63bcbb982ae31aa2ea0a3.oggstr"
 [deps]
 
 source_file="res://bgm/The Rush.ogg"
-source_md5="f4a29f75f93eb722af5b0c332f9a270f"
-
 dest_files=[ "res://.import/The Rush.ogg-39eb0336e4f63bcbb982ae31aa2ea0a3.oggstr" ]
-dest_md5="aad91421b89fca483e9e4ee7e464e85f"
 
 [params]
 

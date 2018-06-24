@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://stages/Temple/statue.gd" type="Script" id=1]
 [ext_resource path="res://stages/Temple/statue.png" type="Texture" id=2]
 [ext_resource path="res://stages/Temple/flares.png" type="Texture" id=3]
-[ext_resource path="res://stages/Temple/reticle.png" type="Texture" id=4]
-[ext_resource path="res://resources/sfx/temple_laser.wav" type="AudioStream" id=5]
+[ext_resource path="res://stages/Temple/laser.png" type="Texture" id=4]
+[ext_resource path="res://stages/Temple/reticle.png" type="Texture" id=5]
+[ext_resource path="res://resources/sfx/temple_laser.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -16,7 +17,7 @@ radius = 250.0
 custom_solver_bias = 0.0
 points = PoolVector2Array( 58, -28, 67, 35, -73, 35, -58, -28 )
 
-[node name="Statue" type="Node2D" index="0"]
+[node name="Statue" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -27,6 +28,7 @@ __meta__ = {
 
 [node name="DetectionArea" type="Area2D" parent="." index="0"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -45,6 +47,7 @@ shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 8
 collision_mask = 7
@@ -67,6 +70,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Flares" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 0, -220 )
 _sections_unfolded = [ "Transform" ]
 
@@ -102,6 +106,7 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Lasers" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -110,20 +115,26 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 points = PoolVector2Array(  )
 width = 10.0
 default_color = Color( 1, 0, 0, 1 )
-texture_mode = 101
+texture = ExtResource( 4 )
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
 sharp_limit = 2.0
 round_precision = 8
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Capping", "Fill", "Visibility" ]
 
 [node name="Right" type="Line2D" parent="Lasers" index="1"]
 
 points = PoolVector2Array(  )
 width = 10.0
 default_color = Color( 1, 0, 0, 1 )
-texture_mode = 32
+texture = ExtResource( 4 )
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
 sharp_limit = 2.0
 round_precision = 8
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Capping", "Fill", "Visibility" ]
 
 [node name="Cooldown" type="Timer" parent="." index="5"]
 
@@ -156,6 +167,7 @@ margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 160, 160 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -169,7 +181,7 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
 fill_mode = 4
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -178,8 +190,9 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Radial Fill", "Rec
 
 [node name="SFX" type="AudioStreamPlayer" parent="." index="8"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "SFX"

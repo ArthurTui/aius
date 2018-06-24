@@ -7,10 +7,7 @@ path="res://.import/idleleft.png-115a9230d4aa1773cb1235ea6c9149e3.stex"
 [deps]
 
 source_file="res://characters/sprites/broleton/idleleft.png"
-source_md5="795b0fd0140d6ba3132008c992791b40"
-
 dest_files=[ "res://.import/idleleft.png-115a9230d4aa1773cb1235ea6c9149e3.stex" ]
-dest_md5="85a9f30034b163acd6aff04c4931f4fd"
 
 [params]
 

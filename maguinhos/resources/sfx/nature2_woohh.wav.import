@@ -7,10 +7,7 @@ path="res://.import/nature2_woohh.wav-dae63c3c7a820ae15ac0fd7bb704e74f.sample"
 [deps]
 
 source_file="res://resources/sfx/nature2_woohh.wav"
-source_md5="8ea6d1cbcb204513fe4bca96d8401d6e"
-
 dest_files=[ "res://.import/nature2_woohh.wav-dae63c3c7a820ae15ac0fd7bb704e74f.sample" ]
-dest_md5="dde80d5b471ea1a0a963718f807742a1"
 
 [params]
 
