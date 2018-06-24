@@ -1,9 +1,9 @@
 extends Node2D
 
-const DAMAGE = 10
-const KNOCKBACK = 10
+const DAMAGE = 15
+const KNOCKBACK = 100
 const EYE_POS = [Vector2(-9, -220), Vector2(9, -220)]
-const LASER_TIMER = 5
+const LASER_TIMER = 2
 const MAX_ENERGY = 2
 
 var bar
@@ -53,6 +53,8 @@ func shoot(target):
 	var local_target_pos = target.position - position
 	var dir = local_target_pos.normalized()
 	target.take_damage(DAMAGE, dir, KNOCKBACK)
+	
+	$SFX.play()
 	
 	$Lasers/Left.add_point(local_target_pos)
 	$Lasers/Right.add_point(local_target_pos)

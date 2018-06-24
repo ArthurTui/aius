@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://stages/Temple/statue.gd" type="Script" id=1]
 [ext_resource path="res://stages/Temple/statue.png" type="Texture" id=2]
 [ext_resource path="res://stages/Temple/flares.png" type="Texture" id=3]
 [ext_resource path="res://stages/Temple/reticle.png" type="Texture" id=4]
+[ext_resource path="res://resources/sfx/temple_laser.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -15,7 +16,7 @@ radius = 250.0
 custom_solver_bias = 0.0
 points = PoolVector2Array( 58, -28, 67, 35, -73, 35, -58, -28 )
 
-[node name="Statue" type="Node2D"]
+[node name="Statue" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -127,7 +128,7 @@ _sections_unfolded = [ "Visibility" ]
 [node name="Cooldown" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 autostart = false
 
@@ -174,6 +175,14 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Radial Fill", "Rect", "Textures", "Visibility" ]
+
+[node name="SFX" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "SFX"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 
