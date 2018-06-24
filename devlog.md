@@ -293,3 +293,20 @@
  1. Nova sprite de novo personagem já na CSS
  2. Agora é possivel voltar da stage select para CSS
  3. water3 nerfadam agora usa o delta
+
+### 21/06
+
+#### Arthur
+ 1. Seleção, modificação e implementação de efeitos sonoros.
+ 2. Ajustes de balanço do jogo.
+
+### 22/06
+
+#### Arthur
+ 1. Seleção e implementação de músicas de fundo.
+ 2. Ajustes de balanço do jogo.
+
+### 23/06
+
+#### Arthur
+ 1. Adição das telas de créditos e opções no menu principal, implementação de suas funcionalidades.
