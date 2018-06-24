@@ -1,7 +1,72 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://characters/sprites/CSS/char 1.png" type="Texture" id=1]
-[ext_resource path="res://spells/lightning/sprites/lightningBoltAll.png" type="Texture" id=2]
+[ext_resource path="res://spells/lightning/sprites/magnetBolt.png" type="Texture" id=2]
+[ext_resource path="res://spells/lightning/sprites/lightningBoltAll.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=6]
+
+offsets = PoolRealArray( 0, 0.842742, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+
+flags = 4
+gradient = SubResource( 6 )
+width = 2048
+
+[sub_resource type="Curve" id=8]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.0703125 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.102539 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+
+flags = 4
+width = 2048
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.0
+angular_velocity = 1.12104e-44
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 30.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 3.0
+anim_speed_random = 0.7
+anim_offset = 1.0
+anim_offset_random = 1.0
+anim_loop = true
+_sections_unfolded = [ "Animation", "Color", "Damping", "Gravity", "Initial Velocity", "Scale", "Spread" ]
 
 [sub_resource type="Gradient" id=1]
 
@@ -85,7 +150,30 @@ size_flags_vertical = 1
 texture = ExtResource( 1 )
 stretch_mode = 0
 
-[node name="Particles2D" type="Particles2D" parent="." index="0"]
+[node name="Balls" type="Particles2D" parent="." index="0"]
+
+position = Vector2( 385, 125 )
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 10 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 3
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Transform", "Visibility" ]
+
+[node name="Bolts" type="Particles2D" parent="." index="1"]
 
 position = Vector2( 385, 125 )
 emitting = true
@@ -102,7 +190,7 @@ visibility_rect = Rect2( -150, -150, 300, 300 )
 local_coords = true
 draw_order = 1
 process_material = SubResource( 5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 normal_map = null
 h_frames = 5
 v_frames = 1
