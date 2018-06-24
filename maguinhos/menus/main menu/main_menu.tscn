@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://menus/main menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://menus/main menu/bg.png" type="Texture" id=2]
 [ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://menus/main menu/MainMenuButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menus/main menu/character_display/Char2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menus/main menu/character_display/Char1.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -58,7 +60,15 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[node name="Main Menu" type="Control"]
+[sub_resource type="DynamicFont" id=5]
+
+size = 30
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Main Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -67,12 +77,13 @@ anchor_bottom = 0.0
 margin_right = 1920.0
 margin_bottom = 1081.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Visibility" ]
+_sections_unfolded = [ "Grow Direction", "Margin", "Material", "Rect", "Visibility" ]
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
 
@@ -84,6 +95,7 @@ margin_top = -1.0
 margin_right = 1920.0
 margin_bottom = 1079.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
@@ -101,6 +113,7 @@ anchor_right = 1.0
 anchor_bottom = 0.0
 margin_bottom = 397.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -117,6 +130,7 @@ margin_left = 641.0
 margin_right = 1279.0
 margin_bottom = 397.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -132,6 +146,7 @@ anchor_bottom = 0.0
 margin_right = 638.0
 margin_bottom = 278.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -158,6 +173,7 @@ margin_top = 282.0
 margin_right = 638.0
 margin_bottom = 397.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -185,6 +201,7 @@ margin_right = 600.0
 margin_bottom = 922.0
 rect_min_size = Vector2( 300, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -194,8 +211,8 @@ _sections_unfolded = [ "Grow Direction", "Margin", "Rect", "Size Flags" ]
 
 [node name="Play" parent="Buttons" index="0" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 margin_bottom = 115.0
+rect_clip_content = false
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath("../Quit")
 focus_neighbour_right = NodePath(".")
@@ -205,10 +222,12 @@ _sections_unfolded = [ "Focus", "Mouse", "Rect", "custom_styles" ]
 
 [node name="NormalLabel" parent="Buttons/Play" index="0"]
 
+rect_clip_content = false
 text = "Play"
 
 [node name="FocusLabel" parent="Buttons/Play" index="1"]
 
+rect_clip_content = false
 text = "Play"
 
 [node name="Settings" parent="Buttons" index="1" instance=ExtResource( 4 )]
@@ -216,6 +235,7 @@ text = "Play"
 editor/display_folded = true
 margin_top = 119.0
 margin_bottom = 234.0
+rect_clip_content = false
 focus_neighbour_left = NodePath(".")
 focus_neighbour_right = NodePath(".")
 focus_next = NodePath(".")
@@ -224,10 +244,12 @@ _sections_unfolded = [ "Focus", "Mouse", "custom_styles" ]
 
 [node name="NormalLabel" parent="Buttons/Settings" index="0"]
 
+rect_clip_content = false
 text = "Settings"
 
 [node name="FocusLabel" parent="Buttons/Settings" index="1"]
 
+rect_clip_content = false
 text = "Settings"
 
 [node name="Credits" parent="Buttons" index="2" instance=ExtResource( 4 )]
@@ -235,6 +257,7 @@ text = "Settings"
 editor/display_folded = true
 margin_top = 238.0
 margin_bottom = 353.0
+rect_clip_content = false
 focus_neighbour_left = NodePath(".")
 focus_neighbour_right = NodePath(".")
 focus_next = NodePath(".")
@@ -243,10 +266,12 @@ _sections_unfolded = [ "Focus", "Mouse", "custom_styles" ]
 
 [node name="NormalLabel" parent="Buttons/Credits" index="0"]
 
+rect_clip_content = false
 text = "Credits"
 
 [node name="FocusLabel" parent="Buttons/Credits" index="1"]
 
+rect_clip_content = false
 text = "Credits"
 
 [node name="Quit" parent="Buttons" index="3" instance=ExtResource( 4 )]
@@ -254,6 +279,7 @@ text = "Credits"
 editor/display_folded = true
 margin_top = 357.0
 margin_bottom = 472.0
+rect_clip_content = false
 focus_neighbour_left = NodePath(".")
 focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../Play")
@@ -263,10 +289,12 @@ _sections_unfolded = [ "Focus", "Mouse", "Rect", "custom_styles" ]
 
 [node name="NormalLabel" parent="Buttons/Quit" index="0"]
 
+rect_clip_content = false
 text = "Quit"
 
 [node name="FocusLabel" parent="Buttons/Quit" index="1"]
 
+rect_clip_content = false
 text = "Quit"
 
 [node name="Fade" type="AnimationPlayer" parent="." index="3"]
@@ -279,6 +307,60 @@ playback_speed = 1.0
 anims/fade_in = SubResource( 3 )
 anims/fade_out = SubResource( 4 )
 blend_times = [  ]
+
+[node name="Characters" type="HBoxContainer" parent="." index="4"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1204.0
+margin_top = -630.0
+margin_right = -240.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Char2" parent="Characters" index="0" instance=ExtResource( 5 )]
+
+margin_right = 480.0
+margin_bottom = 630.0
+
+[node name="Char1" parent="Characters" index="1" instance=ExtResource( 6 )]
+
+margin_left = 484.0
+margin_right = 964.0
+
+[node name="Version" type="Label" parent="." index="5"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -130.0
+margin_top = -60.0
+rect_min_size = Vector2( 130, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.588235, 0.392157, 0.0784314, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.501961 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 3
+text = "v 1.0.0"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 
