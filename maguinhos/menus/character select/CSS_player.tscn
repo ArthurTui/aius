@@ -538,7 +538,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="CSS_player" type="Container" index="0"]
+[node name="CSS_player" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -679,6 +679,7 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 240.522, 524.753 )
 frames = SubResource( 1 )
 animation = "bloodyskel"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 

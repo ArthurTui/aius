@@ -88,7 +88,11 @@ func player_start(id):
 	# Removes the player if he's already there, and the timer has ended
 	else:
 		var player = active_devices[id]
-		if get_node(str("CSS/P", player,"/Items/enter_timer")).is_stopped():
+		
+		var anim = get_node(str("CSS/P", player, "/Items/anim"))
+		var timer = get_node(str("CSS/P", player,"/Items/enter_timer"))
+		
+		if timer.is_stopped() and not anim.is_playing():
 		
 			# Ready
 			if not player in ready_players:
@@ -105,31 +109,33 @@ func player_start(id):
 					player_data.active_devices = active_devices
 					player_data.selected_characters = selected_characters
 					player_data.hovered = hovered
-					get_node(str("CSS/P", player, "/Items/anim")).play("ready")
+					anim.play("ready")
 				
 				# cannot select an already selected character
 				else:
-					get_node(str("CSS/P", player, "/Items/anim")).play("shake")
-					yield(get_node(str("CSS/P", player, "/Items/anim")), "animation_finished")
+					anim.play("shake")
 			
 			# Unready
 			else:
 				ready_players.remove(ready_players.find(player))
 				selected_characters[player - 1] = null
+				
 				# updates the global variables
 				player_data.active_devices = active_devices
 				player_data.selected_characters = selected_characters
 				player_data.hovered = hovered
-				get_node(str("CSS/P", player, "/Items/anim")).play("unready")
+				
+				anim.play("unready")
 
 
 # player changes character
 func player_change_char(id):
 	if active_devices.size() > 0 and id in active_devices:
 		var player = active_devices[id]
+		var char_anim = get_node(str("CSS/P", player, "/Items/character/char_anim"))
 		
 		# ready players cannot change character
-		if not player in ready_players:
+		if not player in ready_players and not char_anim.is_playing():
 			# selects next available character and updates
 			# the list of hovered characters
 			if Input.is_action_just_pressed("ui_right"):
@@ -146,7 +152,7 @@ func player_change_char(id):
 			# update global variables, because the CSS_player code is going to use
 			# them in the next animation
 			player_data.hovered = hovered
-			get_node(str("CSS/P", player,"/Items/character/char_anim")).play("change")
+			char_anim.play("change")
 
 
 # player "exits"
