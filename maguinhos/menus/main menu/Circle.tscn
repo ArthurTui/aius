@@ -47,7 +47,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Outer" type="Sprite" parent="." index="0"]
 
-rotation = 0.097341
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -62,9 +61,33 @@ anims/spin = SubResource( 1 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
+[node name="Light" type="Light2D" parent="Outer" index="1"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 1 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Transform" ]
+
 [node name="Inner" type="Sprite" parent="." index="1"]
 
-rotation = 3.56814
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
@@ -78,5 +101,30 @@ playback_speed = 0.5
 anims/spin = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
+
+[node name="Light" type="Light2D" parent="Inner" index="1"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 
