@@ -7,7 +7,10 @@ path="res://.import/runupleft2.png-6e0f3b36088840a7443e5046e44f6d06.stex"
 [deps]
 
 source_file="res://characters/sprites/bloodyskel/runupleft2.png"
+source_md5="69c2415e1bbb63e077ffad5186641a88"
+
 dest_files=[ "res://.import/runupleft2.png-6e0f3b36088840a7443e5046e44f6d06.stex" ]
+dest_md5="e82dd8123087583587eacdd5acd73f85"
 
 [params]
 

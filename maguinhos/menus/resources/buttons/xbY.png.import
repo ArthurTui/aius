@@ -7,7 +7,10 @@ path="res://.import/xbY.png-e2539f9c3066d5c8f5e83d61d93df272.stex"
 [deps]
 
 source_file="res://menus/resources/buttons/xbY.png"
+source_md5="9ac86b5ef8e52c10e3be9dcfdd222423"
+
 dest_files=[ "res://.import/xbY.png-e2539f9c3066d5c8f5e83d61d93df272.stex" ]
+dest_md5="a3af38175f679753b3b0cf720804cc6e"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/runupleft4.png-72415fbe0c97504e2355194101fd1478.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/runupleft4.png"
+source_md5="5e3ae4451fddbbc985c2dbecafca08c7"
+
 dest_files=[ "res://.import/runupleft4.png-72415fbe0c97504e2355194101fd1478.stex" ]
+dest_md5="f8d25fc4d4eb13a0cad4e21094ab1896"
 
 [params]
 

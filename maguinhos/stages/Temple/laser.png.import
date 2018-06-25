@@ -7,7 +7,10 @@ path="res://.import/laser.png-a03b7794623c1de284ca9ed737333c4a.stex"
 [deps]
 
 source_file="res://stages/Temple/laser.png"
+source_md5="8f5e0368db3435a95412ad6699cd7a5d"
+
 dest_files=[ "res://.import/laser.png-a03b7794623c1de284ca9ed737333c4a.stex" ]
+dest_md5="6a3eea402e6b7fa41dc0c41674e34330"
 
 [params]
 

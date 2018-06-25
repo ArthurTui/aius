@@ -7,7 +7,10 @@ path="res://.import/fill.png-8436d4af6766105ce5adcad6b77daae0.stex"
 [deps]
 
 source_file="res://stages/Countdown/fill.png"
+source_md5="82366284c50adec1dd81d68f917095ab"
+
 dest_files=[ "res://.import/fill.png-8436d4af6766105ce5adcad6b77daae0.stex" ]
+dest_md5="35239c92f89c5f997f2e8d417b15ca78"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/nature3_reee.wav-b9df931dc57eefec182cf7ae3347364a.sample"
 [deps]
 
 source_file="res://resources/sfx/nature3_reee.wav"
+source_md5="e0528200127e581b56d58743c70cdb00"
+
 dest_files=[ "res://.import/nature3_reee.wav-b9df931dc57eefec182cf7ae3347364a.sample" ]
+dest_md5="443615f13ad51629d386e26f80c1e25e"
 
 [params]
 

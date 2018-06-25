@@ -7,7 +7,10 @@ path="res://.import/dash_down.png-2ea230d3da50e6d898de631c4735ca9a.stex"
 [deps]
 
 source_file="res://characters/sprites/blur/dash_down.png"
+source_md5="b68443c794bd4ff2ba70e5fbe0e29e07"
+
 dest_files=[ "res://.import/dash_down.png-2ea230d3da50e6d898de631c4735ca9a.stex" ]
+dest_md5="4d5e9d0fdcd45ead9c35db7cb641a7bb"
 
 [params]
 

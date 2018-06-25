@@ -29,6 +29,11 @@ func _ready():
 		
 		# creates a character and sets its skin, position and other variables
 		var char_inst = char_scn.instance()
+		
+		if character == "char 1":
+			char_inst.get_node("sprite").set_scale(Vector2(0.8,0.8))
+			char_inst.get_node("sprite/glow").set_visible(false)
+			
 		char_inst.set_name(str("Character", player))
 		char_inst.get_node("sprite").set_sprite_frames(sprite_frames)
 		char_inst.connect("death", self, "another_one_bites_the_dust")

@@ -7,7 +7,10 @@ path="res://.import/lightning2n3_kchaaaa.wav-8a9afc833795a6b0b4bcdc45ac91a1b6.sa
 [deps]
 
 source_file="res://resources/sfx/lightning2n3_kchaaaa.wav"
+source_md5="fefc7f1b7a5fec32a1405ba983d76fe5"
+
 dest_files=[ "res://.import/lightning2n3_kchaaaa.wav-8a9afc833795a6b0b4bcdc45ac91a1b6.sample" ]
+dest_md5="1cb8b03e69e65a701d3be23b6829303b"
 
 [params]
 

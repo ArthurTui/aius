@@ -415,17 +415,32 @@ func die():
 
 
 func define_animation(direction):
-	var animation = "walk_"
+	var animation = "run_"
 	
-	if direction.y == 1:
-		animation += "down"
-	elif direction.y == -1:
-		animation += "up"
+	########## temporary ##########
+	if character_name == "char 1":
+		if direction.x == 1:
+			animation += "right"
+		elif direction.x == -1:
+			animation += "left"
+		else:
+			if direction.y == 1:
+				animation += "down"
+			if direction.y == -1:
+				animation += "up"
+	###############################
 	
-	if direction.x == 1:
-		animation += "right"
-	elif direction.x == -1:
-		animation += "left"
+	else:
+		animation = "walk_"
+		if direction.y == 1:
+			animation += "down"
+		elif direction.y == -1:
+			animation += "up"
+		
+		if direction.x == 1:
+			animation += "right"
+		elif direction.x == -1:
+			animation += "left"
 	
 	return animation
 

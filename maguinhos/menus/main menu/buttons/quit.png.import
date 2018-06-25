@@ -7,7 +7,10 @@ path="res://.import/quit.png-6292a71defa8c27998918ccd69cf3608.stex"
 [deps]
 
 source_file="res://menus/main menu/buttons/quit.png"
+source_md5="0f386af819d2d4545d2361d593ec3ddd"
+
 dest_files=[ "res://.import/quit.png-6292a71defa8c27998918ccd69cf3608.stex" ]
+dest_md5="04284df3bb39778a0e4ab76841f66aac"
 
 [params]
 

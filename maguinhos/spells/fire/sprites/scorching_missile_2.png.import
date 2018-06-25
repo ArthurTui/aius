@@ -7,7 +7,10 @@ path="res://.import/scorching_missile_2.png-fab2afce7abd36bd95610153cecda7ee.ste
 [deps]
 
 source_file="res://spells/fire/sprites/scorching_missile_2.png"
+source_md5="5d5486771febe9a1bfabb621e8d48c4d"
+
 dest_files=[ "res://.import/scorching_missile_2.png-fab2afce7abd36bd95610153cecda7ee.stex" ]
+dest_md5="99300c23cfbbe05b01ab9091267b9eed"
 
 [params]
 

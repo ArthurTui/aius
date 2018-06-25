@@ -2,7 +2,7 @@
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=2]
-[ext_resource path="res://characters/sprites/skeleton.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://characters/sprites/char 1.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://characters/sprites/status effects/stun1.png" type="Texture" id=4]
 [ext_resource path="res://characters/sprites/status effects/stun2.png" type="Texture" id=5]
 [ext_resource path="res://characters/sprites/status effects/stun3.png" type="Texture" id=6]
@@ -511,10 +511,6 @@ collision_mask = 9
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="collision_shape" type="CollisionShape2D" parent="." index="0"]
 

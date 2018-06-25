@@ -7,7 +7,10 @@ path="res://.import/fire1_fshau.wav-9d5a9a17ac93b1d86d8f756a508305cd.sample"
 [deps]
 
 source_file="res://resources/sfx/fire1_fshau.wav"
+source_md5="5cf5f009416802b1bb16fd06a80d9afe"
+
 dest_files=[ "res://.import/fire1_fshau.wav-9d5a9a17ac93b1d86d8f756a508305cd.sample" ]
+dest_md5="3760f7c64b3484de19ec98bfa88aee90"
 
 [params]
 

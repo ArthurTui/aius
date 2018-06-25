@@ -7,7 +7,10 @@ path="res://.import/hand.png-04cb410f60aaf7f31ea1190a929e7aba.stex"
 [deps]
 
 source_file="res://menus/main menu/character_display/hand.png"
+source_md5="60b3976db343cb8565c13ec1be2382d3"
+
 dest_files=[ "res://.import/hand.png-04cb410f60aaf7f31ea1190a929e7aba.stex" ]
+dest_md5="46664ab28b26c7a269b26bde49fd0c1e"
 
 [params]
 

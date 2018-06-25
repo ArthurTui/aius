@@ -7,7 +7,10 @@ path="res://.import/announcer_ready.wav-4bc62a18bc3660edf1c02d801808f217.sample"
 [deps]
 
 source_file="res://resources/sfx/announcer_ready.wav"
+source_md5="dc0c194e23f89a2c80bbb180812f6835"
+
 dest_files=[ "res://.import/announcer_ready.wav-4bc62a18bc3660edf1c02d801808f217.sample" ]
+dest_md5="a3d1eb8cad0bb321e46c4d10c6ac0b5d"
 
 [params]
 

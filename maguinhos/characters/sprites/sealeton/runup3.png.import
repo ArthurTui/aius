@@ -7,7 +7,10 @@ path="res://.import/runup3.png-56a963e8418ba35124dbf6bb93999aeb.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/runup3.png"
+source_md5="07e03b7715ef712f6a6c35cc999a0d35"
+
 dest_files=[ "res://.import/runup3.png-56a963e8418ba35124dbf6bb93999aeb.stex" ]
+dest_md5="a09490bba49fe8c14389fac6c747af91"
 
 [params]
 

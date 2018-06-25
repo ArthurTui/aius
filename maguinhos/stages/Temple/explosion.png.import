@@ -7,7 +7,10 @@ path="res://.import/explosion.png-0030f33ba6b716a964cc22985ce23cfc.stex"
 [deps]
 
 source_file="res://stages/Temple/explosion.png"
+source_md5="489934c85d2a504f635cdd43a38175ac"
+
 dest_files=[ "res://.import/explosion.png-0030f33ba6b716a964cc22985ce23cfc.stex" ]
+dest_md5="b77a1e9ed2ecc6a286dadc9a3b83666a"
 
 [params]
 

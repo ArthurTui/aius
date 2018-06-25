@@ -7,7 +7,10 @@ path="res://.import/under.png-623d35e01f2707f5061c7144f5c868d8.stex"
 [deps]
 
 source_file="res://stages/Countdown/under.png"
+source_md5="44eaf1b40aa2f1fab3219728545c2670"
+
 dest_files=[ "res://.import/under.png-623d35e01f2707f5061c7144f5c868d8.stex" ]
+dest_md5="f0629ccb1ebe2f230fc1e9bf0e5ecb0f"
 
 [params]
 

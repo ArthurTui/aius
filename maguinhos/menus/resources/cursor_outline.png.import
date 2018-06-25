@@ -7,7 +7,10 @@ path="res://.import/cursor_outline.png-452cc612a1c8488eb73c60723668a683.stex"
 [deps]
 
 source_file="res://menus/resources/cursor_outline.png"
+source_md5="ab3b379f59e7cad80014bb9f6616cbe2"
+
 dest_files=[ "res://.import/cursor_outline.png-452cc612a1c8488eb73c60723668a683.stex" ]
+dest_md5="6c5bc55304e852084f660acb014c482c"
 
 [params]
 

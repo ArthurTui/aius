@@ -7,7 +7,10 @@ path="res://.import/root4.png-09934ef3b5bc7fee9a1a250206a7a41f.stex"
 [deps]
 
 source_file="res://characters/sprites/status effects/root4.png"
+source_md5="ab5e6131872176d24c9f7a9e405c4b91"
+
 dest_files=[ "res://.import/root4.png-09934ef3b5bc7fee9a1a250206a7a41f.stex" ]
+dest_md5="da57c3c43e4cfca2a955252e78e1be19"
 
 [params]
 

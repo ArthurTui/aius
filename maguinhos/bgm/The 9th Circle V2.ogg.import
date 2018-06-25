@@ -7,7 +7,10 @@ path="res://.import/The 9th Circle V2.ogg-b3c3b7645fa04df044654e7d9cae8c4f.oggst
 [deps]
 
 source_file="res://bgm/The 9th Circle V2.ogg"
+source_md5="aad409f8d807e57e3025d5cd148b102f"
+
 dest_files=[ "res://.import/The 9th Circle V2.ogg-b3c3b7645fa04df044654e7d9cae8c4f.oggstr" ]
+dest_md5="451fef6558de030dfac7aa961398e736"
 
 [params]
 

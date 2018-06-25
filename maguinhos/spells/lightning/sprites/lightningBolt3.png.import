@@ -7,7 +7,10 @@ path="res://.import/lightningBolt3.png-070f5d271ff2c21fe8c02f80c5211382.stex"
 [deps]
 
 source_file="res://spells/lightning/sprites/lightningBolt3.png"
+source_md5="1760dbaadd73a22f4156f0f9db178b20"
+
 dest_files=[ "res://.import/lightningBolt3.png-070f5d271ff2c21fe8c02f80c5211382.stex" ]
+dest_md5="c759da006beca9a109f54e2beb141006"
 
 [params]
 
