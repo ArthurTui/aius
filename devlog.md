@@ -332,3 +332,7 @@
  3. CSS levemente refatorada, agora todos os jogadores podem dar "hover" em qualquer personagem, mas apenas um pode dar "ready" com um determinado personagem, os outros são impedidos caso tentem selecionar um já selecionado
  4. Yields na CSS para garantir que as animações não são canceladas
  5. Inserção das novas sprites no jogo, com alguns condicionais temporários para conveniencia
+
+#### Arthur
+ 1. Contagem regressiva antes da partida começar.
+ 2. Círculo de magia animado na tela incial.
