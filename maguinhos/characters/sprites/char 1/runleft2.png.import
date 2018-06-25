@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/runleft2.png-a47e827f6adbfb86e086f42af869c81e.stex"
+
+[deps]
+
+source_file="res://characters/sprites/char 1/runleft2.png"
+source_md5="4f3c46a928111ed68f1c42d6c4a26fee"
+
+dest_files=[ "res://.import/runleft2.png-a47e827f6adbfb86e086f42af869c81e.stex" ]
+dest_md5="08c0cdbef3d0f76aab2634e31c6a1297"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/idleleft3.png-d25652b40063fa255ee3966cd256207c.stex"
+
+[deps]
+
+source_file="res://characters/sprites/char 1/idleleft3.png"
+source_md5="faa1d6e45682a5325a0d4bdb13b62be2"
+
+dest_files=[ "res://.import/idleleft3.png-d25652b40063fa255ee3966cd256207c.stex" ]
+dest_md5="6bb53425d0a6f5c67de0a4d58a0622cf"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

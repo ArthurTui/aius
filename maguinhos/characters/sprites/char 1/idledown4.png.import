@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/idledown4.png-53bba223e7437bb142a26e5cf56dd1f1.stex"
+
+[deps]
+
+source_file="res://characters/sprites/char 1/idledown4.png"
+source_md5="26dc32653d3b151a966459a1236cd055"
+
+dest_files=[ "res://.import/idledown4.png-53bba223e7437bb142a26e5cf56dd1f1.stex" ]
+dest_md5="252a9c2e49bc8a92091de0c6dfc6d6d7"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

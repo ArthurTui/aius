@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/runup2.png-b96a4bac36a346125b23acd2af5e9bd3.stex"
+
+[deps]
+
+source_file="res://characters/sprites/char 1/runup2.png"
+source_md5="4680d82b42cff554bb3eea91b2b47c48"
+
+dest_files=[ "res://.import/runup2.png-b96a4bac36a346125b23acd2af5e9bd3.stex" ]
+dest_md5="3386f7abd8c58094addff735fadc9128"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
