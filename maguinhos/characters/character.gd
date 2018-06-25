@@ -38,6 +38,7 @@ var colors = [Color(1, .1, .1),	# Red
 	Color(1, 1, .2),			# Yellow
 	Color(.2, 1, .2)]			# Green
 
+var has_control = false
 var ready_to_spell = true
 var holding_spell = false
 var is_stunned = false
@@ -103,6 +104,9 @@ func _ready():
 
 
 func _process(delta):
+	if !has_control:
+		return
+	
 	# Movement
 	var direction = Vector2()
 	var new_anim
@@ -185,6 +189,9 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	if !has_control:
+		return
+	
 	if !is_stunned:
 		var action = str("d", controller_device,"_btn_magic")
 		if Input.is_action_pressed(action):
@@ -223,7 +230,7 @@ func _physics_process(delta):
 func change_element(element):
 	if current_element == element:
 		return
-	if current_level != null and current_level >= 1:
+	if current_level and current_level >= 1:
 		$charge_bar/anim_outer.play("outer exit")
 	
 	current_color = colors[element]

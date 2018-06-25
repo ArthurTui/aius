@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/announcer_ready.wav-4bc62a18bc3660edf1c02d801808f217.sample"
+
+[deps]
+
+source_file="res://resources/sfx/announcer_ready.wav"
+dest_files=[ "res://.import/announcer_ready.wav-4bc62a18bc3660edf1c02d801808f217.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

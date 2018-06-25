@@ -76,3 +76,9 @@ func _on_WinTimer_timeout():
 			node.queue_free()
 	bgm.switch(bgm.menu)
 	get_tree().change_scene("res://menus/character select/CSS.tscn")
+
+
+func _on_Countdown_go():
+	for child in $YSort.get_children():
+		if child.is_in_group("Player"):
+			child.has_control = true
