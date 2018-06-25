@@ -7,7 +7,10 @@ path="res://.import/over.png-42355bfb84a8249daa685aa13e0a1fa7.stex"
 [deps]
 
 source_file="res://stages/Countdown/over.png"
+source_md5="061dbd14e59b35a99f9fcefa1bbcacc0"
+
 dest_files=[ "res://.import/over.png-42355bfb84a8249daa685aa13e0a1fa7.stex" ]
+dest_md5="d3506ae6daead94552bb811978812fed"
 
 [params]
 

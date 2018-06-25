@@ -7,7 +7,10 @@ path="res://.import/credits_glow.png-5c5a780d94ddd8606fba8e2678d7db1a.stex"
 [deps]
 
 source_file="res://menus/main menu/buttons/credits_glow.png"
+source_md5="ddc047fd248aed313c579d1d7785a752"
+
 dest_files=[ "res://.import/credits_glow.png-5c5a780d94ddd8606fba8e2678d7db1a.stex" ]
+dest_md5="6fcf41dfed0c67156bda73f532977fdb"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/runright6.png-07dc1fa36127476b08e71bd6458c3b50.stex"
 [deps]
 
 source_file="res://characters/sprites/broleton/runright6.png"
+source_md5="a09f374f4a836ddf473cdf919e2cc38e"
+
 dest_files=[ "res://.import/runright6.png-07dc1fa36127476b08e71bd6458c3b50.stex" ]
+dest_md5="68226e8597cd407cb143fd485f7a87f5"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/idleupleft.png-b637905cc59f3211c1e595605bcc38d9.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/idleupleft.png"
+source_md5="a4de0c2e0eedbc95f1f5d9c0426b30a2"
+
 dest_files=[ "res://.import/idleupleft.png-b637905cc59f3211c1e595605bcc38d9.stex" ]
+dest_md5="bf4e4158691ea45ee236ca790f8dec72"
 
 [params]
 

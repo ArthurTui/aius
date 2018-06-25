@@ -7,7 +7,10 @@ path="res://.import/temple.png-0b769f2e540b37b6bdcaeb79aa6f31cf.stex"
 [deps]
 
 source_file="res://stages/thumbnails/temple.png"
+source_md5="2517537d9498664306eb4b9dba2fa01b"
+
 dest_files=[ "res://.import/temple.png-0b769f2e540b37b6bdcaeb79aa6f31cf.stex" ]
+dest_md5="3a48cbc4ab730d81cbdc5a2a169eeeea"
 
 [params]
 

@@ -6,14 +6,16 @@ const KB_CUSTOM_ID_2 = 200
 
 onready var quit_bar = $CSS/Back/VBox/QuitBar
 
+const characters = ["skeleton", "broleton", "sealeton", "bloodyskel", "char 1", "char 2"]
 var active_devices = {} # which device controls which player
-var selected_characters = [null,null,null,null,null]
-var available_characters = ["skeleton", "broleton", "sealeton", "bloodyskel",
-	"char 1", "char 2"]
+var hovered = [-1, -1, -1, -1] # which character each slot has hovered,
+							   # represented by their index in the character array
+var selected_characters = [null, null, null, null]
 var ready_players = [] # which players are ready
 
 
 func _ready():
+	player_data.characters = characters
 	set_process_input(true)
 	set_physics_process(true)
 
@@ -73,12 +75,12 @@ func player_start(id):
 		for pl in range(4):
 			# searches for the first empty slot in the CSS
 			# and adds the player there
-			if selected_characters[pl] == null:
-				selected_characters[pl] = available_characters.pop_front()
+			if hovered[pl] == -1:
+				hovered[pl] = 0
 				active_devices[id] = pl + 1
 				
-				var character = selected_characters[pl]
-				get_node(str("CSS/P", pl + 1,"/Items/bg/anim")).play("enter")
+				var character = characters[0]
+				get_node(str("CSS/P", pl + 1,"/Items/bg/bg_anim")).play("enter")
 				get_node(str("CSS/P", pl + 1,"/Items/character")).set_animation(character)
 				break
 	
@@ -86,20 +88,36 @@ func player_start(id):
 	else:
 		var player = active_devices[id]
 		
-		# updates the global variables, because we might leave
-		# this scene after this point (after the animations end)
-		player_data.active_devices = active_devices
-		player_data.selected_characters = selected_characters
-		
 		# Ready
 		if not player in ready_players:
-			ready_players.append(player)
-			player_data.ready_players = ready_players
-			get_node(str("CSS/P", player, "/Items/anim")).play("ready")
+			var idx = hovered[player - 1]
+			var character = characters[idx]
+			
+			# if no one has already selected that caracter, readies
+			if not character in selected_characters:
+				selected_characters[player - 1] = character
+				ready_players.append(player)
+				
+				# updates the global variables
+				player_data.ready_players = ready_players
+				player_data.active_devices = active_devices
+				player_data.selected_characters = selected_characters
+				player_data.hovered = hovered
+				get_node(str("CSS/P", player, "/Items/anim")).play("ready")
+			
+			# cannot select an already selected character
+			else:
+				get_node(str("CSS/P", player, "/Items/anim")).play("shake")
+				yield(get_node(str("CSS/P", player, "/Items/anim")), "animation_finished")
+		
 		# Unready
 		else:
 			ready_players.remove(ready_players.find(player))
-			player_data.ready_players = ready_players
+			selected_characters[player - 1] = null
+			# updates the global variables
+			player_data.active_devices = active_devices
+			player_data.selected_characters = selected_characters
+			player_data.hovered = hovered
 			get_node(str("CSS/P", player, "/Items/anim")).play("unready")
 
 
@@ -110,30 +128,32 @@ func player_change_char(id):
 		
 		# ready players cannot change character
 		if not player in ready_players:
-			# selects next available character
+			# selects next available character and updates
+			# the list of hovered characters
 			if Input.is_action_just_pressed("ui_right"):
-				# updates the list of available characters
-				available_characters.append(selected_characters[player - 1])
-				selected_characters[player - 1] = available_characters.pop_front()
+				hovered[player - 1] += 1
+				hovered[player - 1] %= characters.size()
 			else:
-				available_characters.push_front(selected_characters[player - 1])
-				selected_characters[player - 1] = available_characters.pop_back()
+				hovered[player - 1] -= 1
+				if hovered[player - 1] == -1:
+					hovered[player - 1] = characters.size() - 1
 			
-			var character = selected_characters[player - 1]
+			var idx = hovered[player - 1]
+			var character = characters[idx]
 			
 			# update global variables, because the CSS_player code is going to use
 			# them in the next animation
-			player_data.selected_characters = selected_characters
-			get_node(str("CSS/P", player,"/Items/character/anim")).play("change")
+			player_data.hovered = hovered
+			get_node(str("CSS/P", player,"/Items/character/char_anim")).play("change")
 
 
 # player "exits"
 func player_exit(id):
 	if id in active_devices and not active_devices[id] in ready_players:
 		var player = active_devices[id]
-			
-			
-		available_characters.push_front(selected_characters[player - 1])
-		selected_characters[player - 1] = null
+		
+		hovered[player - 1] = -1
 		active_devices.erase(id)
-		get_node(str("CSS/P", player,"/Items/bg/anim")).play("exit")
+		player_data.ready_players = ready_players
+		player_data.active_devices = active_devices
+		get_node(str("CSS/P", player,"/Items/bg/bg_anim")).play("exit")

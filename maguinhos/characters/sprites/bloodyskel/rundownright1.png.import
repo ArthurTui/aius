@@ -7,7 +7,10 @@ path="res://.import/rundownright1.png-3e2d569951920f41fd545cf55d56976a.stex"
 [deps]
 
 source_file="res://characters/sprites/bloodyskel/rundownright1.png"
+source_md5="a58b348b5eec180446e1b3be03f7e0cf"
+
 dest_files=[ "res://.import/rundownright1.png-3e2d569951920f41fd545cf55d56976a.stex" ]
+dest_md5="f7053c54c395432dd604fbb41f354278"
 
 [params]
 

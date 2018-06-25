@@ -7,7 +7,10 @@ path="res://.import/idleupright.png-16722e624bddd0f55025e4c2a5ed020c.stex"
 [deps]
 
 source_file="res://characters/sprites/sealeton/idleupright.png"
+source_md5="d1a43ad9b3a303c10da32c57dbba8b51"
+
 dest_files=[ "res://.import/idleupright.png-16722e624bddd0f55025e4c2a5ed020c.stex" ]
+dest_md5="890cf5f5b28decd9b3902bf7e3293bd0"
 
 [params]
 

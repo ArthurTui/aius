@@ -7,7 +7,10 @@ path="res://.import/runupright2.png-64d85efff63b4cf003e8170c291ca4fc.stex"
 [deps]
 
 source_file="res://characters/sprites/broleton/runupright2.png"
+source_md5="c35a5e3d7d7a391356b2f6f764d18155"
+
 dest_files=[ "res://.import/runupright2.png-64d85efff63b4cf003e8170c291ca4fc.stex" ]
+dest_md5="0d79fe95c91c6ea3d70dfc2a7fb48ca0"
 
 [params]
 

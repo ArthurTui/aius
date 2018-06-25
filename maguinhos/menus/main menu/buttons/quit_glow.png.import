@@ -7,7 +7,10 @@ path="res://.import/quit_glow.png-5dfadb86faaa6a0d2f558e29a66e4de5.stex"
 [deps]
 
 source_file="res://menus/main menu/buttons/quit_glow.png"
+source_md5="f13be09eab65499334ab0b4cad6cd3ee"
+
 dest_files=[ "res://.import/quit_glow.png-5dfadb86faaa6a0d2f558e29a66e4de5.stex" ]
+dest_md5="49b445c1da1c26790cc953ad72b5cd6c"
 
 [params]
 

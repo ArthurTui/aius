@@ -7,7 +7,10 @@ path="res://.import/temple_laser.wav-3f43eb0042407c7250a6c3172ce57bb8.sample"
 [deps]
 
 source_file="res://resources/sfx/temple_laser.wav"
+source_md5="bd64724225536a5dbca2722c9c01a377"
+
 dest_files=[ "res://.import/temple_laser.wav-3f43eb0042407c7250a6c3172ce57bb8.sample" ]
+dest_md5="f30595292197419d578a4f9653713e1a"
 
 [params]
 

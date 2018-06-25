@@ -7,7 +7,10 @@ path="res://.import/buttonRound_blue.png-f7bdc0da2059780e5fb357e619d273f2.stex"
 [deps]
 
 source_file="res://menus/main menu/settings/buttonRound_blue.png"
+source_md5="648ac22c73f4ca71b97a7d76407eb5df"
+
 dest_files=[ "res://.import/buttonRound_blue.png-f7bdc0da2059780e5fb357e619d273f2.stex" ]
+dest_md5="2c515dc8a25dc899f1a491ceb2ed05f0"
 
 [params]
 

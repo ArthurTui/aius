@@ -7,7 +7,10 @@ path="res://.import/fire3_fhsou.wav-1bac560641e55d9f831214137c13b45b.sample"
 [deps]
 
 source_file="res://resources/sfx/fire3_fhsou.wav"
+source_md5="34d01ca5efaa09c03c53f4a01b58a7b4"
+
 dest_files=[ "res://.import/fire3_fhsou.wav-1bac560641e55d9f831214137c13b45b.sample" ]
+dest_md5="97136413da9909331e5d0d7255864177"
 
 [params]
 

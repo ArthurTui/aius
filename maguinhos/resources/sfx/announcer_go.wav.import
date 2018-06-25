@@ -7,7 +7,10 @@ path="res://.import/announcer_go.wav-104aa0f3a3780a55432618b3032de509.sample"
 [deps]
 
 source_file="res://resources/sfx/announcer_go.wav"
+source_md5="b1246f5a8d36adb1845e3793f926bff1"
+
 dest_files=[ "res://.import/announcer_go.wav-104aa0f3a3780a55432618b3032de509.sample" ]
+dest_md5="dac9230ab9976b52984699601bd0d916"
 
 [params]
 
