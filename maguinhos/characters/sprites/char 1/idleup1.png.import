@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/runright1.png-1df0457254ff3986b9e31b3a18f427c9.stex"
+path="res://.import/idleup1.png-cf0bc2cf989f7ebb4ba3c8e5e1f245c7.stex"
 
 [deps]
 
-source_file="res://characters/sprites/char 1/runright1.png"
-source_md5="2c1845e51cb620cf36be368d7a15e072"
+source_file="res://characters/sprites/char 1/idleup1.png"
+source_md5="835f741d4e77c3792f56edee7b764ce1"
 
-dest_files=[ "res://.import/runright1.png-1df0457254ff3986b9e31b3a18f427c9.stex" ]
-dest_md5="e4324d459832e8ccc5ae07771f42d4ad"
+dest_files=[ "res://.import/idleup1.png-cf0bc2cf989f7ebb4ba3c8e5e1f245c7.stex" ]
+dest_md5="b92b10fa15e3affe1dd92c1022049f9c"
 
 [params]
 
