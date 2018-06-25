@@ -311,9 +311,24 @@
 #### Arthur
  1. Adição das telas de créditos e opções no menu principal, implementação de suas funcionalidades.
 
+#### Henrique (11:30 ~ 17:30)
+ 1. Sprites de personagem novo
+
 ### 24/06
 
 #### Arthur
  1. Pause screen modificada para ficar consistente com as outras telas.
  2. Adição de personagens com partículas no main menu.
  3. Mudanças na tela de seleção de personagem e de fases.
+
+#### Henrique (15:30 ~ 19:30)
+ 1. Sprites de personagem novo
+
+### 25/06
+
+#### Henrique (13:50 ~ 19:00)
+ 1. Finalizando sprites de personagem novo
+ 2. Diversos testes
+ 3. CSS levemente refatorada, agora todos os jogadores podem dar "hover" em qualquer personagem, mas apenas um pode dar "ready" com um determinado personagem, os outros são impedidos caso tentem selecionar um já selecionado
+ 4. Yields na CSS para garantir que as animações não são canceladas
+ 5. Inserção das novas sprites no jogo, com alguns condicionais temporários para conveniencia
