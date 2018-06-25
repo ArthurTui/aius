@@ -679,7 +679,6 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 240.522, 524.753 )
 frames = SubResource( 1 )
 animation = "bloodyskel"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 

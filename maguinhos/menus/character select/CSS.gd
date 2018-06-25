@@ -89,8 +89,8 @@ func player_start(id):
 	else:
 		var player = active_devices[id]
 		
-		var anim = get_node(str("CSS/P", player, "/Items/anim"))
 		var timer = get_node(str("CSS/P", player,"/Items/enter_timer"))
+		var anim = get_node(str("CSS/P", player, "/Items/anim"))
 		
 		if timer.is_stopped() and not anim.is_playing():
 		
