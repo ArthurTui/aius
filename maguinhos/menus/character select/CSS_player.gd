@@ -1,5 +1,8 @@
 extends Container
 
+# We have a timer in this scene so that, when a player enters in the CSS, it doesnt rush the
+# inputs and readies when its not supposed to, only when that timer has already ended
+
 # This function will be called at the end of a "ready" animation, so that the
 # animation has time to end before the game starts, instead of checking as soon
 # as a player readies and canceling the animation

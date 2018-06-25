@@ -82,43 +82,45 @@ func player_start(id):
 				var character = characters[0]
 				get_node(str("CSS/P", pl + 1,"/Items/bg/bg_anim")).play("enter")
 				get_node(str("CSS/P", pl + 1,"/Items/character")).set_animation(character)
+				get_node(str("CSS/P", pl + 1,"/Items/enter_timer")).start()
 				break
 	
-	# Removes the player if he's already there
+	# Removes the player if he's already there, and the timer has ended
 	else:
 		var player = active_devices[id]
+		if get_node(str("CSS/P", player,"/Items/enter_timer")).is_stopped():
 		
-		# Ready
-		if not player in ready_players:
-			var idx = hovered[player - 1]
-			var character = characters[idx]
-			
-			# if no one has already selected that caracter, readies
-			if not character in selected_characters:
-				selected_characters[player - 1] = character
-				ready_players.append(player)
+			# Ready
+			if not player in ready_players:
+				var idx = hovered[player - 1]
+				var character = characters[idx]
 				
+				# if no one has already selected that caracter, readies
+				if not character in selected_characters:
+					selected_characters[player - 1] = character
+					ready_players.append(player)
+					
+					# updates the global variables
+					player_data.ready_players = ready_players
+					player_data.active_devices = active_devices
+					player_data.selected_characters = selected_characters
+					player_data.hovered = hovered
+					get_node(str("CSS/P", player, "/Items/anim")).play("ready")
+				
+				# cannot select an already selected character
+				else:
+					get_node(str("CSS/P", player, "/Items/anim")).play("shake")
+					yield(get_node(str("CSS/P", player, "/Items/anim")), "animation_finished")
+			
+			# Unready
+			else:
+				ready_players.remove(ready_players.find(player))
+				selected_characters[player - 1] = null
 				# updates the global variables
-				player_data.ready_players = ready_players
 				player_data.active_devices = active_devices
 				player_data.selected_characters = selected_characters
 				player_data.hovered = hovered
-				get_node(str("CSS/P", player, "/Items/anim")).play("ready")
-			
-			# cannot select an already selected character
-			else:
-				get_node(str("CSS/P", player, "/Items/anim")).play("shake")
-				yield(get_node(str("CSS/P", player, "/Items/anim")), "animation_finished")
-		
-		# Unready
-		else:
-			ready_players.remove(ready_players.find(player))
-			selected_characters[player - 1] = null
-			# updates the global variables
-			player_data.active_devices = active_devices
-			player_data.selected_characters = selected_characters
-			player_data.hovered = hovered
-			get_node(str("CSS/P", player, "/Items/anim")).play("unready")
+				get_node(str("CSS/P", player, "/Items/anim")).play("unready")
 
 
 # player changes character
