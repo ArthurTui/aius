@@ -310,3 +310,10 @@
 
 #### Arthur
  1. Adição das telas de créditos e opções no menu principal, implementação de suas funcionalidades.
+
+### 24/06
+
+#### Arthur
+ 1. Pause screen modificada para ficar consistente com as outras telas.
+ 2. Adição de personagens com partículas no main menu.
+ 3. Mudanças na tela de seleção de personagem e de fases.
