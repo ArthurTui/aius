@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=5]
+
+code = "shader_type canvas_item;
+
+uniform bool grayscale;
+uniform float grayscale_mean = 3.0;
+
+void fragment() {
+	float alpha = texture(TEXTURE, UV).a;
+	vec4 c = texture(TEXTURE, UV);
+	if (grayscale)
+		c = vec4((c.r + c.g + c.b) / grayscale_mean);
+	COLOR = vec4(c.r, c.g, c.b, alpha);
+}"
+_sections_unfolded = [ "Resource" ]
+
+[resource]
+
+render_priority = 0
+shader = SubResource( 5 )
+shader_param/grayscale = false
+shader_param/grayscale_mean = null
+_sections_unfolded = [ "shader_param" ]
+
