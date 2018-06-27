@@ -2,7 +2,7 @@
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=2]
-[ext_resource path="res://characters/sprites/char 1.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://characters/sprites/char1_2.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://characters/sprites/status effects/stun1.png" type="Texture" id=4]
 [ext_resource path="res://characters/sprites/status effects/stun2.png" type="Texture" id=5]
 [ext_resource path="res://characters/sprites/status effects/stun3.png" type="Texture" id=6]
@@ -524,15 +524,16 @@ __meta__ = {
 [node name="shadow" type="Sprite" parent="." index="1"]
 
 modulate = Color( 0, 0, 0, 0.270588 )
-scale = Vector2( 0.7, 0.35 )
+scale = Vector2( 0.7, 0.4 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="sprite" type="AnimatedSprite" parent="." index="2"]
 
-position = Vector2( 0, -55 )
+position = Vector2( 0, -80 )
 frames = ExtResource( 3 )
 animation = "idle_down"
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
@@ -555,7 +556,7 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 3 )
 animation = "stun"
-frame = 3
+frame = 2
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -565,7 +566,6 @@ position = Vector2( 0, -8.33334 )
 scale = Vector2( 1.4353, 1.4353 )
 frames = SubResource( 4 )
 animation = "slow"
-frame = 2
 playing = true
 
 [node name="root" type="AnimatedSprite" parent="sprite" index="3"]
@@ -779,9 +779,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -25.0
-margin_top = -135.0
+margin_top = -155.0
 margin_right = 25.0
-margin_bottom = -120.0
+margin_bottom = -140.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0

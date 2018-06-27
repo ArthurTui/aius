@@ -27,7 +27,7 @@ var current_anim = "idle_down"
 var character_name = "skeleton"
 
 var current_direction = Vector2(0, 1)
-var current_element
+var current_element = -1
 var current_color
 var current_spell
 var current_level
@@ -91,7 +91,8 @@ var cooldown = [0.5, 1.0, 1.5]
 var dash_particles
 
 func _ready():
-	change_element(ELEMENT.fire)
+	if current_element == -1:
+		change_element(ELEMENT.fire)
 	$charge_bar/cooldown_bar.hide()
 	dash_particles = {Vector2(0, 1) : load("res://characters/sprites/blur/dash_down.png"),
 		Vector2(-1, 1) : load("res://characters/sprites/blur/dash_downleft.png"),
@@ -418,16 +419,16 @@ func define_animation(direction):
 	var animation = "run_"
 	
 	########## temporary ##########
-	if character_name == "char 1":
-		if direction.x == 1:
-			animation += "right"
-		elif direction.x == -1:
-			animation += "left"
+	if character_name.begins_with("char1"):
+		if direction.y == 1:
+			animation += "down"
+		elif direction.y == -1:
+			animation += "up"
 		else:
-			if direction.y == 1:
-				animation += "down"
-			if direction.y == -1:
-				animation += "up"
+			if direction.x == 1:
+				animation += "right"
+			if direction.x == -1:
+				animation += "left"
 	###############################
 	
 	else:

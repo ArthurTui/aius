@@ -6,7 +6,7 @@ const KB_CUSTOM_ID_2 = 200
 
 onready var quit_bar = $CSS/Back/VBox/QuitBar
 
-const characters = ["skeleton", "broleton", "sealeton", "bloodyskel", "char 1", "char 2"]
+const characters = ["skeleton", "broleton", "char1", "char1_2"]
 var active_devices = {} # which device controls which player
 var hovered = [-1, -1, -1, -1] # which character each slot has hovered,
 							   # represented by their index in the character array
