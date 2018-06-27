@@ -7,7 +7,10 @@ path="res://.import/inner.png-d0bff1239a2c7b2d104ebfb50f7322f7.stex"
 [deps]
 
 source_file="res://characters/sprites/arcane circle/inner.png"
+source_md5="cc4a9fa4298cb6cd9ad643d491552897"
+
 dest_files=[ "res://.import/inner.png-d0bff1239a2c7b2d104ebfb50f7322f7.stex" ]
+dest_md5="4d772ca8af57f41467dd856973390957"
 
 [params]
 

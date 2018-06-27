@@ -7,7 +7,10 @@ path="res://.import/idleleft4.png-ace9af368ffb57379f425b70a56a9a73.stex"
 [deps]
 
 source_file="res://characters/sprites/char1/idleleft4.png"
+source_md5="a56fc7e4b80c0a7eb93023afcf1bbe29"
+
 dest_files=[ "res://.import/idleleft4.png-ace9af368ffb57379f425b70a56a9a73.stex" ]
+dest_md5="fd8c173001b912b6e113f600bf4e086c"
 
 [params]
 

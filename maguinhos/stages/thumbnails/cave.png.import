@@ -7,7 +7,10 @@ path="res://.import/cave.png-80e1f92e0e8d324c653c6e2cf845aaec.stex"
 [deps]
 
 source_file="res://stages/thumbnails/cave.png"
+source_md5="12d9859d5202cc8db4245a0f7d15e832"
+
 dest_files=[ "res://.import/cave.png-80e1f92e0e8d324c653c6e2cf845aaec.stex" ]
+dest_md5="b5c9afae0be6326a5ac6bcdf84633139"
 
 [params]
 

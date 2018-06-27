@@ -7,7 +7,10 @@ path="res://.import/idleup2.png-f9845f3a3e44d2bf68c1bd0b4a16ce63.stex"
 [deps]
 
 source_file="res://characters/sprites/char1_2/idleup2.png"
+source_md5="72090216c48a6f151ad02539fdd45eeb"
+
 dest_files=[ "res://.import/idleup2.png-f9845f3a3e44d2bf68c1bd0b4a16ce63.stex" ]
+dest_md5="78374abfa994d187c26dbb4957b6eefc"
 
 [params]
 

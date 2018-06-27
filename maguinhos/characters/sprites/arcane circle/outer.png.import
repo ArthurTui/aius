@@ -7,7 +7,10 @@ path="res://.import/outer.png-63eccad068822bf4a0a0ff636fdcc6f2.stex"
 [deps]
 
 source_file="res://characters/sprites/arcane circle/outer.png"
+source_md5="336155e4f5492129ff269b14d51373e9"
+
 dest_files=[ "res://.import/outer.png-63eccad068822bf4a0a0ff636fdcc6f2.stex" ]
+dest_md5="95fa02446ea3de11a05b8eaadfeec4fd"
 
 [params]
 

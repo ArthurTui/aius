@@ -7,7 +7,10 @@ path="res://.import/tower.png-f6a476845100e2516917187ce1240bf1.stex"
 [deps]
 
 source_file="res://stages/thumbnails/tower.png"
+source_md5="73d6753bf58df75d2aade4915bf9b783"
+
 dest_files=[ "res://.import/tower.png-f6a476845100e2516917187ce1240bf1.stex" ]
+dest_md5="284400219743f0653d9dc1f8ab180ad3"
 
 [params]
 
