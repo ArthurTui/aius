@@ -4,8 +4,8 @@
 [ext_resource path="res://stages/thumbnails/forest.png" type="Texture" id=2]
 [ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://stages/thumbnails/temple.png" type="Texture" id=4]
-[ext_resource path="res://stages/thumbnails/city.png" type="Texture" id=5]
-[ext_resource path="res://stages/thumbnails/river.png" type="Texture" id=6]
+[ext_resource path="res://stages/thumbnails/tower.png" type="Texture" id=5]
+[ext_resource path="res://stages/thumbnails/cave.png" type="Texture" id=6]
 [ext_resource path="res://menus/resources/cursor_outline.png" type="Texture" id=7]
 [ext_resource path="res://menus/resources/cursor.png" type="Texture" id=8]
 
@@ -217,8 +217,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 1240.0
 margin_top = 260.0
-margin_right = 1450.0
-margin_bottom = 381.0
+margin_right = 1445.0
+margin_bottom = 380.0
 rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 102, 60 )
 rect_clip_content = false
@@ -229,6 +229,7 @@ size_flags_vertical = 1
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
 
 [node name="Area2D" type="Area2D" parent="stages/Temple" index="0"]
 
@@ -277,7 +278,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
-[node name="City" type="TextureRect" parent="stages" index="4"]
+[node name="Tower" type="TextureRect" parent="stages" index="4"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -299,7 +300,7 @@ texture = ExtResource( 5 )
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Rect" ]
 
-[node name="Area2D" type="Area2D" parent="stages/City" index="0"]
+[node name="Area2D" type="Area2D" parent="stages/Tower" index="0"]
 
 position = Vector2( -14.7393, -6.02129 )
 input_pickable = true
@@ -310,13 +311,13 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/City/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/Tower/Area2D" index="0"]
 
 position = Vector2( 118.889, 66.0213 )
 scale = Vector2( 9.88709, 6.09165 )
 shape = SubResource( 1 )
 
-[node name="info" type="Label" parent="stages/City" index="1"]
+[node name="info" type="Label" parent="stages/Tower" index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -345,7 +346,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
-[node name="River" type="TextureRect" parent="stages" index="5"]
+[node name="Cave" type="TextureRect" parent="stages" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -364,8 +365,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 6 )
 stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
 
-[node name="Area2D" type="Area2D" parent="stages/River" index="0"]
+[node name="Area2D" type="Area2D" parent="stages/Cave" index="0"]
 
 position = Vector2( -7.88031, -5.16394 )
 input_pickable = true
@@ -376,13 +378,13 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/River/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/Cave/Area2D" index="0"]
 
 position = Vector2( 112.88, 65.1639 )
 scale = Vector2( 9.94979, 6.09166 )
 shape = SubResource( 1 )
 
-[node name="info" type="Label" parent="stages/River" index="1"]
+[node name="info" type="Label" parent="stages/Cave" index="1"]
 
 visible = false
 anchor_left = 0.0

@@ -535,7 +535,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="CSS_player" type="Container" index="0"]
+[node name="CSS_player" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
