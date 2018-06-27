@@ -336,3 +336,8 @@
 #### Arthur
  1. Contagem regressiva antes da partida começar.
  2. Círculo de magia animado na tela incial.
+
+### 26/06
+
+#### Arthur
+ 1. Cor alternativa para o personagem.
