@@ -132,7 +132,13 @@ func _process(delta):
 				collision_layer = 2 # Character_Dash
 				collision_mask = 8 # Obstacles
 				
-				$sprite.set_self_modulate(Color(1,1,1,0.5))
+				# Makes character sprite translucent
+				$sprite/tween.interpolate_property($sprite, "self_modulate",
+					$sprite.self_modulate, Color(1, 1, 1, .5), .1,
+					Tween.TRANS_LINEAR, Tween.EASE_IN)
+				$sprite/tween.start() 
+#				$sprite.set_self_modulate(Color(1,1,1,0.5))
+				
 				$dash_timer.start()
 			if not is_dashing:
 				mot = direction.normalized()*RUN_SPEED*slow_multiplier + push_direction
@@ -333,7 +339,11 @@ func _on_dash_timer_timeout():
 	collision_layer = 1 # Character
 	collision_mask = 9 # Character + Obstacle
 	dash_direction = Vector2()
-	$sprite.set_self_modulate(Color(1,1,1,1))
+	$sprite/tween.interpolate_property($sprite, "self_modulate",
+		$sprite.self_modulate, Color(1, 1, 1, 1), .1, Tween.TRANS_LINEAR,
+		Tween.EASE_IN)
+	$sprite/tween.start() 
+#	$sprite.set_self_modulate(Color(1,1,1,1))
 	$dash_cd.start()
 
 

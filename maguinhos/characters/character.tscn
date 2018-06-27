@@ -2,7 +2,7 @@
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=2]
-[ext_resource path="res://characters/sprites/char1_2.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://characters/sprites/char1.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://characters/sprites/status effects/stun1.png" type="Texture" id=4]
 [ext_resource path="res://characters/sprites/status effects/stun2.png" type="Texture" id=5]
 [ext_resource path="res://characters/sprites/status effects/stun3.png" type="Texture" id=6]
@@ -449,7 +449,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Content Margin", "Corner Radius", "Expand Margin" ]
 
-[node name="character" type="KinematicBody2D" index="0" groups=[
+[node name="character" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -481,7 +481,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 position = Vector2( 0, -80 )
 frames = ExtResource( 3 )
 animation = "idle_down"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
@@ -504,7 +504,7 @@ visible = false
 position = Vector2( 0.531465, -112.198 )
 frames = SubResource( 24 )
 animation = "stun"
-frame = 3
+frame = 2
 playing = true
 
 [node name="slow" type="AnimatedSprite" parent="sprite" index="2"]
@@ -514,7 +514,6 @@ position = Vector2( 0, -8.33334 )
 scale = Vector2( 1.4353, 1.4353 )
 frames = SubResource( 25 )
 animation = "slow"
-frame = 2
 playing = true
 
 [node name="root" type="AnimatedSprite" parent="sprite" index="3"]
@@ -537,6 +536,15 @@ playback_speed = 1.0
 anims/enter = SubResource( 27 )
 anims/exit = SubResource( 28 )
 blend_times = [  ]
+
+[node name="tween" type="Tween" parent="sprite" index="4"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 [node name="charge_bar" type="Node2D" parent="." index="3"]
 

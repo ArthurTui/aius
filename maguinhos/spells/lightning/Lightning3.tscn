@@ -78,4 +78,6 @@ bus = "SFX"
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 
+[connection signal="frame_changed" from="Sprite" to="." method="_on_Sprite_frame_changed"]
+
 
