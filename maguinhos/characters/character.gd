@@ -41,6 +41,7 @@ var colors = [Color(.9, .2, .2),	# Red
 var has_control = false
 var ready_to_spell = true
 var holding_spell = false
+var is_ded = false
 var is_stunned = false
 var is_rooted = false
 var is_slowed = false
@@ -356,7 +357,9 @@ func take_damage(damage, kb_dir=null, kb_str=0):
 	health -= damage
 	$health_bar.set_value(health)
 	if health <= 0:
-		die()
+		if !is_ded:
+			die()
+		return
 	else:
 		$sprite/anim.play("blink")
 	if kb_dir != null: # Knockback
@@ -364,6 +367,7 @@ func take_damage(damage, kb_dir=null, kb_str=0):
 
 
 func die():
+	is_ded = true
 	emit_signal("death")
 	
 	# To understand the complexity of the next command, one must close their
