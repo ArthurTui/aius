@@ -1,32 +1,17 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://menus/character select/CSS_player.gd" type="Script" id=1]
 [ext_resource path="res://menus/character select/arrow.png" type="Texture" id=2]
-[ext_resource path="res://characters/sprites/skeleton/rundown1.png" type="Texture" id=3]
-[ext_resource path="res://characters/sprites/skeleton/rundown2.png" type="Texture" id=4]
-[ext_resource path="res://characters/sprites/skeleton/rundown3.png" type="Texture" id=5]
-[ext_resource path="res://characters/sprites/skeleton/rundown4.png" type="Texture" id=6]
-[ext_resource path="res://characters/sprites/CSS/char1.png" type="Texture" id=7]
-[ext_resource path="res://characters/sprites/sealeton/rundown1.png" type="Texture" id=8]
-[ext_resource path="res://characters/sprites/sealeton/rundown2.png" type="Texture" id=9]
-[ext_resource path="res://characters/sprites/sealeton/rundown3.png" type="Texture" id=10]
-[ext_resource path="res://characters/sprites/sealeton/rundown4.png" type="Texture" id=11]
-[ext_resource path="res://characters/sprites/broleton/rundown1.png" type="Texture" id=12]
-[ext_resource path="res://characters/sprites/broleton/rundown2.png" type="Texture" id=13]
-[ext_resource path="res://characters/sprites/broleton/rundown3.png" type="Texture" id=14]
-[ext_resource path="res://characters/sprites/broleton/rundown4.png" type="Texture" id=15]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown1.png" type="Texture" id=16]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown2.png" type="Texture" id=17]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown3.png" type="Texture" id=18]
-[ext_resource path="res://characters/sprites/bloodyskel/rundown4.png" type="Texture" id=19]
-[ext_resource path="res://characters/sprites/CSS/char1_3.png" type="Texture" id=20]
-[ext_resource path="res://characters/sprites/CSS/char1_2.png" type="Texture" id=21]
-[ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=22]
-[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=23]
-[ext_resource path="res://menus/character select/black.jpg" type="Texture" id=24]
-[ext_resource path="res://menus/resources/buttons/psX.png" type="Texture" id=25]
-[ext_resource path="res://menus/resources/buttons/xbA.png" type="Texture" id=26]
-[ext_resource path="res://menus/resources/buttons/Keyboard_White_Space.png" type="Texture" id=27]
+[ext_resource path="res://characters/sprites/CSS/char1.png" type="Texture" id=3]
+[ext_resource path="res://characters/sprites/CSS/char1_4.png" type="Texture" id=4]
+[ext_resource path="res://characters/sprites/CSS/char1_3.png" type="Texture" id=5]
+[ext_resource path="res://characters/sprites/CSS/char1_2.png" type="Texture" id=6]
+[ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://menus/character select/black.jpg" type="Texture" id=9]
+[ext_resource path="res://menus/resources/buttons/psX.png" type="Texture" id=10]
+[ext_resource path="res://menus/resources/buttons/xbA.png" type="Texture" id=11]
+[ext_resource path="res://menus/resources/buttons/Keyboard_White_Space.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
 
@@ -184,38 +169,23 @@ tracks/3/keys = {
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "skeleton",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
 "name": "char1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "sealeton",
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "char1_4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "broleton",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "bloodyskel",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
 "name": "char1_3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
 "name": "char1_2",
 "speed": 5.0
 } ]
@@ -479,7 +449,7 @@ tracks/2/keys = {
 size = 40
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 22 )
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=12]
@@ -488,7 +458,7 @@ size = 60
 use_mipmaps = false
 use_filter = false
 extra_spacing_char = 7
-font_data = ExtResource( 23 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="Animation" id=13]
@@ -771,7 +741,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 24 )
+texture = ExtResource( 9 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
@@ -864,7 +834,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 25 )
+texture = ExtResource( 10 )
 stretch_mode = 0
 _sections_unfolded = [ "Transform" ]
 
@@ -883,7 +853,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 26 )
+texture = ExtResource( 11 )
 stretch_mode = 0
 _sections_unfolded = [ "Transform" ]
 
@@ -903,7 +873,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 27 )
+texture = ExtResource( 12 )
 expand = true
 stretch_mode = 6
 _sections_unfolded = [ "Rect", "Transform" ]

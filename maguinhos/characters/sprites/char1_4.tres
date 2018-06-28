@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" load_steps=35 format=2]
+
+[ext_resource path="res://characters/sprites/char1_4/runup1.png" type="Texture" id=1]
+[ext_resource path="res://characters/sprites/char1_4/runup2.png" type="Texture" id=2]
+[ext_resource path="res://characters/sprites/char1_4/runup3.png" type="Texture" id=3]
+[ext_resource path="res://characters/sprites/char1_4/runup4.png" type="Texture" id=4]
+[ext_resource path="res://characters/sprites/char1_4/idleleft1.png" type="Texture" id=5]
+[ext_resource path="res://characters/sprites/char1_4/idleleft2.png" type="Texture" id=6]
+[ext_resource path="res://characters/sprites/char1_4/idleleft3.png" type="Texture" id=7]
+[ext_resource path="res://characters/sprites/char1_4/idleleft4.png" type="Texture" id=8]
+[ext_resource path="res://characters/sprites/char1_4/idleleft5.png" type="Texture" id=9]
+[ext_resource path="res://characters/sprites/char1_4/idleup1.png" type="Texture" id=10]
+[ext_resource path="res://characters/sprites/char1_4/idleup2.png" type="Texture" id=11]
+[ext_resource path="res://characters/sprites/char1_4/idleup3.png" type="Texture" id=12]
+[ext_resource path="res://characters/sprites/char1_4/runright1.png" type="Texture" id=13]
+[ext_resource path="res://characters/sprites/char1_4/runright2.png" type="Texture" id=14]
+[ext_resource path="res://characters/sprites/char1_4/runright3.png" type="Texture" id=15]
+[ext_resource path="res://characters/sprites/char1_4/runright4.png" type="Texture" id=16]
+[ext_resource path="res://characters/sprites/char1_4/idledown1.png" type="Texture" id=17]
+[ext_resource path="res://characters/sprites/char1_4/idledown2.png" type="Texture" id=18]
+[ext_resource path="res://characters/sprites/char1_4/idledown3.png" type="Texture" id=19]
+[ext_resource path="res://characters/sprites/char1_4/idledown4.png" type="Texture" id=20]
+[ext_resource path="res://characters/sprites/char1_4/idledown5.png" type="Texture" id=21]
+[ext_resource path="res://characters/sprites/char1_4/rundown1.png" type="Texture" id=22]
+[ext_resource path="res://characters/sprites/char1_4/rundown2.png" type="Texture" id=23]
+[ext_resource path="res://characters/sprites/char1_4/rundown3.png" type="Texture" id=24]
+[ext_resource path="res://characters/sprites/char1_4/rundown4.png" type="Texture" id=25]
+[ext_resource path="res://characters/sprites/char1_4/runleft1.png" type="Texture" id=26]
+[ext_resource path="res://characters/sprites/char1_4/runleft2.png" type="Texture" id=27]
+[ext_resource path="res://characters/sprites/char1_4/runleft3.png" type="Texture" id=28]
+[ext_resource path="res://characters/sprites/char1_4/runleft4.png" type="Texture" id=29]
+[ext_resource path="res://characters/sprites/char1_4/idleright1.png" type="Texture" id=30]
+[ext_resource path="res://characters/sprites/char1_4/idleright2.png" type="Texture" id=31]
+[ext_resource path="res://characters/sprites/char1_4/idleright3.png" type="Texture" id=32]
+[ext_resource path="res://characters/sprites/char1_4/idleright4.png" type="Texture" id=33]
+[ext_resource path="res://characters/sprites/char1_4/idleright5.png" type="Texture" id=34]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "idle_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "run_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "run_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "run_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
