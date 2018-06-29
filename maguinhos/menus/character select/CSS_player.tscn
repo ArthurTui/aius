@@ -2,10 +2,10 @@
 
 [ext_resource path="res://menus/character select/CSS_player.gd" type="Script" id=1]
 [ext_resource path="res://menus/character select/arrow.png" type="Texture" id=2]
-[ext_resource path="res://characters/sprites/CSS/char1.png" type="Texture" id=3]
+[ext_resource path="res://characters/sprites/CSS/char1_2.png" type="Texture" id=3]
 [ext_resource path="res://characters/sprites/CSS/char1_4.png" type="Texture" id=4]
-[ext_resource path="res://characters/sprites/CSS/char1_3.png" type="Texture" id=5]
-[ext_resource path="res://characters/sprites/CSS/char1_2.png" type="Texture" id=6]
+[ext_resource path="res://characters/sprites/CSS/char1.png" type="Texture" id=5]
+[ext_resource path="res://characters/sprites/CSS/char1_3.png" type="Texture" id=6]
 [ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://menus/resources/Prototype.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://menus/character select/black.jpg" type="Texture" id=9]
@@ -171,22 +171,22 @@ tracks/3/keys = {
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
-"name": "char1",
+"name": "Teslars dad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
-"name": "char1_4",
+"name": "Teslars twin",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
-"name": "char1_3",
+"name": "Teslar",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
-"name": "char1_2",
+"name": "Teslar Jr.",
 "speed": 5.0
 } ]
 
@@ -511,7 +511,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="CSS_player" type="Container" index="0"]
+[node name="CSS_player" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -651,7 +651,7 @@ _sections_unfolded = [ "Rect" ]
 
 position = Vector2( 240.522, 524.753 )
 frames = SubResource( 4 )
-animation = "char1"
+animation = "Teslar"
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 

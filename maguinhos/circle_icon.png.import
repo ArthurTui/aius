@@ -7,7 +7,10 @@ path="res://.import/circle_icon.png-31f384a368bd3e53fe51ea63614a0408.stex"
 [deps]
 
 source_file="res://circle_icon.png"
+source_md5="920238bcba7ec112fffa3e4ac0f13208"
+
 dest_files=[ "res://.import/circle_icon.png-31f384a368bd3e53fe51ea63614a0408.stex" ]
+dest_md5="91642fcc841ed2cb5119c56b30ccabef"
 
 [params]
 

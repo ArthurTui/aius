@@ -7,7 +7,10 @@ path="res://.import/idledown1.png-b3de6253efd097236cd4d43e6155528d.stex"
 [deps]
 
 source_file="res://characters/sprites/char1_4/idledown1.png"
+source_md5="37be8f6a5f404ba9af19c63551b1a111"
+
 dest_files=[ "res://.import/idledown1.png-b3de6253efd097236cd4d43e6155528d.stex" ]
+dest_md5="a9f8f19ecf0ef2341e801fe47b13d813"
 
 [params]
 

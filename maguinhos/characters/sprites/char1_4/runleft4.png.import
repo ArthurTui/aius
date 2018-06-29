@@ -7,7 +7,10 @@ path="res://.import/runleft4.png-a33ff8c77e77d8b69bce40fbdc09bfdd.stex"
 [deps]
 
 source_file="res://characters/sprites/char1_4/runleft4.png"
+source_md5="ce751fedc6aefee9cfc93761425b7383"
+
 dest_files=[ "res://.import/runleft4.png-a33ff8c77e77d8b69bce40fbdc09bfdd.stex" ]
+dest_md5="b2b456d43d151f4e34230fe978f73768"
 
 [params]
 

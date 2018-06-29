@@ -7,7 +7,10 @@ path="res://.import/rundown1.png-c6118690f7bd55a2dfe462a9c80aad9a.stex"
 [deps]
 
 source_file="res://characters/sprites/char1_3/rundown1.png"
+source_md5="a1ccc1a2d44c165b9587a8e89f54063f"
+
 dest_files=[ "res://.import/rundown1.png-c6118690f7bd55a2dfe462a9c80aad9a.stex" ]
+dest_md5="dc009a52bac5d7b7afcc1511f8a2ea8c"
 
 [params]
 

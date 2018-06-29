@@ -410,7 +410,7 @@ func define_animation(direction):
 	var animation = "run_"
 	
 	########## temporary ##########
-	if character_name.begins_with("char1"):
+	if character_name.begins_with("Teslar"):
 		if direction.y == 1:
 			animation += "down"
 		elif direction.y == -1:

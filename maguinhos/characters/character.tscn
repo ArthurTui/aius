@@ -2,7 +2,7 @@
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://resources/circle-100.png" type="Texture" id=2]
-[ext_resource path="res://characters/sprites/char1.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://characters/sprites/Teslar.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://characters/sprites/status effects/stun1.png" type="Texture" id=4]
 [ext_resource path="res://characters/sprites/status effects/stun2.png" type="Texture" id=5]
 [ext_resource path="res://characters/sprites/status effects/stun3.png" type="Texture" id=6]
@@ -21,6 +21,7 @@
 [ext_resource path="res://characters/sprites/chargebar/outer under2.png" type="Texture" id=19]
 [ext_resource path="res://characters/sprites/chargebar/outer fill2.png" type="Texture" id=20]
 [ext_resource path="res://characters/sprites/chargebar/cd outer fill2.png" type="Texture" id=21]
+
 
 [sub_resource type="CapsuleShape2D" id=22]
 
