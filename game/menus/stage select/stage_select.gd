@@ -1,7 +1,7 @@
 extends Control
 
 
-const stage_names = ["Forest", "Cave", "Tower", "Temple", "random"]
+const stage_names = ["Forest", "Ice", "Tower", "Temple", "random"]
 var stages_hovered = [false, false, false, false]
 
 

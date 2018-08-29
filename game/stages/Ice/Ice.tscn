@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://stages/Stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://stages/Ice/Platform.tscn" type="PackedScene" id=2]
+
+[node name="Ice" instance=ExtResource( 1 )]
+
+positions = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Background" index="0"]
+
+polygon = PoolVector2Array( 122.893, 109.397, 590.418, 92.9931, 803.674, 216.026, 811.877, 810.684, 645.782, 972.677, 266.431, 972.677, 71.6296, 779.926, 49.0735, 240.632 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="Polygon2D2" type="Polygon2D" parent="Background" index="1"]
+
+position = Vector2( 1000, 0 )
+polygon = PoolVector2Array( 122.893, 109.397, 590.418, 92.9931, 803.674, 216.026, 811.877, 810.684, 645.782, 972.677, 266.431, 972.677, 71.6296, 779.926, 49.0735, 240.632 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform" parent="Background" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 900, 0 )
+
+[node name="Walls" parent="." index="2"]
+
+editor/display_folded = false
+
+

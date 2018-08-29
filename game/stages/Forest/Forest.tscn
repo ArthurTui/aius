@@ -26,6 +26,7 @@ margin_top = -100.0
 margin_right = 1956.0
 margin_bottom = 1116.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -249,5 +250,10 @@ position = Vector2( -50, 540 )
 [node name="Right" parent="Walls" index="3"]
 
 position = Vector2( 1970, 540 )
+
+[node name="Countdown" parent="." index="5"]
+
+margin_right = 1856.0
+margin_bottom = 1016.0
 
 

@@ -45,6 +45,7 @@ tracks/0/keys = {
 
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true,
 "_edit_vertical_guides_": [  ]
 }

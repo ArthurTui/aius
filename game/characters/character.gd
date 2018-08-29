@@ -3,6 +3,8 @@ extends KinematicBody2D
 const RUN_SPEED = 5
 const DASH_SPEED = 10
 const KB_CUSTOM_ID = 100
+const FRICTION = .5
+const ICE_FRICTION = .1
 
 const COLLISION_NORMAL = 1
 const COLLISION_DASH = 2
@@ -147,8 +149,8 @@ func _process(delta):
 				new_anim = define_animation(current_direction)
 				mot = dash_direction.normalized()*DASH_SPEED*slow_multiplier
 		
-		if vel.length() > mot.length():
-			mot = vel.linear_interpolate(mot, .5)
+#		if vel.length() > mot.length():
+		mot = vel.linear_interpolate(mot, FRICTION)
 		vel = move_and_slide(mot/delta) * delta
 		
 		if !holding_spell:
