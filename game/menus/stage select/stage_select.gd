@@ -26,6 +26,12 @@ func _ready():
 	randomize()
 
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel") or\
+			Input.is_action_just_pressed("pause"):
+		get_tree().change_scene("res://menus/character select/CSS.tscn")
+
+
 func _on_Stage_pressed(stage):
 	if stage == RANDOM:
 		stage = enabled_stages[randi() % enabled_stages.size()]
