@@ -1,93 +1,190 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://menus/stage select/stage_select.gd" type="Script" id=1]
-[ext_resource path="res://stages/thumbnails/forest.png" type="Texture" id=2]
-[ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://resources/fonts/EagleLake-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://stages/thumbnails/forest.png" type="Texture" id=3]
 [ext_resource path="res://stages/thumbnails/temple.png" type="Texture" id=4]
 [ext_resource path="res://stages/thumbnails/tower.png" type="Texture" id=5]
 [ext_resource path="res://stages/thumbnails/cave.png" type="Texture" id=6]
-[ext_resource path="res://menus/resources/cursor_outline.png" type="Texture" id=7]
-[ext_resource path="res://menus/resources/cursor.png" type="Texture" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="DynamicFont" id=1]
 
-custom_solver_bias = 0.0
-extents = Vector2( 10.5681, 10.1327 )
-
-[sub_resource type="DynamicFont" id=2]
-
-size = 20
-use_mipmaps = false
+size = 96
+use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 
-size = 22
-use_mipmaps = false
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.901961, 0.901961, 0.27451, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.901961, 0.901961, 0.27451, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.901961, 0.901961, 0.27451, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=5]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=6]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.870588, 0.870588, 0.870588, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 64
+use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=8]
 
-size = 70
-use_mipmaps = false
+size = 64
+use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="DynamicFont" id=9]
 
-resource_name = "glow"
-length = 2.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.898765, 0.957031, 0.564499, 1 ), Color( 0.964844, 0.614334, 0.852571, 1 ), Color( 0.898039, 0.956863, 0.560784, 1 ) ]
-}
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=6]
-
-length = 2.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.898765, 0.957031, 0.564499, 1 ), Color( 0.964844, 0.614334, 0.852571, 1 ), Color( 0.898039, 0.956863, 0.560784, 1 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[node name="stage_select" type="Control"]
+[node name="stage_select" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -99,359 +196,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stages" type="ItemList" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1920.0
-margin_bottom = 1080.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-items = [  ]
-select_mode = 0
-allow_reselect = false
-icon_mode = 1
-fixed_icon_size = Vector2( 0, 0 )
-_sections_unfolded = [ "Icon", "Rect" ]
-
-[node name="ColorRect" type="ColorRect" parent="stages" index="1"]
-
-modulate = Color( 0.988281, 0.988281, 0.988281, 1 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1920.0
-margin_bottom = 806.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.0653076, 0.0721169, 0.078125, 1 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="Forest" type="TextureRect" parent="stages" index="2"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 320.0
-margin_top = 260.0
-margin_right = 525.0
-margin_bottom = 380.0
-rect_scale = Vector2( 1.5, 1.5 )
-rect_pivot_offset = Vector2( 102, 60 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 0
-_sections_unfolded = [ "Rect", "Textures" ]
-
-[node name="Area2D" type="Area2D" parent="stages/Forest" index="0"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/Forest/Area2D" index="0"]
-
-position = Vector2( 104.452, 60.4668 )
-scale = Vector2( 9.99015, 6.05611 )
-shape = SubResource( 1 )
-
-[node name="info" type="Label" parent="stages/Forest" index="1"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -179.0
-margin_top = 384.0
-margin_right = 1101.0
-margin_bottom = 567.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Forest
-
-A simple and peaceful forest."
-align = 1
-valign = 1
-autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
-
-[node name="Temple" type="TextureRect" parent="stages" index="3"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1240.0
-margin_top = 260.0
-margin_right = 1445.0
-margin_bottom = 380.0
-rect_scale = Vector2( 1.5, 1.5 )
-rect_pivot_offset = Vector2( 102, 60 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Area2D" type="Area2D" parent="stages/Temple" index="0"]
-
-position = Vector2( 77, 72 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/Temple/Area2D" index="0"]
-
-position = Vector2( 28, -12.4351 )
-scale = Vector2( 9.94979, 6.05853 )
-shape = SubResource( 1 )
-
-[node name="info" type="Label" parent="stages/Temple" index="1"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -793.0
-margin_top = 384.0
-margin_right = 487.0
-margin_bottom = 567.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Temple of Kei
-
-A temple built for Kei, the God of Destruction.
-The interior is all lava because it destroys things just like the almighty Kei."
-align = 1
-valign = 1
-autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
-
-[node name="Tower" type="TextureRect" parent="stages" index="4"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 320.0
-margin_top = 580.0
-margin_right = 525.0
-margin_bottom = 700.0
-rect_scale = Vector2( 1.5, 1.5 )
-rect_pivot_offset = Vector2( 102, 60 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 5 )
-stretch_mode = 0
-_sections_unfolded = [ "Hint", "Rect" ]
-
-[node name="Area2D" type="Area2D" parent="stages/Tower" index="0"]
-
-position = Vector2( -14.7393, -6.02129 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/Tower/Area2D" index="0"]
-
-position = Vector2( 118.889, 66.0213 )
-scale = Vector2( 9.88709, 6.09165 )
-shape = SubResource( 1 )
-
-[node name="info" type="Label" parent="stages/Tower" index="1"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -179.0
-margin_top = 171.0
-margin_right = 1101.0
-margin_bottom = 354.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Tower of Gyro
-
-The tower in which Gyro, the warrior of time, hid during the war because he wanted to play Xenoblade 2."
-align = 1
-valign = 1
-autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
-
-[node name="Ice" type="TextureRect" parent="stages" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1240.0
-margin_top = 580.0
-margin_right = 1445.0
-margin_bottom = 700.0
-rect_scale = Vector2( 1.5, 1.5 )
-rect_pivot_offset = Vector2( 102, 60 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 6 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Area2D" type="Area2D" parent="stages/Ice" index="0"]
-
-position = Vector2( -7.88031, -5.16394 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/Ice/Area2D" index="0"]
-
-position = Vector2( 112.88, 65.1639 )
-scale = Vector2( 9.94979, 6.09166 )
-shape = SubResource( 1 )
-
-[node name="info" type="Label" parent="stages/Ice" index="1"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -793.0
-margin_top = 171.0
-margin_right = 487.0
-margin_bottom = 354.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Icy lands
-
-It's pretty cold there."
-align = 1
-valign = 1
-autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
-
-[node name="random" type="ColorRect" parent="stages" index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1590.0
-margin_top = 430.0
-margin_right = 1720.0
-margin_bottom = 490.0
-rect_scale = Vector2( 1.5, 1.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.494662, 0.960938, 0.364105, 1 )
-_sections_unfolded = [ "Rect", "Theme" ]
-
-[node name="Area2D" type="Area2D" parent="stages/random" index="0"]
-
-position = Vector2( 65, 30 )
-scale = Vector2( 2.03125, 0.9375 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stages/random/Area2D" index="0"]
-
-position = Vector2( -1.38283e-05, 5.72205e-06 )
-scale = Vector2( 2.35847, 2.43667 )
-shape = SubResource( 1 )
-
-[node name="label" type="Label" parent="stages/random" index="1"]
+[node name="Background" type="ColorRect" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -459,18 +204,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
-text = "Random"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+size_flags_vertical = 1
+color = Color( 0.0627451, 0.0627451, 0.0627451, 1 )
 
 [node name="Title" type="Label" parent="." index="1"]
 
@@ -486,73 +224,401 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.901961, 0.901961, 0.27451, 1 )
 text = "Choose a Stage"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="anim" type="AnimationPlayer" parent="Title" index="0"]
+[node name="Stages" type="GridContainer" parent="." index="2"]
 
-root_node = NodePath("..")
-autoplay = "glow"
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/glow = SubResource( 5 )
-blend_times = [  ]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -422.5
+margin_top = -180.0
+margin_right = 422.5
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/vseparation = 100
+custom_constants/hseparation = 100
+columns = 3
+_sections_unfolded = [ "custom_constants" ]
 
-[node name="cursor" type="KinematicBody2D" parent="." index="2"]
+[node name="Forest" type="Button" parent="Stages" index="0"]
 
 editor/display_folded = true
-position = Vector2( 940, 480 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Rect" ]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 215.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 215, 130 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_styles" ]
 
-[node name="outline" type="Sprite" parent="cursor" index="0"]
+[node name="Thumbnail" type="TextureRect" parent="Stages/Forest" index="0"]
 
-modulate = Color( 0.900554, 0.94397, 0.571768, 1 )
-texture = ExtResource( 7 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -60.0
+margin_right = 102.5
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+_sections_unfolded = [ "Mouse" ]
 
-[node name="anim" type="AnimationPlayer" parent="cursor/outline" index="0"]
+[node name="Temple" type="Button" parent="Stages" index="1"]
 
-root_node = NodePath("..")
-autoplay = "glow"
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/glow = SubResource( 6 )
-blend_times = [  ]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 315.0
+margin_right = 530.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 215, 130 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_styles" ]
 
-[node name="sprite" type="Sprite" parent="cursor" index="1"]
+[node name="Thumbnail" type="TextureRect" parent="Stages/Temple" index="0"]
 
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -60.0
+margin_right = 102.5
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 0
+_sections_unfolded = [ "Mouse" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cursor" index="2"]
+[node name="Tower" type="Button" parent="Stages" index="2"]
 
-position = Vector2( -24.9278, -32.0538 )
-scale = Vector2( 3.44488, 3.27955 )
-shape = SubResource( 7 )
-_sections_unfolded = [ "Transform" ]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 630.0
+margin_right = 845.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 215, 130 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_styles" ]
 
-[node name="Timer" type="Timer" parent="." index="3"]
+[node name="Thumbnail" type="TextureRect" parent="Stages/Tower" index="0"]
 
-process_mode = 1
-wait_time = 0.1
-one_shot = true
-autostart = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -60.0
+margin_right = 102.5
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 0
+_sections_unfolded = [ "Mouse" ]
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Ice" type="Button" parent="Stages" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 230.0
+margin_right = 215.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 215, 130 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_styles" ]
+
+[node name="Thumbnail" type="TextureRect" parent="Stages/Ice" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -60.0
+margin_right = 102.5
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Mouse" ]
+
+[node name="Random" type="Button" parent="Stages" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 315.0
+margin_top = 230.0
+margin_right = 530.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 215, 130 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_styles" ]
+
+[node name="Thumbnail" type="TextureRect" parent="Stages/Random" index="0"]
+
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -60.0
+margin_right = 102.5
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Mouse", "Rect", "Visibility" ]
+
+[node name="Label" type="Label" parent="Stages/Random/Thumbnail" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "?"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="StageInfo" type="VBoxContainer" parent="." index="3"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -910.0
+margin_top = -250.0
+margin_right = 910.0
+margin_bottom = -50.0
+rect_min_size = Vector2( 1820, 200 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
+
+[node name="Name" type="Label" parent="StageInfo" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1820.0
+margin_bottom = 105.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+text = "Stage Name"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Descritption" type="Label" parent="StageInfo" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 109.0
+margin_right = 1820.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+text = "Description goes here!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="focus_entered" from="Stages/Forest" to="." method="_on_Stage_focus_entered" binds= [ 0 ]]
+
+[connection signal="pressed" from="Stages/Forest" to="." method="_on_Stage_pressed" binds= [ 0 ]]
+
+[connection signal="focus_entered" from="Stages/Temple" to="." method="_on_Stage_focus_entered" binds= [ 1 ]]
+
+[connection signal="pressed" from="Stages/Temple" to="." method="_on_Stage_pressed" binds= [ 1 ]]
+
+[connection signal="focus_entered" from="Stages/Tower" to="." method="_on_Stage_focus_entered" binds= [ 2 ]]
+
+[connection signal="pressed" from="Stages/Tower" to="." method="_on_Stage_pressed" binds= [ 2 ]]
+
+[connection signal="focus_entered" from="Stages/Ice" to="." method="_on_Stage_focus_entered" binds= [ 3 ]]
+
+[connection signal="pressed" from="Stages/Ice" to="." method="_on_Stage_pressed" binds= [ 3 ]]
+
+[connection signal="focus_entered" from="Stages/Random" to="." method="_on_Stage_focus_entered" binds= [ 4 ]]
+
+[connection signal="pressed" from="Stages/Random" to="." method="_on_Stage_pressed" binds= [ 4 ]]
 
 

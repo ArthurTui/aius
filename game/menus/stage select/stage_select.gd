@@ -1,89 +1,37 @@
 extends Control
 
+enum Stages {FOREST, TEMPLE, TOWER, CAVE, RANDOM}
 
-const stage_names = ["Forest", "Ice", "Tower", "Temple", "random"]
-var stages_hovered = [false, false, false, false]
+const descriptions = ["This forest is cool",
+	"Devoted to the God of Destruction",
+	"I don't even",
+	"WIP",
+	"Only for the boldest"]
+const names = ["Cool Forest", "Temple of Kei", "Tower of Gyro",
+	"Ice Cave", "Random"]
+const stage_scenes = ["res://stages/Forest/Forest.tscn",
+	"res://stages/Temple/Temple.tscn",
+	"",
+	""]
 
+onready var stage_desc = $StageInfo/Descritption
+onready var stage_name = $StageInfo/Name
+
+# Used for testing purposes while we don't have all stages (and if we want to
+# have unlockable stages eventually)
+var enabled_stages = [FOREST, TEMPLE]
 
 func _ready():
-	set_process(false)
+	$Stages/Forest.grab_focus()
 	randomize()
 
 
-func _process(delta):
-	# left controller axis
-	var h = Input.get_joy_axis(0, 0)/2 # horizontal
-	var v = Input.get_joy_axis(0, 1)/2 # vertical
-	var direction = Vector2(0, 0)
-	
-	
-	if Input.is_action_pressed("ui_up"):
-	    direction -= Vector2( 0, 1 )
-	if Input.is_action_pressed("ui_right"):
-	    direction += Vector2( 1, 0 )
-	if Input.is_action_pressed("ui_down"):
-	    direction += Vector2( 0, 1 )
-	if Input.is_action_pressed("ui_left"):
-	    direction -= Vector2( 1, 0 )
-	
-	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("pause"): # esc or backspace or ctrl
-		get_tree().change_scene("res://menus/character select/CSS.tscn")
-	
-	direction.x += h
-	direction.y += v
-	
-	if direction.x <= 0.05 and direction.x >= -0.05:
-		direction.x = 0
-	if direction.y <= 0.05 and direction.y >= -0.05:
-		direction.y = 0
-		
-	$cursor.position += direction * 16
-	var cursor_pos = $cursor.get_position()
-	
-	for node in $stages.get_children():
-		var name = node.name
-		
-		if name in stage_names:
-			var idx = stage_names.find(name)
-			
-			if node.get_child(0).overlaps_body($cursor):
-				
-				# shows stage info
-				if idx < 4 and not stages_hovered[idx]:
-					stages_hovered[idx] = true
-					$stages.get_node(str(name,"/info")).show()
-				
-				# changes random's color if hovered
-				if idx == 4:
-					$stages/random.set_frame_color("7ef55c") # green
-				
-				# stage was selected
-				if Input.is_action_just_pressed("ui_accept"):
-					if idx < 4: # name is not "random"
-						# we'll use this once all stages are instanceable
-						get_tree().change_scene(str("res://stages/",name,"/",name,".tscn"))
-						
-#						if name == "forest":
-#							get_tree().change_scene("res://stages/forest.tscn")
-#						elif name == "cave":
-#							get_tree().change_scene("res://stages/temple/Temple.tscn")
-						
-					# random stage, also teleports the cursor to the stage
-					# the random chose
-					else:
-						var stage = stage_names[randi() % 4]
-						var pos = $stages.get_node(stage).get_position()
-						pos += $stages.get_node(stage).get_pivot_offset()
-						$cursor.position = pos
-						
-			# hides stage info
-			elif idx < 4 and stages_hovered[idx]:
-				stages_hovered[idx] = false
-				$stages.get_node(str(name,"/info")).hide()
-				
-			# resets random's color
-			if not $stages/random/Area2D.overlaps_body($cursor):
-				$stages/random.set_frame_color("7ad6ef") # blue
+func _on_Stage_pressed(stage):
+	if stage == RANDOM:
+		stage = enabled_stages[randi() % enabled_stages.size()]
+	get_tree().change_scene(stage_scenes[stage])
 
-func _on_Timer_timeout():
-	set_process(true)
+
+func _on_Stage_focus_entered(stage):
+	stage_name.text = names[stage]
+	stage_desc.text = descriptions[stage]
