@@ -17,6 +17,15 @@ enum ELEMENT {
 }
 const elements_str = ["fire","water","lightning","nature"]
 
+
+
+
+var device
+var direction
+
+
+
+
 signal death
 signal shake_screen
 
@@ -213,6 +222,41 @@ func _physics_process(delta):
 				activation_wait += 1
 		if $charge_bar/cooldown_bar.visible and active_spell == null:
 			$charge_bar/cooldown_bar.value -= 1
+
+
+func _input(event):
+	if event.device != device:
+		return
+	
+	# Directional input
+	if event.is_action_pressed("left") or event.is_action_released("right"):
+		direction += Vector2(-1, 0)
+	elif event.is_action_pressed("right") or event.is_action_released("left"):
+		direction += Vector2(1, 0)
+	elif event.is_action_pressed("up") or event.is_action_released("down"):
+		direction += Vector2(0, -1)
+	elif event.is_action_pressed("down") or event.is_action_released("up"):
+		direction += Vector2(0, 1)
+	
+	# Change elements
+	elif event.is_action_pressed("fire"):
+		change_element(fire)
+	elif event.is_action_pressed("water"):
+		change_element(water)
+	elif event.is_action_pressed("lightning"):
+		change_element(lightning)
+	elif event.is_action_pressed("nature"):
+		change_element(nature)
+	
+	# Spell
+	elif event.is_action_pressed("magic"):
+		pass
+	elif event.is_action_released("magic"):
+		pass
+	
+	# Dash
+	elif event.is_action_pressed("dash"):
+		pass
 
 
 func change_element(element):
